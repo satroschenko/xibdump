@@ -3,3 +3,8 @@ language: swift
 xcode_project: xibdump.xcodeproj
 xcode_scheme: xibdump
 xcode_destination: platform=macOS
+
+
+
+script:
+  - xcodebuild -project xibdump.xcodeproj -scheme xibdump -destination platform\=macOS build | xcpretty
