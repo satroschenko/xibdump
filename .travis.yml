@@ -7,4 +7,4 @@ xcode_destination: platform=macOS
 
 
 script:
-  - xctool clean build -project xibdump.xcodeproj -scheme xibdump -destination platform\=macOS build | xcpretty
+  - fastlane build
