@@ -8,9 +8,9 @@
 import Cocoa
 
 class XibFile: NSObject {
-    
-    var majorVersion : Int = 0
-    var minorVersion : Int = 0
+
+    var majorVersion: Int = 0
+    var minorVersion: Int = 0
     var objectCount: Int = 0
     var objectFileOffset: Int = 0
     var keyCount: Int = 0
@@ -19,12 +19,12 @@ class XibFile: NSObject {
     var parametersFileOffset: Int = 0
     var classNameCount: Int = 0
     var classNameFileOffset: Int = 0
-    
+
     var xibKeys = [String]()
     var xibClasses = [XibClass]()
     var xibParameters = [XibParameter]()
     var xibObjects = [XibObject]()
-    
+
     override var description: String {
         return """
         XibFile. [
@@ -41,11 +41,9 @@ class XibFile: NSObject {
         ]
         """
     }
-    
-    
-    
+
     func clean() {
-        
+
         for obj in xibObjects {
             obj.isSerialized = false
         }

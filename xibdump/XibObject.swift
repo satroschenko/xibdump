@@ -13,9 +13,9 @@ class XibObject: NSObject {
     let xibValueIndex: Int
     let valueCount: Int
     let objectId: String
-    
+
     var isSerialized: Bool = false
-    
+
     init(xibClass: XibClass, xibValueIndex: Int, valueCount: Int) {
         self.xibClass = xibClass
         self.xibValueIndex = xibValueIndex
@@ -23,10 +23,9 @@ class XibObject: NSObject {
         self.objectId = XibID.generate()
         super.init()
     }
-    
-    
+
     override var description: String {
         return "XibObject/ [Class: \(self.xibClass). XibValueIndex: \(self.xibValueIndex). ValueCount: \(valueCount).]"
     }
-    
+
 }
