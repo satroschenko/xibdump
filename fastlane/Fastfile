@@ -24,7 +24,7 @@ platform :mac do
       scheme: "xibdump",
       clean: true, 
       output_name: "xibdump",
-      output_directory: "./release"
+      output_directory: "./bin"
       )
   end
 end
