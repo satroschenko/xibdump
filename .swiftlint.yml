@@ -1,4 +1,5 @@
 warning_threshold: 15
+maxEmptyLines: 3
 
 excluded:
  - Pods
@@ -23,3 +24,7 @@ type_body_length:
 cyclomatic_complexity:
   warning: 12
   error: 15
+
+vertical_whitespace:
+  max_empty_lines: 3
+  severity: error  

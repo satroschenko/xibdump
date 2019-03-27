@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2021C564224B6EC600AAEC72 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2021C563224B6EC600AAEC72 /* Version.swift */; };
+		20AC7A39224B879400BF5968 /* XibCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AC7A38224B879400BF5968 /* XibCommand.swift */; };
 		20FC70792248E4650003D171 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FC70782248E4650003D171 /* main.swift */; };
 		20FC70802248E51D0003D171 /* XibID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FC707F2248E51D0003D171 /* XibID.swift */; };
 		20FC70822248E5760003D171 /* XibClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FC70812248E5760003D171 /* XibClass.swift */; };
@@ -17,6 +19,7 @@
 		20FC708C2248E7450003D171 /* XibFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FC708B2248E7450003D171 /* XibFile.swift */; };
 		20FC708E2248E7970003D171 /* XibFileParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FC708D2248E7970003D171 /* XibFileParser.swift */; };
 		20FC70902248E83F0003D171 /* XibLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FC708F2248E83F0003D171 /* XibLogger.swift */; };
+		C62DC9C97BDC04D4FFFF8BD7 /* libPods-xibdump.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31988BFF290A3A873385CA2F /* libPods-xibdump.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,6 +35,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2021C563224B6EC600AAEC72 /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
+		20AC7A38224B879400BF5968 /* XibCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibCommand.swift; sourceTree = "<group>"; };
 		20FC70752248E4650003D171 /* xibdump */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = xibdump; sourceTree = BUILT_PRODUCTS_DIR; };
 		20FC70782248E4650003D171 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		20FC707F2248E51D0003D171 /* XibID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibID.swift; sourceTree = "<group>"; };
@@ -43,6 +48,9 @@
 		20FC708B2248E7450003D171 /* XibFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibFile.swift; sourceTree = "<group>"; };
 		20FC708D2248E7970003D171 /* XibFileParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibFileParser.swift; sourceTree = "<group>"; };
 		20FC708F2248E83F0003D171 /* XibLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibLogger.swift; sourceTree = "<group>"; };
+		31988BFF290A3A873385CA2F /* libPods-xibdump.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-xibdump.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A1C71F2A717D644249C9895 /* Pods-xibdump.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xibdump.debug.xcconfig"; path = "Pods/Target Support Files/Pods-xibdump/Pods-xibdump.debug.xcconfig"; sourceTree = "<group>"; };
+		5A00682ECCA60350E1DB43CD /* Pods-xibdump.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xibdump.release.xcconfig"; path = "Pods/Target Support Files/Pods-xibdump/Pods-xibdump.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,17 +58,45 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C62DC9C97BDC04D4FFFF8BD7 /* libPods-xibdump.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07F32CAA2D9027BD47C9966F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				31988BFF290A3A873385CA2F /* libPods-xibdump.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		120BF3FEEF66D0C9B88D9610 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4A1C71F2A717D644249C9895 /* Pods-xibdump.debug.xcconfig */,
+				5A00682ECCA60350E1DB43CD /* Pods-xibdump.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		20DE8385224B654F00C972FD /* cli */ = {
+			isa = PBXGroup;
+			children = (
+				20AC7A38224B879400BF5968 /* XibCommand.swift */,
+			);
+			path = cli;
+			sourceTree = "<group>";
+		};
 		20FC706C2248E4650003D171 = {
 			isa = PBXGroup;
 			children = (
 				20FC70772248E4650003D171 /* xibdump */,
 				20FC70762248E4650003D171 /* Products */,
+				120BF3FEEF66D0C9B88D9610 /* Pods */,
+				07F32CAA2D9027BD47C9966F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -75,6 +111,7 @@
 		20FC70772248E4650003D171 /* xibdump */ = {
 			isa = PBXGroup;
 			children = (
+				20DE8385224B654F00C972FD /* cli */,
 				20FC70782248E4650003D171 /* main.swift */,
 				20FC707F2248E51D0003D171 /* XibID.swift */,
 				20FC70812248E5760003D171 /* XibClass.swift */,
@@ -85,6 +122,7 @@
 				20FC708B2248E7450003D171 /* XibFile.swift */,
 				20FC708D2248E7970003D171 /* XibFileParser.swift */,
 				20FC708F2248E83F0003D171 /* XibLogger.swift */,
+				2021C563224B6EC600AAEC72 /* Version.swift */,
 			);
 			path = xibdump;
 			sourceTree = "<group>";
@@ -96,6 +134,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 20FC707C2248E4650003D171 /* Build configuration list for PBXNativeTarget "xibdump" */;
 			buildPhases = (
+				6278686917BA7A9715837DD4 /* [CP] Check Pods Manifest.lock */,
 				20FC70712248E4650003D171 /* Sources */,
 				20FC70722248E4650003D171 /* Frameworks */,
 				20FC70732248E4650003D171 /* CopyFiles */,
@@ -161,6 +200,28 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\n    return 1\nfi\n";
 		};
+		6278686917BA7A9715837DD4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-xibdump-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -173,10 +234,12 @@
 				20FC70822248E5760003D171 /* XibClass.swift in Sources */,
 				20FC708C2248E7450003D171 /* XibFile.swift in Sources */,
 				20FC708E2248E7970003D171 /* XibFileParser.swift in Sources */,
+				20AC7A39224B879400BF5968 /* XibCommand.swift in Sources */,
 				20FC70802248E51D0003D171 /* XibID.swift in Sources */,
 				20FC70792248E4650003D171 /* main.swift in Sources */,
 				20FC708A2248E6990003D171 /* XibConstants.swift in Sources */,
 				20FC70882248E65F0003D171 /* DataStream.swift in Sources */,
+				2021C564224B6EC600AAEC72 /* Version.swift in Sources */,
 				20FC70902248E83F0003D171 /* XibLogger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -301,6 +364,7 @@
 		};
 		20FC707D2248E4650003D171 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A1C71F2A717D644249C9895 /* Pods-xibdump.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -313,6 +377,7 @@
 		};
 		20FC707E2248E4650003D171 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A00682ECCA60350E1DB43CD /* Pods-xibdump.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;

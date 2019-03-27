@@ -1,0 +1,16 @@
+PODS:
+  - SwiftCLI (5.2.1)
+
+DEPENDENCIES:
+  - SwiftCLI (~> 5.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - SwiftCLI
+
+SPEC CHECKSUMS:
+  SwiftCLI: abd45071fc69b26861fd17f4f7e40f1416358e0c
+
+PODFILE CHECKSUM: d308b9b1fb97cb9da86e96116e821204d0dca583
+
+COCOAPODS: 1.5.3

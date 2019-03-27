@@ -7,6 +7,22 @@
 
 import Cocoa
 
+public enum CLIError: Error {
+    
+    /// One or more arguments was invalid.
+    case invalidArgument(description: String)
+}
+
+extension CLIError: CustomStringConvertible {
+    
+    public var description: String {
+        switch self {
+        case let .invalidArgument(description):
+            return description
+        }
+    }
+}
+
 enum DataStreamError: Error {
     case streamEnded
     case streamTooShort
