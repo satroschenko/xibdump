@@ -366,6 +366,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4A1C71F2A717D644249C9895 /* Pods-xibdump.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZGPY786UX7;
@@ -379,6 +380,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A00682ECCA60350E1DB43CD /* Pods-xibdump.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZGPY786UX7;

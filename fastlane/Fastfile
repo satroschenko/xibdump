@@ -19,7 +19,7 @@ platform :mac do
   desc "Build application"
   lane :build do
     gym(
-      project: "xibdump.xcodeproj", 
+      workspace: "xibdump.xcworkspace", 
       configuration: "Release", 
       scheme: "xibdump",
       clean: true, 
