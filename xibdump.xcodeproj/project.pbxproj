@@ -17,7 +17,7 @@
 		204D18F2224E0E38009AAB8A /* XibDataParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D18F1224E0E38009AAB8A /* XibDataParameter.swift */; };
 		204D18F4224E11BA009AAB8A /* XibUIBoundsParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D18F3224E11BA009AAB8A /* XibUIBoundsParameter.swift */; };
 		204D18F6224E164D009AAB8A /* XibUICenterParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D18F5224E164D009AAB8A /* XibUICenterParameter.swift */; };
-		20AC7A39224B879400BF5968 /* XibCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AC7A38224B879400BF5968 /* XibCommand.swift */; };
+		20AC7A39224B879400BF5968 /* PrintCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AC7A38224B879400BF5968 /* PrintCommand.swift */; };
 		20FC70792248E4650003D171 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FC70782248E4650003D171 /* main.swift */; };
 		20FC70802248E51D0003D171 /* XibID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FC707F2248E51D0003D171 /* XibID.swift */; };
 		20FC70822248E5760003D171 /* XibClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FC70812248E5760003D171 /* XibClass.swift */; };
@@ -54,7 +54,7 @@
 		204D18F1224E0E38009AAB8A /* XibDataParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibDataParameter.swift; sourceTree = "<group>"; };
 		204D18F3224E11BA009AAB8A /* XibUIBoundsParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibUIBoundsParameter.swift; sourceTree = "<group>"; };
 		204D18F5224E164D009AAB8A /* XibUICenterParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibUICenterParameter.swift; sourceTree = "<group>"; };
-		20AC7A38224B879400BF5968 /* XibCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibCommand.swift; sourceTree = "<group>"; };
+		20AC7A38224B879400BF5968 /* PrintCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintCommand.swift; sourceTree = "<group>"; };
 		20FC70752248E4650003D171 /* xibdump */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = xibdump; sourceTree = BUILT_PRODUCTS_DIR; };
 		20FC70782248E4650003D171 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		20FC707F2248E51D0003D171 /* XibID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibID.swift; sourceTree = "<group>"; };
@@ -120,7 +120,7 @@
 		20DE8385224B654F00C972FD /* cli */ = {
 			isa = PBXGroup;
 			children = (
-				20AC7A38224B879400BF5968 /* XibCommand.swift */,
+				20AC7A38224B879400BF5968 /* PrintCommand.swift */,
 			);
 			path = cli;
 			sourceTree = "<group>";
@@ -273,7 +273,7 @@
 				20FC70822248E5760003D171 /* XibClass.swift in Sources */,
 				20FC708C2248E7450003D171 /* XibFile.swift in Sources */,
 				20FC708E2248E7970003D171 /* XibFileParser.swift in Sources */,
-				20AC7A39224B879400BF5968 /* XibCommand.swift in Sources */,
+				20AC7A39224B879400BF5968 /* PrintCommand.swift in Sources */,
 				20FC70802248E51D0003D171 /* XibID.swift in Sources */,
 				204D18F4224E11BA009AAB8A /* XibUIBoundsParameter.swift in Sources */,
 				20FC70792248E4650003D171 /* main.swift in Sources */,

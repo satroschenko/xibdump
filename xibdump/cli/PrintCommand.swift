@@ -8,9 +8,9 @@
 import Cocoa
 import SwiftCLI
 
-class XibCommand: Command {
+class PrintCommand: Command {
 
-    let name: String = "nib"
+    let name: String = "print"
     let shortDescription: String = "Print structure of compiled .nib file"
     
     let fileName = Parameter(completion: .filename)
