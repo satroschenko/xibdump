@@ -58,7 +58,7 @@ class XibLogger: NSObject {
             if let parameter = context.xibFile.xibParameters[safe:index] {
 
                 if context.debugPrint {
-                    print("\(String(repeating: "\t", count: tabCount+1))|-\(parameter.stringForPrinting())")
+                    print("\(String(repeating: "\t", count: tabCount+1))|-\(parameter.toString())")
                 }
                 self.parse(parameter: parameter, context: context, tabCount: tabCount+1)
             }
@@ -67,35 +67,10 @@ class XibLogger: NSObject {
         return
     }
 
-    fileprivate func parse(parameter: XibParameter, context: ParserContext, tabCount: Int = 0) {
+    fileprivate func parse(parameter: XibParameterProtocol, context: ParserContext, tabCount: Int = 0) {
 
-        if let xibObject = parameter.object(context: context) {
+        if let xibObject = parameter.object(with: context) {
             self.parse(object: xibObject, parameterName: parameter.name, context: context, tabCount: tabCount)
         }
     }
-}
-
-extension XibParameter {
-
-    func object(context: ParserContext) -> XibObject? {
-
-        guard self.type == .object else {
-            return nil
-        }
-
-        if let index = self.objectIndex {
-            return context.xibFile.xibObjects[safe: index]
-        }
-
-        return nil
-    }
-
-    func objectClassName(with context: ParserContext) -> String? {
-
-        if let index = objectIndex, let object = context.xibFile.xibObjects[safe: index] {
-            return object.xibClass.name
-        }
-        return nil
-    }
-
 }

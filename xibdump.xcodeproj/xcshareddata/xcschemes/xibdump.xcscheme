@@ -61,6 +61,12 @@
             ReferencedContainer = "container:xibdump.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <CommandLineArguments>
+         <CommandLineArgument
+            argument = "nib /Users/satroschenko/Downloads/tests_nibs/objects-11.0+.nib"
+            isEnabled = "YES">
+         </CommandLineArgument>
+      </CommandLineArguments>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

@@ -8,12 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		2021C564224B6EC600AAEC72 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2021C563224B6EC600AAEC72 /* Version.swift */; };
+		204D18E6224D17DC009AAB8A /* XibIntParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D18E5224D17DC009AAB8A /* XibIntParameter.swift */; };
+		204D18E8224E0BB8009AAB8A /* XibFloatParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D18E7224E0BB8009AAB8A /* XibFloatParameter.swift */; };
+		204D18EA224E0BDE009AAB8A /* XibDoubleParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D18E9224E0BDE009AAB8A /* XibDoubleParameter.swift */; };
+		204D18EC224E0C32009AAB8A /* XibBoolParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D18EB224E0C32009AAB8A /* XibBoolParameter.swift */; };
+		204D18EE224E0C61009AAB8A /* XibNullParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D18ED224E0C61009AAB8A /* XibNullParameter.swift */; };
+		204D18F0224E0CFA009AAB8A /* XibObjectParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D18EF224E0CFA009AAB8A /* XibObjectParameter.swift */; };
+		204D18F2224E0E38009AAB8A /* XibDataParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D18F1224E0E38009AAB8A /* XibDataParameter.swift */; };
+		204D18F4224E11BA009AAB8A /* XibUIBoundsParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D18F3224E11BA009AAB8A /* XibUIBoundsParameter.swift */; };
+		204D18F6224E164D009AAB8A /* XibUICenterParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D18F5224E164D009AAB8A /* XibUICenterParameter.swift */; };
 		20AC7A39224B879400BF5968 /* XibCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AC7A38224B879400BF5968 /* XibCommand.swift */; };
 		20FC70792248E4650003D171 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FC70782248E4650003D171 /* main.swift */; };
 		20FC70802248E51D0003D171 /* XibID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FC707F2248E51D0003D171 /* XibID.swift */; };
 		20FC70822248E5760003D171 /* XibClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FC70812248E5760003D171 /* XibClass.swift */; };
 		20FC70842248E5A00003D171 /* XibObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FC70832248E5A00003D171 /* XibObject.swift */; };
-		20FC70862248E6250003D171 /* XibParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FC70852248E6250003D171 /* XibParameter.swift */; };
+		20FC70862248E6250003D171 /* XibParameterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FC70852248E6250003D171 /* XibParameterProtocol.swift */; };
 		20FC70882248E65F0003D171 /* DataStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FC70872248E65F0003D171 /* DataStream.swift */; };
 		20FC708A2248E6990003D171 /* XibConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FC70892248E6990003D171 /* XibConstants.swift */; };
 		20FC708C2248E7450003D171 /* XibFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FC708B2248E7450003D171 /* XibFile.swift */; };
@@ -36,13 +45,22 @@
 
 /* Begin PBXFileReference section */
 		2021C563224B6EC600AAEC72 /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
+		204D18E5224D17DC009AAB8A /* XibIntParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibIntParameter.swift; sourceTree = "<group>"; };
+		204D18E7224E0BB8009AAB8A /* XibFloatParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibFloatParameter.swift; sourceTree = "<group>"; };
+		204D18E9224E0BDE009AAB8A /* XibDoubleParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibDoubleParameter.swift; sourceTree = "<group>"; };
+		204D18EB224E0C32009AAB8A /* XibBoolParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibBoolParameter.swift; sourceTree = "<group>"; };
+		204D18ED224E0C61009AAB8A /* XibNullParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibNullParameter.swift; sourceTree = "<group>"; };
+		204D18EF224E0CFA009AAB8A /* XibObjectParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibObjectParameter.swift; sourceTree = "<group>"; };
+		204D18F1224E0E38009AAB8A /* XibDataParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibDataParameter.swift; sourceTree = "<group>"; };
+		204D18F3224E11BA009AAB8A /* XibUIBoundsParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibUIBoundsParameter.swift; sourceTree = "<group>"; };
+		204D18F5224E164D009AAB8A /* XibUICenterParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibUICenterParameter.swift; sourceTree = "<group>"; };
 		20AC7A38224B879400BF5968 /* XibCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibCommand.swift; sourceTree = "<group>"; };
 		20FC70752248E4650003D171 /* xibdump */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = xibdump; sourceTree = BUILT_PRODUCTS_DIR; };
 		20FC70782248E4650003D171 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		20FC707F2248E51D0003D171 /* XibID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibID.swift; sourceTree = "<group>"; };
 		20FC70812248E5760003D171 /* XibClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibClass.swift; sourceTree = "<group>"; };
 		20FC70832248E5A00003D171 /* XibObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibObject.swift; sourceTree = "<group>"; };
-		20FC70852248E6250003D171 /* XibParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibParameter.swift; sourceTree = "<group>"; };
+		20FC70852248E6250003D171 /* XibParameterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibParameterProtocol.swift; sourceTree = "<group>"; };
 		20FC70872248E65F0003D171 /* DataStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStream.swift; sourceTree = "<group>"; };
 		20FC70892248E6990003D171 /* XibConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibConstants.swift; sourceTree = "<group>"; };
 		20FC708B2248E7450003D171 /* XibFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibFile.swift; sourceTree = "<group>"; };
@@ -82,6 +100,23 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		204D18E4224D17BA009AAB8A /* parameters */ = {
+			isa = PBXGroup;
+			children = (
+				20FC70852248E6250003D171 /* XibParameterProtocol.swift */,
+				204D18E5224D17DC009AAB8A /* XibIntParameter.swift */,
+				204D18E7224E0BB8009AAB8A /* XibFloatParameter.swift */,
+				204D18E9224E0BDE009AAB8A /* XibDoubleParameter.swift */,
+				204D18EB224E0C32009AAB8A /* XibBoolParameter.swift */,
+				204D18ED224E0C61009AAB8A /* XibNullParameter.swift */,
+				204D18EF224E0CFA009AAB8A /* XibObjectParameter.swift */,
+				204D18F1224E0E38009AAB8A /* XibDataParameter.swift */,
+				204D18F3224E11BA009AAB8A /* XibUIBoundsParameter.swift */,
+				204D18F5224E164D009AAB8A /* XibUICenterParameter.swift */,
+			);
+			path = parameters;
+			sourceTree = "<group>";
+		};
 		20DE8385224B654F00C972FD /* cli */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,12 +146,12 @@
 		20FC70772248E4650003D171 /* xibdump */ = {
 			isa = PBXGroup;
 			children = (
+				204D18E4224D17BA009AAB8A /* parameters */,
 				20DE8385224B654F00C972FD /* cli */,
 				20FC70782248E4650003D171 /* main.swift */,
 				20FC707F2248E51D0003D171 /* XibID.swift */,
 				20FC70812248E5760003D171 /* XibClass.swift */,
 				20FC70832248E5A00003D171 /* XibObject.swift */,
-				20FC70852248E6250003D171 /* XibParameter.swift */,
 				20FC70872248E65F0003D171 /* DataStream.swift */,
 				20FC70892248E6990003D171 /* XibConstants.swift */,
 				20FC708B2248E7450003D171 /* XibFile.swift */,
@@ -229,18 +264,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				20FC70862248E6250003D171 /* XibParameter.swift in Sources */,
+				204D18F0224E0CFA009AAB8A /* XibObjectParameter.swift in Sources */,
+				20FC70862248E6250003D171 /* XibParameterProtocol.swift in Sources */,
+				204D18F6224E164D009AAB8A /* XibUICenterParameter.swift in Sources */,
+				204D18EC224E0C32009AAB8A /* XibBoolParameter.swift in Sources */,
 				20FC70842248E5A00003D171 /* XibObject.swift in Sources */,
+				204D18EA224E0BDE009AAB8A /* XibDoubleParameter.swift in Sources */,
 				20FC70822248E5760003D171 /* XibClass.swift in Sources */,
 				20FC708C2248E7450003D171 /* XibFile.swift in Sources */,
 				20FC708E2248E7970003D171 /* XibFileParser.swift in Sources */,
 				20AC7A39224B879400BF5968 /* XibCommand.swift in Sources */,
 				20FC70802248E51D0003D171 /* XibID.swift in Sources */,
+				204D18F4224E11BA009AAB8A /* XibUIBoundsParameter.swift in Sources */,
 				20FC70792248E4650003D171 /* main.swift in Sources */,
 				20FC708A2248E6990003D171 /* XibConstants.swift in Sources */,
 				20FC70882248E65F0003D171 /* DataStream.swift in Sources */,
+				204D18EE224E0C61009AAB8A /* XibNullParameter.swift in Sources */,
+				204D18E8224E0BB8009AAB8A /* XibFloatParameter.swift in Sources */,
 				2021C564224B6EC600AAEC72 /* Version.swift in Sources */,
 				20FC70902248E83F0003D171 /* XibLogger.swift in Sources */,
+				204D18E6224D17DC009AAB8A /* XibIntParameter.swift in Sources */,
+				204D18F2224E0E38009AAB8A /* XibDataParameter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

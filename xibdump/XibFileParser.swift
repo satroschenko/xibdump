@@ -8,6 +8,22 @@
 import Cocoa
 
 class XibFileParser: NSObject {
+    
+    
+    enum XibParameterType: Int {
+        case int8 = 0
+        case int16 = 1
+        case int32 = 2
+        case int64 = 3
+        case aFalse = 4
+        case aTrue = 5
+        case float = 6
+        case double = 7
+        case data = 8
+        case null = 9
+        case object = 10
+    }
+
 
     static private let NibFileMagic = "NIBArchive"
 
@@ -154,9 +170,9 @@ class XibFileParser: NSObject {
         return xibObjects
     }
 
-    fileprivate func readParameters(offset: Int, count: Int, dataStream: DataStream, keys: [String]) throws -> [XibParameter] {
+    fileprivate func readParameters(offset: Int, count: Int, dataStream: DataStream, keys: [String]) throws -> [XibParameterProtocol] {
 
-        var xibParameters = [XibParameter]()
+        var xibParameters = [XibParameterProtocol]()
 
         dataStream.position = offset
         if !dataStream.isDataAvailable() {
@@ -165,21 +181,62 @@ class XibFileParser: NSObject {
 
         for _ in 0..<count {
 
-            let index = try dataStream.readVarInt()
-            let type = try dataStream.readInt8()
-
-            guard let xibType = XibParameterType.init(rawValue: type) else {
-                throw DataStreamError.wrongFileFormat
+            if let parameter = try readParameter(keys: keys, dataStream: dataStream) {
+                xibParameters.append(parameter)
             }
-
-            let name = keys[safe: index] ?? "Unknown"
-            let parameter = XibParameter(name: name, type: xibType)
-            try parameter.readData(stream: dataStream)
-
-            xibParameters.append(parameter)
         }
 
         return xibParameters
     }
+    
+    
+    
+    fileprivate func readParameter(keys: [String], dataStream: DataStream) throws -> XibParameterProtocol? {
+        
+        let index = try dataStream.readVarInt()
+        let type = try dataStream.readInt8()
+        
+        guard let xibType = XibParameterType.init(rawValue: type) else {
+            throw DataStreamError.wrongFileFormat
+        }
+        
+        let name = keys[safe: index] ?? "Unknown"
+        
+        switch xibType {
+        case .int8:
+            return try XibIntParameter(name: name, value: dataStream.readInt8())
+            
+        case .int16:
+            return try XibIntParameter(name: name, value: dataStream.readInt16())
 
+        case .int32:
+            return try XibIntParameter(name: name, value: dataStream.readInt32())
+
+        case .int64:
+            return try XibIntParameter(name: name, value: dataStream.readInt64())
+
+        case .float:
+            return try XibFloatParameter(name: name, value: dataStream.readFloat())
+
+        case .double:
+            return try XibDoubleParameter(name: name, value: dataStream.readDouble())
+
+        case .aTrue:
+            return XibBoolParameter(name: name, value: true)
+
+        case .aFalse:
+            return XibBoolParameter(name: name, value: false)
+
+        case .null:
+            return XibNullParameter(name: name)
+
+        case .data:
+            let dataLength = try dataStream.readVarInt()
+            return try XibDataParameter.parameter(with: name, value: dataStream.readData(with: dataLength))
+
+        case .object:
+            return try XibObjectParameter(name: name, objectIndex: dataStream.readInt32())
+            
+        }
+    }
 }

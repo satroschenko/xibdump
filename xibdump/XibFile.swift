@@ -22,7 +22,7 @@ class XibFile: NSObject {
 
     var xibKeys = [String]()
     var xibClasses = [XibClass]()
-    var xibParameters = [XibParameter]()
+    var xibParameters = [XibParameterProtocol]()
     var xibObjects = [XibObject]()
 
     override var description: String {
