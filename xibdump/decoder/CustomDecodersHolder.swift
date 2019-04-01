@@ -43,6 +43,9 @@ class CustomDecodersHolder: NSObject {
         self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey",
                                              objectClassName: "UIView",
                                              tagName: "view"))
+        self.register(decoder: NewTagDecoder(parameterName: "UISubviews",
+                                             objectClassName: "NSMutableArray",
+                                             tagName: "subviews"))
         
 //        self.register(parser: NewTagParser(xibClassName: "UIView", tagName: "view"))
 //        self.register(parser: NewTagParser(xibClassName: "UILabel", tagName: "label"))
@@ -57,6 +60,8 @@ class CustomDecodersHolder: NSObject {
         
         self.register(decoder: UIBoundsDecoder())
         self.register(decoder: UIColorDecoder(parameterName: "UIBackgroundColor"))
+        self.register(decoder: UIColorDecoder(parameterName: "UITintColor"))
+        self.register(decoder: AutoresizingMaskParameterDecoder())
 //        self.register(parser: UIViewControllerParser())
 //
 //        self.register(parser: UIShadowOffsetParser())

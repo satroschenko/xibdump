@@ -93,10 +93,10 @@ class XibDecoder: NSObject {
             return
         }
         
-        
-        if let object = parameter.object(with: context) {
-            parse(object: object, context: context, parentTag: parentTag, topLevelObject: topLevelObject, tabCount: tabCount)
-        }
+//        
+//        if let object = parameter.object(with: context) {
+//            parse(object: object, context: context, parentTag: parentTag, topLevelObject: topLevelObject, tabCount: tabCount)
+//        }
     }
 }
 

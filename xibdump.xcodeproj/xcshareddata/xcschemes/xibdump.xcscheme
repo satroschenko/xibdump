@@ -67,6 +67,10 @@
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
+            argument = "print /Volumes/Data/DerivedData/unipack-cftvgdftxqolqggejdadjgovirct/Build/Products/Debug-iphonesimulator/test.app/test.nib"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
             argument = "print /Users/satroschenko/Downloads/222/test.nib"
             isEnabled = "NO">
          </CommandLineArgument>
