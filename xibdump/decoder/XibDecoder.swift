@@ -12,16 +12,21 @@ import SwiftCLI
 class XibDecoder: NSObject {
 
     let parentTag: Tag = XibParentTag()
-    let parsers = CustomDecodersHolder()
+    let decoderHolder = CustomDecodersHolder()
+    let context: ParserContext
     
     init(xibFile: XibFile) {
+        self.context = ParserContext(xibFile: xibFile)
         super.init()
     }
     
     func decode() {
-        
-//        scanner.delegate = self
-//        scanner.start()
+
+        self.context.xibFile.clean()
+        if let firstObject = self.context.xibFile.xibObjects.first {
+            parse(object: firstObject, context: self.context, parentTag: parentTag, topLevelObject: false)
+        }
+
     }
     
     func save(to url: URL) throws {
@@ -35,59 +40,66 @@ class XibDecoder: NSObject {
         
         try data.write(to: url)        
     }
+    
+    
+    
+    fileprivate func parse(object: XibObject, context: ParserContext, parentTag: Tag, topLevelObject: Bool, tabCount: Int = 0) {
+        
+        if object.isSerialized {
+            return
+        }
+        object.isSerialized = true
+        
+        for parameter in object.parameters(with: context) {
+            
+            var isTopObject = topLevelObject
+            if parameter.name == "UINibTopLevelObjectsKey" {
+                isTopObject = true
+            }
+            
+            parse(parameter: parameter, context: context, parentTag: parentTag, topLevelObject: isTopObject, tabCount: tabCount+1)
+        }
+    }
+    
+    fileprivate func parse(parameter: XibParameterProtocol, context: ParserContext, parentTag: Tag, topLevelObject: Bool, tabCount: Int = 0) {
+        
+        if let decoder = decoderHolder.parser(by: parameter, context: context, isTopLevel: topLevelObject) {
+            
+            let result = decoder.parse(parameter: parameter, context: context)
+            
+            var cont = true
+            var nextTag = parentTag
+            
+            switch result {
+            case .tag(let tag, let needContinue):
+                parentTag.add(tag: tag)
+                nextTag = tag
+                cont = needContinue
+                
+            case .parameters(let parameters, let needContinue):
+                parentTag.add(parameters: parameters)
+                cont = needContinue
+
+            case .empty(let needContinue):
+                cont = needContinue
+                
+            }
+            
+            if cont {
+                if let object = parameter.object(with: context) {
+                    parse(object: object, context: context, parentTag: nextTag, topLevelObject: topLevelObject, tabCount: tabCount)
+                }
+            }
+            return
+        }
+        
+        
+        if let object = parameter.object(with: context) {
+            parse(object: object, context: context, parentTag: parentTag, topLevelObject: topLevelObject, tabCount: tabCount)
+        }
+    }
 }
 
-
-
-//extension XibDecoder: XibScannerProtocol {
-//
-//    func objectStarted(object: XibObject, parameterName: String, context: ParserContext, tabCount: Int) -> Bool {
-//        return true
-//    }
-//
-//    func objectFinished(object: XibObject, parameterName: String, context: ParserContext, tabCount: Int) -> Bool {
-//        return true
-//    }
-//
-//    func parameterStarted(parentObject: XibObject, parameter: XibParameterProtocol, context: ParserContext, tabCount: Int) -> Bool {
-//
-//        let objectName = parameter.object(with: context)?.xibClass.name ?? ""
-////        var skipChild = false
-////        var customParserFound = false
-//
-//        if let customSerializer = parsers.parser(by: objectName, parameterName: parameter.name) {
-//
-////            customParserFound = true
-//            let parsingResult = customSerializer.parse(parentObject: parentObject, parameter: parameter, context: context)
-//            switch parsingResult {
-//
-//            case .childTags(let tags):
-//                parentTag.add(tags: tags)
-//
-//            case .childParams(let params):
-//                parentTag.add(parameters: params)
-//
-//            case .endNewTag(let tag):
-//                parentTag.add(tag: tag)
-////                skipChild = true
-////                parentTag = currentTag
-//
-//            case .beginNewTag(let newTag):
-//                parentTag.add(tag: newTag)
-////                parentTag = newTag
-//
-//            default:
-//                break
-//            }
-//
-//        }
-//
-//
-//        return true
-//    }
-//}
-//
-//
 extension Tag {
 
     func getNode() -> AEXMLElement {

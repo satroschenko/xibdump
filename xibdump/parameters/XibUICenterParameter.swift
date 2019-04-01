@@ -22,7 +22,7 @@ class XibUICenterParameter: XibDataParameter {
         super.init(name: name, value: value)
     }
     
-    override func toString() -> String {
+    override func description() -> String {
         return "(data)\(name): {\(xCoord), \(yCoord)}"
     }
 }

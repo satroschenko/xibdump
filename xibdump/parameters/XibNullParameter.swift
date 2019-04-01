@@ -17,7 +17,11 @@ class XibNullParameter: NSObject, XibParameterProtocol {
         super.init()
     }
     
-    func toString() -> String {
+    func description() -> String {
         return "(null)\(name)"
+    }
+    
+    func stringValue() -> String {
+        return "null"
     }
 }

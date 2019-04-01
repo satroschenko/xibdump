@@ -9,34 +9,40 @@ import Cocoa
 
 enum TagDecoderResult {
     
-    case beginNewTag(Tag)
-    case endNewTag(Tag)
-    case childTags([Tag])
-    case childParams([TagParameter])
-    case empty
+    case tag(Tag, Bool)
+    case parameters([TagParameter], Bool)
+    case empty(Bool)
 }
 
 
-protocol CustomTagProtocol {
+protocol CustomTagDecoderProtocol {
     
-    func parse(parentObject: XibObject, parameter: XibParameterProtocol, context: ParserContext) -> TagDecoderResult
+    func parse(parameter: XibParameterProtocol, context: ParserContext) -> TagDecoderResult
     func handledClassName() -> String
 }
 
 class CustomDecodersHolder: NSObject {
 
-    fileprivate var customParsers = [String: CustomTagProtocol]()
+    fileprivate var customDecoders = [String: CustomTagDecoderProtocol]()
     fileprivate var allowedClassNames = [String]()
     
     override init() {
         super.init()
-        self.registerSerializers()
+        self.registerDecoders()
         self.registerAllowedClassNames()
     }
     
-    fileprivate func registerSerializers() {
+    fileprivate func registerDecoders() {
         
-        self.register(parser: NewTagParser(xibClassName: "UINibTopLevelObjectsKey", tagName: "objects", needAddId: false))
+        self.register(decoder: NewTagDecoder(parameterName: "UINibTopLevelObjectsKey",
+                                             objectClassName: "NSArray",
+                                             tagName: "objects",
+                                             needAddId: false))
+        self.register(decoder: ProxyObjectDecoder())
+        self.register(decoder: PlaceholderDecoder())
+        self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey",
+                                             objectClassName: "UIView",
+                                             tagName: "view"))
         
 //        self.register(parser: NewTagParser(xibClassName: "UIView", tagName: "view"))
 //        self.register(parser: NewTagParser(xibClassName: "UILabel", tagName: "label"))
@@ -47,24 +53,25 @@ class CustomDecodersHolder: NSObject {
 //
 //
 //
-//        self.register(parsers: DefaultPropertyParser.allParsers())
+        self.register(decoders: DefaultParameterDecoder.allDecoders())
         
-//        self.register(parser: UIBoundsParser())
+        self.register(decoder: UIBoundsDecoder())
+        self.register(decoder: UIColorDecoder(parameterName: "UIBackgroundColor"))
 //        self.register(parser: UIViewControllerParser())
-//        self.register(parser: UIColorParser())
+//
 //        self.register(parser: UIShadowOffsetParser())
 //        self.register(parser: UIFontParser())
 //        self.register(parser: UILayoutConstraintParser())
 //        self.register(parser: UIAttributeTraitStorageRecordParser())
     }
     
-    fileprivate func register(parser: CustomTagProtocol) {
-        self.customParsers[parser.handledClassName()] = parser
+    fileprivate func register(decoder: CustomTagDecoderProtocol) {
+        self.customDecoders[decoder.handledClassName()] = decoder
     }
     
-    fileprivate func register(parsers: [CustomTagProtocol]) {
-        for one in parsers {
-            self.register(parser: one)
+    fileprivate func register(decoders: [CustomTagDecoderProtocol]) {
+        for one in decoders {
+            self.register(decoder: one)
         }
     }
     
@@ -81,17 +88,15 @@ class CustomDecodersHolder: NSObject {
         
     }
     
-    func parser(by name: String, parameterName: String) -> CustomTagProtocol? {
+    func parser(by parameter: XibParameterProtocol, context: ParserContext, isTopLevel: Bool) -> CustomTagDecoderProtocol? {
         
-        if let parser = self.customParsers[name] {
-            return parser
-        }
+        let className = parameter.name
+        let objectName = parameter.object(with: context)?.xibClass.name ?? ""
         
-        if parameterName.count > 0 {
-            return self.customParsers[parameterName]
-        }
+        let prefix = isTopLevel ? "T.":"A."
+        let suffix = "\(className)-\(objectName)"
         
-        return nil
+        return self.customDecoders["\(prefix)\(suffix)"]
     }
     
     func isClassNameAllowed(name: String) -> Bool {

@@ -86,3 +86,26 @@ class Tag: NSObject {
         }
     }
 }
+
+
+extension String {
+    
+    func xmlParameterName() -> String {
+        if self.hasPrefix("UI") || self.hasPrefix("NS") {
+            let res = String(self.dropFirst(2))
+            if res.count > 0 {
+                return res.lowercasingFirstLetter()
+            }
+        }
+        
+        return self
+    }
+    
+    func lowercasingFirstLetter() -> String {
+        return prefix(1).lowercased() + dropFirst()
+    }
+    
+    mutating func lowercasingFirstLetter() {
+        self = self.lowercasingFirstLetter()
+    }
+}

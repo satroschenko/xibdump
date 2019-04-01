@@ -19,7 +19,11 @@ class XibObjectParameter: NSObject, XibParameterProtocol {
         super.init()
     }
     
-    func toString() -> String {
+    func description() -> String {
         return "(object)\(name):"
+    }
+    
+    func stringValue() -> String {
+        return ""
     }
 }

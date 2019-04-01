@@ -26,5 +26,6 @@ protocol XibParameterProtocol: class {
     var name: String {get}
     var type: XibParameterType {get}
     
-    func toString() -> String
+    func description() -> String
+    func stringValue() -> String
 }

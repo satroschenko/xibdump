@@ -34,19 +34,12 @@ class XibLogger: NSObject {
         
         print("\(String(repeating: "\t", count: tabCount+1))|")
         
-        let start = object.xibValueIndex
-        let end = object.xibValueIndex + object.valueCount
         
-        for index in start ..< end {
+        for parameter in object.parameters(with: context) {
             
-            if let parameter = context.xibFile.xibParameters[safe:index] {
-                
-                print("\(String(repeating: "\t", count: tabCount+1))|P|-\(parameter.toString())")
-                self.parse(parentObject: object, parameter: parameter, context: context, tabCount: tabCount+1)
-            }
-        }
-        
-        return
+            print("\(String(repeating: "\t", count: tabCount+1))|P|-\(parameter.description())")
+            self.parse(parentObject: object, parameter: parameter, context: context, tabCount: tabCount+1)
+        }        
     }
     
     fileprivate func parse(parentObject: XibObject, parameter: XibParameterProtocol, context: ParserContext, tabCount: Int = 0) {

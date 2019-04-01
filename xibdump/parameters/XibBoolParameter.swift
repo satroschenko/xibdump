@@ -24,7 +24,11 @@ class XibBoolParameter: NSObject, XibParameterProtocol {
         super.init()
     }
     
-    func toString() -> String {
+    func description() -> String {
         return "(bool)\(name): \(value)"
+    }
+    
+    func stringValue() -> String {
+        return value ? "YES" : "NO"
     }
 }

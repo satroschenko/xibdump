@@ -20,7 +20,11 @@ class XibIntParameter: NSObject, XibParameterProtocol {
         super.init()
     }
     
-    func toString() -> String {
+    func description() -> String {
         return "(int)\(name): \(value)"
+    }
+    
+    func stringValue() -> String {
+        return "\(value)"
     }
 }

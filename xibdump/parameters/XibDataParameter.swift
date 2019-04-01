@@ -35,8 +35,12 @@ class XibDataParameter: NSObject, XibParameterProtocol {
         super.init()
     }
     
-    func toString() -> String {
+    func description() -> String {
         let string = String(data: value, encoding: .utf8) ?? ""
         return "(data)\(name): \(string)"
+    }
+    
+    func stringValue() -> String {
+        return String(data: self.value, encoding: .utf8) ?? ""
     }
 }
