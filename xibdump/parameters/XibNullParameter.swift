@@ -10,6 +10,7 @@ import Cocoa
 class XibNullParameter: NSObject, XibParameterProtocol {
     
     let name: String
+    let type: XibParameterType = .null
     
     init(name: String) {
         self.name = name
@@ -18,9 +19,5 @@ class XibNullParameter: NSObject, XibParameterProtocol {
     
     func toString() -> String {
         return "(null)\(name)"
-    }
-    
-    func object(with context: ParserContext) -> XibObject? {
-        return nil
     }
 }

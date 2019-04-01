@@ -9,22 +9,6 @@ import Cocoa
 
 class XibFileParser: NSObject {
     
-    
-    enum XibParameterType: Int {
-        case int8 = 0
-        case int16 = 1
-        case int32 = 2
-        case int64 = 3
-        case aFalse = 4
-        case aTrue = 5
-        case float = 6
-        case double = 7
-        case data = 8
-        case null = 9
-        case object = 10
-    }
-
-
     static private let NibFileMagic = "NIBArchive"
 
     static private let EmptyNibArchive: [UInt8] = [
@@ -204,16 +188,16 @@ class XibFileParser: NSObject {
         
         switch xibType {
         case .int8:
-            return try XibIntParameter(name: name, value: dataStream.readInt8())
+            return try XibIntParameter(name: name, value: dataStream.readInt8(), type: xibType)
             
         case .int16:
-            return try XibIntParameter(name: name, value: dataStream.readInt16())
+            return try XibIntParameter(name: name, value: dataStream.readInt16(), type: xibType)
 
         case .int32:
-            return try XibIntParameter(name: name, value: dataStream.readInt32())
+            return try XibIntParameter(name: name, value: dataStream.readInt32(), type: xibType)
 
         case .int64:
-            return try XibIntParameter(name: name, value: dataStream.readInt64())
+            return try XibIntParameter(name: name, value: dataStream.readInt64(), type: xibType)
 
         case .float:
             return try XibFloatParameter(name: name, value: dataStream.readFloat())

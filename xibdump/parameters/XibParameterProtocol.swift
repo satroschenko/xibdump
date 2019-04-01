@@ -7,11 +7,24 @@
 
 import Cocoa
 
+enum XibParameterType: Int {
+    case int8 = 0
+    case int16 = 1
+    case int32 = 2
+    case int64 = 3
+    case aFalse = 4
+    case aTrue = 5
+    case float = 6
+    case double = 7
+    case data = 8
+    case null = 9
+    case object = 10
+}
+
 
 protocol XibParameterProtocol: class {
     var name: String {get}
+    var type: XibParameterType {get}
     
     func toString() -> String
-    
-    func object(with context: ParserContext) -> XibObject?
 }

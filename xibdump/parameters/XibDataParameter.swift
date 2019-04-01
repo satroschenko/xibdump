@@ -11,6 +11,7 @@ class XibDataParameter: NSObject, XibParameterProtocol {
     
     let name: String
     let value: Data
+    let type: XibParameterType = .data
     
     
     static func parameter(with name: String, value: Data) -> XibDataParameter {
@@ -37,9 +38,5 @@ class XibDataParameter: NSObject, XibParameterProtocol {
     func toString() -> String {
         let string = String(data: value, encoding: .utf8) ?? ""
         return "(data)\(name): \(string)"
-    }
-    
-    func object(with context: ParserContext) -> XibObject? {
-        return nil
     }
 }

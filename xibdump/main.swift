@@ -12,6 +12,6 @@ import SwiftCLI
 setlinebuf(stdout)
 
 let myCli = CLI(name: "xibdump", version: Version.current.value, description: Version.info)
-myCli.commands = [PrintCommand()]
+myCli.commands = [PrintCommand(), RestoreCommand()]
 
 myCli.goAndExit()

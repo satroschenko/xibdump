@@ -1,16 +1,20 @@
 PODS:
+  - AEXML (4.4.0)
   - SwiftCLI (5.2.1)
 
 DEPENDENCIES:
+  - AEXML
   - SwiftCLI (~> 5.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - AEXML
     - SwiftCLI
 
 SPEC CHECKSUMS:
+  AEXML: 16fb739dfb3809e91ebf9e9dc391482c3a6aaebf
   SwiftCLI: abd45071fc69b26861fd17f4f7e40f1416358e0c
 
-PODFILE CHECKSUM: d308b9b1fb97cb9da86e96116e821204d0dca583
+PODFILE CHECKSUM: 5aad17dd85bc5420377d9f8343892cfb40f8bad3
 
 COCOAPODS: 1.5.3

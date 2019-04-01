@@ -63,7 +63,11 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "nib /Users/satroschenko/Downloads/tests_nibs/objects-11.0+.nib"
+            argument = "restore /Users/satroschenko/Downloads/222/test.nib /Users/satroschenko/Downloads/222/out"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "print /Users/satroschenko/Downloads/222/test.nib"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>

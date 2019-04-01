@@ -17,6 +17,14 @@
 		204D18F2224E0E38009AAB8A /* XibDataParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D18F1224E0E38009AAB8A /* XibDataParameter.swift */; };
 		204D18F4224E11BA009AAB8A /* XibUIBoundsParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D18F3224E11BA009AAB8A /* XibUIBoundsParameter.swift */; };
 		204D18F6224E164D009AAB8A /* XibUICenterParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D18F5224E164D009AAB8A /* XibUICenterParameter.swift */; };
+		204D18F8224E1A86009AAB8A /* RestoreCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D18F7224E1A86009AAB8A /* RestoreCommand.swift */; };
+		204D18FA224E24D2009AAB8A /* XibScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D18F9224E24D2009AAB8A /* XibScanner.swift */; };
+		204D18FC224E29BA009AAB8A /* XibDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D18FB224E29BA009AAB8A /* XibDecoder.swift */; };
+		204D1901224E2D37009AAB8A /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D1900224E2D37009AAB8A /* Tag.swift */; };
+		204D1903224E2D6B009AAB8A /* TagParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D1902224E2D6B009AAB8A /* TagParameter.swift */; };
+		204D190C224E3C8A009AAB8A /* XibParentTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D190B224E3C8A009AAB8A /* XibParentTag.swift */; };
+		204D190E224E53A1009AAB8A /* CustomDecodersHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D190D224E53A1009AAB8A /* CustomDecodersHolder.swift */; };
+		204D1910224E5AAB009AAB8A /* NewTagParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D190F224E5AAB009AAB8A /* NewTagParser.swift */; };
 		20AC7A39224B879400BF5968 /* PrintCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AC7A38224B879400BF5968 /* PrintCommand.swift */; };
 		20FC70792248E4650003D171 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FC70782248E4650003D171 /* main.swift */; };
 		20FC70802248E51D0003D171 /* XibID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FC707F2248E51D0003D171 /* XibID.swift */; };
@@ -54,6 +62,14 @@
 		204D18F1224E0E38009AAB8A /* XibDataParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibDataParameter.swift; sourceTree = "<group>"; };
 		204D18F3224E11BA009AAB8A /* XibUIBoundsParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibUIBoundsParameter.swift; sourceTree = "<group>"; };
 		204D18F5224E164D009AAB8A /* XibUICenterParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibUICenterParameter.swift; sourceTree = "<group>"; };
+		204D18F7224E1A86009AAB8A /* RestoreCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestoreCommand.swift; sourceTree = "<group>"; };
+		204D18F9224E24D2009AAB8A /* XibScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibScanner.swift; sourceTree = "<group>"; };
+		204D18FB224E29BA009AAB8A /* XibDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibDecoder.swift; sourceTree = "<group>"; };
+		204D1900224E2D37009AAB8A /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		204D1902224E2D6B009AAB8A /* TagParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagParameter.swift; sourceTree = "<group>"; };
+		204D190B224E3C8A009AAB8A /* XibParentTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibParentTag.swift; sourceTree = "<group>"; };
+		204D190D224E53A1009AAB8A /* CustomDecodersHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDecodersHolder.swift; sourceTree = "<group>"; };
+		204D190F224E5AAB009AAB8A /* NewTagParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTagParser.swift; sourceTree = "<group>"; };
 		20AC7A38224B879400BF5968 /* PrintCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintCommand.swift; sourceTree = "<group>"; };
 		20FC70752248E4650003D171 /* xibdump */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = xibdump; sourceTree = BUILT_PRODUCTS_DIR; };
 		20FC70782248E4650003D171 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -117,10 +133,48 @@
 			path = parameters;
 			sourceTree = "<group>";
 		};
+		204D18FD224E2A60009AAB8A /* logger */ = {
+			isa = PBXGroup;
+			children = (
+				20FC708F2248E83F0003D171 /* XibLogger.swift */,
+			);
+			path = logger;
+			sourceTree = "<group>";
+		};
+		204D18FE224E2A72009AAB8A /* parser */ = {
+			isa = PBXGroup;
+			children = (
+				20FC707F2248E51D0003D171 /* XibID.swift */,
+				20FC70812248E5760003D171 /* XibClass.swift */,
+				20FC70832248E5A00003D171 /* XibObject.swift */,
+				20FC70872248E65F0003D171 /* DataStream.swift */,
+				20FC70892248E6990003D171 /* XibConstants.swift */,
+				20FC708B2248E7450003D171 /* XibFile.swift */,
+				20FC708D2248E7970003D171 /* XibFileParser.swift */,
+				204D18F9224E24D2009AAB8A /* XibScanner.swift */,
+			);
+			path = parser;
+			sourceTree = "<group>";
+		};
+		204D18FF224E2A87009AAB8A /* decoder */ = {
+			isa = PBXGroup;
+			children = (
+				204D18FB224E29BA009AAB8A /* XibDecoder.swift */,
+				204D1900224E2D37009AAB8A /* Tag.swift */,
+				204D1902224E2D6B009AAB8A /* TagParameter.swift */,
+				204D190B224E3C8A009AAB8A /* XibParentTag.swift */,
+				204D190D224E53A1009AAB8A /* CustomDecodersHolder.swift */,
+				204D190F224E5AAB009AAB8A /* NewTagParser.swift */,
+			);
+			path = decoder;
+			sourceTree = "<group>";
+		};
 		20DE8385224B654F00C972FD /* cli */ = {
 			isa = PBXGroup;
 			children = (
+				2021C563224B6EC600AAEC72 /* Version.swift */,
 				20AC7A38224B879400BF5968 /* PrintCommand.swift */,
+				204D18F7224E1A86009AAB8A /* RestoreCommand.swift */,
 			);
 			path = cli;
 			sourceTree = "<group>";
@@ -146,18 +200,12 @@
 		20FC70772248E4650003D171 /* xibdump */ = {
 			isa = PBXGroup;
 			children = (
+				204D18FF224E2A87009AAB8A /* decoder */,
+				204D18FE224E2A72009AAB8A /* parser */,
+				204D18FD224E2A60009AAB8A /* logger */,
 				204D18E4224D17BA009AAB8A /* parameters */,
 				20DE8385224B654F00C972FD /* cli */,
 				20FC70782248E4650003D171 /* main.swift */,
-				20FC707F2248E51D0003D171 /* XibID.swift */,
-				20FC70812248E5760003D171 /* XibClass.swift */,
-				20FC70832248E5A00003D171 /* XibObject.swift */,
-				20FC70872248E65F0003D171 /* DataStream.swift */,
-				20FC70892248E6990003D171 /* XibConstants.swift */,
-				20FC708B2248E7450003D171 /* XibFile.swift */,
-				20FC708D2248E7970003D171 /* XibFileParser.swift */,
-				20FC708F2248E83F0003D171 /* XibLogger.swift */,
-				2021C563224B6EC600AAEC72 /* Version.swift */,
 			);
 			path = xibdump;
 			sourceTree = "<group>";
@@ -268,21 +316,29 @@
 				20FC70862248E6250003D171 /* XibParameterProtocol.swift in Sources */,
 				204D18F6224E164D009AAB8A /* XibUICenterParameter.swift in Sources */,
 				204D18EC224E0C32009AAB8A /* XibBoolParameter.swift in Sources */,
+				204D18FC224E29BA009AAB8A /* XibDecoder.swift in Sources */,
 				20FC70842248E5A00003D171 /* XibObject.swift in Sources */,
 				204D18EA224E0BDE009AAB8A /* XibDoubleParameter.swift in Sources */,
+				204D190E224E53A1009AAB8A /* CustomDecodersHolder.swift in Sources */,
+				204D190C224E3C8A009AAB8A /* XibParentTag.swift in Sources */,
+				204D1901224E2D37009AAB8A /* Tag.swift in Sources */,
+				204D1910224E5AAB009AAB8A /* NewTagParser.swift in Sources */,
 				20FC70822248E5760003D171 /* XibClass.swift in Sources */,
 				20FC708C2248E7450003D171 /* XibFile.swift in Sources */,
 				20FC708E2248E7970003D171 /* XibFileParser.swift in Sources */,
 				20AC7A39224B879400BF5968 /* PrintCommand.swift in Sources */,
 				20FC70802248E51D0003D171 /* XibID.swift in Sources */,
+				204D18FA224E24D2009AAB8A /* XibScanner.swift in Sources */,
 				204D18F4224E11BA009AAB8A /* XibUIBoundsParameter.swift in Sources */,
 				20FC70792248E4650003D171 /* main.swift in Sources */,
+				204D1903224E2D6B009AAB8A /* TagParameter.swift in Sources */,
 				20FC708A2248E6990003D171 /* XibConstants.swift in Sources */,
 				20FC70882248E65F0003D171 /* DataStream.swift in Sources */,
 				204D18EE224E0C61009AAB8A /* XibNullParameter.swift in Sources */,
 				204D18E8224E0BB8009AAB8A /* XibFloatParameter.swift in Sources */,
 				2021C564224B6EC600AAEC72 /* Version.swift in Sources */,
 				20FC70902248E83F0003D171 /* XibLogger.swift in Sources */,
+				204D18F8224E1A86009AAB8A /* RestoreCommand.swift in Sources */,
 				204D18E6224D17DC009AAB8A /* XibIntParameter.swift in Sources */,
 				204D18F2224E0E38009AAB8A /* XibDataParameter.swift in Sources */,
 			);

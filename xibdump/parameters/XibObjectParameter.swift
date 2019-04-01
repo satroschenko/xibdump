@@ -11,6 +11,7 @@ class XibObjectParameter: NSObject, XibParameterProtocol {
     
     let name: String
     let objectIndex: Int
+    let type: XibParameterType = .object
     
     init(name: String, objectIndex: Int) {
         self.name = name
@@ -20,9 +21,5 @@ class XibObjectParameter: NSObject, XibParameterProtocol {
     
     func toString() -> String {
         return "(object)\(name):"
-    }
-    
-    func object(with context: ParserContext) -> XibObject? {
-        return context.xibFile.xibObjects[safe: objectIndex]
     }
 }

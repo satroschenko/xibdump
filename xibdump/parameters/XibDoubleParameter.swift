@@ -11,18 +11,16 @@ class XibDoubleParameter: NSObject, XibParameterProtocol {
     
     let name: String
     let value: Double
+    let type: XibParameterType
     
     init(name: String, value: Double) {
         self.name = name
         self.value = value
+        self.type = .double
         super.init()
     }
     
     func toString() -> String {
         return "(double)\(name): \(value)"
-    }
-    
-    func object(with context: ParserContext) -> XibObject? {
-        return nil
     }
 }

@@ -11,18 +11,16 @@ class XibIntParameter: NSObject, XibParameterProtocol {
 
     let name: String
     let value: Int
+    let type: XibParameterType
     
-    init(name: String, value: Int) {
+    init(name: String, value: Int, type: XibParameterType) {
         self.name = name
         self.value = value
+        self.type = type
         super.init()
     }
     
     func toString() -> String {
         return "(int)\(name): \(value)"
-    }
-    
-    func object(with context: ParserContext) -> XibObject? {
-        return nil
     }
 }
