@@ -19,7 +19,14 @@ class BoolParameterDecoder: DefaultParameterDecoder {
             BoolParameterDecoder(parameterName: "UIAdjustsFontForContentSizeCategory", tagName: "adjustsFontForContentSizeCategory", inverse: false),
             BoolParameterDecoder(parameterName: "UIAdjustsLetterSpacingToFit", tagName: "adjustsLetterSpacingToFitWidth", inverse: false),
             BoolParameterDecoder(parameterName: "UIClipsToBounds", tagName: "clipsSubviews", inverse: false),
-            BoolParameterDecoder(parameterName: "UIUserInteractionDisabled", tagName: "userInteractionEnabled", inverse: true)
+            BoolParameterDecoder(parameterName: "UIUserInteractionDisabled", tagName: "userInteractionEnabled", inverse: true),
+            BoolParameterDecoder(parameterName: "UIHidden", tagName: "hidden", inverse: false),
+            BoolParameterDecoder(parameterName: "UIViewLayoutMarginsFollowReadableWidth",
+                                 tagName: "layoutMarginsFollowReadableWidth",
+                                 inverse: false),
+            BoolParameterDecoder(parameterName: "UIViewPreservesSuperviewMargins", tagName: "preservesSuperviewLayoutMargins", inverse: false),
+            BoolParameterDecoder(parameterName: "UIClipsToBounds", tagName: "clipsSubviews", inverse: false),
+            BoolParameterDecoder(parameterName: "UIAutoresizeSubviews", tagName: "autoresizesSubviews", inverse: false)
         ]
     }
     

@@ -76,6 +76,21 @@ extension XibObject {
         return nil
     }
     
+    func findBoolParameter(name: String, context: ParserContext) -> Bool? {
+        
+        for parameter in parameters(with: context) {
+            
+            if parameter.name != name {
+                continue
+            }
+            
+            if let boolParameter = parameter as? XibBoolParameter {
+                return boolParameter.value
+            }
+        }
+        return nil
+    }
+    
     func findFloatParameter(name: String, context: ParserContext) -> Float? {
         
         for parameter in parameters(with: context) {

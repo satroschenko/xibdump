@@ -26,13 +26,13 @@ class DefaultParameterDecoder: NSObject, CustomTagDecoderProtocol {
             DefaultParameterDecoder(parameterName: "UIMinimumScaleFactor", tagName: "minimumScaleFactor"),
             DefaultParameterDecoder(parameterName: "UINumberOfLines", tagName: "numberOfLines"),
             DefaultParameterDecoder(parameterName: "UITag", tagName: "tag"),
-            DefaultParameterDecoder(parameterName: "UIAlpha", tagName: "alpha")
+            DefaultParameterDecoder(parameterName: "UIAlpha", tagName: "alpha")            
             ])
         
         result.append(contentsOf: ListParameterDecoder.all())
         result.append(contentsOf: BoolParameterDecoder.all())
+        result.append(contentsOf: FirstStringDecoder.all())
 //        result.append(contentsOf: PointPropertySerializerParser.all())
-//        result.append(contentsOf: FirstStringParser.all())
         
         
         return result
