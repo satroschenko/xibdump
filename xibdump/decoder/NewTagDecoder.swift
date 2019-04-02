@@ -22,11 +22,11 @@ class NewTagDecoder: NSObject, CustomTagDecoderProtocol {
         super.init()
     }
     
-    func handledClassName() -> String {
-        return "T.\(parameterName)-\(objectClassName)"
+    func handledClassNames() -> [String] {
+        return ["T.\(parameterName)-\(objectClassName)"]
     }
     
-    func parse(parameter: XibParameterProtocol, context: ParserContext) -> TagDecoderResult {
+    func parse(parentObject: XibObject, parameter: XibParameterProtocol, context: ParserContext) -> TagDecoderResult {
         
         guard parameter.name == self.parameterName else {
             return .empty(true)

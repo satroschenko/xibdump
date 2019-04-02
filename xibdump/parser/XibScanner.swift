@@ -105,4 +105,34 @@ extension XibObject {
         }
         return nil
     }
+    
+    func findStringParameter(name: String, context: ParserContext) -> String? {
+        
+        for parameter in parameters(with: context) {
+            
+            if parameter.name != name {
+                continue
+            }
+            
+            if let stringObject = parameter.object(with: context) {
+                return stringObject.firstStringValue(with: context)
+            }
+        }
+        return nil
+    }
+    
+    func findDataParameter(name: String, context: ParserContext) -> Data? {
+        
+        for parameter in parameters(with: context) {
+            
+            if parameter.name != name {
+                continue
+            }
+            
+            if let dataParameter = parameter as? XibDataParameter {
+                return dataParameter.value
+            }
+        }
+        return nil
+    }
 }

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2021C564224B6EC600AAEC72 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2021C563224B6EC600AAEC72 /* Version.swift */; };
-		203167452252263F00B82FD7 /* UIAutoresizingMaskDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203167442252263F00B82FD7 /* UIAutoresizingMaskDecoder.swift */; };
 		2031674722522F5C00B82FD7 /* AutoresizingMaskParameterDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2031674622522F5C00B82FD7 /* AutoresizingMaskParameterDecoder.swift */; };
 		204D18E6224D17DC009AAB8A /* XibIntParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D18E5224D17DC009AAB8A /* XibIntParameter.swift */; };
 		204D18E8224E0BB8009AAB8A /* XibFloatParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D18E7224E0BB8009AAB8A /* XibFloatParameter.swift */; };
@@ -62,7 +61,6 @@
 
 /* Begin PBXFileReference section */
 		2021C563224B6EC600AAEC72 /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
-		203167442252263F00B82FD7 /* UIAutoresizingMaskDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAutoresizingMaskDecoder.swift; sourceTree = "<group>"; };
 		2031674622522F5C00B82FD7 /* AutoresizingMaskParameterDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoresizingMaskParameterDecoder.swift; sourceTree = "<group>"; };
 		204D18E5224D17DC009AAB8A /* XibIntParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibIntParameter.swift; sourceTree = "<group>"; };
 		204D18E7224E0BB8009AAB8A /* XibFloatParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibFloatParameter.swift; sourceTree = "<group>"; };
@@ -190,7 +188,6 @@
 				204D191922521B27009AAB8A /* UIBoundsDecoder.swift */,
 				204D191B22521D6B009AAB8A /* UIColorDecoder.swift */,
 				204D191D2252233E009AAB8A /* BoolParameterDecoder.swift */,
-				203167442252263F00B82FD7 /* UIAutoresizingMaskDecoder.swift */,
 				2031674622522F5C00B82FD7 /* AutoresizingMaskParameterDecoder.swift */,
 			);
 			path = decoder;
@@ -376,7 +373,6 @@
 				204D18F8224E1A86009AAB8A /* RestoreCommand.swift in Sources */,
 				204D18E6224D17DC009AAB8A /* XibIntParameter.swift in Sources */,
 				204D18F2224E0E38009AAB8A /* XibDataParameter.swift in Sources */,
-				203167452252263F00B82FD7 /* UIAutoresizingMaskDecoder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

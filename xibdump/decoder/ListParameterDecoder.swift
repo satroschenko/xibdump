@@ -71,7 +71,7 @@ class ListParameterDecoder: DefaultParameterDecoder {
     }
     
     
-    override func parse(parameter: XibParameterProtocol, context: ParserContext) -> TagDecoderResult {
+    override func parse(parentObject: XibObject, parameter: XibParameterProtocol, context: ParserContext) -> TagDecoderResult {
         
         guard let intParameter = parameter as? XibIntParameter else {
             return .empty(false)

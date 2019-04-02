@@ -57,15 +57,25 @@ class XibDecoder: NSObject {
                 isTopObject = true
             }
             
-            parse(parameter: parameter, context: context, parentTag: parentTag, topLevelObject: isTopObject, tabCount: tabCount+1)
+            parse(parentObject: object,
+                  parameter: parameter,
+                  context: context,
+                  parentTag: parentTag,
+                  topLevelObject: isTopObject,
+                  tabCount: tabCount+1)
         }
     }
     
-    fileprivate func parse(parameter: XibParameterProtocol, context: ParserContext, parentTag: Tag, topLevelObject: Bool, tabCount: Int = 0) {
+    fileprivate func parse(parentObject: XibObject,
+                           parameter: XibParameterProtocol,
+                           context: ParserContext,
+                           parentTag: Tag,
+                           topLevelObject: Bool,
+                           tabCount: Int = 0) {
         
         if let decoder = decoderHolder.parser(by: parameter, context: context, isTopLevel: topLevelObject) {
             
-            let result = decoder.parse(parameter: parameter, context: context)
+            let result = decoder.parse(parentObject: parentObject, parameter: parameter, context: context)
             
             var cont = true
             var nextTag = parentTag
@@ -93,7 +103,7 @@ class XibDecoder: NSObject {
             return
         }
         
-//        
+//
 //        if let object = parameter.object(with: context) {
 //            parse(object: object, context: context, parentTag: parentTag, topLevelObject: topLevelObject, tabCount: tabCount)
 //        }

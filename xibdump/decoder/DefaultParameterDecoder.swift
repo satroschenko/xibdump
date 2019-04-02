@@ -45,11 +45,11 @@ class DefaultParameterDecoder: NSObject, CustomTagDecoderProtocol {
         super.init()
     }
     
-    func handledClassName() -> String {
-        return "T.\(parameterName)-"
+    func handledClassNames() -> [String] {
+        return ["T.\(parameterName)-"]
     }
     
-    func parse(parameter: XibParameterProtocol, context: ParserContext) -> TagDecoderResult {
+    func parse(parentObject: XibObject, parameter: XibParameterProtocol, context: ParserContext) -> TagDecoderResult {
         
         if parameter.name == parameterName {
             let parameterValue = parameter.stringValue()

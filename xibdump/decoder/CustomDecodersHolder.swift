@@ -17,8 +17,8 @@ enum TagDecoderResult {
 
 protocol CustomTagDecoderProtocol {
     
-    func parse(parameter: XibParameterProtocol, context: ParserContext) -> TagDecoderResult
-    func handledClassName() -> String
+    func parse(parentObject: XibObject, parameter: XibParameterProtocol, context: ParserContext) -> TagDecoderResult
+    func handledClassNames() -> [String]
 }
 
 class CustomDecodersHolder: NSObject {
@@ -42,6 +42,9 @@ class CustomDecodersHolder: NSObject {
         self.register(decoder: PlaceholderDecoder())
         self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey",
                                              objectClassName: "UIView",
+                                             tagName: "view"))
+        self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey",
+                                             objectClassName: "UIClassSwapper",
                                              tagName: "view"))
         self.register(decoder: NewTagDecoder(parameterName: "UISubviews",
                                              objectClassName: "NSMutableArray",
@@ -71,7 +74,10 @@ class CustomDecodersHolder: NSObject {
     }
     
     fileprivate func register(decoder: CustomTagDecoderProtocol) {
-        self.customDecoders[decoder.handledClassName()] = decoder
+        
+        for key in decoder.handledClassNames() {
+            self.customDecoders[key] = decoder
+        }
     }
     
     fileprivate func register(decoders: [CustomTagDecoderProtocol]) {

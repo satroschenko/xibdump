@@ -19,7 +19,7 @@ class BoolParameterDecoder: DefaultParameterDecoder {
             BoolParameterDecoder(parameterName: "UIAdjustsFontForContentSizeCategory", tagName: "adjustsFontForContentSizeCategory", inverse: false),
             BoolParameterDecoder(parameterName: "UIAdjustsLetterSpacingToFit", tagName: "adjustsLetterSpacingToFitWidth", inverse: false),
             BoolParameterDecoder(parameterName: "UIClipsToBounds", tagName: "clipsSubviews", inverse: false),
-            BoolParameterDecoder(parameterName: "UIUserInteractionDisabled", tagName: "userInteractionEnabled", inverse: true),
+            BoolParameterDecoder(parameterName: "UIUserInteractionDisabled", tagName: "userInteractionEnabled", inverse: true)
         ]
     }
     
@@ -29,7 +29,7 @@ class BoolParameterDecoder: DefaultParameterDecoder {
         super.init(parameterName: parameterName, tagName: tagName)
     }
     
-    override func parse(parameter: XibParameterProtocol, context: ParserContext) -> TagDecoderResult {
+    override func parse(parentObject: XibObject, parameter: XibParameterProtocol, context: ParserContext) -> TagDecoderResult {
         
         guard let boolParameter = parameter as? XibBoolParameter else {
             return .empty(false)

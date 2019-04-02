@@ -13,7 +13,7 @@ class ProxyObjectDecoder: NewTagDecoder {
         super.init(parameterName: "UINibEncoderEmptyKey", objectClassName: "UIProxyObject", tagName: "")
     }
     
-    override func parse(parameter: XibParameterProtocol, context: ParserContext) -> TagDecoderResult {
+    override func parse(parentObject: XibObject, parameter: XibParameterProtocol, context: ParserContext) -> TagDecoderResult {
         
         guard let object = parameter.object(with: context) else {
             return .empty(false)
