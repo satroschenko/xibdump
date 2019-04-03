@@ -17,7 +17,7 @@ class XibLogger: NSObject {
     }
 
     final func printDump() {
-        self.context.xibFile.clean()
+        self.context.clean()
         if let firstObject = self.context.xibFile.xibObjects.first {
             parse(object: firstObject, parameterName: "", context: self.context)
         }

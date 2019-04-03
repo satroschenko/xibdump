@@ -50,6 +50,7 @@ class NewTagDecoder: NSObject, CustomTagDecoderProtocol {
     
         newTag.add(tags: self.additianalChildTags())
         newTag.add(parameters: self.additianalChildParams())
+        newTag.innerObjectId = object.objectId
     
         return .tag(newTag, true)
     }

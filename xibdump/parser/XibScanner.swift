@@ -11,9 +11,17 @@ import Cocoa
 class ParserContext: NSObject {
     
     let xibFile: XibFile
+    var runtimeAttributes: [String: Tag] = [String: Tag]()
+    var imageResources: [Tag] = [Tag]()
+    
     init(xibFile: XibFile) {
         self.xibFile = xibFile
         super.init()
+    }
+    
+    func clean() {
+        xibFile.clean()
+        runtimeAttributes.removeAll()
     }
 }
 
@@ -56,6 +64,15 @@ extension XibObject {
         
         if let parameter = context.xibFile.xibParameters[safe: self.xibValueIndex] {
             return parameter.stringValue()
+        }
+        
+        return nil
+    }
+    
+    func parameter(with name: String, context: ParserContext) -> XibParameterProtocol? {
+        
+        for parameter in parameters(with: context) where parameter.name == name {
+            return parameter
         }
         
         return nil
@@ -146,6 +163,21 @@ extension XibObject {
             
             if let dataParameter = parameter as? XibDataParameter {
                 return dataParameter.value
+            }
+        }
+        return nil
+    }
+    
+    func findObjectParameter(name: String, context: ParserContext) -> XibObject? {
+        
+        for parameter in parameters(with: context) {
+            
+            if parameter.name != name {
+                continue
+            }
+            
+            if let objectParameter = parameter as? XibObjectParameter {
+                return objectParameter.object(with: context)
             }
         }
         return nil

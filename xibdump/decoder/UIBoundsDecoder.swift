@@ -20,8 +20,6 @@ class UIBoundsDecoder: NSObject, CustomTagDecoderProtocol {
             return .empty(false)
         }
         
-        
-        
         do {
             
             let stream = DataStream(with: dataParameter.value as NSData)
@@ -50,7 +48,7 @@ class UIBoundsDecoder: NSObject, CustomTagDecoderProtocol {
             tag.addParameter(name: "y", value: "\(yCoord)")
             tag.addParameter(name: "width", value: "\(width)")
             tag.addParameter(name: "height", value: "\(heigth)")
-            
+                        
             return .tag(tag, false)
             
         } catch {}

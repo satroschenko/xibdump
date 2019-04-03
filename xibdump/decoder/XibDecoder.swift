@@ -22,11 +22,23 @@ class XibDecoder: NSObject {
     
     func decode() {
 
-        self.context.xibFile.clean()
+        self.context.clean()
         if let firstObject = self.context.xibFile.xibObjects.first {
             parse(object: firstObject, context: self.context, parentTag: parentTag, topLevelObject: false)
         }
-
+        
+        for (objectId, tag) in self.context.runtimeAttributes {
+            
+            if let foundTag = findSubTag(parent: parentTag, innerId: objectId) {
+                foundTag.add(tag: tag)
+            }
+        }
+        
+        if !context.imageResources.isEmpty {
+            let resourcesTag = Tag(name: "resources")
+            resourcesTag.add(tags: context.imageResources)
+            parentTag.add(tag: resourcesTag)
+        }
     }
     
     func save(to url: URL) throws {
@@ -107,6 +119,22 @@ class XibDecoder: NSObject {
 //        if let object = parameter.object(with: context) {
 //            parse(object: object, context: context, parentTag: parentTag, topLevelObject: topLevelObject, tabCount: tabCount)
 //        }
+    }
+    
+    
+    private func findSubTag(parent: Tag, innerId: String) -> Tag? {
+    
+        if parent.innerObjectId == innerId {
+            return parent
+        }
+        
+        for child in parent.allChildren() {
+            if let found = findSubTag(parent: child, innerId: innerId) {
+                return found
+            }
+        }
+        
+        return nil
     }
 }
 

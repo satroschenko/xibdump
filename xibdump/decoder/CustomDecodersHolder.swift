@@ -67,6 +67,7 @@ class CustomDecodersHolder: NSObject {
         self.register(decoder: UIColorDecoder(parameterName: "UIBackgroundColor"))
         self.register(decoder: UIColorDecoder(parameterName: "UITintColor"))
         self.register(decoder: AutoresizingMaskParameterDecoder())
+        self.register(decoder: RuntimeAttributesDecoder())
 //        self.register(parser: UIViewControllerParser())
 //
 //        self.register(parser: UIShadowOffsetParser())

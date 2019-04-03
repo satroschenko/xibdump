@@ -20,7 +20,17 @@ class UIColorDecoder: NewTagDecoder {
             return .empty(true)
         }
         
-        let newTag = Tag(name: self.tagName)
+        let newTag = UIColorDecoder.extractColorTag(object: object,
+                                                    tagName: tagName,
+                                                    parameterName: parameterName,
+                                                    context: context)
+        return .tag(newTag, false)
+    }
+    
+
+    static func extractColorTag(object: XibObject, tagName: String, parameterName: String, context: ParserContext) -> Tag {
+        
+        let newTag = Tag(name: tagName)
         newTag.addParameter(name: "key", value: parameterName.xmlParameterName())
         newTag.addParameter(name: "colorSpace", value: "custom")
         
@@ -28,7 +38,7 @@ class UIColorDecoder: NewTagDecoder {
             newTag.addParameter(name: "cocoaTouchSystemColor", value: systemColorName)
             
         } else if let colorSpaceIndex = object.findIntParameter(name: "NSColorSpace", context: context) {
-    
+            
             if colorSpaceIndex == 2 { // Generic sRGB.
                 if let redValue = object.findFloatParameter(name: "UIRed", context: context) {
                     newTag.addParameter(name: "red", value: "\(redValue)")
@@ -65,9 +75,8 @@ class UIColorDecoder: NewTagDecoder {
             }
         }
         
-        newTag.add(tags: self.additianalChildTags())
-        newTag.add(parameters: self.additianalChildParams())
+        newTag.innerObjectId = object.objectId
         
-        return .tag(newTag, false)
+        return newTag
     }
 }
