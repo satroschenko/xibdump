@@ -64,6 +64,10 @@
       <CommandLineArguments>
          <CommandLineArgument
             argument = "restore /Users/satroschenko/Downloads/222/test.nib /Users/satroschenko/Downloads/222/out"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "restore /Volumes/Data/DerivedData/unipack-cftvgdftxqolqggejdadjgovirct/Build/Products/Debug-iphonesimulator/test.app/test.nib /Users/satroschenko/Downloads/222/out"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument

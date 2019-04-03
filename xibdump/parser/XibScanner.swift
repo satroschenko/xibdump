@@ -12,6 +12,7 @@ class ParserContext: NSObject {
     
     let xibFile: XibFile
     var runtimeAttributes: [String: Tag] = [String: Tag]()
+    var accessibilityAttributes: [String: Tag] = [String: Tag]()
     var imageResources: [Tag] = [Tag]()
     
     init(xibFile: XibFile) {
@@ -22,6 +23,8 @@ class ParserContext: NSObject {
     func clean() {
         xibFile.clean()
         runtimeAttributes.removeAll()
+        accessibilityAttributes.removeAll()
+        imageResources.removeAll()
     }
 }
 

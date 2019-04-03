@@ -48,12 +48,6 @@ class RuntimeAttributesDecoder: NSObject, CustomTagDecoderProtocol {
             return
         }
         
-        var tag = context.runtimeAttributes[foundObject.objectId]
-        if tag == nil {
-            tag = Tag(name: "userDefinedRuntimeAttributes")
-            context.runtimeAttributes[foundObject.objectId] = tag
-        }
-        
         let attributeTag = getParentTag(objectId: foundObject.objectId, context: context)
         attributeTag.addParameter(name: "keyPath", value: keyPath)
         
@@ -61,7 +55,6 @@ class RuntimeAttributesDecoder: NSObject, CustomTagDecoderProtocol {
         guard let valueObject = valueParameter.object(with: context) else {
             if valueParameter is XibNullParameter {
                 attributeTag.addParameter(name: "type", value: "nil")
-                tag?.add(tag: attributeTag)
             }
             
             return
@@ -90,8 +83,6 @@ class RuntimeAttributesDecoder: NSObject, CustomTagDecoderProtocol {
             
             processColor(object: valueObject, context: context, parentTag: attributeTag)
         }
-        
-        tag?.add(tag: attributeTag)
     }
     
     
@@ -104,6 +95,7 @@ class RuntimeAttributesDecoder: NSObject, CustomTagDecoderProtocol {
         }
         
         let attributeTag = Tag(name: "userDefinedRuntimeAttribute")
+        tag?.add(tag: attributeTag)
         
         return attributeTag
     }

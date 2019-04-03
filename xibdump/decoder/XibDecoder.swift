@@ -34,6 +34,13 @@ class XibDecoder: NSObject {
             }
         }
         
+        for (objectId, tag) in self.context.accessibilityAttributes {
+            
+            if let foundTag = findSubTag(parent: parentTag, innerId: objectId) {
+                foundTag.add(tag: tag)
+            }
+        }
+        
         if !context.imageResources.isEmpty {
             let resourcesTag = Tag(name: "resources")
             resourcesTag.add(tags: context.imageResources)

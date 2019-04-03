@@ -29,7 +29,6 @@ class CustomDecodersHolder: NSObject {
     override init() {
         super.init()
         self.registerDecoders()
-        self.registerAllowedClassNames()
     }
     
     fileprivate func registerDecoders() {
@@ -68,6 +67,7 @@ class CustomDecodersHolder: NSObject {
         self.register(decoder: UIColorDecoder(parameterName: "UITintColor"))
         self.register(decoder: AutoresizingMaskParameterDecoder())
         self.register(decoder: RuntimeAttributesDecoder())
+        self.register(decoder: AccessibilitiesDecoder())
 //        self.register(parser: UIViewControllerParser())
 //
 //        self.register(parser: UIShadowOffsetParser())
@@ -89,19 +89,6 @@ class CustomDecodersHolder: NSObject {
         }
     }
     
-    fileprivate func  registerAllowedClassNames() {
-        
-//        self.allowedClassNames.append("NSArray")
-//        self.allowedClassNames.append("NSMutableArray")
-//        self.allowedClassNames.append("UIImageNibPlaceholder")
-//        self.allowedClassNames.append("_UITraitStorageList")
-//        self.allowedClassNames.append("UILayoutGuide")
-//        self.allowedClassNames.append("UITraitCollection")
-//        self.allowedClassNames.append("_NSLayoutConstraintConstant")
-//        self.allowedClassNames.append("_UIAttributeTraitStorageRecord")
-        
-    }
-    
     func parser(by parameter: XibParameterProtocol, context: ParserContext, isTopLevel: Bool) -> CustomTagDecoderProtocol? {
         
         let className = parameter.name
@@ -111,9 +98,5 @@ class CustomDecodersHolder: NSObject {
         let suffix = "\(className)-\(objectName)"
         
         return self.customDecoders["\(prefix)\(suffix)"]
-    }
-    
-    func isClassNameAllowed(name: String) -> Bool {
-        return self.allowedClassNames.contains(name)
     }
 }
