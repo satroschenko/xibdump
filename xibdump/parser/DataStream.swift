@@ -67,7 +67,7 @@ class DataStream: NSObject {
         let value = CFSwapInt64LittleToHost(oneValue)
         self.position += count
 
-        return Int(value)
+        return Int(truncatingIfNeeded: value)
     }
 
     func readInt8() throws -> Int {

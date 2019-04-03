@@ -68,6 +68,7 @@ class CustomDecodersHolder: NSObject {
         self.register(decoder: AutoresizingMaskParameterDecoder())
         self.register(decoder: RuntimeAttributesDecoder())
         self.register(decoder: AccessibilitiesDecoder())
+        self.register(decoder: ConstraintsDecoder())
 //        self.register(parser: UIViewControllerParser())
 //
 //        self.register(parser: UIShadowOffsetParser())

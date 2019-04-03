@@ -14,6 +14,7 @@
 		2031675022538A7B00B82FD7 /* MarginDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2031674F22538A7B00B82FD7 /* MarginDecoder.swift */; };
 		2031675422539EFB00B82FD7 /* RuntimeAttributesDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2031675322539EFB00B82FD7 /* RuntimeAttributesDecoder.swift */; };
 		203167562254D40900B82FD7 /* AccessibilitiesDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203167552254D40900B82FD7 /* AccessibilitiesDecoder.swift */; };
+		203167582254F83500B82FD7 /* ConstraintsDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203167572254F83500B82FD7 /* ConstraintsDecoder.swift */; };
 		204D18E6224D17DC009AAB8A /* XibIntParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D18E5224D17DC009AAB8A /* XibIntParameter.swift */; };
 		204D18E8224E0BB8009AAB8A /* XibFloatParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D18E7224E0BB8009AAB8A /* XibFloatParameter.swift */; };
 		204D18EA224E0BDE009AAB8A /* XibDoubleParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D18E9224E0BDE009AAB8A /* XibDoubleParameter.swift */; };
@@ -72,6 +73,7 @@
 		2031674F22538A7B00B82FD7 /* MarginDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarginDecoder.swift; sourceTree = "<group>"; };
 		2031675322539EFB00B82FD7 /* RuntimeAttributesDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuntimeAttributesDecoder.swift; sourceTree = "<group>"; };
 		203167552254D40900B82FD7 /* AccessibilitiesDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilitiesDecoder.swift; sourceTree = "<group>"; };
+		203167572254F83500B82FD7 /* ConstraintsDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintsDecoder.swift; sourceTree = "<group>"; };
 		204D18E5224D17DC009AAB8A /* XibIntParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibIntParameter.swift; sourceTree = "<group>"; };
 		204D18E7224E0BB8009AAB8A /* XibFloatParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibFloatParameter.swift; sourceTree = "<group>"; };
 		204D18E9224E0BDE009AAB8A /* XibDoubleParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibDoubleParameter.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				2031674F22538A7B00B82FD7 /* MarginDecoder.swift */,
 				2031675322539EFB00B82FD7 /* RuntimeAttributesDecoder.swift */,
 				203167552254D40900B82FD7 /* AccessibilitiesDecoder.swift */,
+				203167572254F83500B82FD7 /* ConstraintsDecoder.swift */,
 			);
 			path = decoder;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 				204D190E224E53A1009AAB8A /* CustomDecodersHolder.swift in Sources */,
 				204D190C224E3C8A009AAB8A /* XibParentTag.swift in Sources */,
 				204D1901224E2D37009AAB8A /* Tag.swift in Sources */,
+				203167582254F83500B82FD7 /* ConstraintsDecoder.swift in Sources */,
 				204D1910224E5AAB009AAB8A /* NewTagDecoder.swift in Sources */,
 				20FC70822248E5760003D171 /* XibClass.swift in Sources */,
 				203167562254D40900B82FD7 /* AccessibilitiesDecoder.swift in Sources */,
