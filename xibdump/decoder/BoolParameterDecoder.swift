@@ -26,7 +26,8 @@ class BoolParameterDecoder: DefaultParameterDecoder {
                                  inverse: false),
             BoolParameterDecoder(parameterName: "UIViewPreservesSuperviewMargins", tagName: "preservesSuperviewLayoutMargins", inverse: false),
             BoolParameterDecoder(parameterName: "UIClipsToBounds", tagName: "clipsSubviews", inverse: false),
-            BoolParameterDecoder(parameterName: "UIAutoresizeSubviews", tagName: "autoresizesSubviews", inverse: false)
+            BoolParameterDecoder(parameterName: "UIAutoresizeSubviews", tagName: "autoresizesSubviews", inverse: false),
+            BoolParameterDecoder(parameterName: "UIAdjustsFontForContentSizeCategory", tagName: "adjustsFontForContentSizeCategory", inverse: false)
         ]
     }
     

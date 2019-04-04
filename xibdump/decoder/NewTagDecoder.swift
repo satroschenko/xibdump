@@ -38,7 +38,7 @@ class NewTagDecoder: NSObject, CustomTagDecoderProtocol {
         
         if !self.objectClassName.isEmpty {
           
-            guard object.xibClass.name == self.objectClassName else {
+            guard object.originalClassName(context: context) == self.objectClassName else {
                 return .empty(true)
             }
         }

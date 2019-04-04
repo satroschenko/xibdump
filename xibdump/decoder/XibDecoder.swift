@@ -27,20 +27,24 @@ class XibDecoder: NSObject {
             parse(object: firstObject, context: self.context, parentTag: parentTag, topLevelObject: false)
         }
         
+        let flatArray = parentTag.flatArray()
+        addMissingColorsToLabels(array: flatArray)
+        addDefaultOpaque(array: flatArray, classNames: ["view", "label"])
+        
         for (objectId, tag) in self.context.runtimeAttributes {
-            if let foundTag = findSubTag(parent: parentTag, innerId: objectId) {
+            if let foundTag = findSubTag(array: flatArray, innerId: objectId) {
                 foundTag.add(tag: tag)
             }
         }
         
         for (objectId, tag) in self.context.accessibilityAttributes {
-            if let foundTag = findSubTag(parent: parentTag, innerId: objectId) {
+            if let foundTag = findSubTag(array: flatArray, innerId: objectId) {
                 foundTag.add(tag: tag)
             }
         }
         
         for (objectId, tags) in self.context.variations {
-            if let foundTag = findSubTag(parent: parentTag, innerId: objectId) {
+            if let foundTag = findSubTag(array: flatArray, innerId: objectId) {
                 foundTag.add(tags: tags)
             }
         }
@@ -137,19 +141,52 @@ class XibDecoder: NSObject {
     }
     
     
-    private func findSubTag(parent: Tag, innerId: String) -> Tag? {
+    private func findSubTag(array: [Tag], innerId: String) -> Tag? {
     
-        if parent.innerObjectId == innerId {
-            return parent
-        }
-        
-        for child in parent.allChildren() {
-            if let found = findSubTag(parent: child, innerId: innerId) {
-                return found
-            }
+        for item in array where item.innerObjectId == innerId {
+            return item
         }
         
         return nil
+    }
+    
+    
+    
+    fileprivate func addMissingColorsToLabels(array: [Tag]) {
+     
+        for tag in array where tag.name == "label" {
+            addMissingColor(tag: tag, colorList: ["textColor", "highlightedColor"])
+        }
+    }
+    
+    fileprivate func addDefaultOpaque(array: [Tag], classNames: [String]) {
+        
+        for tag in array where classNames.contains(tag.name) {
+            if tag.parameterValue(name: "opaque") == nil {
+                tag.addParameter(name: "opaque", value: "NO")
+            }
+        }
+    }
+    
+    fileprivate func addMissingColor(tag: Tag, colorList: [String]) {
+    
+        for colorName in colorList {
+            var colorNameFound = false
+            for colorTag in tag.allChildren() where colorTag.name == "color" {
+                if let name = colorTag.parameterValue(name: "key") {
+                    if name == colorName {
+                        colorNameFound = true
+                    }
+                }
+            }
+            
+            if !colorNameFound {
+                let nilTag = Tag(name: "nil")
+                nilTag.addParameter(name: "key", value: colorName)
+                
+                tag.add(tag: nilTag)
+            }
+        }
     }
 }
 
@@ -167,5 +204,25 @@ extension Tag {
         }
 
         return node
+    }
+    
+    func flatArray() -> [Tag] {
+        
+        var result: [Tag] = [Tag]()
+        result.append(self)
+        
+        for child in allChildren() {
+            result.append(contentsOf: child.flatArray())
+        }
+        
+        return result
+    }
+    
+    func parameterValue(name: String) -> String? {
+        
+        for parameter in allParameters() where parameter.name == name {
+            return parameter.value
+        }
+        return nil
     }
 }

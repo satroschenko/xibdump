@@ -191,7 +191,7 @@ extension XibObject {
         for parameter in parameters(with: context) where parameter.name == name {
             
             if let object = parameter.object(with: context) {
-                if object.xibClass.name == objectClass {
+                if object.originalClassName(context: context) == objectClass {
                     return object
                 }
             }
@@ -205,7 +205,7 @@ extension XibObject {
         var result: [XibObject] = [XibObject]()
         for parameter in parameters(with: context) where parameter.name == parameterName {
             if let pObject = parameter.object(with: context) {
-                if pObject.xibClass.name == objectClass {
+                if pObject.originalClassName(context: context) == objectClass {
                     result.append(pObject)
                 }
             }
@@ -213,4 +213,20 @@ extension XibObject {
         
         return result
     }
+    
+    
+    func originalClassName(context: ParserContext) -> String {
+        
+        var className = xibClass.name
+        
+        if className == "UIClassSwapper" {
+            if let originalClassName = findStringParameter(name: "UIOriginalClassName", context: context) {
+                className = originalClassName
+            }
+        }
+        
+        return className
+    }
+    
+    
 }

@@ -67,12 +67,12 @@
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "restore /Volumes/Data/DerivedData/unipack-cftvgdftxqolqggejdadjgovirct/Build/Products/Debug-iphonesimulator/test.app/test.nib/objects-11.0+.nib /Users/satroschenko/Downloads/222/out"
-            isEnabled = "NO">
+            argument = "restore /Volumes/Data/DerivedData/unipack-cftvgdftxqolqggejdadjgovirct/Build/Products/Debug-iphoneos/test.app/test.nib /Users/satroschenko/Downloads/222/out"
+            isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "restore /Users/satroschenko/Downloads/222/11/out.nib /Users/satroschenko/Downloads/222/out"
-            isEnabled = "YES">
+            argument = "restore /Users/satroschenko/Downloads/222/11/out.nib /Users/satroschenko/Downloads/222/11"
+            isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "print /Volumes/Data/DerivedData/unipack-cftvgdftxqolqggejdadjgovirct/Build/Products/Debug-iphonesimulator/test.app/test.nib"

@@ -40,18 +40,26 @@ class CustomDecodersHolder: NSObject {
                                              needAddId: false))
         self.register(decoder: ProxyObjectDecoder())
         self.register(decoder: PlaceholderDecoder())
+        self.register(decoder: SizeTagDecoder(parameterName: "UIShadowOffset",
+                                              objectClassName: "",
+                                              tagName: "size",
+                                              needAddId: false) )
         self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey",
                                              objectClassName: "UIView",
-                                             tagName: "view"))
-        self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey",
-                                             objectClassName: "UIClassSwapper",
                                              tagName: "view"))
         self.register(decoder: NewTagDecoder(parameterName: "UISubviews",
                                              objectClassName: "NSMutableArray",
                                              tagName: "subviews"))
+        self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey",
+                                             objectClassName: "UILabel",
+                                             tagName: "label"))
+        self.register(decoder: PointDecoder(parameterName: "UIViewContentHuggingPriority",
+                                            firstName: "horizontalHuggingPriority",
+                                            secondName: "verticalHuggingPriority"))
+        self.register(decoder: PointDecoder(parameterName: "UIViewContentCompressionResistancePriority",
+                                            firstName: "horizontalCompressionResistancePriority",
+                                            secondName: "verticalCompressionResistancePriority"))
         
-//        self.register(parser: NewTagParser(xibClassName: "UIView", tagName: "view"))
-//        self.register(parser: NewTagParser(xibClassName: "UILabel", tagName: "label"))
 //        self.register(parser: NewTagParser(xibClassName: "UIImageView", tagName: "imageView"))
 //        self.register(parser: NewTagParser(xibClassName: "UIButton", tagName: "button"))
 //        self.register(parser: NewTagParser(xibClassName: "UISubviews", tagName: "subviews", needAddId: false))
@@ -66,11 +74,15 @@ class CustomDecodersHolder: NSObject {
         self.register(decoder: MarginDecoder())
         self.register(decoder: UIColorDecoder(parameterName: "UIBackgroundColor"))
         self.register(decoder: UIColorDecoder(parameterName: "UITintColor"))
+        self.register(decoder: UIColorDecoder(parameterName: "UITextColor"))
+        self.register(decoder: UIColorDecoder(parameterName: "UIHighlightedColor"))
+        self.register(decoder: UIColorDecoder(parameterName: "UIShadowColor"))
         self.register(decoder: AutoresizingMaskParameterDecoder())
         self.register(decoder: RuntimeAttributesDecoder())
         self.register(decoder: AccessibilitiesDecoder())
         self.register(decoder: ConstraintsDecoder())
         self.register(decoder: ConstraintsVariationsDecoder())
+        self.register(decoder: FontDecoder())
 //        self.register(parser: UIViewControllerParser())
 //
 //        self.register(parser: UIShadowOffsetParser())
@@ -92,12 +104,21 @@ class CustomDecodersHolder: NSObject {
     
     func parser(by parameter: XibParameterProtocol, context: ParserContext, isTopLevel: Bool) -> CustomTagDecoderProtocol? {
         
-        let className = parameter.name
-        let objectName = parameter.object(with: context)?.xibClass.name ?? ""
+        return self.customDecoders[createDecoderKey(parameter: parameter, context: context, isTopLevel: isTopLevel)]
+    }
+    
+    
+    func createDecoderKey(parameter: XibParameterProtocol, context: ParserContext, isTopLevel: Bool) -> String {
+        
+        let parameterName = parameter.name
+        var className = ""
+        if let object = parameter.object(with: context) {
+            className = object.originalClassName(context: context)
+        }
         
         let prefix = isTopLevel ? "T.":"A."
-        let suffix = "\(className)-\(objectName)"
+        let suffix = "\(parameterName)-\(className)"
         
-        return self.customDecoders["\(prefix)\(suffix)"]
+        return "\(prefix)\(suffix)"
     }
 }

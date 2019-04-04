@@ -209,7 +209,7 @@ class ConstraintsDecoder: NSObject, CustomTagDecoderProtocol {
         
         if let param = object.parameter(with: name, context: context) {
             if let object = param.object(with: context) {
-                if object.xibClass.name == "UILayoutGuide" {
+                if object.originalClassName(context: context) == "UILayoutGuide" {
                     return object.objectId
                 }
             }

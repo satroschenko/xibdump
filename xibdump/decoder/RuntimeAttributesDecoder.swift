@@ -61,7 +61,7 @@ class RuntimeAttributesDecoder: NSObject, CustomTagDecoderProtocol {
         }
         
         
-        let objectClass = valueObject.xibClass.name
+        let objectClass = valueObject.originalClassName(context: context)
         
         if objectClass == "NSNumber" {
             
