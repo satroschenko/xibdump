@@ -12,6 +12,7 @@ enum TagDecoderResult {
     case tag(Tag, Bool)
     case parameters([TagParameter], Bool)
     case empty(Bool)
+    case tags([Tag])
 }
 
 
@@ -69,12 +70,11 @@ class CustomDecodersHolder: NSObject {
         self.register(decoder: RuntimeAttributesDecoder())
         self.register(decoder: AccessibilitiesDecoder())
         self.register(decoder: ConstraintsDecoder())
+        self.register(decoder: ConstraintsVariationsDecoder())
 //        self.register(parser: UIViewControllerParser())
 //
 //        self.register(parser: UIShadowOffsetParser())
 //        self.register(parser: UIFontParser())
-//        self.register(parser: UILayoutConstraintParser())
-//        self.register(parser: UIAttributeTraitStorageRecordParser())
     }
     
     fileprivate func register(decoder: CustomTagDecoderProtocol) {

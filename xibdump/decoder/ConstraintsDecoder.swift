@@ -7,6 +7,13 @@
 
 import Cocoa
 
+
+
+struct ConstraintsDecoderResult {
+    let tag: Tag
+    let layoutGuideId: String?
+}
+
 class ConstraintsDecoder: NSObject, CustomTagDecoderProtocol {
     
     fileprivate let names = [
@@ -43,31 +50,48 @@ class ConstraintsDecoder: NSObject, CustomTagDecoderProtocol {
         let parentTag = Tag(name: "constraints")
         parentTag.innerObjectId = parentObject.objectId
         
+        var layoutGuideId: String?
+        
         for oneParameter in arrayObject.parameters(with: context) {
             
             if let pObject = oneParameter.object(with: context) {
                 if oneParameter.name == "UINibEncoderEmptyKey" {
                     
-                    let subTag = processOneObject(object: pObject, context: context)
-                    context.constrains[subTag.innerObjectId] = subTag
-                    parentTag.add(tag: subTag)
+                    let result = processOneObject(object: pObject, context: context)
+                    context.constrains[result.tag.innerObjectId] = result.tag
+                    parentTag.add(tag: result.tag)
+                    
+                    if let guideId = result.layoutGuideId {
+                        layoutGuideId = guideId
+                    }
                 }
             }
         }
         
         if parentTag.allChildren().count > 0 {
-            return .tag(parentTag, false)
+            
+            if let layoutGuideId = layoutGuideId {
+                let guideTag = Tag(name: "viewLayoutGuide")
+                guideTag.addParameter(name: "key", value: "safeArea")
+                guideTag.addParameter(name: "id", value: layoutGuideId)
+                
+                return .tags([parentTag, guideTag])
+            } else {
+                return .tag(parentTag, false)
+            }
         }
         
         return .empty(false)
     }
     
     // swiftlint:disable cyclomatic_complexity
-    fileprivate func processOneObject(object: XibObject, context: ParserContext) -> Tag {
+    fileprivate func processOneObject(object: XibObject, context: ParserContext) -> ConstraintsDecoderResult {
         
         let tag = Tag(name: "constraint")
         tag.addParameter(name: "id", value: object.objectId)
         tag.innerObjectId = object.objectId
+        
+        var layoutGuideId: String?
         
         if let firstAttribute = findIntAttribute(object: object, context: context, name1: "NSFirstAttribute", name2: "NSFirstAttributeV2") {
             if let name = self.names[safe: firstAttribute] {
@@ -101,8 +125,16 @@ class ConstraintsDecoder: NSObject, CustomTagDecoderProtocol {
             tag.addParameter(name: "firstItem", value: firstItemId)
         }
         
+        if let firstItemGuideId = findLayoutGuideId(object: object, context: context, name: "NSFirstItem") {
+            layoutGuideId = firstItemGuideId
+        }
+        
         if let secondItemId = findViewId(object: object, context: context, name: "NSSecondItem") {
             tag.addParameter(name: "secondItem", value: secondItemId)
+        }
+        
+        if let secondItemGuideId = findLayoutGuideId(object: object, context: context, name: "NSSecondItem") {
+            layoutGuideId = secondItemGuideId
         }
         
         if let relation = findIntAttribute(object: object, context: context, name1: "NSRelation", name2: "NSRelation") {
@@ -121,7 +153,7 @@ class ConstraintsDecoder: NSObject, CustomTagDecoderProtocol {
             }
         }
         
-        return tag
+        return ConstraintsDecoderResult(tag: tag, layoutGuideId: layoutGuideId)
     }
     // swiftlint:enable cyclomatic_complexity
 
@@ -167,6 +199,19 @@ class ConstraintsDecoder: NSObject, CustomTagDecoderProtocol {
         if let param = object.parameter(with: name, context: context) {
             if let object = param.object(with: context) {
                 return object.objectId
+            }
+        }
+        
+        return nil
+    }
+    
+    fileprivate func findLayoutGuideId(object: XibObject, context: ParserContext, name: String) -> String? {
+        
+        if let param = object.parameter(with: name, context: context) {
+            if let object = param.object(with: context) {
+                if object.xibClass.name == "UILayoutGuide" {
+                    return object.objectId
+                }
             }
         }
         

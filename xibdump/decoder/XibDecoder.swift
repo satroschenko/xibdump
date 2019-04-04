@@ -28,16 +28,20 @@ class XibDecoder: NSObject {
         }
         
         for (objectId, tag) in self.context.runtimeAttributes {
-            
             if let foundTag = findSubTag(parent: parentTag, innerId: objectId) {
                 foundTag.add(tag: tag)
             }
         }
         
         for (objectId, tag) in self.context.accessibilityAttributes {
-            
             if let foundTag = findSubTag(parent: parentTag, innerId: objectId) {
                 foundTag.add(tag: tag)
+            }
+        }
+        
+        for (objectId, tags) in self.context.variations {
+            if let foundTag = findSubTag(parent: parentTag, innerId: objectId) {
+                foundTag.add(tags: tags)
             }
         }
         
@@ -111,6 +115,10 @@ class XibDecoder: NSObject {
 
             case .empty(let needContinue):
                 cont = needContinue
+            
+            case .tags(let tags):
+                parentTag.add(tags: tags)
+                cont = false
                 
             }
             

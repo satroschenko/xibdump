@@ -14,6 +14,7 @@ class ParserContext: NSObject {
     var runtimeAttributes: [String: Tag] = [String: Tag]()
     var accessibilityAttributes: [String: Tag] = [String: Tag]()
     var constrains: [String: Tag] = [String: Tag]()
+    var variations: [String: [Tag]] = [String: [Tag]]()
     var imageResources: [Tag] = [Tag]()
     
     init(xibFile: XibFile) {
@@ -27,6 +28,7 @@ class ParserContext: NSObject {
         accessibilityAttributes.removeAll()
         imageResources.removeAll()
         constrains.removeAll()
+        variations.removeAll()
     }
 }
 
@@ -175,16 +177,40 @@ extension XibObject {
     
     func findObjectParameter(name: String, context: ParserContext) -> XibObject? {
         
-        for parameter in parameters(with: context) {
-            
-            if parameter.name != name {
-                continue
-            }
+        for parameter in parameters(with: context) where parameter.name == name {
             
             if let objectParameter = parameter as? XibObjectParameter {
                 return objectParameter.object(with: context)
             }
         }
         return nil
+    }
+    
+    func findObjectParameter(name: String, objectClass: String, context: ParserContext) -> XibObject? {
+        
+        for parameter in parameters(with: context) where parameter.name == name {
+            
+            if let object = parameter.object(with: context) {
+                if object.xibClass.name == objectClass {
+                    return object
+                }
+            }
+        }
+        return nil
+    }
+    
+    
+    func getSubObjects(parameterName: String, objectClass: String, context: ParserContext) -> [XibObject] {
+        
+        var result: [XibObject] = [XibObject]()
+        for parameter in parameters(with: context) where parameter.name == parameterName {
+            if let pObject = parameter.object(with: context) {
+                if pObject.xibClass.name == objectClass {
+                    result.append(pObject)
+                }
+            }
+        }
+        
+        return result
     }
 }
