@@ -51,7 +51,8 @@ class BoolParameterDecoder: DefaultParameterDecoder {
             BoolParameterDecoder(parameterName: "UIAdjustsFontSizeToFit", tagName: "adjustsFontForContentSizeCategory"),
             BoolParameterDecoder(parameterName: "UIDefersCurrentPageDisplay", tagName: "defersCurrentPageDisplay"),
             BoolParameterDecoder(parameterName: "UIHideForSinglePage", tagName: "hidesForSinglePage"),
-            BoolParameterDecoder(parameterName: "UIWraps", tagName: "wraps")
+            BoolParameterDecoder(parameterName: "UIWraps", tagName: "wraps"),
+            BoolParameterDecoder(parameterName: "UIStackViewBaselineRelative", tagName: "baselineRelativeArrangement")
             
         ]
     }

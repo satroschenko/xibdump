@@ -34,7 +34,8 @@ class DefaultParameterDecoder: NSObject, CustomTagDecoderProtocol {
             DefaultParameterDecoder(parameterName: "UICurrentPage", tagName: "currentPage"),
             DefaultParameterDecoder(parameterName: "UIMinimumValue", tagName: "minimumValue"),
             DefaultParameterDecoder(parameterName: "UIMaximumValue", tagName: "maximumValue"),
-            DefaultParameterDecoder(parameterName: "UIStepValue", tagName: "stepValue")
+            DefaultParameterDecoder(parameterName: "UIStepValue", tagName: "stepValue"),
+            DefaultParameterDecoder(parameterName: "UIStackViewSpacing", tagName: "spacing")
             
             ])
         

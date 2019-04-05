@@ -49,6 +49,7 @@ class CustomDecodersHolder: NSObject {
         self.register(decoder: NewTagDecoder(uiKitName: "UISegmentedControl"))
         self.register(decoder: NewTagDecoder(uiKitName: "UIPageControl"))
         self.register(decoder: NewTagDecoder(uiKitName: "UIStepper"))
+        self.register(decoder: NewTagDecoder(uiKitName: "UIStackView"))
         
         
         self.register(decoder: NewTagDecoder(parameterName: "UINibTopLevelObjectsKey",

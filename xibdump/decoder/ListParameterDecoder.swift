@@ -89,7 +89,19 @@ class ListParameterDecoder: DefaultParameterDecoder {
             
             ListParameterDecoder(parameterName: "UIClearButtonMode",
                                  tagName: "clearButtonMode",
-                                 values: ["0", "whileEditing", "unlessEditing", "always"])
+                                 values: ["0", "whileEditing", "unlessEditing", "always"]),
+            
+            ListParameterDecoder(parameterName: "UIStackViewAlignment",
+                                 tagName: "alignment",
+                                 values: ["fill", "top", "firstBaseline", "center", "bottom", "lastBaseline"]),
+            
+            ListParameterDecoder(parameterName: "UIStackViewDistribution",
+                                 tagName: "distribution",
+                                 values: ["fill", "fillEqually", "fillProportionally", "equalSpacing", "equalCentering"]),
+            
+            ListParameterDecoder(parameterName: "UIStackViewAxis",
+                                 tagName: "axis",
+                                 values: ["horizontal", "vertical"])
         ]
     }
     
