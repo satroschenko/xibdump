@@ -45,6 +45,7 @@ class CustomDecodersHolder: NSObject {
         self.register(decoder: NewTagDecoder(uiKitName: "UIPickerView"))
         self.register(decoder: NewTagDecoder(uiKitName: "UISwitch"))
         self.register(decoder: NewTagDecoder(uiKitName: "UISlider"))
+        self.register(decoder: NewTagDecoder(uiKitName: "UIButton"))
         
         
         self.register(decoder: NewTagDecoder(parameterName: "UINibTopLevelObjectsKey",
@@ -53,10 +54,8 @@ class CustomDecodersHolder: NSObject {
                                              needAddId: false))
         self.register(decoder: ProxyObjectDecoder())
         self.register(decoder: PlaceholderDecoder())
-        self.register(decoder: SizeTagDecoder(parameterName: "UIShadowOffset",
-                                              objectClassName: "",
-                                              tagName: "size",
-                                              needAddId: false) )
+        self.register(decoder: SizeTagDecoder(parameterName: "UITitleShadowOffset"))
+        self.register(decoder: SizeTagDecoder(parameterName: "UIShadowOffset"))
         self.register(decoder: NewTagDecoder(parameterName: "UISubviews",
                                              objectClassName: "NSMutableArray",
                                              tagName: "subviews"))
@@ -81,6 +80,7 @@ class CustomDecodersHolder: NSObject {
         self.register(decoder: UIRectDecoder())
         self.register(decoder: MarginDecoder())
         self.register(decoder: ImageDecoder())
+        self.register(decoder: StateDecoder())
         self.register(decoder: AutoresizingMaskParameterDecoder())
         self.register(decoder: RuntimeAttributesDecoder())
         self.register(decoder: AccessibilitiesDecoder())

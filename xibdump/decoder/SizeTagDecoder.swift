@@ -9,6 +9,13 @@ import Cocoa
 
 class SizeTagDecoder: NewTagDecoder {
     
+    let key: String?
+    
+    init(parameterName: String, key: String? = nil) {
+        self.key = key
+        super.init(parameterName: parameterName, objectClassName: "", tagName: "size", needAddId: false)
+    }
+    
     override func handledClassNames() -> [String] {
         return ["T.\(parameterName)-"]
     }
@@ -28,7 +35,7 @@ class SizeTagDecoder: NewTagDecoder {
             
             
             let tag = Tag(name: tagName)
-            tag.addParameter(name: "key", value: parameter.name.xmlParameterName())
+            tag.addParameter(name: "key", value: key ?? parameter.name.xmlParameterName())
             
             tag.addParameter(name: "width", value: "\(width)")
             tag.addParameter(name: "height", value: "\(heigth)")

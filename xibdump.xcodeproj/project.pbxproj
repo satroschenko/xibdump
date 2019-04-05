@@ -20,6 +20,7 @@
 		2031676322561B1D00B82FD7 /* SizeTagDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2031676222561B1D00B82FD7 /* SizeTagDecoder.swift */; };
 		203167652256208500B82FD7 /* FontDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203167642256208500B82FD7 /* FontDecoder.swift */; };
 		203167692257403600B82FD7 /* ImageDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203167682257403600B82FD7 /* ImageDecoder.swift */; };
+		2031676B2257564D00B82FD7 /* StateDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2031676A2257564D00B82FD7 /* StateDecoder.swift */; };
 		204D18E6224D17DC009AAB8A /* XibIntParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D18E5224D17DC009AAB8A /* XibIntParameter.swift */; };
 		204D18E8224E0BB8009AAB8A /* XibFloatParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D18E7224E0BB8009AAB8A /* XibFloatParameter.swift */; };
 		204D18EA224E0BDE009AAB8A /* XibDoubleParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D18E9224E0BDE009AAB8A /* XibDoubleParameter.swift */; };
@@ -84,6 +85,7 @@
 		2031676222561B1D00B82FD7 /* SizeTagDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeTagDecoder.swift; sourceTree = "<group>"; };
 		203167642256208500B82FD7 /* FontDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontDecoder.swift; sourceTree = "<group>"; };
 		203167682257403600B82FD7 /* ImageDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDecoder.swift; sourceTree = "<group>"; };
+		2031676A2257564D00B82FD7 /* StateDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateDecoder.swift; sourceTree = "<group>"; };
 		204D18E5224D17DC009AAB8A /* XibIntParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibIntParameter.swift; sourceTree = "<group>"; };
 		204D18E7224E0BB8009AAB8A /* XibFloatParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibFloatParameter.swift; sourceTree = "<group>"; };
 		204D18E9224E0BDE009AAB8A /* XibDoubleParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibDoubleParameter.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				2031676222561B1D00B82FD7 /* SizeTagDecoder.swift */,
 				203167642256208500B82FD7 /* FontDecoder.swift */,
 				203167682257403600B82FD7 /* ImageDecoder.swift */,
+				2031676A2257564D00B82FD7 /* StateDecoder.swift */,
 			);
 			path = decoder;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 				203167692257403600B82FD7 /* ImageDecoder.swift in Sources */,
 				204D191822521766009AAB8A /* ListParameterDecoder.swift in Sources */,
 				204D18EE224E0C61009AAB8A /* XibNullParameter.swift in Sources */,
+				2031676B2257564D00B82FD7 /* StateDecoder.swift in Sources */,
 				203167612256177400B82FD7 /* PointDecoder.swift in Sources */,
 				204D18E8224E0BB8009AAB8A /* XibFloatParameter.swift in Sources */,
 				2021C564224B6EC600AAEC72 /* Version.swift in Sources */,

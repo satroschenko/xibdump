@@ -34,7 +34,12 @@ class BoolParameterDecoder: DefaultParameterDecoder {
             BoolParameterDecoder(parameterName: "UISelected", tagName: "selected"),
             BoolParameterDecoder(parameterName: "UIHidesWhenStopped", tagName: "hidesWhenStopped"),
             BoolParameterDecoder(parameterName: "UIDisabled", tagName: "enabled", inverse: true),
-            BoolParameterDecoder(parameterName: "UISwitchOn", tagName: "on", inverse: true)
+            BoolParameterDecoder(parameterName: "UISwitchOn", tagName: "on", inverse: true),
+            BoolParameterDecoder(parameterName: "UIReversesTitleShadowWhenHighlighted", tagName: "reversesTitleShadowWhenHighlighted"),
+            BoolParameterDecoder(parameterName: "UIShowsTouchWhenHighlighted", tagName: "showsTouchWhenHighlighted"),
+            BoolParameterDecoder(parameterName: "UIAdjustsImageSizeForAccessibilityContentSizeCategory",
+                                 tagName: "adjustsImageSizeForAccessibilityContentSizeCategory"),
+            BoolParameterDecoder(parameterName: "UISpringLoaded", tagName: "springLoaded")
         ]
     }
     

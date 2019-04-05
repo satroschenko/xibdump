@@ -22,7 +22,7 @@ enum XibParameterType: Int {
 }
 
 
-protocol XibParameterProtocol: class {
+protocol XibParameterProtocol: NSObjectProtocol {
     var name: String {get}
     var type: XibParameterType {get}
     

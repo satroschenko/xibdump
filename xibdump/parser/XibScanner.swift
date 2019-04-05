@@ -17,6 +17,8 @@ class ParserContext: NSObject {
     var variations: [String: [Tag]] = [String: [Tag]]()
     var imageResources: [Tag] = [Tag]()
     
+    fileprivate var addedImageNames: [String] = [String]()
+    
     init(xibFile: XibFile) {
         self.xibFile = xibFile
         super.init()
@@ -29,6 +31,23 @@ class ParserContext: NSObject {
         imageResources.removeAll()
         constrains.removeAll()
         variations.removeAll()
+        
+        addedImageNames.removeAll()
+    }
+    
+    func addImageResource(name: String) {
+        
+        if !addedImageNames.contains(name) {
+            
+            addedImageNames.append(name)
+            
+            let tag = Tag(name: "image")
+            tag.addParameter(name: "name", value: name)
+            tag.addParameter(name: "width", value: "16")
+            tag.addParameter(name: "height", value: "16")
+            
+            imageResources.append(tag)
+        }
     }
 }
 
@@ -228,5 +247,18 @@ extension XibObject {
         return className
     }
     
-    
+    func previousParameter(parameter: XibParameterProtocol, context: ParserContext) -> XibParameterProtocol? {
+        
+        var found: XibParameterProtocol?
+        
+        for oneParameter in parameters(with: context) {
+            
+            if !oneParameter.isEqual(parameter) {
+                found = oneParameter
+            } else {
+                return found
+            }
+        }
+        return nil
+    }
 }

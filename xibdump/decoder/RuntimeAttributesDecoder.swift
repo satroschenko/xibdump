@@ -25,7 +25,7 @@ class RuntimeAttributesDecoder: NSObject, CustomTagDecoderProtocol {
             if let pObject = oneParameter.object(with: context) {
                 if oneParameter.name == "UINibEncoderEmptyKey" {
                     
-                    processPairObject(object: pObject, context: context)
+                    processPairObject(parentObject: parentObject, object: pObject, context: context)
                 }
             }
         }
@@ -34,7 +34,7 @@ class RuntimeAttributesDecoder: NSObject, CustomTagDecoderProtocol {
     }
     
     
-    private func processPairObject(object: XibObject, context: ParserContext) {
+    private func processPairObject(parentObject: XibObject, object: XibObject, context: ParserContext) {
         
         guard let foundObject = object.findObjectParameter(name: "UIObject", context: context) else {
             return
@@ -81,7 +81,7 @@ class RuntimeAttributesDecoder: NSObject, CustomTagDecoderProtocol {
         
         } else if objectClass == "UIColor" {
             
-            processColor(object: valueObject, context: context, parentTag: attributeTag)
+            processColor(parentObject: parentObject, object: valueObject, context: context, parentTag: attributeTag)
         }
     }
     
@@ -161,17 +161,16 @@ class RuntimeAttributesDecoder: NSObject, CustomTagDecoderProtocol {
         parentTag.addParameter(name: "type", value: "image")
         parentTag.addParameter(name: "value", value: value)
         
-        let resourceTag = Tag(name: "image")
-        resourceTag.addParameter(name: "name", value: value)
-        resourceTag.addParameter(name: "width", value: "16")
-        resourceTag.addParameter(name: "height", value: "16")
-        
-        context.imageResources.append(resourceTag)
+        context.addImageResource(name: value)
     }
     
-    fileprivate func processColor(object: XibObject, context: ParserContext, parentTag: Tag) {
+    fileprivate func processColor(parentObject: XibObject, object: XibObject, context: ParserContext, parentTag: Tag) {
     
-        let colorTag = UIColorDecoder.extractColorTag(object: object, tagName: "color", parameterName: "value", context: context)
+        let colorTag = UIColorDecoder.extractColorTag(parentObject: parentObject,
+                                                      object: object,
+                                                      tagName: "color",
+                                                      parameterName: "value",
+                                                      context: context)
         
         parentTag.addParameter(name: "type", value: "color")
         parentTag.add(tag: colorTag)

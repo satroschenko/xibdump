@@ -15,7 +15,8 @@ class FirstStringDecoder: DefaultParameterDecoder {
             FirstStringDecoder(parameterName: "UIText", tagName: "text"),
             FirstStringDecoder(parameterName: "UIResourceName", tagName: "image"),
             FirstStringDecoder(parameterName: "UIRestorationIdentifier", tagName: "restorationIdentifier"),
-            FirstStringDecoder(parameterName: "UIClassName", tagName: "customClass")
+            FirstStringDecoder(parameterName: "UIClassName", tagName: "customClass"),
+            FirstStringDecoder(parameterName: "UITitle", tagName: "title")
         ]
     }
     

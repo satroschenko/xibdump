@@ -77,7 +77,11 @@ class ListParameterDecoder: DefaultParameterDecoder {
             
             ListParameterDecoder(parameterName: "UIContentHorizontalAlignment",
                                  tagName: "contentHorizontalAlignment",
-                                 values: ["center", "left", "right", "fill", "leading", "trailing"])
+                                 values: ["center", "left", "right", "fill", "leading", "trailing"]),
+            
+            ListParameterDecoder(parameterName: "UIButtonType",
+                                 tagName: "buttonType",
+                                 values: ["custom", "roundedRect", "detailDisclosure", "infoLight", "infoDark", "contactAdd"])
         ]
     }
     

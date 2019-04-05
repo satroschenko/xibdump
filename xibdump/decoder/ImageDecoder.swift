@@ -14,7 +14,8 @@ class ImageDecoder: NSObject, CustomTagDecoderProtocol {
             "T.UIImage-UIImageNibPlaceholder",
             "T.UIHighlightedImage-UIImageNibPlaceholder",
             "T.UIMinimumValueImage-UIImageNibPlaceholder",
-            "T.UIMaximumValueImage-UIImageNibPlaceholder"
+            "T.UIMaximumValueImage-UIImageNibPlaceholder",
+            "T.UIBackgroundImage-UIImageNibPlaceholder"
         ]
     }
     
@@ -36,12 +37,6 @@ class ImageDecoder: NSObject, CustomTagDecoderProtocol {
     
     
     fileprivate func addImageToResourseSection(name: String, context: ParserContext) {
-        
-        let tag = Tag(name: "image")
-        tag.addParameter(name: "name", value: name)
-        tag.addParameter(name: "width", value: "16")
-        tag.addParameter(name: "height", value: "16")
-        
-        context.imageResources.append(tag)
+        context.addImageResource(name: name)
     }
 }
