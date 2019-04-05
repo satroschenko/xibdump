@@ -46,19 +46,26 @@ class CustomDecodersHolder: NSObject {
         self.register(decoder: NewTagDecoder(uiKitName: "UISwitch"))
         self.register(decoder: NewTagDecoder(uiKitName: "UISlider"))
         self.register(decoder: NewTagDecoder(uiKitName: "UIButton"))
+        self.register(decoder: NewTagDecoder(uiKitName: "UISegmentedControl"))
         
         
         self.register(decoder: NewTagDecoder(parameterName: "UINibTopLevelObjectsKey",
                                              objectClassName: "NSArray",
                                              tagName: "objects",
                                              needAddId: false))
+        self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey",
+                                             objectClassName: "UISegment",
+                                             tagName: "segment",
+                                             needAddId: false))
         self.register(decoder: ProxyObjectDecoder())
         self.register(decoder: PlaceholderDecoder())
-        self.register(decoder: SizeTagDecoder(parameterName: "UITitleShadowOffset"))
-        self.register(decoder: SizeTagDecoder(parameterName: "UIShadowOffset"))
+        self.register(decoder: UITextFieldDecoder())
+        
         self.register(decoder: NewTagDecoder(parameterName: "UISubviews",
                                              objectClassName: "NSMutableArray",
-                                             tagName: "subviews"))
+                                             tagName: "subviews",
+                                             needAddId: false,
+                                             mapper: ["UISegmentedControl": "segments"]))
         self.register(decoder: PointDecoder(parameterName: "UIViewContentHuggingPriority",
                                             firstName: "horizontalHuggingPriority",
                                             secondName: "verticalHuggingPriority"))
@@ -66,20 +73,14 @@ class CustomDecodersHolder: NSObject {
                                             firstName: "horizontalCompressionResistancePriority",
                                             secondName: "verticalCompressionResistancePriority"))
         
-//        self.register(parser: NewTagParser(xibClassName: "UIImageView", tagName: "imageView"))
-//        self.register(parser: NewTagParser(xibClassName: "UIButton", tagName: "button"))
-//        self.register(parser: NewTagParser(xibClassName: "UISubviews", tagName: "subviews", needAddId: false))
-//        self.register(parser: NewTagParser(xibClassName: "UIViewAutolayoutConstraints", tagName: "constraints", needAddId: false))
-//
-//
-//
         self.register(decoders: DefaultParameterDecoder.allDecoders())
         self.register(decoders: UIColorDecoder.allDecoders())
+        self.register(decoders: ImageDecoder.allDecoders())
+        self.register(decoders: SizeTagDecoder.allDecoders())
         
         self.register(decoder: UIBoundsDecoder())
         self.register(decoder: UIRectDecoder())
         self.register(decoder: MarginDecoder())
-        self.register(decoder: ImageDecoder())
         self.register(decoder: StateDecoder())
         self.register(decoder: AutoresizingMaskParameterDecoder())
         self.register(decoder: RuntimeAttributesDecoder())
@@ -88,9 +89,6 @@ class CustomDecodersHolder: NSObject {
         self.register(decoder: ConstraintsVariationsDecoder())
         self.register(decoder: FontDecoder())
 //        self.register(parser: UIViewControllerParser())
-//
-//        self.register(parser: UIShadowOffsetParser())
-//        self.register(parser: UIFontParser())
     }
     
     fileprivate func register(decoder: CustomTagDecoderProtocol) {

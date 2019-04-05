@@ -9,6 +9,16 @@ import Cocoa
 
 class SizeTagDecoder: NewTagDecoder {
     
+    static func allDecoders() -> [CustomTagDecoderProtocol] {
+        
+        return [
+            SizeTagDecoder(parameterName: "UITitleShadowOffset"),
+            SizeTagDecoder(parameterName: "UIShadowOffset"),
+            SizeTagDecoder(parameterName: "UISegmentContentOffset", key: "contentOffset")
+        ]
+    }
+    
+    
     let key: String?
     
     init(parameterName: String, key: String? = nil) {

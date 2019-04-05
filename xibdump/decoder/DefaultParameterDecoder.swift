@@ -11,7 +11,7 @@ class DefaultParameterDecoder: NSObject, CustomTagDecoderProtocol {
 
     let parameterName: String
     let tagName: String
-    
+    let mapper: [String: String]?
     
     static func allDecoders() -> [DefaultParameterDecoder] {
         
@@ -31,7 +31,8 @@ class DefaultParameterDecoder: NSObject, CustomTagDecoderProtocol {
             DefaultParameterDecoder(parameterName: "UIProgress", tagName: "progress"),
             DefaultParameterDecoder(parameterName: "UIValue", tagName: "value"),
             DefaultParameterDecoder(parameterName: "UIMinValue", tagName: "minValue"),
-            DefaultParameterDecoder(parameterName: "UIMaxValue", tagName: "maxValue")
+            DefaultParameterDecoder(parameterName: "UIMaxValue", tagName: "maxValue"),
+            DefaultParameterDecoder(parameterName: "UISelectedSegmentIndex", tagName: "selectedSegmentIndex")
             
             ])
         
@@ -45,9 +46,10 @@ class DefaultParameterDecoder: NSObject, CustomTagDecoderProtocol {
     }
     
     
-    init(parameterName: String, tagName: String) {
+    init(parameterName: String, tagName: String, mapper: [String: String]? = nil) {
         self.parameterName = parameterName
         self.tagName = tagName
+        self.mapper = mapper
         super.init()
     }
     
@@ -60,7 +62,15 @@ class DefaultParameterDecoder: NSObject, CustomTagDecoderProtocol {
         if parameter.name == parameterName {
             let parameterValue = parameter.stringValue()
             
-            let tagParameter = TagParameter(name: tagName, value: parameterValue)
+            var finalTagName = tagName
+            if let mapper = mapper {
+                let parentClassName = parentObject.originalClassName(context: context)
+                if let newTag = mapper[parentClassName] {
+                    finalTagName = newTag
+                }
+            }
+            
+            let tagParameter = TagParameter(name: finalTagName, value: parameterValue)
             return .parameters([tagParameter], false)
         }
         

@@ -8,15 +8,33 @@
 import Cocoa
 
 class ImageDecoder: NSObject, CustomTagDecoderProtocol {
+    
+    static func allDecoders() -> [CustomTagDecoderProtocol] {
+        
+        return [
+            ImageDecoder(parameterName: "UIImage"),
+            ImageDecoder(parameterName: "UIHighlightedImage"),
+            ImageDecoder(parameterName: "UIMinimumValueImage"),
+            ImageDecoder(parameterName: "UIMaximumValueImage"),
+            ImageDecoder(parameterName: "UIBackgroundImage"),
+            ImageDecoder(parameterName: "UISegmentInfo", key: "image"),
+            ImageDecoder(parameterName: "UITextFieldBackground", key: "background"),
+            ImageDecoder(parameterName: "UITextFieldDisabledBackground", key: "disabledBackground")
+        ]
+    }
+    
+    let parameterName: String
+    let key: String?
+    
+    init(parameterName: String, key: String? = nil) {
+        self.parameterName = parameterName
+        self.key = key
+        super.init()
+    }
+    
 
     func handledClassNames() -> [String] {
-        return [
-            "T.UIImage-UIImageNibPlaceholder",
-            "T.UIHighlightedImage-UIImageNibPlaceholder",
-            "T.UIMinimumValueImage-UIImageNibPlaceholder",
-            "T.UIMaximumValueImage-UIImageNibPlaceholder",
-            "T.UIBackgroundImage-UIImageNibPlaceholder"
-        ]
+        return ["T.\(parameterName)-UIImageNibPlaceholder"]
     }
     
     func parse(parentObject: XibObject, parameter: XibParameterProtocol, context: ParserContext) -> TagDecoderResult {
@@ -31,7 +49,7 @@ class ImageDecoder: NSObject, CustomTagDecoderProtocol {
         
         addImageToResourseSection(name: value, context: context)
         
-        let param = TagParameter(name: parameter.name.xmlParameterName(), value: value)
+        let param = TagParameter(name: key ?? parameter.name.xmlParameterName(), value: value)
         return .parameters([param], false)
     }
     

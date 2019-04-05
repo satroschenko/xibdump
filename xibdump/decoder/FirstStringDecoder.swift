@@ -16,12 +16,17 @@ class FirstStringDecoder: DefaultParameterDecoder {
             FirstStringDecoder(parameterName: "UIResourceName", tagName: "image"),
             FirstStringDecoder(parameterName: "UIRestorationIdentifier", tagName: "restorationIdentifier"),
             FirstStringDecoder(parameterName: "UIClassName", tagName: "customClass"),
-            FirstStringDecoder(parameterName: "UITitle", tagName: "title")
+            FirstStringDecoder(parameterName: "UITitle", tagName: "title"),
+            FirstStringDecoder(parameterName: "UISegmentInfo", tagName: "title"),
+            FirstStringDecoder(parameterName: "UIPlaceholder", tagName: "placeholder")
         ]
     }
     
     override func handledClassNames() -> [String] {
-        return ["T.\(parameterName)-NSString"]
+        return [
+            "T.\(parameterName)-NSString",
+            "T.\(parameterName)-NSMutableString"
+        ]
     }
     
     

@@ -13,12 +13,14 @@ class NewTagDecoder: NSObject, CustomTagDecoderProtocol {
     let objectClassName: String
     let tagName: String
     var needAddId: Bool = true
+    let mapper: [String: String]?
     
-    init(parameterName: String, objectClassName: String, tagName: String, needAddId: Bool = true) {
+    init(parameterName: String, objectClassName: String, tagName: String, needAddId: Bool = true, mapper: [String: String]? = nil) {
         self.parameterName = parameterName
         self.objectClassName = objectClassName
         self.tagName = tagName
         self.needAddId = needAddId
+        self.mapper = mapper
         super.init()
     }
     
@@ -47,7 +49,15 @@ class NewTagDecoder: NSObject, CustomTagDecoderProtocol {
             }
         }
         
-        let newTag = Tag(name: self.tagName)
+        var finalTagName = tagName
+        if let mapper = mapper {
+            let parentClassName = parentObject.originalClassName(context: context)
+            if let newTag = mapper[parentClassName] {
+                finalTagName = newTag
+            }
+        }
+        
+        let newTag = Tag(name: finalTagName)
         if self.needAddId {
             newTag.add(parameter: TagParameter(name: "id", value: object.objectId))
         }

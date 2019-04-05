@@ -81,7 +81,15 @@ class ListParameterDecoder: DefaultParameterDecoder {
             
             ListParameterDecoder(parameterName: "UIButtonType",
                                  tagName: "buttonType",
-                                 values: ["custom", "roundedRect", "detailDisclosure", "infoLight", "infoDark", "contactAdd"])
+                                 values: ["custom", "roundedRect", "detailDisclosure", "infoLight", "infoDark", "contactAdd"]),
+            
+            ListParameterDecoder(parameterName: "UIBorderStyle",
+                                 tagName: "borderStyle",
+                                 values: ["none", "line", "bezel", "roundedRect"]),
+            
+            ListParameterDecoder(parameterName: "UIClearButtonMode",
+                                 tagName: "clearButtonMode",
+                                 values: ["0", "whileEditing", "unlessEditing", "always"])
         ]
     }
     

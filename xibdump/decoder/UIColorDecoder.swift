@@ -30,12 +30,10 @@ class UIColorDecoder: NewTagDecoder {
     }
     
     let key: String?
-    let mapper: [String: String]?
 
     init(parameterName: String, key: String? = nil, mapper: [String: String]? = nil) {
         self.key = key
-        self.mapper = mapper
-        super.init(parameterName: parameterName, objectClassName: "UIColor", tagName: "color", needAddId: false)
+        super.init(parameterName: parameterName, objectClassName: "UIColor", tagName: "color", needAddId: false, mapper: mapper)
     }
     
     
