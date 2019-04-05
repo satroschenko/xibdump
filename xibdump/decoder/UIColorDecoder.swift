@@ -25,7 +25,9 @@ class UIColorDecoder: NewTagDecoder {
             UIColorDecoder(parameterName: "UIMinimumTintColor", key: "minimumTrackTintColor"),
             UIColorDecoder(parameterName: "UIMaximumTintColor", key: "maximumTrackTintColor"),
             UIColorDecoder(parameterName: "UIThumbTintColor"),
-            UIColorDecoder(parameterName: "UITitleColor")
+            UIColorDecoder(parameterName: "UITitleColor"),
+            UIColorDecoder(parameterName: "UICurrentPageIndicatorTintColor"),
+            UIColorDecoder(parameterName: "UIPageIndicatorTintColor")
         ]
     }
     

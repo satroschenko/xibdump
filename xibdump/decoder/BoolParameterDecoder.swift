@@ -23,6 +23,9 @@ class BoolParameterDecoder: DefaultParameterDecoder {
                                  tagName: "userInteractionEnabled",
                                  inverse: true,
                                  mapper: ["UISegment": "enabled"]),
+            BoolParameterDecoder(parameterName: "UIViewDoesNotTranslateAutoresizingMaskIntoConstraints",
+                                 tagName: "translatesAutoresizingMaskIntoConstraints",
+                                 inverse: true),
             BoolParameterDecoder(parameterName: "UIHidden", tagName: "hidden"),
             BoolParameterDecoder(parameterName: "UIViewLayoutMarginsFollowReadableWidth", tagName: "layoutMarginsFollowReadableWidth"),
             BoolParameterDecoder(parameterName: "UIViewPreservesSuperviewMargins", tagName: "preservesSuperviewLayoutMargins"),
@@ -45,7 +48,9 @@ class BoolParameterDecoder: DefaultParameterDecoder {
             BoolParameterDecoder(parameterName: "UISpringLoaded", tagName: "springLoaded"),
             BoolParameterDecoder(parameterName: "UIMomentary", tagName: "momentary"),
             BoolParameterDecoder(parameterName: "UIClearsOnBeginEditing", tagName: "clearsOnBeginEditing"),
-            BoolParameterDecoder(parameterName: "UIAdjustsFontSizeToFit", tagName: "adjustsFontForContentSizeCategory")
+            BoolParameterDecoder(parameterName: "UIAdjustsFontSizeToFit", tagName: "adjustsFontForContentSizeCategory"),
+            BoolParameterDecoder(parameterName: "UIDefersCurrentPageDisplay", tagName: "defersCurrentPageDisplay"),
+            BoolParameterDecoder(parameterName: "UIHideForSinglePage", tagName: "hidesForSinglePage")
             
         ]
     }

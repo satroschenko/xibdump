@@ -18,10 +18,7 @@ class DefaultParameterDecoder: NSObject, CustomTagDecoderProtocol {
         var result = [DefaultParameterDecoder]()
         
         result.append(contentsOf: [
-            DefaultParameterDecoder(parameterName: "UIUserInteractionDisabled", tagName: "userInteractionEnabled"),
             DefaultParameterDecoder(parameterName: "UIOpaque", tagName: "opaque"),
-            DefaultParameterDecoder(parameterName: "UIViewDoesNotTranslateAutoresizingMaskIntoConstraints",
-                                    tagName: "translatesAutoresizingMaskIntoConstraints"),
             DefaultParameterDecoder(parameterName: "UIPreferredMaxLayoutWidth", tagName: "preferredMaxLayoutWidth"),
             DefaultParameterDecoder(parameterName: "UIMinimumScaleFactor", tagName: "minimumScaleFactor"),
             DefaultParameterDecoder(parameterName: "UINumberOfLines", tagName: "numberOfLines"),
@@ -32,7 +29,9 @@ class DefaultParameterDecoder: NSObject, CustomTagDecoderProtocol {
             DefaultParameterDecoder(parameterName: "UIValue", tagName: "value"),
             DefaultParameterDecoder(parameterName: "UIMinValue", tagName: "minValue"),
             DefaultParameterDecoder(parameterName: "UIMaxValue", tagName: "maxValue"),
-            DefaultParameterDecoder(parameterName: "UISelectedSegmentIndex", tagName: "selectedSegmentIndex")
+            DefaultParameterDecoder(parameterName: "UISelectedSegmentIndex", tagName: "selectedSegmentIndex"),
+            DefaultParameterDecoder(parameterName: "UINumberOfPages", tagName: "numberOfPages"),
+            DefaultParameterDecoder(parameterName: "UICurrentPage", tagName: "currentPage")
             
             ])
         
