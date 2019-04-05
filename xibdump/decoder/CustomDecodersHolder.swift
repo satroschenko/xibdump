@@ -34,6 +34,19 @@ class CustomDecodersHolder: NSObject {
     
     fileprivate func registerDecoders() {
         
+        
+        // UIKit
+        self.register(decoder: NewTagDecoder(uiKitName: "UIView"))
+        self.register(decoder: NewTagDecoder(uiKitName: "UIWindow"))
+        self.register(decoder: NewTagDecoder(uiKitName: "UILabel"))
+        self.register(decoder: NewTagDecoder(uiKitName: "UIImageView"))
+        self.register(decoder: NewTagDecoder(uiKitName: "UIProgressView"))
+        self.register(decoder: NewTagDecoder(uiKitName: "UIActivityIndicatorView"))
+        self.register(decoder: NewTagDecoder(uiKitName: "UIPickerView"))
+        self.register(decoder: NewTagDecoder(uiKitName: "UISwitch"))
+        self.register(decoder: NewTagDecoder(uiKitName: "UISlider"))
+        
+        
         self.register(decoder: NewTagDecoder(parameterName: "UINibTopLevelObjectsKey",
                                              objectClassName: "NSArray",
                                              tagName: "objects",
@@ -44,15 +57,9 @@ class CustomDecodersHolder: NSObject {
                                               objectClassName: "",
                                               tagName: "size",
                                               needAddId: false) )
-        self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey",
-                                             objectClassName: "UIView",
-                                             tagName: "view"))
         self.register(decoder: NewTagDecoder(parameterName: "UISubviews",
                                              objectClassName: "NSMutableArray",
                                              tagName: "subviews"))
-        self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey",
-                                             objectClassName: "UILabel",
-                                             tagName: "label"))
         self.register(decoder: PointDecoder(parameterName: "UIViewContentHuggingPriority",
                                             firstName: "horizontalHuggingPriority",
                                             secondName: "verticalHuggingPriority"))
@@ -68,15 +75,12 @@ class CustomDecodersHolder: NSObject {
 //
 //
         self.register(decoders: DefaultParameterDecoder.allDecoders())
+        self.register(decoders: UIColorDecoder.allDecoders())
         
         self.register(decoder: UIBoundsDecoder())
         self.register(decoder: UIRectDecoder())
         self.register(decoder: MarginDecoder())
-        self.register(decoder: UIColorDecoder(parameterName: "UIBackgroundColor"))
-        self.register(decoder: UIColorDecoder(parameterName: "UITintColor"))
-        self.register(decoder: UIColorDecoder(parameterName: "UITextColor"))
-        self.register(decoder: UIColorDecoder(parameterName: "UIHighlightedColor"))
-        self.register(decoder: UIColorDecoder(parameterName: "UIShadowColor"))
+        self.register(decoder: ImageDecoder())
         self.register(decoder: AutoresizingMaskParameterDecoder())
         self.register(decoder: RuntimeAttributesDecoder())
         self.register(decoder: AccessibilitiesDecoder())

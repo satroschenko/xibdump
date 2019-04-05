@@ -14,20 +14,27 @@ class BoolParameterDecoder: DefaultParameterDecoder {
     static func all() -> [DefaultParameterDecoder] {
         
         return [
-            BoolParameterDecoder(parameterName: "UIClearsContextBeforeDrawing", tagName: "clearsContextBeforeDrawing", inverse: false),
-            BoolParameterDecoder(parameterName: "UIMultipleTouchEnabled", tagName: "multipleTouchEnabled", inverse: false),
-            BoolParameterDecoder(parameterName: "UIAdjustsFontForContentSizeCategory", tagName: "adjustsFontForContentSizeCategory", inverse: false),
-            BoolParameterDecoder(parameterName: "UIAdjustsLetterSpacingToFit", tagName: "adjustsLetterSpacingToFitWidth", inverse: false),
-            BoolParameterDecoder(parameterName: "UIClipsToBounds", tagName: "clipsSubviews", inverse: false),
+            BoolParameterDecoder(parameterName: "UIClearsContextBeforeDrawing", tagName: "clearsContextBeforeDrawing"),
+            BoolParameterDecoder(parameterName: "UIMultipleTouchEnabled", tagName: "multipleTouchEnabled"),
+            BoolParameterDecoder(parameterName: "UIAdjustsFontForContentSizeCategory", tagName: "adjustsFontForContentSizeCategory"),
+            BoolParameterDecoder(parameterName: "UIAdjustsLetterSpacingToFit", tagName: "adjustsLetterSpacingToFitWidth"),
+            BoolParameterDecoder(parameterName: "UIClipsToBounds", tagName: "clipsSubviews"),
             BoolParameterDecoder(parameterName: "UIUserInteractionDisabled", tagName: "userInteractionEnabled", inverse: true),
-            BoolParameterDecoder(parameterName: "UIHidden", tagName: "hidden", inverse: false),
-            BoolParameterDecoder(parameterName: "UIViewLayoutMarginsFollowReadableWidth",
-                                 tagName: "layoutMarginsFollowReadableWidth",
-                                 inverse: false),
-            BoolParameterDecoder(parameterName: "UIViewPreservesSuperviewMargins", tagName: "preservesSuperviewLayoutMargins", inverse: false),
-            BoolParameterDecoder(parameterName: "UIClipsToBounds", tagName: "clipsSubviews", inverse: false),
-            BoolParameterDecoder(parameterName: "UIAutoresizeSubviews", tagName: "autoresizesSubviews", inverse: false),
-            BoolParameterDecoder(parameterName: "UIAdjustsFontForContentSizeCategory", tagName: "adjustsFontForContentSizeCategory", inverse: false)
+            BoolParameterDecoder(parameterName: "UIHidden", tagName: "hidden"),
+            BoolParameterDecoder(parameterName: "UIViewLayoutMarginsFollowReadableWidth", tagName: "layoutMarginsFollowReadableWidth"),
+            BoolParameterDecoder(parameterName: "UIViewPreservesSuperviewMargins", tagName: "preservesSuperviewLayoutMargins"),
+            BoolParameterDecoder(parameterName: "UIClipsToBounds", tagName: "clipsSubviews"),
+            BoolParameterDecoder(parameterName: "UIAutoresizeSubviews", tagName: "autoresizesSubviews"),
+            BoolParameterDecoder(parameterName: "UIAdjustsFontForContentSizeCategory", tagName: "adjustsFontForContentSizeCategory"),
+            BoolParameterDecoder(parameterName: "UIAdjustsImageSizeForAccessibilityContentSizeCategory",
+                                 tagName: "adjustsImageSizeForAccessibilityContentSizeCategory"),
+            BoolParameterDecoder(parameterName: "UIAnimating", tagName: "animating"),
+            BoolParameterDecoder(parameterName: "UIHidesWhenStopped", tagName: "hidesWhenStopped"),
+            BoolParameterDecoder(parameterName: "UIHighlighted", tagName: "highlighted"),
+            BoolParameterDecoder(parameterName: "UISelected", tagName: "selected"),
+            BoolParameterDecoder(parameterName: "UIHidesWhenStopped", tagName: "hidesWhenStopped"),
+            BoolParameterDecoder(parameterName: "UIDisabled", tagName: "enabled", inverse: true),
+            BoolParameterDecoder(parameterName: "UISwitchOn", tagName: "on", inverse: true)
         ]
     }
     

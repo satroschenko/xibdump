@@ -58,9 +58,26 @@ class ListParameterDecoder: DefaultParameterDecoder {
             ListParameterDecoder(parameterName: "UIContentMode", tagName: "contentMode", values: ListParameterDecoder.contentModes),
             ListParameterDecoder(parameterName: "UITextAlignment", tagName: "textAlignment", values: ListParameterDecoder.aligments),
             ListParameterDecoder(parameterName: "UILineBreakMode", tagName: "lineBreakMode", values: ListParameterDecoder.lineBreaks),
+            
             ListParameterDecoder(parameterName: "UIViewSemanticContentAttribute",
                                  tagName: "semanticContentAttribute",
-                                 values: ListParameterDecoder.semanticAttributes)
+                                 values: ListParameterDecoder.semanticAttributes),
+            
+            ListParameterDecoder(parameterName: "UIProgressViewStyle",
+                                 tagName: "progressViewStyle",
+                                 values: ["default", "bar"]),
+            
+            ListParameterDecoder(parameterName: "UIActivityIndicatorViewStyle",
+                                 tagName: "style",
+                                 values: ["whiteLarge", "white", "gray"]),
+            
+            ListParameterDecoder(parameterName: "UIContentVerticalAlignment",
+                                 tagName: "contentVerticalAlignment",
+                                 values: ["center", "top", "bottom", "fill"]),
+            
+            ListParameterDecoder(parameterName: "UIContentHorizontalAlignment",
+                                 tagName: "contentHorizontalAlignment",
+                                 values: ["center", "left", "right", "fill", "leading", "trailing"])
         ]
     }
     

@@ -22,6 +22,10 @@ class NewTagDecoder: NSObject, CustomTagDecoderProtocol {
         super.init()
     }
     
+    convenience init(uiKitName: String) {
+        self.init(parameterName: "UINibEncoderEmptyKey", objectClassName: uiKitName, tagName: uiKitName.xmlParameterName(), needAddId: true)
+    }
+    
     func handledClassNames() -> [String] {
         return ["T.\(parameterName)-\(objectClassName)"]
     }

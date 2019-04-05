@@ -27,7 +27,12 @@ class DefaultParameterDecoder: NSObject, CustomTagDecoderProtocol {
             DefaultParameterDecoder(parameterName: "UINumberOfLines", tagName: "numberOfLines"),
             DefaultParameterDecoder(parameterName: "UITag", tagName: "tag"),
             DefaultParameterDecoder(parameterName: "UIAlpha", tagName: "alpha"),
-            DefaultParameterDecoder(parameterName: "UIMinimumFontSize", tagName: "minimumFontSize")
+            DefaultParameterDecoder(parameterName: "UIMinimumFontSize", tagName: "minimumFontSize"),
+            DefaultParameterDecoder(parameterName: "UIProgress", tagName: "progress"),
+            DefaultParameterDecoder(parameterName: "UIValue", tagName: "value"),
+            DefaultParameterDecoder(parameterName: "UIMinValue", tagName: "minValue"),
+            DefaultParameterDecoder(parameterName: "UIMaxValue", tagName: "maxValue")
+            
             ])
         
         result.append(contentsOf: ListParameterDecoder.all())
