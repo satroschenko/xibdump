@@ -29,7 +29,8 @@ class XibDecoder: NSObject {
         
         let flatArray = parentTag.flatArray()
         addMissingColorsToLabels(array: flatArray)
-        addDefaultOpaque(array: flatArray, classNames: ["view", "label", "button", "segmentedControl", "textField", "pageControl"])
+        addDefaultOpaque(array: flatArray, classNames: ["view", "label", "button", "segmentedControl", "textField", "pageControl",
+                                                        "stepper"])
         
         for (objectId, tag) in self.context.runtimeAttributes {
             if let foundTag = findSubTag(array: flatArray, innerId: objectId) {

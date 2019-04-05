@@ -50,7 +50,8 @@ class BoolParameterDecoder: DefaultParameterDecoder {
             BoolParameterDecoder(parameterName: "UIClearsOnBeginEditing", tagName: "clearsOnBeginEditing"),
             BoolParameterDecoder(parameterName: "UIAdjustsFontSizeToFit", tagName: "adjustsFontForContentSizeCategory"),
             BoolParameterDecoder(parameterName: "UIDefersCurrentPageDisplay", tagName: "defersCurrentPageDisplay"),
-            BoolParameterDecoder(parameterName: "UIHideForSinglePage", tagName: "hidesForSinglePage")
+            BoolParameterDecoder(parameterName: "UIHideForSinglePage", tagName: "hidesForSinglePage"),
+            BoolParameterDecoder(parameterName: "UIWraps", tagName: "wraps")
             
         ]
     }

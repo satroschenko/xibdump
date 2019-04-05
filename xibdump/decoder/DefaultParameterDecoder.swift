@@ -31,7 +31,10 @@ class DefaultParameterDecoder: NSObject, CustomTagDecoderProtocol {
             DefaultParameterDecoder(parameterName: "UIMaxValue", tagName: "maxValue"),
             DefaultParameterDecoder(parameterName: "UISelectedSegmentIndex", tagName: "selectedSegmentIndex"),
             DefaultParameterDecoder(parameterName: "UINumberOfPages", tagName: "numberOfPages"),
-            DefaultParameterDecoder(parameterName: "UICurrentPage", tagName: "currentPage")
+            DefaultParameterDecoder(parameterName: "UICurrentPage", tagName: "currentPage"),
+            DefaultParameterDecoder(parameterName: "UIMinimumValue", tagName: "minimumValue"),
+            DefaultParameterDecoder(parameterName: "UIMaximumValue", tagName: "maximumValue"),
+            DefaultParameterDecoder(parameterName: "UIStepValue", tagName: "stepValue")
             
             ])
         
