@@ -67,6 +67,7 @@ class BoolParameterDecoder: DefaultParameterDecoder {
             BoolParameterDecoder(parameterName: "UICanCancelContentTouches", tagName: "canCancelContentTouches"),
             BoolParameterDecoder(parameterName: "UIScrollDisabled", tagName: "scrollEnabled", inverse: true),
             BoolParameterDecoder(parameterName: "UIDatePickerUseCurrentDateDuringDecoding", tagName: "useCurrentDate"),
+            BoolParameterDecoder(parameterName: "UIViewInsetsLayoutMarginsFromSafeArea", tagName: "insetsLayoutMarginsFromSafeArea")
             
         ]
     }

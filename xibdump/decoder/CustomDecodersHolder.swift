@@ -32,27 +32,17 @@ class CustomDecodersHolder: NSObject {
         self.registerDecoders()
     }
     
+    static let uiClassNamesList: [String] = [
+        "UIView", "UIWindow", "UILabel", "UIImageView", "UIProgressView", "UIActivityIndicatorView",
+        "UIPickerView", "UISwitch", "UISlider", "UIButton", "UISegmentedControl", "UIPageControl",
+        "UIStepper", "UIStackView", "UITextView", "UIScrollView", "UIDatePicker", "UIVisualEffectView"
+                            ]
+    
     fileprivate func registerDecoders() {
         
-        
-        // UIKit
-        self.register(decoder: NewTagDecoder(uiKitName: "UIView"))
-        self.register(decoder: NewTagDecoder(uiKitName: "UIWindow"))
-        self.register(decoder: NewTagDecoder(uiKitName: "UILabel"))
-        self.register(decoder: NewTagDecoder(uiKitName: "UIImageView"))
-        self.register(decoder: NewTagDecoder(uiKitName: "UIProgressView"))
-        self.register(decoder: NewTagDecoder(uiKitName: "UIActivityIndicatorView"))
-        self.register(decoder: NewTagDecoder(uiKitName: "UIPickerView"))
-        self.register(decoder: NewTagDecoder(uiKitName: "UISwitch"))
-        self.register(decoder: NewTagDecoder(uiKitName: "UISlider"))
-        self.register(decoder: NewTagDecoder(uiKitName: "UIButton"))
-        self.register(decoder: NewTagDecoder(uiKitName: "UISegmentedControl"))
-        self.register(decoder: NewTagDecoder(uiKitName: "UIPageControl"))
-        self.register(decoder: NewTagDecoder(uiKitName: "UIStepper"))
-        self.register(decoder: NewTagDecoder(uiKitName: "UIStackView"))
-        self.register(decoder: NewTagDecoder(uiKitName: "UITextView"))
-        self.register(decoder: NewTagDecoder(uiKitName: "UIScrollView"))
-        self.register(decoder: NewTagDecoder(uiKitName: "UIDatePicker"))
+        CustomDecodersHolder.uiClassNamesList.forEach { name in 
+            register(decoder: NewTagDecoder(uiKitName: name))
+        }
         
         
         self.register(decoder: NewTagDecoder(parameterName: "UINibTopLevelObjectsKey",
@@ -62,7 +52,7 @@ class CustomDecodersHolder: NSObject {
         self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey",
                                              objectClassName: "UISegment",
                                              tagName: "segment",
-                                             needAddId: false))
+                                             needAddId: false))        
         self.register(decoder: ProxyObjectDecoder())
         self.register(decoder: PlaceholderDecoder())
         
@@ -84,6 +74,7 @@ class CustomDecodersHolder: NSObject {
         self.register(decoders: SizeTagDecoder.allDecoders())
         self.register(decoders: UITextFieldDecoder.allDecoders())
         self.register(decoders: DateDecoder.allDecoders())
+        self.register(decoders: VisualEffectDecoder.allDecoders())
         
         self.register(decoder: UIBoundsDecoder())
         self.register(decoder: UIRectDecoder())
@@ -96,6 +87,7 @@ class CustomDecodersHolder: NSObject {
         self.register(decoder: ConstraintsVariationsDecoder())
         self.register(decoder: FontDecoder())
         self.register(decoder: NSLocaleDecoder())
+        
 //        self.register(parser: UIViewControllerParser())
     }
     

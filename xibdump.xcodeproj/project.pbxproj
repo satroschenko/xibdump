@@ -49,6 +49,8 @@
 		20A04A14225B355500A07996 /* DataDetectorTypesDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A04A13225B355500A07996 /* DataDetectorTypesDecoder.swift */; };
 		20A04A16225B41F300A07996 /* NSLocaleDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A04A15225B41F300A07996 /* NSLocaleDecoder.swift */; };
 		20A04A18225B43AF00A07996 /* DateDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A04A17225B43AF00A07996 /* DateDecoder.swift */; };
+		20A04A1C225B585D00A07996 /* VisualEffectStyleDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A04A1B225B585D00A07996 /* VisualEffectStyleDecoder.swift */; };
+		20A04A1E225B5B4200A07996 /* VisualEffectSubviewDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A04A1D225B5B4200A07996 /* VisualEffectSubviewDecoder.swift */; };
 		20AC7A39224B879400BF5968 /* PrintCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AC7A38224B879400BF5968 /* PrintCommand.swift */; };
 		20FC70792248E4650003D171 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FC70782248E4650003D171 /* main.swift */; };
 		20FC70802248E51D0003D171 /* XibID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FC707F2248E51D0003D171 /* XibID.swift */; };
@@ -118,6 +120,8 @@
 		20A04A13225B355500A07996 /* DataDetectorTypesDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDetectorTypesDecoder.swift; sourceTree = "<group>"; };
 		20A04A15225B41F300A07996 /* NSLocaleDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLocaleDecoder.swift; sourceTree = "<group>"; };
 		20A04A17225B43AF00A07996 /* DateDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateDecoder.swift; sourceTree = "<group>"; };
+		20A04A1B225B585D00A07996 /* VisualEffectStyleDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectStyleDecoder.swift; sourceTree = "<group>"; };
+		20A04A1D225B5B4200A07996 /* VisualEffectSubviewDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectSubviewDecoder.swift; sourceTree = "<group>"; };
 		20AC7A38224B879400BF5968 /* PrintCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintCommand.swift; sourceTree = "<group>"; };
 		20FC70752248E4650003D171 /* xibdump */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = xibdump; sourceTree = BUILT_PRODUCTS_DIR; };
 		20FC70782248E4650003D171 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -237,6 +241,8 @@
 				20A04A13225B355500A07996 /* DataDetectorTypesDecoder.swift */,
 				20A04A15225B41F300A07996 /* NSLocaleDecoder.swift */,
 				20A04A17225B43AF00A07996 /* DateDecoder.swift */,
+				20A04A1B225B585D00A07996 /* VisualEffectStyleDecoder.swift */,
+				20A04A1D225B5B4200A07996 /* VisualEffectSubviewDecoder.swift */,
 			);
 			path = decoder;
 			sourceTree = "<group>";
@@ -399,6 +405,7 @@
 				204D191E2252233E009AAB8A /* BoolParameterDecoder.swift in Sources */,
 				20FC70842248E5A00003D171 /* XibObject.swift in Sources */,
 				204D18EA224E0BDE009AAB8A /* XibDoubleParameter.swift in Sources */,
+				20A04A1C225B585D00A07996 /* VisualEffectStyleDecoder.swift in Sources */,
 				204D190E224E53A1009AAB8A /* CustomDecodersHolder.swift in Sources */,
 				204D190C224E3C8A009AAB8A /* XibParentTag.swift in Sources */,
 				204D1901224E2D37009AAB8A /* Tag.swift in Sources */,
@@ -434,6 +441,7 @@
 				2021C564224B6EC600AAEC72 /* Version.swift in Sources */,
 				20FC70902248E83F0003D171 /* XibLogger.swift in Sources */,
 				204D18F8224E1A86009AAB8A /* RestoreCommand.swift in Sources */,
+				20A04A1E225B5B4200A07996 /* VisualEffectSubviewDecoder.swift in Sources */,
 				204D18E6224D17DC009AAB8A /* XibIntParameter.swift in Sources */,
 				20A04A18225B43AF00A07996 /* DateDecoder.swift in Sources */,
 				204D18F2224E0E38009AAB8A /* XibDataParameter.swift in Sources */,
