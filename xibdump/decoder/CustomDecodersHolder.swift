@@ -51,6 +51,7 @@ class CustomDecodersHolder: NSObject {
         self.register(decoder: NewTagDecoder(uiKitName: "UIStepper"))
         self.register(decoder: NewTagDecoder(uiKitName: "UIStackView"))
         self.register(decoder: NewTagDecoder(uiKitName: "UITextView"))
+        self.register(decoder: NewTagDecoder(uiKitName: "UIScrollView"))
         
         
         self.register(decoder: NewTagDecoder(parameterName: "UINibTopLevelObjectsKey",

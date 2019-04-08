@@ -54,7 +54,18 @@ class BoolParameterDecoder: DefaultParameterDecoder {
             BoolParameterDecoder(parameterName: "UIWraps", tagName: "wraps"),
             BoolParameterDecoder(parameterName: "UIStackViewBaselineRelative", tagName: "baselineRelativeArrangement"),
             BoolParameterDecoder(parameterName: "UIEditable", tagName: "editable"),
-            BoolParameterDecoder(parameterName: "UISelectable", tagName: "selectable")
+            BoolParameterDecoder(parameterName: "UISelectable", tagName: "selectable"),
+            BoolParameterDecoder(parameterName: "UIShowsHorizontalScrollIndicator", tagName: "showsHorizontalScrollIndicator"),
+            BoolParameterDecoder(parameterName: "UIShowsVerticalScrollIndicator", tagName: "showsVerticalScrollIndicator"),
+            BoolParameterDecoder(parameterName: "UIPagingEnabled", tagName: "pagingEnabled"),
+            BoolParameterDecoder(parameterName: "UIDirectionalLockEnabled", tagName: "directionalLockEnabled"),
+            BoolParameterDecoder(parameterName: "UIBounceEnabled", tagName: "bounces"),
+            BoolParameterDecoder(parameterName: "UIBouncesZoom", tagName: "bouncesZoom"),
+            BoolParameterDecoder(parameterName: "UIAlwaysBounceVertical", tagName: "alwaysBounceVertical"),
+            BoolParameterDecoder(parameterName: "UIAlwaysBounceHorizontal", tagName: "alwaysBounceHorizontal"),
+            BoolParameterDecoder(parameterName: "UIDelaysContentTouches", tagName: "delaysContentTouches"),
+            BoolParameterDecoder(parameterName: "UICanCancelContentTouches", tagName: "canCancelContentTouches"),
+            BoolParameterDecoder(parameterName: "UIScrollDisabled", tagName: "scrollEnabled", inverse: true)
             
         ]
     }

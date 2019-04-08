@@ -101,7 +101,15 @@ class ListParameterDecoder: DefaultParameterDecoder {
             
             ListParameterDecoder(parameterName: "UIStackViewAxis",
                                  tagName: "axis",
-                                 values: ["horizontal", "vertical"])            
+                                 values: ["horizontal", "vertical"]),
+            
+            ListParameterDecoder(parameterName: "UIIndicatorStyle",
+                                 tagName: "indicatorStyle",
+                                 values: ["default", "black", "white"]),
+            
+            ListParameterDecoder(parameterName: "UIKeyboardDismissMode",
+                                 tagName: "keyboardDismissMode",
+                                 values: ["default", "onDrag", "interactive"])
         ]
     }
     
