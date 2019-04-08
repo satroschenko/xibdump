@@ -57,11 +57,12 @@ class CustomDecodersHolder: NSObject {
         self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey", objectClassName: "MTKView", tagName: "mtkView"))
         self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey", objectClassName: "GLKView", tagName: "glkView"))
         self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey", objectClassName: "SCNView", tagName: "sceneKitView"))
+        self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey", objectClassName: "ARSCNView", tagName: "arscnView"))
         
         
         self.register(decoder: ProxyObjectDecoder())
         self.register(decoder: PlaceholderDecoder())
-        self.register(decoder: SKViewDecoder())
+        
         
         self.register(decoder: NewTagDecoder(parameterName: "UISubviews",
                                              objectClassName: "NSMutableArray",
@@ -84,6 +85,7 @@ class CustomDecodersHolder: NSObject {
         self.register(decoders: UITextFieldDecoder.allDecoders())
         self.register(decoders: DateDecoder.allDecoders())
         self.register(decoders: VisualEffectDecoder.allDecoders())
+        self.register(decoders: SKViewDecoder.allDecoders())
         
         self.register(decoder: UIBoundsDecoder())
         self.register(decoder: UIRectDecoder())
