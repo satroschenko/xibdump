@@ -96,7 +96,6 @@ class CustomDecodersHolder: NSObject {
         self.register(decoder: ConstraintsVariationsDecoder())
         self.register(decoder: FontDecoder())
         self.register(decoder: NSLocaleDecoder())
-        self.register(decoder: UICountDownDurationDecoder())
 //        self.register(parser: UIViewControllerParser())
     }
     
