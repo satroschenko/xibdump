@@ -93,7 +93,12 @@ class BoolParameterDecoder: DefaultParameterDecoder {
             BoolParameterDecoder(parameterName: "_asynchronous", tagName: "asynchronous"),
             BoolParameterDecoder(parameterName: "_allowsTransparency", tagName: "allowsTransparency"),
             BoolParameterDecoder(parameterName: "_ignoresSiblingOrder", tagName: "ignoresSiblingOrder"),
-            BoolParameterDecoder(parameterName: "_shouldCullNonVisibleNodes", tagName: "shouldCullNonVisibleNodes")            
+            BoolParameterDecoder(parameterName: "_shouldCullNonVisibleNodes", tagName: "shouldCullNonVisibleNodes"),
+            
+            BoolParameterDecoder(parameterName: "UIScalesPageToFit", tagName: "scalesPageToFit"),
+            BoolParameterDecoder(parameterName: "allowsLinkPreview", tagName: "allowsLinkPreview"),
+            BoolParameterDecoder(parameterName: "allowsBackForwardNavigationGestures", tagName: "allowsBackForwardNavigationGestures"),
+            BoolParameterDecoder(parameterName: "suppressesIncrementalRendering", tagName: "suppressesIncrementalRendering")
         ]
     }
     

@@ -133,7 +133,7 @@ class ListParameterDecoder: DefaultParameterDecoder {
             
             ListParameterDecoder(parameterName: "GLKViewDrawableMultisampleCoderKey",
                                  tagName: "drawableMultisample",
-                                 values: ["none", "4X"])            
+                                 values: ["none", "4X"]),            
         ]
     }
     

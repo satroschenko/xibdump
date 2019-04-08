@@ -36,7 +36,7 @@ class CustomDecodersHolder: NSObject {
         "UIView", "UIWindow", "UILabel", "UIImageView", "UIProgressView", "UIActivityIndicatorView",
         "UIPickerView", "UISwitch", "UISlider", "UIButton", "UISegmentedControl", "UIPageControl",
         "UIStepper", "UIStackView", "UITextView", "UIScrollView", "UIDatePicker", "UIVisualEffectView",
-        "MKMapView"
+        "MKMapView", "UIWebView"
     ]
     
     fileprivate func registerDecoders() {
@@ -58,6 +58,7 @@ class CustomDecodersHolder: NSObject {
         self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey", objectClassName: "GLKView", tagName: "glkView"))
         self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey", objectClassName: "SCNView", tagName: "sceneKitView"))
         self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey", objectClassName: "ARSCNView", tagName: "arscnView"))
+        self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey", objectClassName: "WKWebView", tagName: "wkWebView"))
         
         
         self.register(decoder: ProxyObjectDecoder())
@@ -98,6 +99,7 @@ class CustomDecodersHolder: NSObject {
         self.register(decoder: ConstraintsVariationsDecoder())
         self.register(decoder: FontDecoder())
         self.register(decoder: NSLocaleDecoder())
+        self.register(decoder: WebViewConfigurationDecoder())
         
 //        self.register(parser: UIViewControllerParser())
     }

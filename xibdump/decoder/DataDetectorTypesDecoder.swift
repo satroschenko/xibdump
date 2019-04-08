@@ -32,10 +32,18 @@ class DataDetectorTypesDecoder: NSObject, CustomTagDecoderProtocol {
             return .empty(false)
         }
         
-        let optionSet = DataDetectorTypeOptionSet(rawValue: intParameter.value)
-        
         let tag = Tag(name: "dataDetectorType")
         tag.addParameter(name: "key", value: "dataDetectorTypes")
+        
+        DataDetectorTypesDecoder.decode(value: intParameter.value, context: context, tag: tag)
+        
+        return .tag(tag, false)
+    }
+    
+    
+    static func decode(value: Int, context: ParserContext, tag: Tag) {
+        
+        let optionSet = DataDetectorTypeOptionSet(rawValue: value)
         
         if optionSet.contains(.phoneNumber) {
             tag.addParameter(name: "phoneNumber", value: "YES")
@@ -58,7 +66,5 @@ class DataDetectorTypesDecoder: NSObject, CustomTagDecoderProtocol {
         if optionSet.contains(.lookupSuggestion) {
             tag.addParameter(name: "lookupSuggestion", value: "YES")
         }
-        
-        return .tag(tag, false)
     }
 }

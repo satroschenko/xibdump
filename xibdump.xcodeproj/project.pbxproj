@@ -53,6 +53,7 @@
 		20A04A1E225B5B4200A07996 /* VisualEffectSubviewDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A04A1D225B5B4200A07996 /* VisualEffectSubviewDecoder.swift */; };
 		20A04A20225B641400A07996 /* DataColorDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A04A1F225B641400A07996 /* DataColorDecoder.swift */; };
 		20A04A22225B6D1A00A07996 /* SKViewDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A04A21225B6D1A00A07996 /* SKViewDecoder.swift */; };
+		20A04A24225B763B00A07996 /* WebViewConfigurationDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A04A23225B763B00A07996 /* WebViewConfigurationDecoder.swift */; };
 		20AC7A39224B879400BF5968 /* PrintCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AC7A38224B879400BF5968 /* PrintCommand.swift */; };
 		20FC70792248E4650003D171 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FC70782248E4650003D171 /* main.swift */; };
 		20FC70802248E51D0003D171 /* XibID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FC707F2248E51D0003D171 /* XibID.swift */; };
@@ -126,6 +127,7 @@
 		20A04A1D225B5B4200A07996 /* VisualEffectSubviewDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectSubviewDecoder.swift; sourceTree = "<group>"; };
 		20A04A1F225B641400A07996 /* DataColorDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataColorDecoder.swift; sourceTree = "<group>"; };
 		20A04A21225B6D1A00A07996 /* SKViewDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKViewDecoder.swift; sourceTree = "<group>"; };
+		20A04A23225B763B00A07996 /* WebViewConfigurationDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewConfigurationDecoder.swift; sourceTree = "<group>"; };
 		20AC7A38224B879400BF5968 /* PrintCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintCommand.swift; sourceTree = "<group>"; };
 		20FC70752248E4650003D171 /* xibdump */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = xibdump; sourceTree = BUILT_PRODUCTS_DIR; };
 		20FC70782248E4650003D171 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 				20A04A1D225B5B4200A07996 /* VisualEffectSubviewDecoder.swift */,
 				20A04A1F225B641400A07996 /* DataColorDecoder.swift */,
 				20A04A21225B6D1A00A07996 /* SKViewDecoder.swift */,
+				20A04A23225B763B00A07996 /* WebViewConfigurationDecoder.swift */,
 			);
 			path = decoder;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 				204D18F8224E1A86009AAB8A /* RestoreCommand.swift in Sources */,
 				20A04A1E225B5B4200A07996 /* VisualEffectSubviewDecoder.swift in Sources */,
 				204D18E6224D17DC009AAB8A /* XibIntParameter.swift in Sources */,
+				20A04A24225B763B00A07996 /* WebViewConfigurationDecoder.swift in Sources */,
 				20A04A18225B43AF00A07996 /* DateDecoder.swift in Sources */,
 				204D18F2224E0E38009AAB8A /* XibDataParameter.swift in Sources */,
 			);
