@@ -9,6 +9,17 @@ import Cocoa
 
 class UITextFieldDecoder: NewTagDecoder {
     
+    
+    static func allDecoders() -> [CustomTagDecoderProtocol] {
+        
+        return [
+            UITextFieldDecoder(parameterName: "UINibEncoderEmptyKey", objectClassName: "UITextField", tagName: "textField"),
+            UITextFieldDecoder(parameterName: "UINibEncoderEmptyKey", objectClassName: "UITextView", tagName: "textView"),
+            DataDetectorTypesDecoder()
+        ]
+    }
+    
+    
     let returnKeyTypes: [String] = ["", "go", "google", "join", "next", "route", "search", "send", "yahoo", "done", "emergencyCall", "continue"]
     
     let keyboardTypes: [String] = ["", "alphabet", "numbersAndPunctuation", "URL", "numberPad", "phonePad",
@@ -16,10 +27,14 @@ class UITextFieldDecoder: NewTagDecoder {
     
     let keyboardLooks: [String] = ["", "alert", "light"]
     let noYesTypes: [String] = ["", "no", "yes"]
-    let autoCapitalizationTypes: [String] = ["", "words", "sentences", "allCharacters"]
+    let autoCapitalizationTypes: [String] = ["none", "words", "sentences", "allCharacters"]
 
     init() {
         super.init(parameterName: "UINibEncoderEmptyKey", objectClassName: "UITextField", tagName: "textField")
+    }
+    
+    override init(parameterName: String, objectClassName: String, tagName: String, needAddId: Bool = true, mapper: [String: String]? = nil) {
+        super.init(parameterName: parameterName, objectClassName: objectClassName, tagName: tagName, needAddId: needAddId, mapper: mapper)
     }
     
     override func parse(parentObject: XibObject, parameter: XibParameterProtocol, context: ParserContext) -> TagDecoderResult {

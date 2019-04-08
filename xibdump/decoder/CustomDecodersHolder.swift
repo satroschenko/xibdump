@@ -50,6 +50,7 @@ class CustomDecodersHolder: NSObject {
         self.register(decoder: NewTagDecoder(uiKitName: "UIPageControl"))
         self.register(decoder: NewTagDecoder(uiKitName: "UIStepper"))
         self.register(decoder: NewTagDecoder(uiKitName: "UIStackView"))
+        self.register(decoder: NewTagDecoder(uiKitName: "UITextView"))
         
         
         self.register(decoder: NewTagDecoder(parameterName: "UINibTopLevelObjectsKey",
@@ -62,7 +63,6 @@ class CustomDecodersHolder: NSObject {
                                              needAddId: false))
         self.register(decoder: ProxyObjectDecoder())
         self.register(decoder: PlaceholderDecoder())
-        self.register(decoder: UITextFieldDecoder())
         
         self.register(decoder: NewTagDecoder(parameterName: "UISubviews",
                                              objectClassName: "NSMutableArray",
@@ -80,6 +80,7 @@ class CustomDecodersHolder: NSObject {
         self.register(decoders: UIColorDecoder.allDecoders())
         self.register(decoders: ImageDecoder.allDecoders())
         self.register(decoders: SizeTagDecoder.allDecoders())
+        self.register(decoders: UITextFieldDecoder.allDecoders())
         
         self.register(decoder: UIBoundsDecoder())
         self.register(decoder: UIRectDecoder())

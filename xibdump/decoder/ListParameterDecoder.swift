@@ -101,7 +101,7 @@ class ListParameterDecoder: DefaultParameterDecoder {
             
             ListParameterDecoder(parameterName: "UIStackViewAxis",
                                  tagName: "axis",
-                                 values: ["horizontal", "vertical"])
+                                 values: ["horizontal", "vertical"])            
         ]
     }
     

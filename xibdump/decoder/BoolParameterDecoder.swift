@@ -52,7 +52,9 @@ class BoolParameterDecoder: DefaultParameterDecoder {
             BoolParameterDecoder(parameterName: "UIDefersCurrentPageDisplay", tagName: "defersCurrentPageDisplay"),
             BoolParameterDecoder(parameterName: "UIHideForSinglePage", tagName: "hidesForSinglePage"),
             BoolParameterDecoder(parameterName: "UIWraps", tagName: "wraps"),
-            BoolParameterDecoder(parameterName: "UIStackViewBaselineRelative", tagName: "baselineRelativeArrangement")
+            BoolParameterDecoder(parameterName: "UIStackViewBaselineRelative", tagName: "baselineRelativeArrangement"),
+            BoolParameterDecoder(parameterName: "UIEditable", tagName: "editable"),
+            BoolParameterDecoder(parameterName: "UISelectable", tagName: "selectable")
             
         ]
     }
