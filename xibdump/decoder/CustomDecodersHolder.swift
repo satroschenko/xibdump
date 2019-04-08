@@ -52,6 +52,7 @@ class CustomDecodersHolder: NSObject {
         self.register(decoder: NewTagDecoder(uiKitName: "UIStackView"))
         self.register(decoder: NewTagDecoder(uiKitName: "UITextView"))
         self.register(decoder: NewTagDecoder(uiKitName: "UIScrollView"))
+        self.register(decoder: NewTagDecoder(uiKitName: "UIDatePicker"))
         
         
         self.register(decoder: NewTagDecoder(parameterName: "UINibTopLevelObjectsKey",
@@ -82,6 +83,7 @@ class CustomDecodersHolder: NSObject {
         self.register(decoders: ImageDecoder.allDecoders())
         self.register(decoders: SizeTagDecoder.allDecoders())
         self.register(decoders: UITextFieldDecoder.allDecoders())
+        self.register(decoders: DateDecoder.allDecoders())
         
         self.register(decoder: UIBoundsDecoder())
         self.register(decoder: UIRectDecoder())
@@ -93,6 +95,8 @@ class CustomDecodersHolder: NSObject {
         self.register(decoder: ConstraintsDecoder())
         self.register(decoder: ConstraintsVariationsDecoder())
         self.register(decoder: FontDecoder())
+        self.register(decoder: NSLocaleDecoder())
+        self.register(decoder: UICountDownDurationDecoder())
 //        self.register(parser: UIViewControllerParser())
     }
     

@@ -109,7 +109,11 @@ class ListParameterDecoder: DefaultParameterDecoder {
             
             ListParameterDecoder(parameterName: "UIKeyboardDismissMode",
                                  tagName: "keyboardDismissMode",
-                                 values: ["default", "onDrag", "interactive"])
+                                 values: ["default", "onDrag", "interactive"]),
+            
+            ListParameterDecoder(parameterName: "UIDatePickerMode",
+                                 tagName: "datePickerMode",
+                                 values: ["time", "date", "dateAndTime", "countDownTimer"])
         ]
     }
     

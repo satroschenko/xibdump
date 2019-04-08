@@ -65,7 +65,8 @@ class BoolParameterDecoder: DefaultParameterDecoder {
             BoolParameterDecoder(parameterName: "UIAlwaysBounceHorizontal", tagName: "alwaysBounceHorizontal"),
             BoolParameterDecoder(parameterName: "UIDelaysContentTouches", tagName: "delaysContentTouches"),
             BoolParameterDecoder(parameterName: "UICanCancelContentTouches", tagName: "canCancelContentTouches"),
-            BoolParameterDecoder(parameterName: "UIScrollDisabled", tagName: "scrollEnabled", inverse: true)
+            BoolParameterDecoder(parameterName: "UIScrollDisabled", tagName: "scrollEnabled", inverse: true),
+            BoolParameterDecoder(parameterName: "UIDatePickerUseCurrentDateDuringDecoding", tagName: "useCurrentDate"),
             
         ]
     }

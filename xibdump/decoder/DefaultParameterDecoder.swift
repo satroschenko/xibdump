@@ -37,7 +37,9 @@ class DefaultParameterDecoder: NSObject, CustomTagDecoderProtocol {
             DefaultParameterDecoder(parameterName: "UIStepValue", tagName: "stepValue"),
             DefaultParameterDecoder(parameterName: "UIStackViewSpacing", tagName: "spacing"),
             DefaultParameterDecoder(parameterName: "UIMaximumZoomScale", tagName: "maximumZoomScale"),
-            DefaultParameterDecoder(parameterName: "UIMinimumZoomScale", tagName: "minimumZoomScale")
+            DefaultParameterDecoder(parameterName: "UIMinimumZoomScale", tagName: "minimumZoomScale"),
+            DefaultParameterDecoder(parameterName: "UIMinuteInterval", tagName: "minuteInterval"),
+            DefaultParameterDecoder(parameterName: "UICountDownDuration", tagName: "countDownDuration")
             
             ])
         
