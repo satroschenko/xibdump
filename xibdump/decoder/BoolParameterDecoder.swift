@@ -77,7 +77,10 @@ class BoolParameterDecoder: DefaultParameterDecoder {
             BoolParameterDecoder(parameterName: "MKShowsTraffic", tagName: "showsTraffic"),
             BoolParameterDecoder(parameterName: "MKShowsPointsOfInterest", tagName: "showsPointsOfInterest"),
             BoolParameterDecoder(parameterName: "MKShowsUserLocation", tagName: "showsUserLocation"),
-            BoolParameterDecoder(parameterName: "MKPitchEnabled", tagName: "pitchEnabled")
+            BoolParameterDecoder(parameterName: "MKPitchEnabled", tagName: "pitchEnabled"),
+            BoolParameterDecoder(parameterName: "MTKViewEnableSetNeedsDisplayCoderKey", tagName: "enableSetNeedsDisplay"),
+            BoolParameterDecoder(parameterName: "MTKViewPausedCoderKey", tagName: "paused"),
+            BoolParameterDecoder(parameterName: "MTKViewAutoResizeDrawableCoderKey", tagName: "autoResizeDrawable")
             
         ]
     }

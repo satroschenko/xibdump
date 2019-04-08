@@ -39,7 +39,11 @@ class DefaultParameterDecoder: NSObject, CustomTagDecoderProtocol {
             DefaultParameterDecoder(parameterName: "UIMaximumZoomScale", tagName: "maximumZoomScale"),
             DefaultParameterDecoder(parameterName: "UIMinimumZoomScale", tagName: "minimumZoomScale"),
             DefaultParameterDecoder(parameterName: "UIMinuteInterval", tagName: "minuteInterval"),
-            DefaultParameterDecoder(parameterName: "UICountDownDuration", tagName: "countDownDuration")
+            DefaultParameterDecoder(parameterName: "UICountDownDuration", tagName: "countDownDuration"),
+            DefaultParameterDecoder(parameterName: "MTKViewClearDepthCoderKey", tagName: "clearDepth"),
+            DefaultParameterDecoder(parameterName: "MTKViewClearStencilCoderKey", tagName: "clearStencil"),
+            DefaultParameterDecoder(parameterName: "MTKViewSampleCountCoderKey", tagName: "sampleCount"),
+            DefaultParameterDecoder(parameterName: "MTKViewPreferredFramesPerSecondCoderKey", tagName: "preferredFramesPerSecond")
             
             ])
         

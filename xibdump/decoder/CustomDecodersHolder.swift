@@ -37,7 +37,7 @@ class CustomDecodersHolder: NSObject {
         "UIPickerView", "UISwitch", "UISlider", "UIButton", "UISegmentedControl", "UIPageControl",
         "UIStepper", "UIStackView", "UITextView", "UIScrollView", "UIDatePicker", "UIVisualEffectView",
         "MKMapView"
-                            ]
+    ]
     
     fileprivate func registerDecoders() {
         
@@ -53,7 +53,10 @@ class CustomDecodersHolder: NSObject {
         self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey",
                                              objectClassName: "UISegment",
                                              tagName: "segment",
-                                             needAddId: false))        
+                                             needAddId: false))
+        self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey", objectClassName: "MTKView", tagName: "mtkView"))
+        
+        
         self.register(decoder: ProxyObjectDecoder())
         self.register(decoder: PlaceholderDecoder())
         
@@ -68,6 +71,8 @@ class CustomDecodersHolder: NSObject {
         self.register(decoder: PointDecoder(parameterName: "UIViewContentCompressionResistancePriority",
                                             firstName: "horizontalCompressionResistancePriority",
                                             secondName: "verticalCompressionResistancePriority"))
+        
+        self.register(decoder: DataColorDecoder(parameterName: "MTKViewClearColorCoderKey"))
         
         self.register(decoders: DefaultParameterDecoder.allDecoders())
         self.register(decoders: UIColorDecoder.allDecoders())
