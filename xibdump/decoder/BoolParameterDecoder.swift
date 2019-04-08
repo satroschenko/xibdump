@@ -80,7 +80,8 @@ class BoolParameterDecoder: DefaultParameterDecoder {
             BoolParameterDecoder(parameterName: "MKPitchEnabled", tagName: "pitchEnabled"),
             BoolParameterDecoder(parameterName: "MTKViewEnableSetNeedsDisplayCoderKey", tagName: "enableSetNeedsDisplay"),
             BoolParameterDecoder(parameterName: "MTKViewPausedCoderKey", tagName: "paused"),
-            BoolParameterDecoder(parameterName: "MTKViewAutoResizeDrawableCoderKey", tagName: "autoResizeDrawable")
+            BoolParameterDecoder(parameterName: "MTKViewAutoResizeDrawableCoderKey", tagName: "autoResizeDrawable"),
+            BoolParameterDecoder(parameterName: "GLKViewEnableSetNeedsDisplayCoderKey", tagName: "enableSetNeedsDisplay")
             
         ]
     }

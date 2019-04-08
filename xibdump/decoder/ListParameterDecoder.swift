@@ -117,7 +117,23 @@ class ListParameterDecoder: DefaultParameterDecoder {
             
             ListParameterDecoder(parameterName: "MKMapType",
                                  tagName: "mapType",
-                                 values: ["standard", "satellite", "hybrid", "satelliteFlyover", "hybridFlyover", "mutedStandard"])
+                                 values: ["standard", "satellite", "hybrid", "satelliteFlyover", "hybridFlyover", "mutedStandard"]),
+            
+            ListParameterDecoder(parameterName: "GLKViewDrawableColorFormatCoderKey",
+                                 tagName: "drawableColorFormat",
+                                 values: ["RGBA8888", "RGB565", "SRGBA8888"]),
+            
+            ListParameterDecoder(parameterName: "GLKViewDrawableDepthFormatCoderKey",
+                                 tagName: "drawableDepthFormat",
+                                 values: ["none", "16", "24"]),
+            
+            ListParameterDecoder(parameterName: "GLKViewDrawableStencilFormatCoderKey",
+                                 tagName: "drawableStencilFormat",
+                                 values: ["none", "8"]),
+            
+            ListParameterDecoder(parameterName: "GLKViewDrawableMultisampleCoderKey",
+                                 tagName: "drawableMultisample",
+                                 values: ["none", "4X"])
         ]
     }
     

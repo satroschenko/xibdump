@@ -55,6 +55,7 @@ class CustomDecodersHolder: NSObject {
                                              tagName: "segment",
                                              needAddId: false))
         self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey", objectClassName: "MTKView", tagName: "mtkView"))
+        self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey", objectClassName: "GLKView", tagName: "glkView"))
         
         
         self.register(decoder: ProxyObjectDecoder())
