@@ -44,7 +44,8 @@ class DefaultParameterDecoder: NSObject, CustomTagDecoderProtocol {
             DefaultParameterDecoder(parameterName: "MTKViewClearStencilCoderKey", tagName: "clearStencil"),
             DefaultParameterDecoder(parameterName: "MTKViewSampleCountCoderKey", tagName: "sampleCount"),
             DefaultParameterDecoder(parameterName: "MTKViewPreferredFramesPerSecondCoderKey", tagName: "preferredFramesPerSecond"),
-            DefaultParameterDecoder(parameterName: "ibPreferredRenderingAPI", tagName: "preferredRenderingAPI")
+            DefaultParameterDecoder(parameterName: "ibPreferredRenderingAPI", tagName: "preferredRenderingAPI"),
+            DefaultParameterDecoder(parameterName: "_preferredFramesPerSecond", tagName: "preferredFramesPerSecond")
             
             ])
         

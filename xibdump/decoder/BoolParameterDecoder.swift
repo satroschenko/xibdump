@@ -87,8 +87,13 @@ class BoolParameterDecoder: DefaultParameterDecoder {
             BoolParameterDecoder(parameterName: "ibWantsMultisampling", tagName: "wantsMultisampling"),
             BoolParameterDecoder(parameterName: "autoenablesDefaultLighting", tagName: "autoenablesDefaultLighting"),
             BoolParameterDecoder(parameterName: "playing", tagName: "playing"),
-            BoolParameterDecoder(parameterName: "loops", tagName: "loops")
+            BoolParameterDecoder(parameterName: "loops", tagName: "loops"),
             
+            BoolParameterDecoder(parameterName: "_paused", tagName: "paused"),
+            BoolParameterDecoder(parameterName: "_asynchronous", tagName: "asynchronous"),
+            BoolParameterDecoder(parameterName: "_allowsTransparency", tagName: "allowsTransparency"),
+            BoolParameterDecoder(parameterName: "_ignoresSiblingOrder", tagName: "ignoresSiblingOrder"),
+            BoolParameterDecoder(parameterName: "_shouldCullNonVisibleNodes", tagName: "shouldCullNonVisibleNodes")            
         ]
     }
     
