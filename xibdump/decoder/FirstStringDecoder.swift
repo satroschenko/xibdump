@@ -18,7 +18,8 @@ class FirstStringDecoder: DefaultParameterDecoder {
             FirstStringDecoder(parameterName: "UIClassName", tagName: "customClass"),
             FirstStringDecoder(parameterName: "UITitle", tagName: "title"),
             FirstStringDecoder(parameterName: "UISegmentInfo", tagName: "title"),
-            FirstStringDecoder(parameterName: "UIPlaceholder", tagName: "placeholder")
+            FirstStringDecoder(parameterName: "UIPlaceholder", tagName: "placeholder"),
+            FirstStringDecoder(parameterName: "ibSceneName", tagName: "sceneName")
         ]
     }
     

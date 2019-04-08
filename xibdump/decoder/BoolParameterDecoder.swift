@@ -81,7 +81,13 @@ class BoolParameterDecoder: DefaultParameterDecoder {
             BoolParameterDecoder(parameterName: "MTKViewEnableSetNeedsDisplayCoderKey", tagName: "enableSetNeedsDisplay"),
             BoolParameterDecoder(parameterName: "MTKViewPausedCoderKey", tagName: "paused"),
             BoolParameterDecoder(parameterName: "MTKViewAutoResizeDrawableCoderKey", tagName: "autoResizeDrawable"),
-            BoolParameterDecoder(parameterName: "GLKViewEnableSetNeedsDisplayCoderKey", tagName: "enableSetNeedsDisplay")
+            BoolParameterDecoder(parameterName: "GLKViewEnableSetNeedsDisplayCoderKey", tagName: "enableSetNeedsDisplay"),
+            BoolParameterDecoder(parameterName: "allowsCameraControl", tagName: "allowsCameraControl"),
+            BoolParameterDecoder(parameterName: "jitteringEnabled", tagName: "jitteringEnabled"),
+            BoolParameterDecoder(parameterName: "ibWantsMultisampling", tagName: "wantsMultisampling"),
+            BoolParameterDecoder(parameterName: "autoenablesDefaultLighting", tagName: "autoenablesDefaultLighting"),
+            BoolParameterDecoder(parameterName: "playing", tagName: "playing"),
+            BoolParameterDecoder(parameterName: "loops", tagName: "loops")
             
         ]
     }
