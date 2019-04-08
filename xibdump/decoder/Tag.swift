@@ -92,7 +92,7 @@ class Tag: NSObject {
 extension String {
     
     func xmlParameterName() -> String {
-        if self.hasPrefix("UI") || self.hasPrefix("NS") {
+        if self.hasPrefix("UI") || self.hasPrefix("NS") || self.hasPrefix("MK") {
             let res = String(self.dropFirst(2))
             if res.count > 0 {
                 return res.lowercasingFirstLetter()

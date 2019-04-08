@@ -67,7 +67,17 @@ class BoolParameterDecoder: DefaultParameterDecoder {
             BoolParameterDecoder(parameterName: "UICanCancelContentTouches", tagName: "canCancelContentTouches"),
             BoolParameterDecoder(parameterName: "UIScrollDisabled", tagName: "scrollEnabled", inverse: true),
             BoolParameterDecoder(parameterName: "UIDatePickerUseCurrentDateDuringDecoding", tagName: "useCurrentDate"),
-            BoolParameterDecoder(parameterName: "UIViewInsetsLayoutMarginsFromSafeArea", tagName: "insetsLayoutMarginsFromSafeArea")
+            BoolParameterDecoder(parameterName: "UIViewInsetsLayoutMarginsFromSafeArea", tagName: "insetsLayoutMarginsFromSafeArea"),
+            BoolParameterDecoder(parameterName: "MKZoomEnabled", tagName: "zoomEnabled"),
+            BoolParameterDecoder(parameterName: "MKScrollEnabled", tagName: "scrollEnabled"),
+            BoolParameterDecoder(parameterName: "MKRotateEnabled", tagName: "rotateEnabled"),
+            BoolParameterDecoder(parameterName: "MKShowsBuildings", tagName: "showsBuildings"),
+            BoolParameterDecoder(parameterName: "MKShowsCompass", tagName: "showsCompass"),
+            BoolParameterDecoder(parameterName: "MKShowsScaleKey", tagName: "showsScale"),
+            BoolParameterDecoder(parameterName: "MKShowsTraffic", tagName: "showsTraffic"),
+            BoolParameterDecoder(parameterName: "MKShowsPointsOfInterest", tagName: "showsPointsOfInterest"),
+            BoolParameterDecoder(parameterName: "MKShowsUserLocation", tagName: "showsUserLocation"),
+            BoolParameterDecoder(parameterName: "MKPitchEnabled", tagName: "pitchEnabled")
             
         ]
     }

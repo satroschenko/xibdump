@@ -113,7 +113,11 @@ class ListParameterDecoder: DefaultParameterDecoder {
             
             ListParameterDecoder(parameterName: "UIDatePickerMode",
                                  tagName: "datePickerMode",
-                                 values: ["time", "date", "dateAndTime", "countDownTimer"])
+                                 values: ["time", "date", "dateAndTime", "countDownTimer"]),
+            
+            ListParameterDecoder(parameterName: "MKMapType",
+                                 tagName: "mapType",
+                                 values: ["standard", "satellite", "hybrid", "satelliteFlyover", "hybridFlyover", "mutedStandard"])
         ]
     }
     

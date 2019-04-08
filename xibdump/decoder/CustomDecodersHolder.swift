@@ -35,7 +35,8 @@ class CustomDecodersHolder: NSObject {
     static let uiClassNamesList: [String] = [
         "UIView", "UIWindow", "UILabel", "UIImageView", "UIProgressView", "UIActivityIndicatorView",
         "UIPickerView", "UISwitch", "UISlider", "UIButton", "UISegmentedControl", "UIPageControl",
-        "UIStepper", "UIStackView", "UITextView", "UIScrollView", "UIDatePicker", "UIVisualEffectView"
+        "UIStepper", "UIStackView", "UITextView", "UIScrollView", "UIDatePicker", "UIVisualEffectView",
+        "MKMapView"
                             ]
     
     fileprivate func registerDecoders() {
