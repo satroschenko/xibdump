@@ -36,7 +36,7 @@ class CustomDecodersHolder: NSObject {
         "UIView", "UIWindow", "UILabel", "UIImageView", "UIProgressView", "UIActivityIndicatorView",
         "UIPickerView", "UISwitch", "UISlider", "UIButton", "UISegmentedControl", "UIPageControl",
         "UIStepper", "UIStackView", "UITextView", "UIScrollView", "UIDatePicker", "UIVisualEffectView",
-        "MKMapView", "UIWebView", "UINavigationBar"
+        "MKMapView", "UIWebView", "UINavigationBar", "UIToolbar"
     ]
     
     fileprivate func registerDecoders() {
@@ -55,6 +55,7 @@ class CustomDecodersHolder: NSObject {
                                              tagName: "segment",
                                              needAddId: false))
         self.register(decoder: MTKViewDecoder())
+        self.register(decoder: UIBarButtonItemDecoder())
         self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey", objectClassName: "GLKView", tagName: "glkView"))
         self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey", objectClassName: "SCNView", tagName: "sceneKitView"))
         self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey", objectClassName: "ARSCNView", tagName: "arscnView"))
@@ -79,7 +80,6 @@ class CustomDecodersHolder: NSObject {
                                              objectClassName: "NSMutableArray",
                                              tagName: "items",
                                              needAddId: false))
-        self.register(decoder: UINavigationItemDecoder())
         
         self.register(decoder: PointDecoder(parameterName: "UIViewContentHuggingPriority",
                                             firstName: "horizontalHuggingPriority",
@@ -99,6 +99,7 @@ class CustomDecodersHolder: NSObject {
         self.register(decoders: VisualEffectDecoder.allDecoders())
         self.register(decoders: SKViewDecoder.allDecoders())
         self.register(decoders: UITextAttributesDecoder.allDecoders())
+        self.register(decoders: UINavigationItemDecoder.allDecoders())
         
         self.register(decoder: UIBoundsDecoder())
         self.register(decoder: UIRectDecoder())

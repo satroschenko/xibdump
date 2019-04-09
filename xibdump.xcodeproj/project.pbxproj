@@ -57,6 +57,7 @@
 		20A04A26225CB21D00A07996 /* UITextAttributesDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A04A25225CB21D00A07996 /* UITextAttributesDecoder.swift */; };
 		20A04A28225CB8AC00A07996 /* UINavigationItemDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A04A27225CB8AC00A07996 /* UINavigationItemDecoder.swift */; };
 		20A04A2A225CCAA300A07996 /* MTKViewDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A04A29225CCAA300A07996 /* MTKViewDecoder.swift */; };
+		20A04A2C225CD8C500A07996 /* UIBarButtonItemDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A04A2B225CD8C500A07996 /* UIBarButtonItemDecoder.swift */; };
 		20AC7A39224B879400BF5968 /* PrintCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AC7A38224B879400BF5968 /* PrintCommand.swift */; };
 		20FC70792248E4650003D171 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FC70782248E4650003D171 /* main.swift */; };
 		20FC70802248E51D0003D171 /* XibID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FC707F2248E51D0003D171 /* XibID.swift */; };
@@ -134,6 +135,7 @@
 		20A04A25225CB21D00A07996 /* UITextAttributesDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextAttributesDecoder.swift; sourceTree = "<group>"; };
 		20A04A27225CB8AC00A07996 /* UINavigationItemDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationItemDecoder.swift; sourceTree = "<group>"; };
 		20A04A29225CCAA300A07996 /* MTKViewDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTKViewDecoder.swift; sourceTree = "<group>"; };
+		20A04A2B225CD8C500A07996 /* UIBarButtonItemDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBarButtonItemDecoder.swift; sourceTree = "<group>"; };
 		20AC7A38224B879400BF5968 /* PrintCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintCommand.swift; sourceTree = "<group>"; };
 		20FC70752248E4650003D171 /* xibdump */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = xibdump; sourceTree = BUILT_PRODUCTS_DIR; };
 		20FC70782248E4650003D171 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 				20A04A25225CB21D00A07996 /* UITextAttributesDecoder.swift */,
 				20A04A27225CB8AC00A07996 /* UINavigationItemDecoder.swift */,
 				20A04A29225CCAA300A07996 /* MTKViewDecoder.swift */,
+				20A04A2B225CD8C500A07996 /* UIBarButtonItemDecoder.swift */,
 			);
 			path = decoder;
 			sourceTree = "<group>";
@@ -433,6 +436,7 @@
 				204D1910224E5AAB009AAB8A /* NewTagDecoder.swift in Sources */,
 				20FC70822248E5760003D171 /* XibClass.swift in Sources */,
 				203167562254D40900B82FD7 /* AccessibilitiesDecoder.swift in Sources */,
+				20A04A2C225CD8C500A07996 /* UIBarButtonItemDecoder.swift in Sources */,
 				204D191622520B6C009AAB8A /* DefaultParameterDecoder.swift in Sources */,
 				20A04A20225B641400A07996 /* DataColorDecoder.swift in Sources */,
 				204D1912225200D6009AAB8A /* ProxyObjectDecoder.swift in Sources */,

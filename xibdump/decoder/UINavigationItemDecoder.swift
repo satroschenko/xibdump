@@ -8,11 +8,20 @@
 import Cocoa
 
 class UINavigationItemDecoder: NewTagDecoder {
-
-    init() {
-        super.init(parameterName: "UINibEncoderEmptyKey", objectClassName: "UINavigationItem", tagName: "navigationItem", needAddId: true, mapper: nil, keyParameter: nil)
-    }
     
+    static func allDecoders() -> [CustomTagDecoderProtocol] {
+        
+        return [
+            UINavigationItemDecoder(parameterName: "UINibEncoderEmptyKey",
+                                    objectClassName: "UINavigationItem",
+                                    tagName: "navigationItem",
+                                    needAddId: true,
+                                    mapper: nil,
+                                    keyParameter: nil)
+        ]
+    }
+
+
     
     override func parse(parentObject: XibObject, parameter: XibParameterProtocol, context: ParserContext) -> TagDecoderResult {
         let result = super.parse(parentObject: parentObject, parameter: parameter, context: context)
@@ -30,13 +39,13 @@ class UINavigationItemDecoder: NewTagDecoder {
                 
                 for obj in leftItemsObject.getSubObjects(parameterName: "UINibEncoderEmptyKey", objectClass: "UIBarButtonItem", context: context) {
                     
-                    let itemTag = extractItemTag(parentObject: parentObject, object: obj, context: context, key: nil)
+                    let itemTag = UINavigationItemDecoder.extractItemTag(parentObject: parentObject, object: obj, context: context, key: nil)
                     itemsTag.add(tag: itemTag)
                 }
                 
             } else if let leftItemObject = object.findObjectParameter(name: "UILeftBarButtonItem", objectClass: "UIBarButtonItem", context: context) {
             
-                let itemTag = extractItemTag(parentObject: parentObject, object: leftItemObject, context: context, key: "leftBarButtonItem")
+                let itemTag = UINavigationItemDecoder.extractItemTag(parentObject: parentObject, object: leftItemObject, context: context, key: "leftBarButtonItem")
                 tag.add(tag: itemTag)
             }
             
@@ -48,24 +57,23 @@ class UINavigationItemDecoder: NewTagDecoder {
                 
                 for obj in fightItemsObject.getSubObjects(parameterName: "UINibEncoderEmptyKey", objectClass: "UIBarButtonItem", context: context) {
                     
-                    let itemTag = extractItemTag(parentObject: parentObject, object: obj, context: context, key: nil)
+                    let itemTag = UINavigationItemDecoder.extractItemTag(parentObject: parentObject, object: obj, context: context, key: nil)
                     itemsTag.add(tag: itemTag)
                 }
                 
             } else if let rightItemObject = object.findObjectParameter(name: "UIRightBarButtonItem", objectClass: "UIBarButtonItem", context: context) {
                 
-                let itemTag = extractItemTag(parentObject: parentObject, object: rightItemObject, context: context, key: "rightBarButtonItem")
+                let itemTag = UINavigationItemDecoder.extractItemTag(parentObject: parentObject, object: rightItemObject, context: context, key: "rightBarButtonItem")
                 tag.add(tag: itemTag)
             }
             
             if let backItemObject = object.findObjectParameter(name: "UIBackBarButtonItem", objectClass: "UIBarButtonItem", context: context) {
                 
-                let itemTag = extractItemTag(parentObject: parentObject, object: backItemObject, context: context, key: "backBarButtonItem")
+                let itemTag = UINavigationItemDecoder.extractItemTag(parentObject: parentObject, object: backItemObject, context: context, key: "backBarButtonItem")
                 tag.add(tag: itemTag)
             }
             
-            
-            return .tag(tag, true)
+            return .tag(tag, false)
             
         }
         
@@ -73,7 +81,7 @@ class UINavigationItemDecoder: NewTagDecoder {
     }
     
     
-    fileprivate func extractItemTag(parentObject: XibObject, object: XibObject, context: ParserContext, key: String?) -> Tag {
+    static func extractItemTag(parentObject: XibObject, object: XibObject, context: ParserContext, key: String?) -> Tag {
         
         let tag = Tag(name: "barButtonItem")
         tag.addParameter(name: "id", value: object.objectId)
@@ -125,7 +133,7 @@ class UINavigationItemDecoder: NewTagDecoder {
         return tag
     }
     
-    fileprivate func extractImage(object: XibObject, name: String, objectClass: String, parameterName: String, context: ParserContext, tag: Tag) {
+    static func extractImage(object: XibObject, name: String, objectClass: String, parameterName: String, context: ParserContext, tag: Tag) {
         
         if let image = object.findObjectParameter(name: name, objectClass: objectClass, context: context) {
             
@@ -136,7 +144,7 @@ class UINavigationItemDecoder: NewTagDecoder {
         }
     }
     
-    fileprivate func extractBool(object: XibObject, name: String, parameter: String, context: ParserContext, tag: Tag) {
+    static func extractBool(object: XibObject, name: String, parameter: String, context: ParserContext, tag: Tag) {
         if let isTag = object.findBoolParameter(name: name, context: context) {
             tag.addParameter(name: parameter, value: isTag ? "YES" : "NO")
         }
