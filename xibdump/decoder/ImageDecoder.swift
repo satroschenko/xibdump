@@ -19,7 +19,10 @@ class ImageDecoder: NSObject, CustomTagDecoderProtocol {
             ImageDecoder(parameterName: "UIBackgroundImage"),
             ImageDecoder(parameterName: "UISegmentInfo", key: "image"),
             ImageDecoder(parameterName: "UITextFieldBackground", key: "background"),
-            ImageDecoder(parameterName: "UITextFieldDisabledBackground", key: "disabledBackground")
+            ImageDecoder(parameterName: "UITextFieldDisabledBackground", key: "disabledBackground"),
+            ImageDecoder(parameterName: "UIShadowImage"),
+            ImageDecoder(parameterName: "UIBackIndicatorImage"),
+            ImageDecoder(parameterName: "UIBackIndicatorTransitionMask")
         ]
     }
     
@@ -47,14 +50,14 @@ class ImageDecoder: NSObject, CustomTagDecoderProtocol {
             return .empty(false)
         }
         
-        addImageToResourseSection(name: value, context: context)
+        ImageDecoder.addImageToResourseSection(name: value, context: context)
         
         let param = TagParameter(name: key ?? parameter.name.xmlParameterName(), value: value)
         return .parameters([param], false)
     }
     
     
-    fileprivate func addImageToResourseSection(name: String, context: ParserContext) {
+    static func addImageToResourseSection(name: String, context: ParserContext) {
         context.addImageResource(name: name)
     }
 }

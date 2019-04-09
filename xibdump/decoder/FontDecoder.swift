@@ -10,7 +10,10 @@ import Cocoa
 class FontDecoder: NSObject, CustomTagDecoderProtocol {
 
     func handledClassNames() -> [String] {
-        return ["T.UIFont-UIFont"]
+        return [
+            "T.UIFont-UIFont",
+            "T.UINibEncoderEmptyKey-UIFont"
+        ]
     }
     
     func parse(parentObject: XibObject, parameter: XibParameterProtocol, context: ParserContext) -> TagDecoderResult {

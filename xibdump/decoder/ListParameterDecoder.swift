@@ -133,7 +133,19 @@ class ListParameterDecoder: DefaultParameterDecoder {
             
             ListParameterDecoder(parameterName: "GLKViewDrawableMultisampleCoderKey",
                                  tagName: "drawableMultisample",
-                                 values: ["none", "4X"]),            
+                                 values: ["none", "4X"]),
+            
+            ListParameterDecoder(parameterName: "UIBarStyle",
+                                 tagName: "barStyle",
+                                 values: ["default", "black", "blackTranslucent"]),
+            
+            ListParameterDecoder(parameterName: "UIBarTranslucence",
+                                 tagName: "translucent",
+                                 values: ["NO", "YES", "NO"]),
+            
+            ListParameterDecoder(parameterName: "UILargeTitleDisplayMode",
+                                 tagName: "largeTitleDisplayMode",
+                                 values: ["automatic", "always", "never"])
         ]
     }
     

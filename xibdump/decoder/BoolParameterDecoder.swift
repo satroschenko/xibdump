@@ -98,7 +98,9 @@ class BoolParameterDecoder: DefaultParameterDecoder {
             BoolParameterDecoder(parameterName: "UIScalesPageToFit", tagName: "scalesPageToFit"),
             BoolParameterDecoder(parameterName: "allowsLinkPreview", tagName: "allowsLinkPreview"),
             BoolParameterDecoder(parameterName: "allowsBackForwardNavigationGestures", tagName: "allowsBackForwardNavigationGestures"),
-            BoolParameterDecoder(parameterName: "suppressesIncrementalRendering", tagName: "suppressesIncrementalRendering")
+            BoolParameterDecoder(parameterName: "suppressesIncrementalRendering", tagName: "suppressesIncrementalRendering"),
+            BoolParameterDecoder(parameterName: "UIBarPrefersLargeTitles", tagName: "largeTitles"),
+            BoolParameterDecoder(parameterName: "UILeftItemsSupplementBackButton", tagName: "leftItemsSupplementBackButton")
         ]
     }
     

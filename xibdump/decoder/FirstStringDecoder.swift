@@ -20,7 +20,8 @@ class FirstStringDecoder: DefaultParameterDecoder {
             FirstStringDecoder(parameterName: "UISegmentInfo", tagName: "title"),
             FirstStringDecoder(parameterName: "UIPlaceholder", tagName: "placeholder"),
             FirstStringDecoder(parameterName: "ibSceneName", tagName: "sceneName"),
-            FirstStringDecoder(parameterName: "customUserAgent", tagName: "customUserAgent")
+            FirstStringDecoder(parameterName: "customUserAgent", tagName: "customUserAgent"),
+            FirstStringDecoder(parameterName: "UIPrompt", tagName: "prompt")
         ]
     }
     

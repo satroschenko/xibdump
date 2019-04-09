@@ -54,6 +54,9 @@
 		20A04A20225B641400A07996 /* DataColorDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A04A1F225B641400A07996 /* DataColorDecoder.swift */; };
 		20A04A22225B6D1A00A07996 /* SKViewDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A04A21225B6D1A00A07996 /* SKViewDecoder.swift */; };
 		20A04A24225B763B00A07996 /* WebViewConfigurationDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A04A23225B763B00A07996 /* WebViewConfigurationDecoder.swift */; };
+		20A04A26225CB21D00A07996 /* UITextAttributesDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A04A25225CB21D00A07996 /* UITextAttributesDecoder.swift */; };
+		20A04A28225CB8AC00A07996 /* UINavigationItemDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A04A27225CB8AC00A07996 /* UINavigationItemDecoder.swift */; };
+		20A04A2A225CCAA300A07996 /* MTKViewDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A04A29225CCAA300A07996 /* MTKViewDecoder.swift */; };
 		20AC7A39224B879400BF5968 /* PrintCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AC7A38224B879400BF5968 /* PrintCommand.swift */; };
 		20FC70792248E4650003D171 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FC70782248E4650003D171 /* main.swift */; };
 		20FC70802248E51D0003D171 /* XibID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FC707F2248E51D0003D171 /* XibID.swift */; };
@@ -128,6 +131,9 @@
 		20A04A1F225B641400A07996 /* DataColorDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataColorDecoder.swift; sourceTree = "<group>"; };
 		20A04A21225B6D1A00A07996 /* SKViewDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKViewDecoder.swift; sourceTree = "<group>"; };
 		20A04A23225B763B00A07996 /* WebViewConfigurationDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewConfigurationDecoder.swift; sourceTree = "<group>"; };
+		20A04A25225CB21D00A07996 /* UITextAttributesDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextAttributesDecoder.swift; sourceTree = "<group>"; };
+		20A04A27225CB8AC00A07996 /* UINavigationItemDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationItemDecoder.swift; sourceTree = "<group>"; };
+		20A04A29225CCAA300A07996 /* MTKViewDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTKViewDecoder.swift; sourceTree = "<group>"; };
 		20AC7A38224B879400BF5968 /* PrintCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintCommand.swift; sourceTree = "<group>"; };
 		20FC70752248E4650003D171 /* xibdump */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = xibdump; sourceTree = BUILT_PRODUCTS_DIR; };
 		20FC70782248E4650003D171 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -252,6 +258,9 @@
 				20A04A1F225B641400A07996 /* DataColorDecoder.swift */,
 				20A04A21225B6D1A00A07996 /* SKViewDecoder.swift */,
 				20A04A23225B763B00A07996 /* WebViewConfigurationDecoder.swift */,
+				20A04A25225CB21D00A07996 /* UITextAttributesDecoder.swift */,
+				20A04A27225CB8AC00A07996 /* UINavigationItemDecoder.swift */,
+				20A04A29225CCAA300A07996 /* MTKViewDecoder.swift */,
 			);
 			path = decoder;
 			sourceTree = "<group>";
@@ -417,6 +426,7 @@
 				204D18EA224E0BDE009AAB8A /* XibDoubleParameter.swift in Sources */,
 				20A04A1C225B585D00A07996 /* VisualEffectStyleDecoder.swift in Sources */,
 				204D190E224E53A1009AAB8A /* CustomDecodersHolder.swift in Sources */,
+				20A04A2A225CCAA300A07996 /* MTKViewDecoder.swift in Sources */,
 				204D190C224E3C8A009AAB8A /* XibParentTag.swift in Sources */,
 				204D1901224E2D37009AAB8A /* Tag.swift in Sources */,
 				203167582254F83500B82FD7 /* ConstraintsDecoder.swift in Sources */,
@@ -433,6 +443,7 @@
 				20FC70802248E51D0003D171 /* XibID.swift in Sources */,
 				204D18FA224E24D2009AAB8A /* XibScanner.swift in Sources */,
 				2031676322561B1D00B82FD7 /* SizeTagDecoder.swift in Sources */,
+				20A04A26225CB21D00A07996 /* UITextAttributesDecoder.swift in Sources */,
 				2031675422539EFB00B82FD7 /* RuntimeAttributesDecoder.swift in Sources */,
 				204D18F4224E11BA009AAB8A /* XibUIBoundsParameter.swift in Sources */,
 				2031675A2255D3C600B82FD7 /* ConstraintsVariationsDecoder.swift in Sources */,
@@ -449,6 +460,7 @@
 				2031676B2257564D00B82FD7 /* StateDecoder.swift in Sources */,
 				203167612256177400B82FD7 /* PointDecoder.swift in Sources */,
 				204D18E8224E0BB8009AAB8A /* XibFloatParameter.swift in Sources */,
+				20A04A28225CB8AC00A07996 /* UINavigationItemDecoder.swift in Sources */,
 				2021C564224B6EC600AAEC72 /* Version.swift in Sources */,
 				20FC70902248E83F0003D171 /* XibLogger.swift in Sources */,
 				204D18F8224E1A86009AAB8A /* RestoreCommand.swift in Sources */,

@@ -27,7 +27,8 @@ class UIColorDecoder: NewTagDecoder {
             UIColorDecoder(parameterName: "UIThumbTintColor"),
             UIColorDecoder(parameterName: "UITitleColor"),
             UIColorDecoder(parameterName: "UICurrentPageIndicatorTintColor"),
-            UIColorDecoder(parameterName: "UIPageIndicatorTintColor")
+            UIColorDecoder(parameterName: "UIPageIndicatorTintColor"),
+            UIColorDecoder(parameterName: "UIBarTintColor")
         ]
     }
     

@@ -36,7 +36,7 @@ class CustomDecodersHolder: NSObject {
         "UIView", "UIWindow", "UILabel", "UIImageView", "UIProgressView", "UIActivityIndicatorView",
         "UIPickerView", "UISwitch", "UISlider", "UIButton", "UISegmentedControl", "UIPageControl",
         "UIStepper", "UIStackView", "UITextView", "UIScrollView", "UIDatePicker", "UIVisualEffectView",
-        "MKMapView", "UIWebView"
+        "MKMapView", "UIWebView", "UINavigationBar"
     ]
     
     fileprivate func registerDecoders() {
@@ -54,7 +54,7 @@ class CustomDecodersHolder: NSObject {
                                              objectClassName: "UISegment",
                                              tagName: "segment",
                                              needAddId: false))
-        self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey", objectClassName: "MTKView", tagName: "mtkView"))
+        self.register(decoder: MTKViewDecoder())
         self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey", objectClassName: "GLKView", tagName: "glkView"))
         self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey", objectClassName: "SCNView", tagName: "sceneKitView"))
         self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey", objectClassName: "ARSCNView", tagName: "arscnView"))
@@ -70,6 +70,17 @@ class CustomDecodersHolder: NSObject {
                                              tagName: "subviews",
                                              needAddId: false,
                                              mapper: ["UISegmentedControl": "segments"]))
+        
+        self.register(decoder: NewTagDecoder(parameterName: "UIItems",
+                                             objectClassName: "NSArray",
+                                             tagName: "items",
+                                             needAddId: false))
+        self.register(decoder: NewTagDecoder(parameterName: "UIItems",
+                                             objectClassName: "NSMutableArray",
+                                             tagName: "items",
+                                             needAddId: false))
+        self.register(decoder: UINavigationItemDecoder())
+        
         self.register(decoder: PointDecoder(parameterName: "UIViewContentHuggingPriority",
                                             firstName: "horizontalHuggingPriority",
                                             secondName: "verticalHuggingPriority"))
@@ -87,6 +98,7 @@ class CustomDecodersHolder: NSObject {
         self.register(decoders: DateDecoder.allDecoders())
         self.register(decoders: VisualEffectDecoder.allDecoders())
         self.register(decoders: SKViewDecoder.allDecoders())
+        self.register(decoders: UITextAttributesDecoder.allDecoders())
         
         self.register(decoder: UIBoundsDecoder())
         self.register(decoder: UIRectDecoder())
