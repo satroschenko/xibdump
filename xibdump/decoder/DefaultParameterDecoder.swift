@@ -45,7 +45,9 @@ class DefaultParameterDecoder: NSObject, CustomTagDecoderProtocol {
             DefaultParameterDecoder(parameterName: "MTKViewSampleCountCoderKey", tagName: "sampleCount"),
             DefaultParameterDecoder(parameterName: "MTKViewPreferredFramesPerSecondCoderKey", tagName: "preferredFramesPerSecond"),
             DefaultParameterDecoder(parameterName: "ibPreferredRenderingAPI", tagName: "preferredRenderingAPI"),
-            DefaultParameterDecoder(parameterName: "_preferredFramesPerSecond", tagName: "preferredFramesPerSecond")
+            DefaultParameterDecoder(parameterName: "_preferredFramesPerSecond", tagName: "preferredFramesPerSecond"),
+            DefaultParameterDecoder(parameterName: "UITabBarItemWidth", tagName: "itemWidth"),
+            DefaultParameterDecoder(parameterName: "UITabBarItemSpacing", tagName: "itemSpacing")
             
             ])
         

@@ -36,7 +36,7 @@ class CustomDecodersHolder: NSObject {
         "UIView", "UIWindow", "UILabel", "UIImageView", "UIProgressView", "UIActivityIndicatorView",
         "UIPickerView", "UISwitch", "UISlider", "UIButton", "UISegmentedControl", "UIPageControl",
         "UIStepper", "UIStackView", "UITextView", "UIScrollView", "UIDatePicker", "UIVisualEffectView",
-        "MKMapView", "UIWebView", "UINavigationBar", "UIToolbar"
+        "MKMapView", "UIWebView", "UINavigationBar", "UIToolbar", "UITabBar"
     ]
     
     fileprivate func registerDecoders() {
@@ -56,6 +56,7 @@ class CustomDecodersHolder: NSObject {
                                              needAddId: false))
         self.register(decoder: MTKViewDecoder())
         self.register(decoder: UIBarButtonItemDecoder())
+        self.register(decoder: UITabbarItemDecoder())
         self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey", objectClassName: "GLKView", tagName: "glkView"))
         self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey", objectClassName: "SCNView", tagName: "sceneKitView"))
         self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey", objectClassName: "ARSCNView", tagName: "arscnView"))
@@ -100,6 +101,7 @@ class CustomDecodersHolder: NSObject {
         self.register(decoders: SKViewDecoder.allDecoders())
         self.register(decoders: UITextAttributesDecoder.allDecoders())
         self.register(decoders: UINavigationItemDecoder.allDecoders())
+        self.register(decoders: PointTagDecoder.allDecoders())
         
         self.register(decoder: UIBoundsDecoder())
         self.register(decoder: UIRectDecoder())

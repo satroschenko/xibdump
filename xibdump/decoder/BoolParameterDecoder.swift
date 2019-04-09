@@ -100,7 +100,9 @@ class BoolParameterDecoder: DefaultParameterDecoder {
             BoolParameterDecoder(parameterName: "allowsBackForwardNavigationGestures", tagName: "allowsBackForwardNavigationGestures"),
             BoolParameterDecoder(parameterName: "suppressesIncrementalRendering", tagName: "suppressesIncrementalRendering"),
             BoolParameterDecoder(parameterName: "UIBarPrefersLargeTitles", tagName: "largeTitles"),
-            BoolParameterDecoder(parameterName: "UILeftItemsSupplementBackButton", tagName: "leftItemsSupplementBackButton")
+            BoolParameterDecoder(parameterName: "UILeftItemsSupplementBackButton", tagName: "leftItemsSupplementBackButton"),
+            BoolParameterDecoder(parameterName: "UIEnabled", tagName: "enabled"),
+            BoolParameterDecoder(parameterName: "UISpringLoaded", tagName: "springLoaded")
         ]
     }
     

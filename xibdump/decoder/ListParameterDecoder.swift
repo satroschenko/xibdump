@@ -145,7 +145,16 @@ class ListParameterDecoder: DefaultParameterDecoder {
             
             ListParameterDecoder(parameterName: "UILargeTitleDisplayMode",
                                  tagName: "largeTitleDisplayMode",
-                                 values: ["automatic", "always", "never"])
+                                 values: ["automatic", "always", "never"]),
+            
+            ListParameterDecoder(parameterName: "UITabBarItemPositioning",
+                                 tagName: "itemPositioning",
+                                 values: ["automatic", "fill", "centered"]),
+            
+            ListParameterDecoder(parameterName: "UISystemItem",
+                                 tagName: "systemItem",
+                                 values: ["more", "favorites", "featured", "topRated", "recents", "contacts", "history",
+                                          "bookmarks", "search", "downloads", "mostRecent", "mostViewed"])
         ]
     }
     

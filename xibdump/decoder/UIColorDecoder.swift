@@ -14,7 +14,7 @@ class UIColorDecoder: NewTagDecoder {
         
         return [
             UIColorDecoder(parameterName: "UIBackgroundColor"),
-            UIColorDecoder(parameterName: "UITintColor"),
+            UIColorDecoder(parameterName: "UITintColor", key: "tintColor", mapper: ["UITabBar": "selectedImageTintColor"]),
             UIColorDecoder(parameterName: "UITextColor"),
             UIColorDecoder(parameterName: "UIHighlightedColor"),
             UIColorDecoder(parameterName: "UIShadowColor", key: "shadowColor", mapper: ["UIButtonContent": "titleShadowColor"]),
@@ -28,7 +28,8 @@ class UIColorDecoder: NewTagDecoder {
             UIColorDecoder(parameterName: "UITitleColor"),
             UIColorDecoder(parameterName: "UICurrentPageIndicatorTintColor"),
             UIColorDecoder(parameterName: "UIPageIndicatorTintColor"),
-            UIColorDecoder(parameterName: "UIBarTintColor")
+            UIColorDecoder(parameterName: "UIBarTintColor"),
+            UIColorDecoder(parameterName: "UIBadgeColor")
         ]
     }
     
