@@ -1,5 +1,5 @@
 //
-//  UITextFieldDecoder.swift
+//  UITextInputTraitsDecoder.swift
 //  xibdump
 //
 //  Created by Sergey Atroschenko on 4/5/19.
@@ -7,14 +7,15 @@
 
 import Cocoa
 
-class UITextFieldDecoder: NewTagDecoder {
+class UITextInputTraitsDecoder: NewTagDecoder {
     
     
     static func allDecoders() -> [CustomTagDecoderProtocol] {
         
         return [
-            UITextFieldDecoder(parameterName: "UINibEncoderEmptyKey", objectClassName: "UITextField", tagName: "textField"),
-            UITextFieldDecoder(parameterName: "UINibEncoderEmptyKey", objectClassName: "UITextView", tagName: "textView"),
+            UITextInputTraitsDecoder(parameterName: "UINibEncoderEmptyKey", objectClassName: "UITextField", tagName: "textField"),
+            UITextInputTraitsDecoder(parameterName: "UINibEncoderEmptyKey", objectClassName: "UITextView", tagName: "textView"),
+            UITextInputTraitsDecoder(parameterName: "UINibEncoderEmptyKey", objectClassName: "UISearchBar", tagName: "searchBar"),
             DataDetectorTypesDecoder()
         ]
     }

@@ -202,6 +202,8 @@ extension Tag {
         for child in allChildren() {
             node.addChild(child.getNode())
         }
+        
+        node.value = value
 
         return node
     }

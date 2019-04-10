@@ -102,7 +102,14 @@ class BoolParameterDecoder: DefaultParameterDecoder {
             BoolParameterDecoder(parameterName: "UIBarPrefersLargeTitles", tagName: "largeTitles"),
             BoolParameterDecoder(parameterName: "UILeftItemsSupplementBackButton", tagName: "leftItemsSupplementBackButton"),
             BoolParameterDecoder(parameterName: "UIEnabled", tagName: "enabled"),
-            BoolParameterDecoder(parameterName: "UISpringLoaded", tagName: "springLoaded")
+            BoolParameterDecoder(parameterName: "UISpringLoaded", tagName: "springLoaded"),
+            BoolParameterDecoder(parameterName: "UISearchBarTranslucence", tagName: "translucent"),
+            BoolParameterDecoder(parameterName: "UIShowSearchResultsButton", tagName: "showsSearchResultsButton"),
+            BoolParameterDecoder(parameterName: "UIShowsBookmarkButton", tagName: "showsBookmarkButton"),
+            BoolParameterDecoder(parameterName: "UIShowsCancelButton", tagName: "showsCancelButton"),
+            BoolParameterDecoder(parameterName: "UIShowsScopeBar", tagName: "showsScopeBar")
+            
+            
         ]
     }
     

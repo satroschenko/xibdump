@@ -19,6 +19,24 @@ class PointTagDecoder: NewTagDecoder {
                             mapper: nil,
                             keyParameter: "titlePositionAdjustment",
                             firstName: "horizontal",
+                            secondName: "vertical"),
+            
+            PointTagDecoder(parameterName: "UISearchTextPositionAdjustment",
+                            objectClassName: "NSString",
+                            tagName: "offsetWrapper",
+                            needAddId: false,
+                            mapper: nil,
+                            keyParameter: "searchTextPositionAdjustment",
+                            firstName: "horizontal",
+                            secondName: "vertical"),
+            
+            PointTagDecoder(parameterName: "UISearchFieldBackgroundPositionAdjustment",
+                            objectClassName: "NSString",
+                            tagName: "offsetWrapper",
+                            needAddId: false,
+                            mapper: nil,
+                            keyParameter: "searchFieldBackgroundPositionAdjustment",
+                            firstName: "horizontal",
                             secondName: "vertical")
         ]
     }

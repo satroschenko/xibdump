@@ -45,7 +45,7 @@
 		204D191A22521B27009AAB8A /* UIBoundsDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D191922521B27009AAB8A /* UIBoundsDecoder.swift */; };
 		204D191C22521D6B009AAB8A /* UIColorDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D191B22521D6B009AAB8A /* UIColorDecoder.swift */; };
 		204D191E2252233E009AAB8A /* BoolParameterDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D191D2252233E009AAB8A /* BoolParameterDecoder.swift */; };
-		20A04A1022577BC800A07996 /* UITextFieldDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A04A0F22577BC800A07996 /* UITextFieldDecoder.swift */; };
+		20A04A1022577BC800A07996 /* UITextInputTraitsDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A04A0F22577BC800A07996 /* UITextInputTraitsDecoder.swift */; };
 		20A04A14225B355500A07996 /* DataDetectorTypesDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A04A13225B355500A07996 /* DataDetectorTypesDecoder.swift */; };
 		20A04A16225B41F300A07996 /* NSLocaleDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A04A15225B41F300A07996 /* NSLocaleDecoder.swift */; };
 		20A04A18225B43AF00A07996 /* DateDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A04A17225B43AF00A07996 /* DateDecoder.swift */; };
@@ -60,6 +60,7 @@
 		20A04A2C225CD8C500A07996 /* UIBarButtonItemDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A04A2B225CD8C500A07996 /* UIBarButtonItemDecoder.swift */; };
 		20A04A2E225CE03C00A07996 /* UITabbarItemDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A04A2D225CE03C00A07996 /* UITabbarItemDecoder.swift */; };
 		20A04A30225CE71D00A07996 /* PointTagDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A04A2F225CE71D00A07996 /* PointTagDecoder.swift */; };
+		20A04A32225DE2C200A07996 /* StringArrayDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A04A31225DE2C200A07996 /* StringArrayDecoder.swift */; };
 		20AC7A39224B879400BF5968 /* PrintCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AC7A38224B879400BF5968 /* PrintCommand.swift */; };
 		20FC70792248E4650003D171 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FC70782248E4650003D171 /* main.swift */; };
 		20FC70802248E51D0003D171 /* XibID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FC707F2248E51D0003D171 /* XibID.swift */; };
@@ -125,7 +126,7 @@
 		204D191922521B27009AAB8A /* UIBoundsDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBoundsDecoder.swift; sourceTree = "<group>"; };
 		204D191B22521D6B009AAB8A /* UIColorDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorDecoder.swift; sourceTree = "<group>"; };
 		204D191D2252233E009AAB8A /* BoolParameterDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolParameterDecoder.swift; sourceTree = "<group>"; };
-		20A04A0F22577BC800A07996 /* UITextFieldDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldDecoder.swift; sourceTree = "<group>"; };
+		20A04A0F22577BC800A07996 /* UITextInputTraitsDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextInputTraitsDecoder.swift; sourceTree = "<group>"; };
 		20A04A13225B355500A07996 /* DataDetectorTypesDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDetectorTypesDecoder.swift; sourceTree = "<group>"; };
 		20A04A15225B41F300A07996 /* NSLocaleDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLocaleDecoder.swift; sourceTree = "<group>"; };
 		20A04A17225B43AF00A07996 /* DateDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateDecoder.swift; sourceTree = "<group>"; };
@@ -140,6 +141,7 @@
 		20A04A2B225CD8C500A07996 /* UIBarButtonItemDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBarButtonItemDecoder.swift; sourceTree = "<group>"; };
 		20A04A2D225CE03C00A07996 /* UITabbarItemDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabbarItemDecoder.swift; sourceTree = "<group>"; };
 		20A04A2F225CE71D00A07996 /* PointTagDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointTagDecoder.swift; sourceTree = "<group>"; };
+		20A04A31225DE2C200A07996 /* StringArrayDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringArrayDecoder.swift; sourceTree = "<group>"; };
 		20AC7A38224B879400BF5968 /* PrintCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintCommand.swift; sourceTree = "<group>"; };
 		20FC70752248E4650003D171 /* xibdump */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = xibdump; sourceTree = BUILT_PRODUCTS_DIR; };
 		20FC70782248E4650003D171 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -254,7 +256,7 @@
 				203167642256208500B82FD7 /* FontDecoder.swift */,
 				203167682257403600B82FD7 /* ImageDecoder.swift */,
 				2031676A2257564D00B82FD7 /* StateDecoder.swift */,
-				20A04A0F22577BC800A07996 /* UITextFieldDecoder.swift */,
+				20A04A0F22577BC800A07996 /* UITextInputTraitsDecoder.swift */,
 				20A04A13225B355500A07996 /* DataDetectorTypesDecoder.swift */,
 				2031675322539EFB00B82FD7 /* RuntimeAttributesDecoder.swift */,
 				20A04A15225B41F300A07996 /* NSLocaleDecoder.swift */,
@@ -270,6 +272,7 @@
 				20A04A2B225CD8C500A07996 /* UIBarButtonItemDecoder.swift */,
 				20A04A2D225CE03C00A07996 /* UITabbarItemDecoder.swift */,
 				20A04A2F225CE71D00A07996 /* PointTagDecoder.swift */,
+				20A04A31225DE2C200A07996 /* StringArrayDecoder.swift */,
 			);
 			path = decoder;
 			sourceTree = "<group>";
@@ -465,7 +468,7 @@
 				20A04A14225B355500A07996 /* DataDetectorTypesDecoder.swift in Sources */,
 				20FC708A2248E6990003D171 /* XibConstants.swift in Sources */,
 				20FC70882248E65F0003D171 /* DataStream.swift in Sources */,
-				20A04A1022577BC800A07996 /* UITextFieldDecoder.swift in Sources */,
+				20A04A1022577BC800A07996 /* UITextInputTraitsDecoder.swift in Sources */,
 				203167692257403600B82FD7 /* ImageDecoder.swift in Sources */,
 				204D191822521766009AAB8A /* ListParameterDecoder.swift in Sources */,
 				204D18EE224E0C61009AAB8A /* XibNullParameter.swift in Sources */,
@@ -475,6 +478,7 @@
 				20A04A28225CB8AC00A07996 /* UINavigationItemDecoder.swift in Sources */,
 				2021C564224B6EC600AAEC72 /* Version.swift in Sources */,
 				20FC70902248E83F0003D171 /* XibLogger.swift in Sources */,
+				20A04A32225DE2C200A07996 /* StringArrayDecoder.swift in Sources */,
 				204D18F8224E1A86009AAB8A /* RestoreCommand.swift in Sources */,
 				20A04A1E225B5B4200A07996 /* VisualEffectSubviewDecoder.swift in Sources */,
 				204D18E6224D17DC009AAB8A /* XibIntParameter.swift in Sources */,

@@ -139,6 +139,10 @@ class ListParameterDecoder: DefaultParameterDecoder {
                                  tagName: "barStyle",
                                  values: ["default", "black", "blackTranslucent"]),
             
+            ListParameterDecoder(parameterName: "UISearchBarStyle",
+                                 tagName: "searchBarStyle",
+                                 values: ["default", "prominent", "minimal"]),
+            
             ListParameterDecoder(parameterName: "UIBarTranslucence",
                                  tagName: "translucent",
                                  values: ["NO", "YES", "NO"]),

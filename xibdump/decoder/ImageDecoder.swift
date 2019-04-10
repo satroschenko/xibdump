@@ -26,7 +26,9 @@ class ImageDecoder: NSObject, CustomTagDecoderProtocol {
             ImageDecoder(parameterName: "UISelectionIndicatorImage"),
             ImageDecoder(parameterName: "_UIBarItemLargeContentSizeImageCodingKey", key: "largeContentSizeImage"),
             ImageDecoder(parameterName: "UISelectedTemplateImage", key: "selectedImage"),
-            ImageDecoder(parameterName: "UIImageLandscape", key: "landscapeImage")
+            ImageDecoder(parameterName: "UIImageLandscape", key: "landscapeImage"),
+            ImageDecoder(parameterName: "UIScopeBarBackgroundImage"),
+            
         ]
     }
     

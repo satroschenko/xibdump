@@ -12,6 +12,7 @@ class Tag: NSObject {
     let name: String
     var parent: Tag?
     var innerObjectId: String = ""
+    var value: String?
     
     private var children = [Tag]()
     private var params = [TagParameter]()
