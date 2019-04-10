@@ -111,8 +111,8 @@ class BoolParameterDecoder: DefaultParameterDecoder {
             BoolParameterDecoder(parameterName: "UIAllowsMultipleSelection", tagName: "allowsMultipleSelection"),
             BoolParameterDecoder(parameterName: "UIAllowsSelection", tagName: "allowsSelection"),
             BoolParameterDecoder(parameterName: "UIAllowsSelectionDuringEditing", tagName: "allowsSelectionDuringEditing"),
-            BoolParameterDecoder(parameterName: "UIAllowsMultipleSelectionDuringEditing", tagName: "allowsMultipleSelectionDuringEditing")
-            
+            BoolParameterDecoder(parameterName: "UIAllowsMultipleSelectionDuringEditing", tagName: "allowsMultipleSelectionDuringEditing"),
+            BoolParameterDecoder(parameterName: "UIShowsReorderControl", tagName: "showsReorderControl")            
             
         ]
     }

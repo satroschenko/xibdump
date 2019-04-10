@@ -52,6 +52,7 @@ class ListParameterDecoder: DefaultParameterDecoder {
         "forceRightToLeft"
     ]
     
+    // swiftlint:disable all
     static func all() -> [DefaultParameterDecoder] {
         
         return [
@@ -166,9 +167,31 @@ class ListParameterDecoder: DefaultParameterDecoder {
             
             ListParameterDecoder(parameterName: "UISeparatorStyle",
                                  tagName: "style",
-                                 values: ["none", "", "singleLineEtched"])
+                                 values: ["none", "", "singleLineEtched"]),
+            
+            ListParameterDecoder(parameterName: "UITableViewCellStyle",
+                                 tagName: "style",
+                                 values: ["IBUITableViewCellStyleDefault", "IBUITableViewCellStyleValue1",
+                                          "IBUITableViewCellStyleValue2", "IBUITableViewCellStyleSubtitle"]),
+            
+            ListParameterDecoder(parameterName: "UISelectionStyle",
+                                 tagName: "selectionStyle",
+                                 values: ["none", "blue", "gray"]),
+            
+            ListParameterDecoder(parameterName: "UIAccessoryType",
+                                 tagName: "accessoryType",
+                                 values: ["", "disclosureIndicator", "detailDisclosureButton", "checkmark", "detailButton"]),
+            
+            ListParameterDecoder(parameterName: "UIEditingAccessoryType",
+                                 tagName: "editingAccessoryType",
+                                 values: ["", "disclosureIndicator", "detailDisclosureButton", "checkmark", "detailButton"]),
+            
+            ListParameterDecoder(parameterName: "UIFocusStyle",
+                                 tagName: "focusStyle",
+                                 values: ["", "custom"])
         ]
     }
+    // swiftlint:enable all
     
     
     init(parameterName: String, tagName: String, values: [String]) {

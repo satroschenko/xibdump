@@ -22,7 +22,8 @@ class FirstStringDecoder: DefaultParameterDecoder {
             FirstStringDecoder(parameterName: "ibSceneName", tagName: "sceneName"),
             FirstStringDecoder(parameterName: "customUserAgent", tagName: "customUserAgent"),
             FirstStringDecoder(parameterName: "UIPrompt", tagName: "prompt"),
-            FirstStringDecoder(parameterName: "UIBadgeValue", tagName: "badgeValue")
+            FirstStringDecoder(parameterName: "UIBadgeValue", tagName: "badgeValue"),
+            FirstStringDecoder(parameterName: "UIReuseIdentifier", tagName: "reuseIdentifier"),
         ]
     }
     

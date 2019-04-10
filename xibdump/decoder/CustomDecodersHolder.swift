@@ -36,7 +36,7 @@ class CustomDecodersHolder: NSObject {
         "UIView", "UIWindow", "UILabel", "UIImageView", "UIProgressView", "UIActivityIndicatorView",
         "UIPickerView", "UISwitch", "UISlider", "UIButton", "UISegmentedControl", "UIPageControl",
         "UIStepper", "UIStackView", "UITextView", "UIScrollView", "UIDatePicker", "UIVisualEffectView",
-        "MKMapView", "UIWebView", "UINavigationBar", "UIToolbar", "UITabBar", "UITableView"
+        "MKMapView", "UIWebView", "UINavigationBar", "UIToolbar", "UITabBar", "UITableView", "UITableViewCell"
     ]
     
     fileprivate func registerDecoders() {
@@ -54,6 +54,20 @@ class CustomDecodersHolder: NSObject {
                                              objectClassName: "UISegment",
                                              tagName: "segment",
                                              needAddId: false))
+        
+        self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey",
+                                             objectClassName: "UITableViewCellContentView",
+                                             tagName: "tableViewCellContentView",
+                                             needAddId: true,
+                                             mapper: nil,
+                                             keyParameter: "contentView"))
+        
+        self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey",
+                                             objectClassName: "UITableViewLabel",
+                                             tagName: "label"))
+        
+        
+        
         self.register(decoder: MTKViewDecoder())
         self.register(decoder: UIBarButtonItemDecoder())
         self.register(decoder: UITabbarItemDecoder())
@@ -71,7 +85,7 @@ class CustomDecodersHolder: NSObject {
                                              objectClassName: "NSMutableArray",
                                              tagName: "subviews",
                                              needAddId: false,
-                                             mapper: ["UISegmentedControl": "segments"]))
+                                             mapper: ["UISegmentedControl": "segments", "UITableViewCell": ""]))
         
         self.register(decoder: NewTagDecoder(parameterName: "UIItems",
                                              objectClassName: "NSArray",

@@ -59,6 +59,10 @@ class NewTagDecoder: NSObject, CustomTagDecoderProtocol {
             }
         }
         
+        if finalTagName.isEmpty {
+            return .empty(true)
+        }
+        
         let newTag = Tag(name: finalTagName)
         if self.needAddId {
             newTag.add(parameter: TagParameter(name: "id", value: object.objectId))
