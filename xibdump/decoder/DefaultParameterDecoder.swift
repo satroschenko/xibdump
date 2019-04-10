@@ -47,7 +47,15 @@ class DefaultParameterDecoder: NSObject, CustomTagDecoderProtocol {
             DefaultParameterDecoder(parameterName: "ibPreferredRenderingAPI", tagName: "preferredRenderingAPI"),
             DefaultParameterDecoder(parameterName: "_preferredFramesPerSecond", tagName: "preferredFramesPerSecond"),
             DefaultParameterDecoder(parameterName: "UITabBarItemWidth", tagName: "itemWidth"),
-            DefaultParameterDecoder(parameterName: "UITabBarItemSpacing", tagName: "itemSpacing")
+            DefaultParameterDecoder(parameterName: "UITabBarItemSpacing", tagName: "itemSpacing"),
+            DefaultParameterDecoder(parameterName: "UISectionIndexMinimumDisplayRowCount", tagName: "sectionIndexMinimumDisplayRowCount"),
+            DefaultParameterDecoder(parameterName: "UIEstimatedRowHeight", tagName: "estimatedRowHeight"),
+            DefaultParameterDecoder(parameterName: "UIInsetsContentViewsToSafeArea", tagName: "contentViewInsetsToSafeArea"),
+            DefaultParameterDecoder(parameterName: "UIRowHeight", tagName: "rowHeight"),
+            DefaultParameterDecoder(parameterName: "UISectionHeaderHeight", tagName: "sectionHeaderHeight"),
+            DefaultParameterDecoder(parameterName: "UIEstimatedSectionHeaderHeight", tagName: "estimatedSectionHeaderHeight"),
+            DefaultParameterDecoder(parameterName: "UISectionFooterHeight", tagName: "sectionFooterHeight"),
+            DefaultParameterDecoder(parameterName: "UIEstimatedSectionFooterHeight", tagName: "estimatedSectionFooterHeight")
             
             ])
         

@@ -36,7 +36,7 @@ class CustomDecodersHolder: NSObject {
         "UIView", "UIWindow", "UILabel", "UIImageView", "UIProgressView", "UIActivityIndicatorView",
         "UIPickerView", "UISwitch", "UISlider", "UIButton", "UISegmentedControl", "UIPageControl",
         "UIStepper", "UIStackView", "UITextView", "UIScrollView", "UIDatePicker", "UIVisualEffectView",
-        "MKMapView", "UIWebView", "UINavigationBar", "UIToolbar", "UITabBar"
+        "MKMapView", "UIWebView", "UINavigationBar", "UIToolbar", "UITabBar", "UITableView"
     ]
     
     fileprivate func registerDecoders() {
@@ -103,9 +103,10 @@ class CustomDecodersHolder: NSObject {
         self.register(decoders: UINavigationItemDecoder.allDecoders())
         self.register(decoders: PointTagDecoder.allDecoders())
         self.register(decoders: StringArrayDecoder.allDecoders())
+        self.register(decoders: UIRectDecoder.allDecoders())
         
         self.register(decoder: UIBoundsDecoder())
-        self.register(decoder: UIRectDecoder())
+        
         self.register(decoder: MarginDecoder())
         self.register(decoder: StateDecoder())
         self.register(decoder: AutoresizingMaskParameterDecoder())

@@ -7,14 +7,57 @@
 
 import Cocoa
 
-class UIRectDecoder: NSObject, CustomTagDecoderProtocol {
+class UIRectDecoder: NewTagDecoder {
     
-    
-    func handledClassNames() -> [String] {
-        return ["T.UIContentStretch-"]
+    static func allDecoders() -> [CustomTagDecoderProtocol] {
+        
+        return [
+            UIRectDecoder(parameterName: "UIContentStretch",
+                          objectClassName: "",
+                          tagName: "rect",
+                          needAddId: false,
+                          mapper: nil,
+                          keyParameter: nil),
+            
+            UIRectDecoder(parameterName: "UISeparatorInset",
+                          objectClassName: "",
+                          tagName: "inset",
+                          needAddId: false,
+                          mapper: nil,
+                          keyParameter: "separatorInset",
+                          xParam: "minY",
+                          yParam: "minX",
+                          widthParam: "maxY",
+                          heightParam: "maxX")
+        ]
     }
     
-    func parse(parentObject: XibObject, parameter: XibParameterProtocol, context: ParserContext) -> TagDecoderResult {
+    
+    let xParam: String
+    let yParam: String
+    let widthParam: String
+    let heightParam: String
+    
+    init(parameterName: String,
+         objectClassName: String,
+         tagName: String,
+         needAddId: Bool = true,
+         mapper: [String: String]? = nil,
+         keyParameter: String? = nil,
+         xParam: String = "x",
+         yParam: String = "y",
+         widthParam: String = "width",
+         heightParam: String = "height") {
+        
+        self.xParam = xParam
+        self.yParam = yParam
+        self.widthParam = widthParam
+        self.heightParam = heightParam
+        super.init(parameterName: parameterName, objectClassName: objectClassName, tagName: tagName, needAddId: needAddId, mapper: mapper, keyParameter: keyParameter)
+    }
+    
+    
+    override func parse(parentObject: XibObject, parameter: XibParameterProtocol, context: ParserContext) -> TagDecoderResult {
         
         guard let dataParameter = parameter as? XibDataParameter else {
             return .empty(false)
@@ -30,13 +73,13 @@ class UIRectDecoder: NSObject, CustomTagDecoderProtocol {
             let heigth = try stream.readDouble()
             
             
-            let tag = Tag(name: "rect")
-            tag.addParameter(name: "key", value: parameter.name.xmlParameterName())
+            let tag = Tag(name: tagName)
+            tag.addParameter(name: "key", value: keyParameter ?? parameter.name.xmlParameterName())
             
-            tag.addParameter(name: "x", value: "\(xCoord)")
-            tag.addParameter(name: "y", value: "\(yCoord)")
-            tag.addParameter(name: "width", value: "\(width)")
-            tag.addParameter(name: "height", value: "\(heigth)")
+            tag.addParameter(name: xParam, value: "\(xCoord)")
+            tag.addParameter(name: yParam, value: "\(yCoord)")
+            tag.addParameter(name: widthParam, value: "\(width)")
+            tag.addParameter(name: heightParam, value: "\(heigth)")
             
             return .tag(tag, false)
             

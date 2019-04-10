@@ -29,7 +29,11 @@ class UIColorDecoder: NewTagDecoder {
             UIColorDecoder(parameterName: "UICurrentPageIndicatorTintColor"),
             UIColorDecoder(parameterName: "UIPageIndicatorTintColor"),
             UIColorDecoder(parameterName: "UIBarTintColor"),
-            UIColorDecoder(parameterName: "UIBadgeColor")
+            UIColorDecoder(parameterName: "UIBadgeColor"),
+            UIColorDecoder(parameterName: "UISeparatorColor"),            
+            UIColorDecoder(parameterName: "UISectionIndexBackgroundColor"),
+            UIColorDecoder(parameterName: "UISectionIndexTrackingBackgroundColor"),
+            UIColorDecoder(parameterName: "UISectionIndexColor")
         ]
     }
     
@@ -82,10 +86,12 @@ class UIColorDecoder: NewTagDecoder {
         newTag.addParameter(name: "key", value: finalKey )
         
         
-        if let systemColorName = object.findStringParameter(name: "UISystemColorName", context: context) {
+        if let systemColorName = object.findStringParameter(name: "UISystemColorName", context: context), systemColorName != "tableBackgroundColor" {
+            // tableBackgroundColor - default string for UITableView, but it crashes xCode.
             newTag.addParameter(name: "cocoaTouchSystemColor", value: systemColorName)
-            
-        } else if let colorSpaceIndex = object.findIntParameter(name: "NSColorSpace", context: context) {
+
+        } else
+            if let colorSpaceIndex = object.findIntParameter(name: "NSColorSpace", context: context) {
             
             if colorSpaceIndex == 2 { // Generic sRGB.
                 if let redValue = object.findFloatParameter(name: "UIRed", context: context) {

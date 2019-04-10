@@ -158,7 +158,15 @@ class ListParameterDecoder: DefaultParameterDecoder {
             ListParameterDecoder(parameterName: "UISystemItem",
                                  tagName: "systemItem",
                                  values: ["more", "favorites", "featured", "topRated", "recents", "contacts", "history",
-                                          "bookmarks", "search", "downloads", "mostRecent", "mostViewed"])
+                                          "bookmarks", "search", "downloads", "mostRecent", "mostViewed"]),
+            
+            ListParameterDecoder(parameterName: "UIStyle",
+                                 tagName: "style",
+                                 values: ["plain", "grouped"]),
+            
+            ListParameterDecoder(parameterName: "UISeparatorStyle",
+                                 tagName: "style",
+                                 values: ["none", "", "singleLineEtched"])
         ]
     }
     
@@ -177,8 +185,11 @@ class ListParameterDecoder: DefaultParameterDecoder {
         
         let number = intParameter.value
         
-        let value = self.values[safe: number] ?? values.first!
-        let tagParameter = TagParameter(name: tagName, value: value)
-        return .parameters([tagParameter], false)
+        if let value = self.values[safe: number], !value.isEmpty {
+            let tagParameter = TagParameter(name: tagName, value: value)
+            return .parameters([tagParameter], false)
+        }
+        
+        return .empty(false)
     }
 }

@@ -107,7 +107,11 @@ class BoolParameterDecoder: DefaultParameterDecoder {
             BoolParameterDecoder(parameterName: "UIShowSearchResultsButton", tagName: "showsSearchResultsButton"),
             BoolParameterDecoder(parameterName: "UIShowsBookmarkButton", tagName: "showsBookmarkButton"),
             BoolParameterDecoder(parameterName: "UIShowsCancelButton", tagName: "showsCancelButton"),
-            BoolParameterDecoder(parameterName: "UIShowsScopeBar", tagName: "showsScopeBar")
+            BoolParameterDecoder(parameterName: "UIShowsScopeBar", tagName: "showsScopeBar"),
+            BoolParameterDecoder(parameterName: "UIAllowsMultipleSelection", tagName: "allowsMultipleSelection"),
+            BoolParameterDecoder(parameterName: "UIAllowsSelection", tagName: "allowsSelection"),
+            BoolParameterDecoder(parameterName: "UIAllowsSelectionDuringEditing", tagName: "allowsSelectionDuringEditing"),
+            BoolParameterDecoder(parameterName: "UIAllowsMultipleSelectionDuringEditing", tagName: "allowsMultipleSelectionDuringEditing")
             
             
         ]
