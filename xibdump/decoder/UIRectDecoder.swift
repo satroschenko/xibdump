@@ -28,6 +28,28 @@ class UIRectDecoder: NewTagDecoder {
                           xParam: "minY",
                           yParam: "minX",
                           widthParam: "maxY",
+                          heightParam: "maxX"),
+            
+            UIRectDecoder(parameterName: "UIScrollIndicatorInsets",
+                          objectClassName: "",
+                          tagName: "inset",
+                          needAddId: false,
+                          mapper: nil,
+                          keyParameter: "scrollIndicatorInsets",
+                          xParam: "minY",
+                          yParam: "minX",
+                          widthParam: "maxY",
+                          heightParam: "maxX"),
+            
+            UIRectDecoder(parameterName: "UISectionInset",
+                          objectClassName: "",
+                          tagName: "inset",
+                          needAddId: false,
+                          mapper: nil,
+                          keyParameter: "sectionInset",
+                          xParam: "minY",
+                          yParam: "minX",
+                          widthParam: "maxY",
                           heightParam: "maxX")
         ]
     }

@@ -15,7 +15,10 @@ class SizeTagDecoder: NewTagDecoder {
             SizeTagDecoder(parameterName: "UITitleShadowOffset", objectClassName: "", tagName: "size", needAddId: false, mapper: nil, keyParameter: nil),
             SizeTagDecoder(parameterName: "UIShadowOffset", objectClassName: "", tagName: "size", needAddId: false, mapper: nil, keyParameter: nil),
             SizeTagDecoder(parameterName: "UISegmentContentOffset", objectClassName: "", tagName: "size", needAddId: false, mapper: nil, keyParameter: "contentOffset"),
-            SizeTagDecoder(parameterName: "UISegmentContentOffset", objectClassName: "", tagName: "size", needAddId: false, mapper: nil, keyParameter: "contentOffset")
+            SizeTagDecoder(parameterName: "UISegmentContentOffset", objectClassName: "", tagName: "size", needAddId: false, mapper: nil, keyParameter: "contentOffset"),
+            SizeTagDecoder(parameterName: "UIItemSize", objectClassName: "", tagName: "size", needAddId: false, mapper: nil, keyParameter: "itemSize"),
+            SizeTagDecoder(parameterName: "UIHeaderReferenceSize", objectClassName: "", tagName: "size", needAddId: false, mapper: nil, keyParameter: "headerReferenceSize"),
+            SizeTagDecoder(parameterName: "UIFooterReferenceSize", objectClassName: "", tagName: "size", needAddId: false, mapper: nil, keyParameter: "footerReferenceSize")
         ]
     }
     

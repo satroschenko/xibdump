@@ -36,7 +36,8 @@ class CustomDecodersHolder: NSObject {
         "UIView", "UIWindow", "UILabel", "UIImageView", "UIProgressView", "UIActivityIndicatorView",
         "UIPickerView", "UISwitch", "UISlider", "UIButton", "UISegmentedControl", "UIPageControl",
         "UIStepper", "UIStackView", "UITextView", "UIScrollView", "UIDatePicker", "UIVisualEffectView",
-        "MKMapView", "UIWebView", "UINavigationBar", "UIToolbar", "UITabBar", "UITableView", "UITableViewCell"
+        "MKMapView", "UIWebView", "UINavigationBar", "UIToolbar", "UITabBar", "UITableView", "UITableViewCell",
+        "UICollectionView", "UICollectionViewCell", "UICollectionReusableView"
     ]
     
     fileprivate func registerDecoders() {
@@ -66,6 +67,19 @@ class CustomDecodersHolder: NSObject {
                                              objectClassName: "UITableViewLabel",
                                              tagName: "label"))
         
+        self.register(decoder: NewTagDecoder(parameterName: "UICollectionLayout",
+                                             objectClassName: "UICollectionViewFlowLayout",
+                                             tagName: "collectionViewFlowLayout",
+                                             needAddId: true,
+                                             mapper: nil,
+                                             keyParameter: "collectionViewLayout"))
+        
+        self.register(decoder: NewTagDecoder(parameterName: "UICollectionLayout",
+                                             objectClassName: "UICollectionViewLayout",
+                                             tagName: "collectionViewLayout",
+                                             needAddId: true,
+                                             mapper: nil,
+                                             keyParameter: "collectionViewLayout"))
         
         
         self.register(decoder: MTKViewDecoder())
@@ -85,7 +99,7 @@ class CustomDecodersHolder: NSObject {
                                              objectClassName: "NSMutableArray",
                                              tagName: "subviews",
                                              needAddId: false,
-                                             mapper: ["UISegmentedControl": "segments", "UITableViewCell": ""]))
+                                             mapper: ["UISegmentedControl": "segments", "UITableViewCell": "", "UICollectionViewCell": ""]))
         
         self.register(decoder: NewTagDecoder(parameterName: "UIItems",
                                              objectClassName: "NSArray",

@@ -57,7 +57,9 @@ class DefaultParameterDecoder: NSObject, CustomTagDecoderProtocol {
             DefaultParameterDecoder(parameterName: "UISectionFooterHeight", tagName: "sectionFooterHeight"),
             DefaultParameterDecoder(parameterName: "UIEstimatedSectionFooterHeight", tagName: "estimatedSectionFooterHeight"),
             DefaultParameterDecoder(parameterName: "UIIndentationLevel", tagName: "indentationLevel"),
-            DefaultParameterDecoder(parameterName: "UIIndentationWidth", tagName: "indentationWidth")
+            DefaultParameterDecoder(parameterName: "UIIndentationWidth", tagName: "indentationWidth"),
+            DefaultParameterDecoder(parameterName: "UILineSpacing", tagName: "minimumLineSpacing"),
+            DefaultParameterDecoder(parameterName: "UIInteritemSpacing", tagName: "minimumInteritemSpacing")
             
             ])
         

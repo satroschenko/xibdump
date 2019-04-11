@@ -188,7 +188,15 @@ class ListParameterDecoder: DefaultParameterDecoder {
             
             ListParameterDecoder(parameterName: "UIFocusStyle",
                                  tagName: "focusStyle",
-                                 values: ["", "custom"])
+                                 values: ["", "custom"]),
+            
+            ListParameterDecoder(parameterName: "UIScrollViewContentInsetAdjustmentBehavior",
+                                 tagName: "contentInsetAdjustmentBehavior",
+                                 values: ["", "scrollableAxes", "never", "always"]),
+            
+            ListParameterDecoder(parameterName: "UISectionInsetReference",
+                                 tagName: "sectionInsetReference",
+                                 values: ["", "safeArea", "layoutMargins"])
         ]
     }
     // swiftlint:enable all

@@ -112,7 +112,8 @@ class BoolParameterDecoder: DefaultParameterDecoder {
             BoolParameterDecoder(parameterName: "UIAllowsSelection", tagName: "allowsSelection"),
             BoolParameterDecoder(parameterName: "UIAllowsSelectionDuringEditing", tagName: "allowsSelectionDuringEditing"),
             BoolParameterDecoder(parameterName: "UIAllowsMultipleSelectionDuringEditing", tagName: "allowsMultipleSelectionDuringEditing"),
-            BoolParameterDecoder(parameterName: "UIShowsReorderControl", tagName: "showsReorderControl")            
+            BoolParameterDecoder(parameterName: "UIShowsReorderControl", tagName: "showsReorderControl"),
+            BoolParameterDecoder(parameterName: "UICollectionViewPrefetchingEnabled", tagName: "prefetchingEnabled")
             
         ]
     }
