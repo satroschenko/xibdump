@@ -62,6 +62,7 @@
 		20A04A30225CE71D00A07996 /* PointTagDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A04A2F225CE71D00A07996 /* PointTagDecoder.swift */; };
 		20A04A32225DE2C200A07996 /* StringArrayDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A04A31225DE2C200A07996 /* StringArrayDecoder.swift */; };
 		20AC7A39224B879400BF5968 /* PrintCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AC7A38224B879400BF5968 /* PrintCommand.swift */; };
+		20F71B28225F523F00D18AD8 /* AttributedTextDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F71B27225F523F00D18AD8 /* AttributedTextDecoder.swift */; };
 		20FC70792248E4650003D171 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FC70782248E4650003D171 /* main.swift */; };
 		20FC70802248E51D0003D171 /* XibID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FC707F2248E51D0003D171 /* XibID.swift */; };
 		20FC70822248E5760003D171 /* XibClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FC70812248E5760003D171 /* XibClass.swift */; };
@@ -143,6 +144,7 @@
 		20A04A2F225CE71D00A07996 /* PointTagDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointTagDecoder.swift; sourceTree = "<group>"; };
 		20A04A31225DE2C200A07996 /* StringArrayDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringArrayDecoder.swift; sourceTree = "<group>"; };
 		20AC7A38224B879400BF5968 /* PrintCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintCommand.swift; sourceTree = "<group>"; };
+		20F71B27225F523F00D18AD8 /* AttributedTextDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedTextDecoder.swift; sourceTree = "<group>"; };
 		20FC70752248E4650003D171 /* xibdump */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = xibdump; sourceTree = BUILT_PRODUCTS_DIR; };
 		20FC70782248E4650003D171 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		20FC707F2248E51D0003D171 /* XibID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibID.swift; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 				20A04A2D225CE03C00A07996 /* UITabbarItemDecoder.swift */,
 				20A04A2F225CE71D00A07996 /* PointTagDecoder.swift */,
 				20A04A31225DE2C200A07996 /* StringArrayDecoder.swift */,
+				20F71B27225F523F00D18AD8 /* AttributedTextDecoder.swift */,
 			);
 			path = decoder;
 			sourceTree = "<group>";
@@ -481,6 +484,7 @@
 				20A04A32225DE2C200A07996 /* StringArrayDecoder.swift in Sources */,
 				204D18F8224E1A86009AAB8A /* RestoreCommand.swift in Sources */,
 				20A04A1E225B5B4200A07996 /* VisualEffectSubviewDecoder.swift in Sources */,
+				20F71B28225F523F00D18AD8 /* AttributedTextDecoder.swift in Sources */,
 				204D18E6224D17DC009AAB8A /* XibIntParameter.swift in Sources */,
 				20A04A24225B763B00A07996 /* WebViewConfigurationDecoder.swift in Sources */,
 				20A04A18225B43AF00A07996 /* DateDecoder.swift in Sources */,

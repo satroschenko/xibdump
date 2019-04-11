@@ -81,6 +81,14 @@ class CustomDecodersHolder: NSObject {
                                              mapper: nil,
                                              keyParameter: "collectionViewLayout"))
         
+        self.register(decoder: NewTagDecoder(parameterName: "UIAttributedText",
+                                             objectClassName: "NSMutableAttributedString",
+                                             tagName: "attributedString",
+                                             needAddId: false,
+                                             mapper: nil,
+                                             keyParameter: "attributedText"))
+
+        
         
         self.register(decoder: MTKViewDecoder())
         self.register(decoder: UIBarButtonItemDecoder())
@@ -132,6 +140,7 @@ class CustomDecodersHolder: NSObject {
         self.register(decoders: PointTagDecoder.allDecoders())
         self.register(decoders: StringArrayDecoder.allDecoders())
         self.register(decoders: UIRectDecoder.allDecoders())
+        self.register(decoders: AttributedTextDecoder.allDecoders())
         
         self.register(decoder: UIBoundsDecoder())
         

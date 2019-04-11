@@ -22,8 +22,16 @@ class FontDecoder: NSObject, CustomTagDecoderProtocol {
             return .empty(false)
         }
         
-        let tag = Tag(name: "fontDescription")
-        tag.addParameter(name: "key", value: "fontDescription")
+        let tag = FontDecoder.extractFontTag(object: object, tagName: "fontDescription", key: "fontDescription", context: context)
+        
+        return .tag(tag, false)
+    }
+    
+    
+    static func extractFontTag(object: XibObject, tagName: String, key: String, context: ParserContext) -> Tag {
+        
+        let tag = Tag(name: tagName)
+        tag.addParameter(name: "key", value: key)
         
         var styleFound = false
         
@@ -42,6 +50,6 @@ class FontDecoder: NSObject, CustomTagDecoderProtocol {
             }
         }
         
-        return .tag(tag, false)
+        return tag
     }
 }

@@ -49,6 +49,10 @@ class XibDecoder: NSObject {
             }
         }
         
+        flatArray.filter({$0.name == "attributedString"}).compactMap({$0.parent}).forEach { (tag) in
+            tag.addParameter(name: "usesAttributedText", value: "YES")
+        }
+        
         if !context.imageResources.isEmpty {
             let resourcesTag = Tag(name: "resources")
             resourcesTag.add(tags: context.imageResources)

@@ -55,6 +55,24 @@ class Tag: NSObject {
         return children
     }
     
+    func copyTag() -> Tag {
+        
+        let copy = Tag(name: name)
+        copy.parent = parent
+        copy.innerObjectId = innerObjectId
+        copy.value = value
+        
+        for child in allChildren() {
+            copy.add(tag: child.copyTag())
+        }
+        
+        for parameter in allParameters() {
+            copy.addParameter(name: parameter.name, value: parameter.value)
+        }
+        
+        return copy
+    }
+    
     
     // For testing only. Need to remove later.
     func printTag(tabCount: Int) {
