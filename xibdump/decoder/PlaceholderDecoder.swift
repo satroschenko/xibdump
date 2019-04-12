@@ -34,11 +34,13 @@ class PlaceholderDecoder: NewTagDecoder {
         if name == "IBFilesOwner" {
             tag.addParameter(name: "id", value: "-1")
             tag.addParameter(name: "userLabel", value: "File's Owner")
-        }
         
-        if name == "IBFirstResponder" {
+        } else if name == "IBFirstResponder" {
             tag.addParameter(name: "id", value: "-2")
             tag.addParameter(name: "userLabel", value: "First Responder")
+        
+        } else {
+            tag.addParameter(name: "id", value: object.objectId)
         }
         
         tag.innerObjectId = object.objectId
