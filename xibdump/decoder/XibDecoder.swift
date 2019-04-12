@@ -117,6 +117,8 @@ class XibDecoder: NSObject {
                 nextTag = tag
                 cont = needContinue
                 
+                context.addTag(tag: tag)
+                
             case .parameters(let parameters, let needContinue):
                 parentTag.add(parameters: parameters)
                 cont = needContinue
@@ -127,6 +129,10 @@ class XibDecoder: NSObject {
             case .tags(let tags):
                 parentTag.add(tags: tags)
                 cont = false
+                
+                for tag in tags {
+                    context.addTag(tag: tag)
+                }
                 
             }
             

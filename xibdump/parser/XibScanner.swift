@@ -17,6 +17,8 @@ class ParserContext: NSObject {
     var variations: [String: [Tag]] = [String: [Tag]]()
     var imageResources: [Tag] = [Tag]()
     
+    fileprivate var allTags: [String: Tag] = [String: Tag]()
+    
     fileprivate var addedImageNames: [String] = [String]()
     
     init(xibFile: XibFile) {
@@ -33,6 +35,7 @@ class ParserContext: NSObject {
         variations.removeAll()
         
         addedImageNames.removeAll()
+        allTags.removeAll()
     }
     
     func addImageResource(name: String) {
@@ -47,6 +50,21 @@ class ParserContext: NSObject {
             tag.addParameter(name: "height", value: "16")
             
             imageResources.append(tag)
+        }
+    }
+    
+    func findTag(objectId: String) -> Tag? {
+        
+        if let constraint = constrains[objectId] {
+            return constraint
+        }
+        
+        return allTags[objectId]
+    }
+    
+    func addTag(tag: Tag) {
+        if !tag.innerObjectId.isEmpty {
+            allTags[tag.innerObjectId] = tag
         }
     }
 }

@@ -58,12 +58,19 @@ class ConstraintsVariationsDecoder: NSObject, CustomTagDecoderProtocol {
     
     fileprivate func parseAttributeStorage(object: XibObject, context: ParserContext) {
         
-        guard let constraintObject = object.findObjectParameter(name: "UIObject", objectClass: "NSLayoutConstraint", context: context) else {
+        guard let variationObject = object.findObjectParameter(name: "UIObject", context: context) else {
             return
         }
         
-        guard let constraintTag = context.constrains[constraintObject.objectId] else {
+        guard let variationTag = context.findTag(objectId: variationObject.objectId) else {
             return
+        }
+        
+        var keyPath: String = ""
+        if let keyPathObj = object.findObjectParameter(name: "UIKeyPath", objectClass: "NSString", context: context) {
+            if let string = keyPathObj.firstStringValue(with: context) {
+                keyPath = string
+            }
         }
         
         guard let recordsArrayObject = object.findObjectParameter(name: "UIRecords", objectClass: "NSMutableArray", context: context) else {
@@ -75,11 +82,12 @@ class ConstraintsVariationsDecoder: NSObject, CustomTagDecoderProtocol {
                                                             context: context)
         
         for oneRecord in recordsArray {
-            parseRecord(object: oneRecord, context: context, parentTag: constraintTag)
+            parseRecord(object: oneRecord, context: context, parentTag: variationTag, keyPath: keyPath)
         }
     }
     
-    fileprivate func parseRecord(object: XibObject, context: ParserContext, parentTag: Tag) {
+    
+    fileprivate func parseRecord(object: XibObject, context: ParserContext, parentTag: Tag, keyPath: String) {
         
         guard let traintCollectionObject = object.findObjectParameter(name: "UITraitCollection",
                                                                       objectClass: "UITraitCollection",
@@ -87,35 +95,99 @@ class ConstraintsVariationsDecoder: NSObject, CustomTagDecoderProtocol {
             return
         }
         
-        guard let constantObject = object.findObjectParameter(name: "UIValue",
-                                                              objectClass: "_NSLayoutConstraintConstant",
-                                                              context: context) else {
+        guard let valueObject = object.findObjectParameter(name: "UIValue",
+                                                           context: context) else {
                                                                 
-            return
-        }
-        
-        guard let doubleConstant = constantObject.findDoubleParameter(name: "UINumericConstant", context: context) else {
             return
         }
         
         var variations = [String: Int]()
         
         for param in traintCollectionObject.parameters(with: context) {
-            
             if let intParam = param as? XibIntParameter {
-            
                 let name = intParam.name
                 variations[name] = intParam.value
             }
         }
         
-        if variations.count > 0 {
-            let subTag = Tag(name: "variation")
-            subTag.addParameter(name: "constant", value: "\(doubleConstant)")
-            subTag.addParameter(name: "key", value: createVariationName(keys: variations))
-            
-            parentTag.add(tag: subTag)
+        if variations.count == 0 {
+            return
         }
+        
+        let variationName = createVariationName(keys: variations)
+        var variationTag = Tag(name: "variation")
+        variationTag.addParameter(name: "key", value: variationName)
+        // Try to find exist variation tag with the same name.
+        
+        if let found = parentTag.allChildren().filter({($0.name == "variation") && ($0.parameterValue(name: "key") == variationName)}).first {
+            variationTag = found
+        } else {
+            parentTag.add(tag: variationTag)
+        }
+        
+        let originalName = valueObject.originalClassName(context: context)
+        if originalName == "_NSLayoutConstraintConstant" {
+            parseConstraintVariation(object: valueObject, context: context, variationTag: variationTag, keyPath: keyPath)
+        
+        } else if originalName == "UIColor" {
+            parseColorVariation(object: valueObject, context: context, variationTag: variationTag, keyPath: keyPath)
+        
+        } else if originalName == "UIFont" {
+            parseFontVariation(object: valueObject, context: context, variationTag: variationTag, keyPath: keyPath)
+        
+        } else if originalName == "NSNumber" {
+            parseNumberVariation(object: valueObject, context: context, variationTag: variationTag, keyPath: keyPath)
+        
+        } else if originalName == "UIImageNibPlaceholder" {
+            parseImageVariation(object: valueObject, context: context, variationTag: variationTag, keyPath: keyPath)
+        }
+    }
+    
+    
+    
+    fileprivate func parseConstraintVariation(object: XibObject, context: ParserContext, variationTag: Tag, keyPath: String) {
+        
+        guard let doubleConstant = object.findDoubleParameter(name: "UINumericConstant", context: context) else {
+            return
+        }
+
+        variationTag.addParameter(name: "constant", value: "\(doubleConstant)")
+    }
+    
+    fileprivate func parseColorVariation(object: XibObject, context: ParserContext, variationTag: Tag, keyPath: String) {
+        
+        let colorTag = UIColorDecoder.extractColorTag(parentObject: object,
+                                                      object: object,
+                                                      tagName: "color",
+                                                      parameterName: "",
+                                                      context: context,
+                                                      key: keyPath,
+                                                      mapper: nil)
+        
+        variationTag.add(tag: colorTag)
+    }
+    
+    fileprivate func parseFontVariation(object: XibObject, context: ParserContext, variationTag: Tag, keyPath: String) {
+        
+        let fontTag = FontDecoder.extractFontTag(object: object, tagName: "fontDescription", key: "fontDescription", context: context)
+        variationTag.add(tag: fontTag)
+    }
+    
+    fileprivate func parseNumberVariation(object: XibObject, context: ParserContext, variationTag: Tag, keyPath: String) {
+        
+        if let parameter = object.firstStringValue(with: context) {
+            variationTag.addParameter(name: keyPath, value: parameter)
+        }
+    }
+    
+    fileprivate func parseImageVariation(object: XibObject, context: ParserContext, variationTag: Tag, keyPath: String) {
+        
+        guard let value = object.findStringParameter(name: "UIResourceName", context: context) else {
+            return
+        }
+        
+        ImageDecoder.addImageToResourseSection(name: value, context: context)
+        variationTag.addParameter(name: keyPath, value: value)
     }
     
     
@@ -211,7 +283,12 @@ class ConstraintsVariationsDecoder: NSObject, CustomTagDecoderProtocol {
     fileprivate func createVariationName(keys: [String: Int]) -> String {
         
         var result: [String] = [String]()
-        for (key, value) in keys {
+        let sortedKeys = keys.keys.sorted()
+        
+        
+        for key in sortedKeys {
+            
+            let value = keys[key]
             
             if key == "UITraitCollectionBuiltinTrait-_UITraitNameDisplayGamut" {
                 if value == 0 {
@@ -225,19 +302,19 @@ class ConstraintsVariationsDecoder: NSObject, CustomTagDecoderProtocol {
             
             if key == "UITraitCollectionBuiltinTrait-_UITraitNameHorizontalSizeClass" {
                 if value == 1 {
-                    result.append("widthClass=regular")
+                    result.append("widthClass=compact")
                 }
                 if value == 2 {
-                    result.append("widthClass=compact")
+                    result.append("widthClass=regular")
                 }
             }
             
             if key == "UITraitCollectionBuiltinTrait-_UITraitNameVerticalSizeClass" {
                 if value == 1 {
-                    result.append("heightClass=regular")
+                    result.append("heightClass=compact")
                 }
                 if value == 2 {
-                    result.append("heightClass=compact")
+                    result.append("heightClass=regular")
                 }
             }
         }
