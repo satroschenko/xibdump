@@ -196,7 +196,11 @@ class ListParameterDecoder: DefaultParameterDecoder {
             
             ListParameterDecoder(parameterName: "UISectionInsetReference",
                                  tagName: "sectionInsetReference",
-                                 values: ["", "safeArea", "layoutMargins"])
+                                 values: ["", "safeArea", "layoutMargins"]),
+            
+            ListParameterDecoder(parameterName: "UISwipeGestureRecognizer.direction",
+                                 tagName: "direction",
+                                 values: ["", "", "left", "right", "up", "", "", "", "down"])
         ]
     }
     // swiftlint:enable all

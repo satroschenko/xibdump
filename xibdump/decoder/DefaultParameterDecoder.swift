@@ -59,7 +59,16 @@ class DefaultParameterDecoder: NSObject, CustomTagDecoderProtocol {
             DefaultParameterDecoder(parameterName: "UIIndentationLevel", tagName: "indentationLevel"),
             DefaultParameterDecoder(parameterName: "UIIndentationWidth", tagName: "indentationWidth"),
             DefaultParameterDecoder(parameterName: "UILineSpacing", tagName: "minimumLineSpacing"),
-            DefaultParameterDecoder(parameterName: "UIInteritemSpacing", tagName: "minimumInteritemSpacing")
+            DefaultParameterDecoder(parameterName: "UIInteritemSpacing", tagName: "minimumInteritemSpacing"),
+            
+            DefaultParameterDecoder(parameterName: "UITapRecognizer.numberOfTapsRequired", tagName: "numberOfTapsRequired"),
+            DefaultParameterDecoder(parameterName: "UITapRecognizer.numberOfTouchesRequired", tagName: "numberOfTouchesRequired"),
+            DefaultParameterDecoder(parameterName: "UISwipeGestureRecognizer.numberOfTouchesRequired", tagName: "numberOfTouchesRequired"),
+            DefaultParameterDecoder(parameterName: "UIPanGestureRecognizer.maximumNumberOfTouches", tagName: "maximumNumberOfTouches"),
+            DefaultParameterDecoder(parameterName: "UIPanGestureRecognizer.minimumNumberOfTouches", tagName: "minimumNumberOfTouches"),
+            DefaultParameterDecoder(parameterName: "UILongPressGestureRecognizer.minimumPressDuration", tagName: "minimumPressDuration"),
+            DefaultParameterDecoder(parameterName: "UILongPressGestureRecognizer.allowableMovement", tagName: "allowableMovement")
+            
             
             ])
         

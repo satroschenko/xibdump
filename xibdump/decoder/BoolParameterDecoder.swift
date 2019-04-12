@@ -11,6 +11,7 @@ class BoolParameterDecoder: DefaultParameterDecoder {
 
     let inverse: Bool
     
+    // swiftlint:disable all
     static func all() -> [DefaultParameterDecoder] {
         
         return [
@@ -113,10 +114,15 @@ class BoolParameterDecoder: DefaultParameterDecoder {
             BoolParameterDecoder(parameterName: "UIAllowsSelectionDuringEditing", tagName: "allowsSelectionDuringEditing"),
             BoolParameterDecoder(parameterName: "UIAllowsMultipleSelectionDuringEditing", tagName: "allowsMultipleSelectionDuringEditing"),
             BoolParameterDecoder(parameterName: "UIShowsReorderControl", tagName: "showsReorderControl"),
-            BoolParameterDecoder(parameterName: "UICollectionViewPrefetchingEnabled", tagName: "prefetchingEnabled")
+            BoolParameterDecoder(parameterName: "UICollectionViewPrefetchingEnabled", tagName: "prefetchingEnabled"),
             
+            BoolParameterDecoder(parameterName: "UIGestureRecognizer.delaysTouchesBegan", tagName: "delaysTouchesBegan"),
+            BoolParameterDecoder(parameterName: "UIGestureRecognizer.delaysTouchesEnded", tagName: "delaysTouchesEnded"),
+            BoolParameterDecoder(parameterName: "UIGestureRecognizer.disabled", tagName: "enabled", inverse: true),
+            BoolParameterDecoder(parameterName: "UIGestureRecognizer.cancelsTouchesInView", tagName: "cancelsTouchesInView"),
         ]
     }
+    // swiftlint:enable all
     
     
     init(parameterName: String, tagName: String, inverse: Bool = false, mapper: [String: String]? = nil) {

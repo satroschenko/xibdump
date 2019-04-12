@@ -37,7 +37,9 @@ class CustomDecodersHolder: NSObject {
         "UIPickerView", "UISwitch", "UISlider", "UIButton", "UISegmentedControl", "UIPageControl",
         "UIStepper", "UIStackView", "UITextView", "UIScrollView", "UIDatePicker", "UIVisualEffectView",
         "MKMapView", "UIWebView", "UINavigationBar", "UIToolbar", "UITabBar", "UITableView", "UITableViewCell",
-        "UICollectionView", "UICollectionViewCell", "UICollectionReusableView"
+        "UICollectionView", "UICollectionViewCell", "UICollectionReusableView", "UITapGestureRecognizer",
+        "UIPinchGestureRecognizer", "UIRotationGestureRecognizer", "UISwipeGestureRecognizer", "UIPanGestureRecognizer",
+        "UIScreenEdgePanGestureRecognizer", "UIGestureRecognizer"
     ]
     
     fileprivate func registerDecoders() {
@@ -93,10 +95,14 @@ class CustomDecodersHolder: NSObject {
         self.register(decoder: MTKViewDecoder())
         self.register(decoder: UIBarButtonItemDecoder())
         self.register(decoder: UITabbarItemDecoder())
+        self.register(decoder: ScreenEdgePanGestureRecognizerDecoder())
         self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey", objectClassName: "GLKView", tagName: "glkView"))
         self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey", objectClassName: "SCNView", tagName: "sceneKitView"))
         self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey", objectClassName: "ARSCNView", tagName: "arscnView"))
         self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey", objectClassName: "WKWebView", tagName: "wkWebView"))
+        self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey",
+                                             objectClassName: "UILongPressGestureRecognizer",
+                                             tagName: "pongPressGestureRecognizer")) // WTF
         
         
         self.register(decoder: ProxyObjectDecoder())
@@ -117,6 +123,9 @@ class CustomDecodersHolder: NSObject {
                                              objectClassName: "NSMutableArray",
                                              tagName: "items",
                                              needAddId: false))
+        
+        self.register(decoder: NewTagDecoder(parameterName: "UITapGestureRecognizer._imp", objectClassName: "UITapRecognizer", tagName: ""))
+        self.register(decoder: NewTagDecoder(parameterName: "UILongPressGestureRecognizer._imp", objectClassName: "UITapRecognizer", tagName: ""))
         
         self.register(decoder: PointDecoder(parameterName: "UIViewContentHuggingPriority",
                                             firstName: "horizontalHuggingPriority",

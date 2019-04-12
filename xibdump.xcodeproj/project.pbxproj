@@ -63,6 +63,7 @@
 		20A04A32225DE2C200A07996 /* StringArrayDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A04A31225DE2C200A07996 /* StringArrayDecoder.swift */; };
 		20AC7A39224B879400BF5968 /* PrintCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AC7A38224B879400BF5968 /* PrintCommand.swift */; };
 		20F71B28225F523F00D18AD8 /* AttributedTextDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F71B27225F523F00D18AD8 /* AttributedTextDecoder.swift */; };
+		20F71B2A2260BC6F00D18AD8 /* ScreenEdgePanGestureRecognizerDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F71B292260BC6F00D18AD8 /* ScreenEdgePanGestureRecognizerDecoder.swift */; };
 		20FC70792248E4650003D171 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FC70782248E4650003D171 /* main.swift */; };
 		20FC70802248E51D0003D171 /* XibID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FC707F2248E51D0003D171 /* XibID.swift */; };
 		20FC70822248E5760003D171 /* XibClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FC70812248E5760003D171 /* XibClass.swift */; };
@@ -145,6 +146,7 @@
 		20A04A31225DE2C200A07996 /* StringArrayDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringArrayDecoder.swift; sourceTree = "<group>"; };
 		20AC7A38224B879400BF5968 /* PrintCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintCommand.swift; sourceTree = "<group>"; };
 		20F71B27225F523F00D18AD8 /* AttributedTextDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedTextDecoder.swift; sourceTree = "<group>"; };
+		20F71B292260BC6F00D18AD8 /* ScreenEdgePanGestureRecognizerDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenEdgePanGestureRecognizerDecoder.swift; sourceTree = "<group>"; };
 		20FC70752248E4650003D171 /* xibdump */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = xibdump; sourceTree = BUILT_PRODUCTS_DIR; };
 		20FC70782248E4650003D171 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		20FC707F2248E51D0003D171 /* XibID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibID.swift; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 				20A04A2F225CE71D00A07996 /* PointTagDecoder.swift */,
 				20A04A31225DE2C200A07996 /* StringArrayDecoder.swift */,
 				20F71B27225F523F00D18AD8 /* AttributedTextDecoder.swift */,
+				20F71B292260BC6F00D18AD8 /* ScreenEdgePanGestureRecognizerDecoder.swift */,
 			);
 			path = decoder;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				204D1914225203CD009AAB8A /* PlaceholderDecoder.swift in Sources */,
 				204D191E2252233E009AAB8A /* BoolParameterDecoder.swift in Sources */,
 				20FC70842248E5A00003D171 /* XibObject.swift in Sources */,
+				20F71B2A2260BC6F00D18AD8 /* ScreenEdgePanGestureRecognizerDecoder.swift in Sources */,
 				204D18EA224E0BDE009AAB8A /* XibDoubleParameter.swift in Sources */,
 				20A04A1C225B585D00A07996 /* VisualEffectStyleDecoder.swift in Sources */,
 				204D190E224E53A1009AAB8A /* CustomDecodersHolder.swift in Sources */,
