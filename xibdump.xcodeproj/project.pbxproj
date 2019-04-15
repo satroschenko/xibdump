@@ -64,6 +64,7 @@
 		20AC7A39224B879400BF5968 /* PrintCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AC7A38224B879400BF5968 /* PrintCommand.swift */; };
 		20F71B28225F523F00D18AD8 /* AttributedTextDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F71B27225F523F00D18AD8 /* AttributedTextDecoder.swift */; };
 		20F71B2A2260BC6F00D18AD8 /* ScreenEdgePanGestureRecognizerDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F71B292260BC6F00D18AD8 /* ScreenEdgePanGestureRecognizerDecoder.swift */; };
+		20F71B2C2260C27600D18AD8 /* OutletsDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F71B2B2260C27600D18AD8 /* OutletsDecoder.swift */; };
 		20FC70792248E4650003D171 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FC70782248E4650003D171 /* main.swift */; };
 		20FC70802248E51D0003D171 /* XibID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FC707F2248E51D0003D171 /* XibID.swift */; };
 		20FC70822248E5760003D171 /* XibClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FC70812248E5760003D171 /* XibClass.swift */; };
@@ -147,6 +148,7 @@
 		20AC7A38224B879400BF5968 /* PrintCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintCommand.swift; sourceTree = "<group>"; };
 		20F71B27225F523F00D18AD8 /* AttributedTextDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedTextDecoder.swift; sourceTree = "<group>"; };
 		20F71B292260BC6F00D18AD8 /* ScreenEdgePanGestureRecognizerDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenEdgePanGestureRecognizerDecoder.swift; sourceTree = "<group>"; };
+		20F71B2B2260C27600D18AD8 /* OutletsDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutletsDecoder.swift; sourceTree = "<group>"; };
 		20FC70752248E4650003D171 /* xibdump */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = xibdump; sourceTree = BUILT_PRODUCTS_DIR; };
 		20FC70782248E4650003D171 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		20FC707F2248E51D0003D171 /* XibID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibID.swift; sourceTree = "<group>"; };
@@ -279,6 +281,7 @@
 				20A04A31225DE2C200A07996 /* StringArrayDecoder.swift */,
 				20F71B27225F523F00D18AD8 /* AttributedTextDecoder.swift */,
 				20F71B292260BC6F00D18AD8 /* ScreenEdgePanGestureRecognizerDecoder.swift */,
+				20F71B2B2260C27600D18AD8 /* OutletsDecoder.swift */,
 			);
 			path = decoder;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 				204D18EC224E0C32009AAB8A /* XibBoolParameter.swift in Sources */,
 				204D18FC224E29BA009AAB8A /* XibDecoder.swift in Sources */,
 				2031674C2253848900B82FD7 /* FirstStringDecoder.swift in Sources */,
+				20F71B2C2260C27600D18AD8 /* OutletsDecoder.swift in Sources */,
 				20A04A22225B6D1A00A07996 /* SKViewDecoder.swift in Sources */,
 				204D191A22521B27009AAB8A /* UIBoundsDecoder.swift in Sources */,
 				2031674722522F5C00B82FD7 /* AutoresizingMaskParameterDecoder.swift in Sources */,

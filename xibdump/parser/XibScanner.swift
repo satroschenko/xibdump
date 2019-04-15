@@ -236,6 +236,19 @@ extension XibObject {
         return nil
     }
     
+    func findFirstObjectParameter(objectClass: String, context: ParserContext) -> XibObject? {
+        
+        for parameter in parameters(with: context) {
+            
+            if let object = parameter.object(with: context) {
+                if object.originalClassName(context: context) == objectClass {
+                    return object
+                }
+            }
+        }
+        return nil
+    }
+    
     
     func getSubObjects(parameterName: String, objectClass: String, context: ParserContext) -> [XibObject] {
         

@@ -107,6 +107,7 @@ class CustomDecodersHolder: NSObject {
         
         self.register(decoder: ProxyObjectDecoder())
         self.register(decoder: PlaceholderDecoder())
+        self.register(decoder: OutletsDecoder())
         
         
         self.register(decoder: NewTagDecoder(parameterName: "UISubviews",
