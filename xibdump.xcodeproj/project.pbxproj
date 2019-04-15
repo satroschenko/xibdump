@@ -339,6 +339,7 @@
 				20FC70722248E4650003D171 /* Frameworks */,
 				20FC70732248E4650003D171 /* CopyFiles */,
 				20CF174C224A557000C65968 /* SwiftLint */,
+				2041E3C82264C7BE00A69860 /* Copy build artifact */,
 			);
 			buildRules = (
 			);
@@ -382,6 +383,24 @@
 /* End PBXProject section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2041E3C82264C7BE00A69860 /* Copy build artifact */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Copy build artifact";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cp ${BUILT_PRODUCTS_DIR}/${EXECUTABLE_NAME} ${SOURCE_ROOT}/bin\n";
+		};
 		20CF174C224A557000C65968 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
