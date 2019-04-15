@@ -14,7 +14,7 @@ Command-line application for printing structure of .nib or .storyboardc files.
 
 Commands:
   print           Print structure of compiled .nib file
-  restore         Restore structure of compiled file (.nib -> .xib)
+  restore         Restore structure of compiled file (.nib -> .xib, .storyboardc - comming soon)
   help            Prints help information
   version         Prints the current version of this app
 ```
