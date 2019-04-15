@@ -4,6 +4,7 @@
 
 # xibdump
 MacOS command-line application for printing structure of .nib or .storyboardc files.
+There is no any documentation about structure the .nib files. I received this information by reverse engineering, there is no guarantee that the data is fully accurate. At the time of creating, this project should reflect the state in macOS Mojave and iOS 12. It might however become obsolete with future macOS or iOS releases.
 
 # Usage
 ```bash
@@ -13,6 +14,7 @@ Command-line application for printing structure of .nib or .storyboardc files.
 
 Commands:
   print           Print structure of compiled .nib file
+  restore         Restore structure of compiled file
   help            Prints help information
   version         Prints the current version of this app
 ```
