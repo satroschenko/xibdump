@@ -48,7 +48,7 @@ class ConstraintsDecoder: NSObject, CustomTagDecoderProtocol {
         }
         
         let parentTag = Tag(name: "constraints")
-        parentTag.innerObjectId = parentObject.objectId
+        parentTag.innerObjectId = arrayObject.objectId
         
         var layoutGuideId: String?
         
@@ -58,7 +58,7 @@ class ConstraintsDecoder: NSObject, CustomTagDecoderProtocol {
                 if oneParameter.name == "UINibEncoderEmptyKey" {
                     
                     let result = processOneObject(object: pObject, context: context)
-                    context.constrains[result.tag.innerObjectId] = result.tag
+                    context.addConstraintTag(tag: result.tag)
                     parentTag.add(tag: result.tag)
                     
                     if let guideId = result.layoutGuideId {

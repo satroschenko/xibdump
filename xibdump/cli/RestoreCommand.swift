@@ -42,8 +42,8 @@ class RestoreCommand: Command {
         let parser = XibFileParser()
         let xibFile = try parser.parse(url: URL(fileURLWithPath: fileName.value))
         
-        let logger = XibLogger(xibFile: xibFile)
-        logger.printDump()
+//        let logger = XibLogger(xibFile: xibFile)
+//        logger.printDump()
 
         let decoder = XibDecoder(xibFile: xibFile)
         decoder.decode()

@@ -13,10 +13,10 @@ class ParserContext: NSObject {
     let xibFile: XibFile
     var runtimeAttributes: [String: Tag] = [String: Tag]()
     var accessibilityAttributes: [String: Tag] = [String: Tag]()
-    var constrains: [String: Tag] = [String: Tag]()
     var variations: [String: [Tag]] = [String: [Tag]]()
     var imageResources: [Tag] = [Tag]()
     
+    fileprivate var constrains: [String: Tag] = [String: Tag]()
     fileprivate var allTags: [String: Tag] = [String: Tag]()
     
     fileprivate var addedImageNames: [String] = [String]()
@@ -55,16 +55,33 @@ class ParserContext: NSObject {
     
     func findTag(objectId: String) -> Tag? {
         
-        if let constraint = constrains[objectId] {
-            return constraint
+        if let tag = allTags[objectId] {
+            return tag
         }
         
-        return allTags[objectId]
+        return findConstraintTag(objectId: objectId)
+    }
+    
+    func findConstraintTag(objectId: String) -> Tag? {
+        
+        return constrains[objectId]
     }
     
     func addTag(tag: Tag) {
         if !tag.innerObjectId.isEmpty {
+            
+            if let exist = allTags[tag.innerObjectId] {
+                
+                print("\(exist)")
+            }
+            
             allTags[tag.innerObjectId] = tag
+        }
+    }
+    
+    func addConstraintTag(tag: Tag) {
+        if !tag.innerObjectId.isEmpty {            
+            constrains[tag.innerObjectId] = tag
         }
     }
 }

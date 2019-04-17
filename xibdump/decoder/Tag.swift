@@ -73,6 +73,10 @@ class Tag: NSObject {
         return copy
     }
     
+    override var debugDescription: String {
+        return "<\(name) id='\(innerObjectId)'>"        
+    }
+    
     
     // For testing only. Need to remove later.
     func printTag(tabCount: Int) {
