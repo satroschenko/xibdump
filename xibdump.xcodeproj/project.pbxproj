@@ -45,6 +45,8 @@
 		204D191A22521B27009AAB8A /* UIBoundsDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D191922521B27009AAB8A /* UIBoundsDecoder.swift */; };
 		204D191C22521D6B009AAB8A /* UIColorDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D191B22521D6B009AAB8A /* UIColorDecoder.swift */; };
 		204D191E2252233E009AAB8A /* BoolParameterDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D191D2252233E009AAB8A /* BoolParameterDecoder.swift */; };
+		20912E712269D0F700E24515 /* StoryboardDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20912E702269D0F700E24515 /* StoryboardDecoder.swift */; };
+		20912E752269D4CE00E24515 /* StoryboardConnectionDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20912E742269D4CE00E24515 /* StoryboardConnectionDecoder.swift */; };
 		20A04A1022577BC800A07996 /* UITextInputTraitsDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A04A0F22577BC800A07996 /* UITextInputTraitsDecoder.swift */; };
 		20A04A14225B355500A07996 /* DataDetectorTypesDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A04A13225B355500A07996 /* DataDetectorTypesDecoder.swift */; };
 		20A04A16225B41F300A07996 /* NSLocaleDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A04A15225B41F300A07996 /* NSLocaleDecoder.swift */; };
@@ -129,6 +131,8 @@
 		204D191922521B27009AAB8A /* UIBoundsDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBoundsDecoder.swift; sourceTree = "<group>"; };
 		204D191B22521D6B009AAB8A /* UIColorDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorDecoder.swift; sourceTree = "<group>"; };
 		204D191D2252233E009AAB8A /* BoolParameterDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolParameterDecoder.swift; sourceTree = "<group>"; };
+		20912E702269D0F700E24515 /* StoryboardDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardDecoder.swift; sourceTree = "<group>"; };
+		20912E742269D4CE00E24515 /* StoryboardConnectionDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardConnectionDecoder.swift; sourceTree = "<group>"; };
 		20A04A0F22577BC800A07996 /* UITextInputTraitsDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextInputTraitsDecoder.swift; sourceTree = "<group>"; };
 		20A04A13225B355500A07996 /* DataDetectorTypesDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDetectorTypesDecoder.swift; sourceTree = "<group>"; };
 		20A04A15225B41F300A07996 /* NSLocaleDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLocaleDecoder.swift; sourceTree = "<group>"; };
@@ -238,6 +242,8 @@
 			isa = PBXGroup;
 			children = (
 				204D18FB224E29BA009AAB8A /* XibDecoder.swift */,
+				20912E702269D0F700E24515 /* StoryboardDecoder.swift */,
+				20912E742269D4CE00E24515 /* StoryboardConnectionDecoder.swift */,
 				204D1900224E2D37009AAB8A /* Tag.swift */,
 				204D1902224E2D6B009AAB8A /* TagParameter.swift */,
 				204D190B224E3C8A009AAB8A /* XibParentTag.swift */,
@@ -461,6 +467,7 @@
 				20A04A22225B6D1A00A07996 /* SKViewDecoder.swift in Sources */,
 				204D191A22521B27009AAB8A /* UIBoundsDecoder.swift in Sources */,
 				2031674722522F5C00B82FD7 /* AutoresizingMaskParameterDecoder.swift in Sources */,
+				20912E752269D4CE00E24515 /* StoryboardConnectionDecoder.swift in Sources */,
 				20A04A30225CE71D00A07996 /* PointTagDecoder.swift in Sources */,
 				204D1914225203CD009AAB8A /* PlaceholderDecoder.swift in Sources */,
 				204D191E2252233E009AAB8A /* BoolParameterDecoder.swift in Sources */,
@@ -471,6 +478,7 @@
 				204D190E224E53A1009AAB8A /* CustomDecodersHolder.swift in Sources */,
 				20A04A2A225CCAA300A07996 /* MTKViewDecoder.swift in Sources */,
 				204D190C224E3C8A009AAB8A /* XibParentTag.swift in Sources */,
+				20912E712269D0F700E24515 /* StoryboardDecoder.swift in Sources */,
 				204D1901224E2D37009AAB8A /* Tag.swift in Sources */,
 				203167582254F83500B82FD7 /* ConstraintsDecoder.swift in Sources */,
 				204D1910224E5AAB009AAB8A /* NewTagDecoder.swift in Sources */,

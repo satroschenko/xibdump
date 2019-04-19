@@ -11,11 +11,12 @@ import SwiftCLI
 
 class XibDecoder: NSObject {
 
-    let parentTag: Tag = XibParentTag()
+    let parentTag: Tag
     let decoderHolder = CustomDecodersHolder()
     let context: ParserContext
     
-    init(xibFile: XibFile) {
+    init(xibFile: XibFile, parentTag: Tag = XibParentTag()) {
+        self.parentTag = parentTag
         self.context = ParserContext(xibFile: xibFile)
         super.init()
     }

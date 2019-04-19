@@ -42,14 +42,24 @@ class RestoreCommand: Command {
         } else if fileNameUrl.pathExtension == "storyboardc" {
             fileFormat = .storyboard
         }
-        let outputFileUrl = outputDirUrl.appendingPathComponent(fileNameUrl.lastPathComponent).appendingPathExtension("xib")
         
-        if isDir.boolValue {
-            
+        var extention: String = "xib"
+        if fileFormat == .storyboard {
+            extention = "storyboard"
+        }
+        
+        let outputFileUrl = outputDirUrl.appendingPathComponent(fileNameUrl.lastPathComponent).appendingPathExtension(extention)
+        
+        try processURL(fileNameUrl: fileNameUrl, isDir: isDir.boolValue, outputFileUrl: outputFileUrl, fileFormat: fileFormat)
+    }
+    
+    
+    fileprivate func processURL(fileNameUrl: URL, isDir: Bool, outputFileUrl: URL, fileFormat: XibFileFormat) throws {
+        
+        
+        if isDir {
             try processDir(dirUrl: fileNameUrl, outputFileUrl: outputFileUrl, fileFormat: fileFormat)
-            
         } else {
-            
             try processSingleFile(fileUrl: fileNameUrl, outputFileUrl: outputFileUrl)
         }
     }
@@ -60,8 +70,8 @@ class RestoreCommand: Command {
         let parser = XibFileParser()
         let xibFile = try parser.parse(url: URL(fileURLWithPath: fileUrl.path))
         
-//        let logger = XibLogger(xibFile: xibFile)
-//        logger.printDump()
+        let logger = XibLogger(xibFile: xibFile)
+        logger.printDump()
 
         let decoder = XibDecoder(xibFile: xibFile)
         decoder.decode()
@@ -88,8 +98,21 @@ class RestoreCommand: Command {
             try processSingleFile(fileUrl: finalFile, outputFileUrl: outputFileUrl)
         
         } else if fileFormat == .storyboard {
-            throw CLI.Error(message: "Wrong file format. Input file isn't .nib")
+            
+            let plistURL = dirUrl.appendingPathComponent("Info.plist")
+            guard let dict = NSDictionary(contentsOf: plistURL) else {
+                throw CLI.Error(message: "Cann't find Info.plist inside .storyboardc")
+            }
+            
+            
+            guard let stMap = dict["UIViewControllerIdentifiersToNibNames"] as? [String: String] else {
+                throw CLI.Error(message: "Wrong file format. Cann't find 'UIViewControllerIdentifiersToNibNames' key in Info.plist")
+            }
         
+            let decoder = StoryboardDecoder(initialURL: dirUrl, mapping: stMap)
+            try decoder.decode()
+            
+            try decoder.save(to: outputFileUrl)
         }
     }
 }

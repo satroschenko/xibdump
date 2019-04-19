@@ -8,11 +8,18 @@
 import Cocoa
 
 class XibParentTag: Tag {
+    
+    let fileFormat: XibFileFormat
 
-    init() {
+    init(fileFormat: XibFileFormat = .nib) {
+        self.fileFormat = fileFormat
         super.init(name: "document")
         
-        self.addParameter(name: "type", value: "com.apple.InterfaceBuilder3.CocoaTouch.XIB")
+        if fileFormat == .storyboard {
+            self.addParameter(name: "type", value: "com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB")
+        } else {
+            self.addParameter(name: "type", value: "com.apple.InterfaceBuilder3.CocoaTouch.XIB")
+        }
         self.addParameter(name: "version", value: "3.0")
         self.addParameter(name: "toolsVersion", value: "14460.31")
         self.addParameter(name: "targetRuntime", value: "iOS.CocoaTouch")
