@@ -43,7 +43,7 @@ class PlaceholderDecoder: NewTagDecoder {
             tag.addParameter(name: "id", value: object.objectId)
         }
         
-        tag.innerObjectId = object.objectId
+        tag.innerObjectId = parentObject.objectId
         
         return .tag(tag, false)
     }

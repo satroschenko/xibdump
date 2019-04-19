@@ -12,5 +12,5 @@ public struct Version {
     public static let info = "Command-line application for printing structure of .nib or .storyboardc files."
     
     public let value: String
-    public static let current = Version(value: "0.3.0")
+    public static let current = Version(value: "0.3.1")
 }

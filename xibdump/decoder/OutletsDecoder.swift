@@ -143,6 +143,10 @@ class OutletsDecoder: NSObject, CustomTagDecoderProtocol {
             return
         }
         
+        guard let destinationTag = context.findTag(objectId: destination.objectId) else {
+            return
+        }
+        
         guard let eventMask = object.findIntParameter(name: "UIEventMask", context: context) else {
             return
         }
@@ -150,7 +154,7 @@ class OutletsDecoder: NSObject, CustomTagDecoderProtocol {
         let actionTag = Tag(name: "action")
         actionTag.addParameter(name: "id", value: object.objectId)
         actionTag.addParameter(name: "selector", value: selectorName)
-        actionTag.addParameter(name: "destination", value: destination.objectId)
+        actionTag.addParameter(name: "destination", value: getDestinationId(object: destination, tag: destinationTag))
         
         let optionSet = EventMaskOptionSet(rawValue: eventMask)
         
@@ -233,5 +237,14 @@ class OutletsDecoder: NSObject, CustomTagDecoderProtocol {
             return property
         }
         return nil
+    }
+    
+    fileprivate func getDestinationId(object: XibObject, tag: Tag) -> String {
+        
+        if let idString = tag.parameterValue(name: "id") {
+            return idString
+        }
+        
+        return object.objectId
     }
 }

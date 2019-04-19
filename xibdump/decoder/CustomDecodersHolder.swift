@@ -39,9 +39,10 @@ class CustomDecodersHolder: NSObject {
         "MKMapView", "UIWebView", "UINavigationBar", "UIToolbar", "UITabBar", "UITableView", "UITableViewCell",
         "UICollectionView", "UICollectionViewCell", "UICollectionReusableView", "UITapGestureRecognizer",
         "UIPinchGestureRecognizer", "UIRotationGestureRecognizer", "UISwipeGestureRecognizer", "UIPanGestureRecognizer",
-        "UIScreenEdgePanGestureRecognizer", "UIGestureRecognizer"
+        "UIScreenEdgePanGestureRecognizer", "UIGestureRecognizer", "UIViewController"
     ]
     
+    // swiftlint:disable all
     fileprivate func registerDecoders() {
         
         CustomDecodersHolder.uiClassNamesList.forEach { name in 
@@ -68,6 +69,10 @@ class CustomDecodersHolder: NSObject {
         self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey",
                                              objectClassName: "UITableViewLabel",
                                              tagName: "label"))
+        
+        self.register(decoder: NewTagDecoder(parameterName: "UIView",
+                                             objectClassName: "UIView",
+                                             tagName: "view"))
         
         self.register(decoder: NewTagDecoder(parameterName: "UICollectionLayout",
                                              objectClassName: "UICollectionViewFlowLayout",
@@ -167,6 +172,7 @@ class CustomDecodersHolder: NSObject {
         
 //        self.register(parser: UIViewControllerParser())
     }
+    // swiftlint:enable all
     
     fileprivate func register(decoder: CustomTagDecoderProtocol) {
         

@@ -63,24 +63,12 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "restore /Users/satroschenko/Downloads/222/test.nib /Users/satroschenko/Downloads/222/out"
-            isEnabled = "NO">
-         </CommandLineArgument>
-         <CommandLineArgument
             argument = "restore /Volumes/Data/DerivedData/unipack-cftvgdftxqolqggejdadjgovirct/Build/Products/Debug-iphoneos/test.app/test.nib /Users/satroschenko/Downloads/222/out"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "restore /Users/satroschenko/Downloads/Payload/TransformPhotoController.nib /Users/satroschenko/Downloads/Payload/out"
             isEnabled = "YES">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "restore /Users/satroschenko/Downloads/222/11/out.nib /Users/satroschenko/Downloads/222/11"
-            isEnabled = "NO">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "print /Volumes/Data/DerivedData/unipack-cftvgdftxqolqggejdadjgovirct/Build/Products/Debug-iphonesimulator/test.app/test.nib"
-            isEnabled = "NO">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "print /Users/satroschenko/Downloads/222/test.nib"
-            isEnabled = "NO">
          </CommandLineArgument>
       </CommandLineArguments>
       <AdditionalOptions>
