@@ -37,7 +37,7 @@ class AutoresizingMaskParameterDecoder: DefaultParameterDecoder {
         let optionSet = AutoresizedMasksOptionSet(rawValue: number)
         
         let tag = Tag(name: tagName)
-        tag.addParameter(name: "key", value: parameter.name.xmlParameterName())
+        tag.addParameter(name: "key", value: parameter.name.systemParameterName())
         
         if optionSet.contains(.flexibleMinX) {
             tag.addParameter(name: "flexibleMinX", value: "YES")

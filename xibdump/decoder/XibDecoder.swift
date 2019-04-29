@@ -29,7 +29,7 @@ class XibDecoder: NSObject {
         
         let flatArray = parentTag.flatArray()
         addMissingColorsToLabels(array: flatArray)
-        addDefaultOpaque(array: flatArray, classNames: DecodersHolder.uiClassNamesList.compactMap({$0.xmlParameterName()}))
+        addDefaultOpaque(array: flatArray, classNames: DecodersHolder.uiClassNamesList.compactMap({$0.systemParameterName()}))
         
         for (objectId, tag) in self.context.runtimeAttributes {
             if let foundTag = findSubTag(array: flatArray, innerId: objectId) {

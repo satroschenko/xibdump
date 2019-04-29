@@ -7,11 +7,10 @@
 
 import Cocoa
 
-class UIBoundsDecoder: NSObject, CustomTagDecoderProtocol {
-
+class UIBoundsDecoder: NSObject, TagDecoderProtocol {
     
     func handledClassNames() -> [String] {
-        return ["T.UIBounds-"]
+        return [Utils.decoderKey(parameterName: "UIBounds", className: "", isTopLevel: true)]
     }
     
     func parse(parentObject: XibObject, parameter: XibParameterProtocol, context: ParserContext) -> TagDecoderResult {

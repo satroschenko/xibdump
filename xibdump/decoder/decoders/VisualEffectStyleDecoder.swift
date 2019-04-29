@@ -7,13 +7,13 @@
 
 import Cocoa
 
-class VisualEffectStyleDecoder: CustomTagDecoderProtocol {
+class VisualEffectStyleDecoder: TagDecoderProtocol {
 
     
     func handledClassNames() -> [String] {
         return [
-            "T.UIVisualEffectViewEffect-UIVibrancyEffect",
-            "T.UIVisualEffectViewEffect-UIBlurEffect"
+            Utils.decoderKey(parameterName: "UIVisualEffectViewEffect", className: "UIVibrancyEffect", isTopLevel: true),
+            Utils.decoderKey(parameterName: "UIVisualEffectViewEffect", className: "UIBlurEffect", isTopLevel: true)
         ]
     }
     

@@ -7,7 +7,7 @@
 
 import Cocoa
 
-class DataColorDecoder: NSObject, CustomTagDecoderProtocol {
+class DataColorDecoder: NSObject, TagDecoderProtocol {
 
     let parameterName: String
     let objectName: String
@@ -23,7 +23,7 @@ class DataColorDecoder: NSObject, CustomTagDecoderProtocol {
     }
     
     func handledClassNames() -> [String] {
-        return ["T.\(parameterName)-\(objectName)"]
+        return [Utils.decoderKey(parameterName: parameterName, className: objectName, isTopLevel: true)]
     }
     
     func parse(parentObject: XibObject, parameter: XibParameterProtocol, context: ParserContext) -> TagDecoderResult {

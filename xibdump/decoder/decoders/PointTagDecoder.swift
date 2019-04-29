@@ -7,16 +7,16 @@
 
 import Cocoa
 
-class PointTagDecoder: NewTagDecoder {
+class PointTagDecoder: DefaultTagDecoder {
 
-    static func allDecoders() -> [CustomTagDecoderProtocol] {
+    static func allDecoders() -> [TagDecoderProtocol] {
         
         return [
             PointTagDecoder(parameterName: "UITitlePositionAdjustment",
                             objectClassName: "NSString",
                             tagName: "offsetWrapper",
                             needAddId: false,
-                            mapper: nil,
+                            tagMapper: nil,
                             keyParameter: "titlePositionAdjustment",
                             firstName: "horizontal",
                             secondName: "vertical"),
@@ -25,7 +25,7 @@ class PointTagDecoder: NewTagDecoder {
                             objectClassName: "NSString",
                             tagName: "offsetWrapper",
                             needAddId: false,
-                            mapper: nil,
+                            tagMapper: nil,
                             keyParameter: "searchTextPositionAdjustment",
                             firstName: "horizontal",
                             secondName: "vertical"),
@@ -34,7 +34,7 @@ class PointTagDecoder: NewTagDecoder {
                             objectClassName: "NSString",
                             tagName: "offsetWrapper",
                             needAddId: false,
-                            mapper: nil,
+                            tagMapper: nil,
                             keyParameter: "searchFieldBackgroundPositionAdjustment",
                             firstName: "horizontal",
                             secondName: "vertical")
@@ -48,7 +48,7 @@ class PointTagDecoder: NewTagDecoder {
          objectClassName: String,
          tagName: String,
          needAddId: Bool = true,
-         mapper: [String: String]? = nil,
+         tagMapper: [String: String]? = nil,
          keyParameter: String? = nil,
          firstName: String = "width",
          secondName: String = "height") {
@@ -56,7 +56,7 @@ class PointTagDecoder: NewTagDecoder {
         self.firstName = firstName
         self.secondName = secondName
         
-        super.init(parameterName: parameterName, objectClassName: objectClassName, tagName: tagName, needAddId: needAddId, mapper: mapper, keyParameter: keyParameter)
+        super.init(parameterName: parameterName, objectClassName: objectClassName, tagName: tagName, needAddId: needAddId, tagMapper: tagMapper, keyParameter: keyParameter)
     }
     
     
@@ -74,7 +74,7 @@ class PointTagDecoder: NewTagDecoder {
         let point = NSPointFromString(string)
         
         let tag = Tag(name: tagName)
-        tag.addParameter(name: "key", value: keyParameter ?? parameter.name.xmlParameterName())
+        tag.addParameter(name: "key", value: keyParameter ?? parameter.name.systemParameterName())
         
         tag.addParameter(name: firstName, value: "\(point.x)")
         tag.addParameter(name: secondName, value: "\(point.y)")

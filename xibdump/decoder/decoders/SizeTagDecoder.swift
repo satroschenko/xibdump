@@ -7,18 +7,18 @@
 
 import Cocoa
 
-class SizeTagDecoder: NewTagDecoder {
+class SizeTagDecoder: DefaultTagDecoder {
     
-    static func allDecoders() -> [CustomTagDecoderProtocol] {
+    static func allDecoders() -> [TagDecoderProtocol] {
         
         return [
-            SizeTagDecoder(parameterName: "UITitleShadowOffset", objectClassName: "", tagName: "size", needAddId: false, mapper: nil, keyParameter: nil),
-            SizeTagDecoder(parameterName: "UIShadowOffset", objectClassName: "", tagName: "size", needAddId: false, mapper: nil, keyParameter: nil),
-            SizeTagDecoder(parameterName: "UISegmentContentOffset", objectClassName: "", tagName: "size", needAddId: false, mapper: nil, keyParameter: "contentOffset"),
-            SizeTagDecoder(parameterName: "UISegmentContentOffset", objectClassName: "", tagName: "size", needAddId: false, mapper: nil, keyParameter: "contentOffset"),
-            SizeTagDecoder(parameterName: "UIItemSize", objectClassName: "", tagName: "size", needAddId: false, mapper: nil, keyParameter: "itemSize"),
-            SizeTagDecoder(parameterName: "UIHeaderReferenceSize", objectClassName: "", tagName: "size", needAddId: false, mapper: nil, keyParameter: "headerReferenceSize"),
-            SizeTagDecoder(parameterName: "UIFooterReferenceSize", objectClassName: "", tagName: "size", needAddId: false, mapper: nil, keyParameter: "footerReferenceSize")
+            SizeTagDecoder(parameterName: "UITitleShadowOffset", objectClassName: "", tagName: "size", needAddId: false, tagMapper: nil, keyParameter: nil),
+            SizeTagDecoder(parameterName: "UIShadowOffset", objectClassName: "", tagName: "size", needAddId: false, tagMapper: nil, keyParameter: nil),
+            SizeTagDecoder(parameterName: "UISegmentContentOffset", objectClassName: "", tagName: "size", needAddId: false, tagMapper: nil, keyParameter: "contentOffset"),
+            SizeTagDecoder(parameterName: "UISegmentContentOffset", objectClassName: "", tagName: "size", needAddId: false, tagMapper: nil, keyParameter: "contentOffset"),
+            SizeTagDecoder(parameterName: "UIItemSize", objectClassName: "", tagName: "size", needAddId: false, tagMapper: nil, keyParameter: "itemSize"),
+            SizeTagDecoder(parameterName: "UIHeaderReferenceSize", objectClassName: "", tagName: "size", needAddId: false, tagMapper: nil, keyParameter: "headerReferenceSize"),
+            SizeTagDecoder(parameterName: "UIFooterReferenceSize", objectClassName: "", tagName: "size", needAddId: false, tagMapper: nil, keyParameter: "footerReferenceSize")
         ]
     }
     
@@ -29,7 +29,7 @@ class SizeTagDecoder: NewTagDecoder {
          objectClassName: String,
          tagName: String,
          needAddId: Bool = true,
-         mapper: [String: String]? = nil,
+         tagMapper: [String: String]? = nil,
          keyParameter: String? = nil,
          firstName: String = "width",
          secondName: String = "height") {
@@ -37,13 +37,9 @@ class SizeTagDecoder: NewTagDecoder {
         self.firstName = firstName
         self.secondName = secondName
         
-        super.init(parameterName: parameterName, objectClassName: objectClassName, tagName: tagName, needAddId: needAddId, mapper: mapper, keyParameter: keyParameter)
+        super.init(parameterName: parameterName, objectClassName: objectClassName, tagName: tagName, needAddId: needAddId, tagMapper: tagMapper, keyParameter: keyParameter)
     }
     
-    
-    override func handledClassNames() -> [String] {
-        return ["T.\(parameterName)-\(objectClassName)"]
-    }
     
     override func parse(parentObject: XibObject, parameter: XibParameterProtocol, context: ParserContext) -> TagDecoderResult {
         
@@ -57,10 +53,9 @@ class SizeTagDecoder: NewTagDecoder {
             stream.position = 1
             let width = try stream.readDouble()
             let heigth = try stream.readDouble()
-            
-            
+                        
             let tag = Tag(name: tagName)
-            tag.addParameter(name: "key", value: keyParameter ?? parameter.name.xmlParameterName())
+            tag.addParameter(name: "key", value: keyParameter ?? parameter.name.systemParameterName())
             
             tag.addParameter(name: firstName, value: "\(width)")
             tag.addParameter(name: secondName, value: "\(heigth)")

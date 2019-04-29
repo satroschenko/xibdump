@@ -7,9 +7,9 @@
 
 import Cocoa
 
-class DateDecoder: NewTagDecoder {
+class DateDecoder: DefaultTagDecoder {
 
-    static func allDecoders() -> [NewTagDecoder] {
+    static func allDecoders() -> [DefaultTagDecoder] {
         
         return [
             DateDecoder(parameterName: "UIDate"),
@@ -17,12 +17,9 @@ class DateDecoder: NewTagDecoder {
             DateDecoder(parameterName: "UIMaximumDate")
         ]
     }
-    
-    let key: String?
-    
-    init(parameterName: String, key: String? = nil, mapper: [String: String]? = nil) {
-        self.key = key
-        super.init(parameterName: parameterName, objectClassName: "NSDate", tagName: "date", needAddId: false, mapper: mapper)
+        
+    init(parameterName: String) {
+        super.init(parameterName: parameterName, objectClassName: "NSDate", tagName: "date", needAddId: false, tagMapper: nil)
     }
     
     
@@ -37,7 +34,7 @@ class DateDecoder: NewTagDecoder {
         }
         
         let tag = Tag(name: tagName)
-        tag.addParameter(name: "key", value: parameter.name.xmlParameterName())
+        tag.addParameter(name: "key", value: parameter.name.systemParameterName())
         tag.addParameter(name: "timeIntervalSinceReferenceDate", value: "\(value)")
         
         

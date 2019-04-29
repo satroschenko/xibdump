@@ -7,7 +7,7 @@
 
 import Cocoa
 
-class PlaceholderDecoder: NewTagDecoder {
+class PlaceholderDecoder: DefaultTagDecoder {
 
     init() {
         super.init(parameterName: "UIProxiedObjectIdentifier",

@@ -7,10 +7,10 @@
 
 import Cocoa
 
-class UIBarButtonItemDecoder: CustomTagDecoderProtocol {
+class UIBarButtonItemDecoder: TagDecoderProtocol {
 
     func handledClassNames() -> [String] {
-        return ["T.UINibEncoderEmptyKey-UIBarButtonItem"]
+        return [Utils.decoderKey(parameterName: "UINibEncoderEmptyKey", className: "UIBarButtonItem", isTopLevel: true)]
     }
     
     func parse(parentObject: XibObject, parameter: XibParameterProtocol, context: ParserContext) -> TagDecoderResult {

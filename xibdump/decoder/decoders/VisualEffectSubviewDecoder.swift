@@ -10,7 +10,7 @@ import Cocoa
 
 class VisualEffectDecoder: NSObject {
     
-    static func allDecoders() -> [CustomTagDecoderProtocol] {
+    static func allDecoders() -> [TagDecoderProtocol] {
         
         return [
             VisualEffectSubviewDecoder(),
@@ -20,15 +20,14 @@ class VisualEffectDecoder: NSObject {
 }
 
 
-class VisualEffectSubviewDecoder: NewTagDecoder {
+class VisualEffectSubviewDecoder: DefaultTagDecoder {
 
     
     init() {
         super.init(parameterName: "UIVisualEffectViewContentView",
                    objectClassName: "_UIVisualEffectContentView",
                    tagName: "view",
-                   needAddId: true,
-                   mapper: nil)
+                   needAddId: true)
     }
     
     

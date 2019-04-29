@@ -50,3 +50,15 @@ class XibLogger: NSObject {
         }
     }
 }
+
+
+
+extension XibFile {
+    
+    func logToConsole() {
+        
+        let logger = XibLogger(xibFile: self)
+        logger.printDump()
+        print("\n\n")
+    }
+}

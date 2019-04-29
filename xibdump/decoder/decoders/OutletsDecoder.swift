@@ -7,7 +7,7 @@
 
 import Cocoa
 
-class OutletsDecoder: NSObject, CustomTagDecoderProtocol {
+class OutletsDecoder: NSObject, TagDecoderProtocol {
 
     struct EventMaskOptionSet: OptionSet {
         
@@ -36,7 +36,7 @@ class OutletsDecoder: NSObject, CustomTagDecoderProtocol {
     }
     
     func handledClassNames() -> [String] {
-        return ["A.UINibConnectionsKey-NSArray"]
+        return [Utils.decoderKey(parameterName: "UINibConnectionsKey", className: "NSArray", isTopLevel: false)]
     }
     
     func parse(parentObject: XibObject, parameter: XibParameterProtocol, context: ParserContext) -> TagDecoderResult {

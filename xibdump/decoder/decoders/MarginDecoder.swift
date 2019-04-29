@@ -13,12 +13,6 @@ class MarginDecoder: DefaultParameterDecoder {
         super.init(parameterName: "UIViewLayoutMargins", tagName: "edgeInsets")
     }
     
-    override func handledClassNames() -> [String] {
-        return ["T.\(parameterName)-"]
-    }
-    
-    
-    
     override func parse(parentObject: XibObject, parameter: XibParameterProtocol, context: ParserContext) -> TagDecoderResult {
         
         guard let dataParameter = parameter as? XibDataParameter else {

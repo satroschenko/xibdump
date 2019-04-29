@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		200853A42276DF82008DDACF /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200853A32276DF82008DDACF /* Utils.swift */; };
+		200853A62276E7FB008DDACF /* ColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200853A52276E7FB008DDACF /* ColorUtils.swift */; };
+		200853A82276F237008DDACF /* FontUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200853A72276F237008DDACF /* FontUtils.swift */; };
+		200853AA2276F3C1008DDACF /* TagUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200853A92276F3C1008DDACF /* TagUtils.swift */; };
 		2021C564224B6EC600AAEC72 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2021C563224B6EC600AAEC72 /* Version.swift */; };
 		2031674722522F5C00B82FD7 /* AutoresizingMaskParameterDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2031674622522F5C00B82FD7 /* AutoresizingMaskParameterDecoder.swift */; };
 		2031674C2253848900B82FD7 /* FirstStringDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2031674B2253848900B82FD7 /* FirstStringDecoder.swift */; };
@@ -37,7 +41,7 @@
 		204D1903224E2D6B009AAB8A /* TagParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D1902224E2D6B009AAB8A /* TagParameter.swift */; };
 		204D190C224E3C8A009AAB8A /* XibParentTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D190B224E3C8A009AAB8A /* XibParentTag.swift */; };
 		204D190E224E53A1009AAB8A /* DecodersHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D190D224E53A1009AAB8A /* DecodersHolder.swift */; };
-		204D1910224E5AAB009AAB8A /* NewTagDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D190F224E5AAB009AAB8A /* NewTagDecoder.swift */; };
+		204D1910224E5AAB009AAB8A /* DefaultTagDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D190F224E5AAB009AAB8A /* DefaultTagDecoder.swift */; };
 		204D1912225200D6009AAB8A /* ProxyObjectDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D1911225200D6009AAB8A /* ProxyObjectDecoder.swift */; };
 		204D1914225203CD009AAB8A /* PlaceholderDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D1913225203CD009AAB8A /* PlaceholderDecoder.swift */; };
 		204D191622520B6C009AAB8A /* DefaultParameterDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D191522520B6C009AAB8A /* DefaultParameterDecoder.swift */; };
@@ -93,6 +97,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		200853A32276DF82008DDACF /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		200853A52276E7FB008DDACF /* ColorUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorUtils.swift; sourceTree = "<group>"; };
+		200853A72276F237008DDACF /* FontUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontUtils.swift; sourceTree = "<group>"; };
+		200853A92276F3C1008DDACF /* TagUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagUtils.swift; sourceTree = "<group>"; };
 		2021C563224B6EC600AAEC72 /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		2031674622522F5C00B82FD7 /* AutoresizingMaskParameterDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoresizingMaskParameterDecoder.swift; sourceTree = "<group>"; };
 		2031674B2253848900B82FD7 /* FirstStringDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstStringDecoder.swift; sourceTree = "<group>"; };
@@ -123,7 +131,7 @@
 		204D1902224E2D6B009AAB8A /* TagParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagParameter.swift; sourceTree = "<group>"; };
 		204D190B224E3C8A009AAB8A /* XibParentTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibParentTag.swift; sourceTree = "<group>"; };
 		204D190D224E53A1009AAB8A /* DecodersHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodersHolder.swift; sourceTree = "<group>"; };
-		204D190F224E5AAB009AAB8A /* NewTagDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTagDecoder.swift; sourceTree = "<group>"; };
+		204D190F224E5AAB009AAB8A /* DefaultTagDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTagDecoder.swift; sourceTree = "<group>"; };
 		204D1911225200D6009AAB8A /* ProxyObjectDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxyObjectDecoder.swift; sourceTree = "<group>"; };
 		204D1913225203CD009AAB8A /* PlaceholderDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderDecoder.swift; sourceTree = "<group>"; };
 		204D191522520B6C009AAB8A /* DefaultParameterDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultParameterDecoder.swift; sourceTree = "<group>"; };
@@ -201,7 +209,7 @@
 		2008539F2276D88F008DDACF /* decoders */ = {
 			isa = PBXGroup;
 			children = (
-				204D190F224E5AAB009AAB8A /* NewTagDecoder.swift */,
+				204D190F224E5AAB009AAB8A /* DefaultTagDecoder.swift */,
 				204D1911225200D6009AAB8A /* ProxyObjectDecoder.swift */,
 				204D1913225203CD009AAB8A /* PlaceholderDecoder.swift */,
 				204D191522520B6C009AAB8A /* DefaultParameterDecoder.swift */,
@@ -243,6 +251,17 @@
 				20F71B2B2260C27600D18AD8 /* OutletsDecoder.swift */,
 			);
 			path = decoders;
+			sourceTree = "<group>";
+		};
+		200853A22276DF71008DDACF /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				200853A32276DF82008DDACF /* Utils.swift */,
+				200853A52276E7FB008DDACF /* ColorUtils.swift */,
+				200853A72276F237008DDACF /* FontUtils.swift */,
+				200853A92276F3C1008DDACF /* TagUtils.swift */,
+			);
+			path = utils;
 			sourceTree = "<group>";
 		};
 		204D18E4224D17BA009AAB8A /* parameters */ = {
@@ -331,6 +350,7 @@
 		20FC70772248E4650003D171 /* xibdump */ = {
 			isa = PBXGroup;
 			children = (
+				200853A22276DF71008DDACF /* utils */,
 				204D18FF224E2A87009AAB8A /* decoder */,
 				204D18FE224E2A72009AAB8A /* parser */,
 				204D18FD224E2A60009AAB8A /* logger */,
@@ -371,7 +391,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "";
 				TargetAttributes = {
 					20FC70742248E4650003D171 = {
@@ -478,6 +498,7 @@
 				20912E752269D4CE00E24515 /* StoryboardConnectionDecoder.swift in Sources */,
 				20A04A30225CE71D00A07996 /* PointTagDecoder.swift in Sources */,
 				204D1914225203CD009AAB8A /* PlaceholderDecoder.swift in Sources */,
+				200853AA2276F3C1008DDACF /* TagUtils.swift in Sources */,
 				204D191E2252233E009AAB8A /* BoolParameterDecoder.swift in Sources */,
 				20FC70842248E5A00003D171 /* XibObject.swift in Sources */,
 				20F71B2A2260BC6F00D18AD8 /* ScreenEdgePanGestureRecognizerDecoder.swift in Sources */,
@@ -489,7 +510,8 @@
 				20912E712269D0F700E24515 /* StoryboardDecoder.swift in Sources */,
 				204D1901224E2D37009AAB8A /* Tag.swift in Sources */,
 				203167582254F83500B82FD7 /* ConstraintsDecoder.swift in Sources */,
-				204D1910224E5AAB009AAB8A /* NewTagDecoder.swift in Sources */,
+				200853A62276E7FB008DDACF /* ColorUtils.swift in Sources */,
+				204D1910224E5AAB009AAB8A /* DefaultTagDecoder.swift in Sources */,
 				20FC70822248E5760003D171 /* XibClass.swift in Sources */,
 				203167562254D40900B82FD7 /* AccessibilitiesDecoder.swift in Sources */,
 				20A04A2C225CD8C500A07996 /* UIBarButtonItemDecoder.swift in Sources */,
@@ -516,6 +538,7 @@
 				20FC70882248E65F0003D171 /* DataStream.swift in Sources */,
 				20A04A1022577BC800A07996 /* UITextInputTraitsDecoder.swift in Sources */,
 				203167692257403600B82FD7 /* ImageDecoder.swift in Sources */,
+				200853A42276DF82008DDACF /* Utils.swift in Sources */,
 				204D191822521766009AAB8A /* ListParameterDecoder.swift in Sources */,
 				204D18EE224E0C61009AAB8A /* XibNullParameter.swift in Sources */,
 				2031676B2257564D00B82FD7 /* StateDecoder.swift in Sources */,
@@ -526,6 +549,7 @@
 				20FC70902248E83F0003D171 /* XibLogger.swift in Sources */,
 				20A04A32225DE2C200A07996 /* StringArrayDecoder.swift in Sources */,
 				204D18F8224E1A86009AAB8A /* RestoreCommand.swift in Sources */,
+				200853A82276F237008DDACF /* FontUtils.swift in Sources */,
 				20A04A1E225B5B4200A07996 /* VisualEffectSubviewDecoder.swift in Sources */,
 				20F71B28225F523F00D18AD8 /* AttributedTextDecoder.swift in Sources */,
 				204D18E6224D17DC009AAB8A /* XibIntParameter.swift in Sources */,
@@ -658,7 +682,7 @@
 			baseConfigurationReference = 4A1C71F2A717D644249C9895 /* Pods-xibdump.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = ZGPY786UX7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -672,7 +696,7 @@
 			baseConfigurationReference = 5A00682ECCA60350E1DB43CD /* Pods-xibdump.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = ZGPY786UX7;
 				PRODUCT_NAME = "$(TARGET_NAME)";

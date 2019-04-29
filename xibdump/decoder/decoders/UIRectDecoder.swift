@@ -7,9 +7,9 @@
 
 import Cocoa
 
-class UIRectDecoder: NewTagDecoder {
+class UIRectDecoder: DefaultTagDecoder {
     
-    static func allDecoders() -> [CustomTagDecoderProtocol] {
+    static func allDecoders() -> [TagDecoderProtocol] {
         
         return [
             UIRectDecoder(parameterName: "UIContentStretch",
@@ -75,7 +75,7 @@ class UIRectDecoder: NewTagDecoder {
         self.yParam = yParam
         self.widthParam = widthParam
         self.heightParam = heightParam
-        super.init(parameterName: parameterName, objectClassName: objectClassName, tagName: tagName, needAddId: needAddId, mapper: mapper, keyParameter: keyParameter)
+        super.init(parameterName: parameterName, objectClassName: objectClassName, tagName: tagName, needAddId: needAddId, tagMapper: mapper, keyParameter: keyParameter)
     }
     
     
@@ -96,7 +96,7 @@ class UIRectDecoder: NewTagDecoder {
             
             
             let tag = Tag(name: tagName)
-            tag.addParameter(name: "key", value: keyParameter ?? parameter.name.xmlParameterName())
+            tag.addParameter(name: "key", value: keyParameter ?? parameter.name.systemParameterName())
             
             tag.addParameter(name: xParam, value: "\(xCoord)")
             tag.addParameter(name: yParam, value: "\(yCoord)")

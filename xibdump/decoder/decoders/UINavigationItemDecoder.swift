@@ -7,16 +7,16 @@
 
 import Cocoa
 
-class UINavigationItemDecoder: NewTagDecoder {
+class UINavigationItemDecoder: DefaultTagDecoder {
     
-    static func allDecoders() -> [CustomTagDecoderProtocol] {
+    static func allDecoders() -> [TagDecoderProtocol] {
         
         return [
             UINavigationItemDecoder(parameterName: "UINibEncoderEmptyKey",
                                     objectClassName: "UINavigationItem",
                                     tagName: "navigationItem",
                                     needAddId: true,
-                                    mapper: nil,
+                                    tagMapper: nil,
                                     keyParameter: nil)
         ]
     }
@@ -98,7 +98,7 @@ class UINavigationItemDecoder: NewTagDecoder {
         
         if let color = object.findObjectParameter(name: "UITintColor", objectClass: "UIColor", context: context) {
             
-            let colorTag = UIColorDecoder.extractColorTag(parentObject: object, object: color, tagName: "color", parameterName: "tintColor", context: context)
+            let colorTag = color.extractColorTag(parentObject: object, tagName: "color", parameterName: "tintColor", context: context)
             tag.add(tag: colorTag)
         }
         
@@ -139,7 +139,7 @@ class UINavigationItemDecoder: NewTagDecoder {
             
             if let value = image.findStringParameter(name: "UIResourceName", context: context) {
                 tag.addParameter(name: parameterName, value: value)
-                ImageDecoder.addImageToResourseSection(name: value, context: context)
+                context.addImageResource(name: value)
             }
         }
     }

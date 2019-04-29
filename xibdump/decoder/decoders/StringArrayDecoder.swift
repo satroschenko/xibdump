@@ -7,16 +7,16 @@
 
 import Cocoa
 
-class StringArrayDecoder: NewTagDecoder {
+class StringArrayDecoder: DefaultTagDecoder {
 
-    static func allDecoders() -> [CustomTagDecoderProtocol] {
+    static func allDecoders() -> [TagDecoderProtocol] {
         
         return [
             StringArrayDecoder(parameterName: "UIScopeButtonTitles",
                             objectClassName: "NSArray",
                             tagName: "scopeButtonTitles",
                             needAddId: false,
-                            mapper: nil,
+                            tagMapper: nil,
                             keyParameter: nil)
         ]
     }

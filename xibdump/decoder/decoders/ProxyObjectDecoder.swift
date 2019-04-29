@@ -7,7 +7,7 @@
 
 import Cocoa
 
-class ProxyObjectDecoder: NewTagDecoder {
+class ProxyObjectDecoder: DefaultTagDecoder {
 
     init() {
         super.init(parameterName: "UINibEncoderEmptyKey", objectClassName: "UIProxyObject", tagName: "")

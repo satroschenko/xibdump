@@ -7,13 +7,13 @@
 
 import Cocoa
 
-class ConstraintsVariationsDecoder: NSObject, CustomTagDecoderProtocol {
+class ConstraintsVariationsDecoder: NSObject, TagDecoderProtocol {
 
     func handledClassNames() -> [String] {
         
         return [
-            "A.UINibTraitStorageListsKey-NSMutableArray",
-            "A.UINibTraitStorageListsKey-NSArray"
+            Utils.decoderKey(parameterName: "A.UINibTraitStorageListsKey", className: "NSMutableArray", isTopLevel: false),
+            Utils.decoderKey(parameterName: "A.UINibTraitStorageListsKey", className: "NSArray", isTopLevel: false)
         ]
     }
     
@@ -156,20 +156,18 @@ class ConstraintsVariationsDecoder: NSObject, CustomTagDecoderProtocol {
     
     fileprivate func parseColorVariation(object: XibObject, context: ParserContext, variationTag: Tag, keyPath: String) {
         
-        let colorTag = UIColorDecoder.extractColorTag(parentObject: object,
-                                                      object: object,
-                                                      tagName: "color",
-                                                      parameterName: "",
-                                                      context: context,
-                                                      key: keyPath,
-                                                      mapper: nil)
-        
+        let colorTag = object.extractColorTag(parentObject: object,
+                                              tagName: "color",
+                                              parameterName: "",
+                                              context: context,
+                                              key: keyPath,
+                                              keyMapper: nil)
         variationTag.add(tag: colorTag)
     }
     
     fileprivate func parseFontVariation(object: XibObject, context: ParserContext, variationTag: Tag, keyPath: String) {
         
-        let fontTag = FontDecoder.extractFontTag(object: object, tagName: "fontDescription", key: "fontDescription", context: context)
+        let fontTag = object.extractFontTag(tagName: "fontDescription", key: "fontDescription", context: context)
         variationTag.add(tag: fontTag)
     }
     
@@ -186,7 +184,7 @@ class ConstraintsVariationsDecoder: NSObject, CustomTagDecoderProtocol {
             return
         }
         
-        ImageDecoder.addImageToResourseSection(name: value, context: context)
+        context.addImageResource(name: value)
         variationTag.addParameter(name: keyPath, value: value)
     }
     

@@ -7,7 +7,7 @@
 
 import Cocoa
 
-class StateDecoder: NSObject, CustomTagDecoderProtocol {
+class StateDecoder: NSObject, TagDecoderProtocol {
     
     static let states: [String] = [
         "normal",
@@ -19,9 +19,9 @@ class StateDecoder: NSObject, CustomTagDecoderProtocol {
 
     func handledClassNames() -> [String] {
         return [
-            "T.UIButtonStatefulContent-NSMutableDictionary",
-            "T.UIButtonStatefulContent-NSDictionary",
-            "T.UINibEncoderEmptyKey-UIButtonContent"
+            Utils.decoderKey(parameterName: "UIButtonStatefulContent", className: "NSMutableDictionary", isTopLevel: true),
+            Utils.decoderKey(parameterName: "UIButtonStatefulContent", className: "NSDictionary", isTopLevel: true),
+            Utils.decoderKey(parameterName: "UINibEncoderEmptyKey", className: "UIButtonContent", isTopLevel: true)
         ]
     }
     

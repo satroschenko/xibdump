@@ -119,13 +119,17 @@ class Tag: NSObject {
 
 extension String {
     
+    static let dropSystemPrefixes: [String] = ["UI", "NS", "MK"]
     static let systemPrefixes: [String] = ["GLK", "AV"]
     
-    func xmlParameterName() -> String {
-        if self.hasPrefix("UI") || self.hasPrefix("NS") || self.hasPrefix("MK") {
-            let res = String(self.dropFirst(2))
-            if res.count > 0 {
-                return res.lowercasingFirstLetter()
+    func systemParameterName() -> String {
+        
+        for prefix in String.dropSystemPrefixes {
+            if self.hasPrefix(prefix) {
+                let res = String(self.dropFirst(prefix.count))
+                if res.count > 0 {
+                    return res.lowercasingFirstLetter()
+                }
             }
         }
         

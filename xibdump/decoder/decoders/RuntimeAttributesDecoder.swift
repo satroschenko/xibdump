@@ -7,11 +7,10 @@
 
 import Cocoa
 
-class RuntimeAttributesDecoder: NSObject, CustomTagDecoderProtocol {
+class RuntimeAttributesDecoder: NSObject, TagDecoderProtocol {
 
     func handledClassNames() -> [String] {
-        
-        return ["A.UINibKeyValuePairsKey-NSArray"]
+        return [Utils.decoderKey(parameterName: "UINibKeyValuePairsKey", className: "NSArray", isTopLevel: false)]
     }
     
     func parse(parentObject: XibObject, parameter: XibParameterProtocol, context: ParserContext) -> TagDecoderResult {
@@ -166,11 +165,12 @@ class RuntimeAttributesDecoder: NSObject, CustomTagDecoderProtocol {
     
     fileprivate func processColor(parentObject: XibObject, object: XibObject, context: ParserContext, parentTag: Tag) {
     
-        let colorTag = UIColorDecoder.extractColorTag(parentObject: parentObject,
-                                                      object: object,
-                                                      tagName: "color",
-                                                      parameterName: "value",
-                                                      context: context)
+        let colorTag = object.extractColorTag(parentObject: parentObject,
+                                              tagName: "color",
+                                              parameterName: "value",
+                                              context: context,
+                                              key: nil,
+                                              keyMapper: nil)
         
         parentTag.addParameter(name: "type", value: "color")
         parentTag.add(tag: colorTag)

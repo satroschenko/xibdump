@@ -7,14 +7,14 @@
 
 import Cocoa
 
-class WebViewConfigurationDecoder: NSObject, CustomTagDecoderProtocol {
+class WebViewConfigurationDecoder: NSObject, TagDecoderProtocol {
 
     override init() {
         super.init()
     }
     
     func handledClassNames() -> [String] {
-        return ["T.configuration-WKWebViewConfiguration"]
+        return [Utils.decoderKey(parameterName: "configuration", className: "WKWebViewConfiguration", isTopLevel: true)]
     }
     
     func parse(parentObject: XibObject, parameter: XibParameterProtocol, context: ParserContext) -> TagDecoderResult {
@@ -46,21 +46,14 @@ class WebViewConfigurationDecoder: NSObject, CustomTagDecoderProtocol {
                 prefTag.addParameter(name: "minimumFontSize", value: "\(size)")
             }
             
-            addBoolTag(object: prefObject, name: "javaScriptEnabled", parameter: "javaScriptEnabled", context: context, tag: prefTag)
-            addBoolTag(object: prefObject,
-                       name: "javaScriptCanOpenWindowsAutomatically",
-                       parameter: "javaScriptCanOpenWindowsAutomatically",
-                       context: context,
-                       tag: prefTag)
+            prefTag.addBoolParameter(object: prefObject, name: "javaScriptEnabled", context: context, tagName: "javaScriptEnabled")
+            prefTag.addBoolParameter(object: prefObject, name: "javaScriptCanOpenWindowsAutomatically", context: context, tagName: "javaScriptCanOpenWindowsAutomatically")
         }
         
         
-        addBoolTag(object: object, name: "allowsAirPlayForMediaPlayback", parameter: "allowsAirPlayForMediaPlayback", context: context, tag: tag)
-        addBoolTag(object: object, name: "allowsInlineMediaPlayback", parameter: "allowsInlineMediaPlayback", context: context, tag: tag)
-        addBoolTag(object: object, name: "allowsPictureInPictureMediaPlayback", parameter: "allowsPictureInPictureMediaPlayback", context: context, tag: tag)
-        
-        addBoolTag(object: object, name: "allowsInlineMediaPlayback", parameter: "allowsInlineMediaPlayback", context: context, tag: tag)
-        addBoolTag(object: object, name: "allowsInlineMediaPlayback", parameter: "allowsInlineMediaPlayback", context: context, tag: tag)
+        tag.addBoolParameter(object: object, name: "allowsAirPlayForMediaPlayback", context: context, tagName: "allowsAirPlayForMediaPlayback")
+        tag.addBoolParameter(object: object, name: "allowsInlineMediaPlayback", context: context, tagName: "allowsInlineMediaPlayback")
+        tag.addBoolParameter(object: object, name: "allowsPictureInPictureMediaPlayback", context: context, tagName: "allowsPictureInPictureMediaPlayback")
         
         let visualTag = Tag(name: "audiovisualMediaTypes")
         visualTag.addParameter(name: "key", value: "mediaTypesRequiringUserActionForPlayback")
@@ -80,16 +73,9 @@ class WebViewConfigurationDecoder: NSObject, CustomTagDecoderProtocol {
             typesTag.addParameter(name: "key", value: "dataDetectorTypes")
             tag.add(tag: typesTag)
             
-            DataDetectorTypesDecoder.decode(value: detectorTypes, context: context, tag: typesTag)
+            typesTag.extractDataDetectorType(value: detectorTypes)
         }
         
         return .tag(tag, true)
-    }
-    
-    
-    fileprivate func addBoolTag(object: XibObject, name: String, parameter: String, context: ParserContext, tag: Tag) {
-        if let isTag = object.findBoolParameter(name: name, context: context) {
-            tag.addParameter(name: parameter, value: isTag ? "YES" : "NO")
-        }
     }
 }

@@ -45,7 +45,7 @@ class StoryboardConnectionDecoder: NSObject {
                 connections.append(connection)
             }
         }
-                
+        
         return connections.isEmpty ? nil : connections
     }
     
@@ -60,7 +60,7 @@ class StoryboardConnectionDecoder: NSObject {
             return nil
         }
         
-        let rootClassName = object.originalClassName(context: context).xmlParameterName()
+        let rootClassName = object.originalClassName(context: context).systemParameterName()
         return StoryboardConnection(fileName: nibName, storyboardIdentifier: stId, rootClassName: rootClassName)
     }
 }

@@ -7,10 +7,10 @@
 
 import Cocoa
 
-class UITabbarItemDecoder: CustomTagDecoderProtocol {
+class UITabbarItemDecoder: TagDecoderProtocol {
 
     func handledClassNames() -> [String] {
-        return ["T.UINibEncoderEmptyKey-UITabBarItem"]
+        return [Utils.decoderKey(parameterName: "UINibEncoderEmptyKey", className: "UITabBarItem", isTopLevel: true)]
     }
     
     func parse(parentObject: XibObject, parameter: XibParameterProtocol, context: ParserContext) -> TagDecoderResult {
@@ -22,8 +22,6 @@ class UITabbarItemDecoder: CustomTagDecoderProtocol {
         let tag = Tag(name: "tabBarItem")
         tag.addParameter(name: "id", value: object.objectId)
         tag.innerObjectId = object.objectId
-        
-        
         
         return .tag(tag, true)
     }

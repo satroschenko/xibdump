@@ -64,33 +64,21 @@ class ListParameterDecoder: DefaultParameterDecoder {
                                  tagName: "semanticContentAttribute",
                                  values: ListParameterDecoder.semanticAttributes),
             
-            ListParameterDecoder(parameterName: "UIProgressViewStyle",
-                                 tagName: "progressViewStyle",
-                                 values: ["default", "bar"]),
+            ListParameterDecoder(uiParameterName: "UIProgressViewStyle", values: ["default", "bar"]),
             
             ListParameterDecoder(parameterName: "UIActivityIndicatorViewStyle",
                                  tagName: "style",
                                  values: ["whiteLarge", "white", "gray"]),
             
-            ListParameterDecoder(parameterName: "UIContentVerticalAlignment",
-                                 tagName: "contentVerticalAlignment",
-                                 values: ["center", "top", "bottom", "fill"]),
+            ListParameterDecoder(uiParameterName: "UIContentVerticalAlignment", values: ["center", "top", "bottom", "fill"]),
             
-            ListParameterDecoder(parameterName: "UIContentHorizontalAlignment",
-                                 tagName: "contentHorizontalAlignment",
-                                 values: ["center", "left", "right", "fill", "leading", "trailing"]),
+            ListParameterDecoder(uiParameterName: "UIContentHorizontalAlignment", values: ["center", "left", "right", "fill", "leading", "trailing"]),
             
-            ListParameterDecoder(parameterName: "UIButtonType",
-                                 tagName: "buttonType",
-                                 values: ["custom", "roundedRect", "detailDisclosure", "infoLight", "infoDark", "contactAdd"]),
+            ListParameterDecoder(uiParameterName: "UIButtonType", values: ["custom", "roundedRect", "detailDisclosure", "infoLight", "infoDark", "contactAdd"]),
             
-            ListParameterDecoder(parameterName: "UIBorderStyle",
-                                 tagName: "borderStyle",
-                                 values: ["none", "line", "bezel", "roundedRect"]),
+            ListParameterDecoder(uiParameterName: "UIBorderStyle", values: ["none", "line", "bezel", "roundedRect"]),
             
-            ListParameterDecoder(parameterName: "UIClearButtonMode",
-                                 tagName: "clearButtonMode",
-                                 values: ["0", "whileEditing", "unlessEditing", "always"]),
+            ListParameterDecoder(uiParameterName: "UIClearButtonMode", values: ["0", "whileEditing", "unlessEditing", "always"]),
             
             ListParameterDecoder(parameterName: "UIStackViewAlignment",
                                  tagName: "alignment",
@@ -136,13 +124,9 @@ class ListParameterDecoder: DefaultParameterDecoder {
                                  tagName: "drawableMultisample",
                                  values: ["none", "4X"]),
             
-            ListParameterDecoder(parameterName: "UIBarStyle",
-                                 tagName: "barStyle",
-                                 values: ["default", "black", "blackTranslucent"]),
+            ListParameterDecoder(uiParameterName: "UIBarStyle", values: ["default", "black", "blackTranslucent"]),
             
-            ListParameterDecoder(parameterName: "UISearchBarStyle",
-                                 tagName: "searchBarStyle",
-                                 values: ["default", "prominent", "minimal"]),
+            ListParameterDecoder(uiParameterName: "UISearchBarStyle", values: ["default", "prominent", "minimal"]),
             
             ListParameterDecoder(parameterName: "UIBarTranslucence",
                                  tagName: "translucent",
@@ -156,14 +140,11 @@ class ListParameterDecoder: DefaultParameterDecoder {
                                  tagName: "itemPositioning",
                                  values: ["automatic", "fill", "centered"]),
             
-            ListParameterDecoder(parameterName: "UISystemItem",
-                                 tagName: "systemItem",
+            ListParameterDecoder(uiParameterName: "UISystemItem",
                                  values: ["more", "favorites", "featured", "topRated", "recents", "contacts", "history",
                                           "bookmarks", "search", "downloads", "mostRecent", "mostViewed"]),
             
-            ListParameterDecoder(parameterName: "UIStyle",
-                                 tagName: "style",
-                                 values: ["plain", "grouped"]),
+            ListParameterDecoder(uiParameterName: "UIStyle", values: ["plain", "grouped"]),
             
             ListParameterDecoder(parameterName: "UISeparatorStyle",
                                  tagName: "style",
@@ -174,29 +155,19 @@ class ListParameterDecoder: DefaultParameterDecoder {
                                  values: ["IBUITableViewCellStyleDefault", "IBUITableViewCellStyleValue1",
                                           "IBUITableViewCellStyleValue2", "IBUITableViewCellStyleSubtitle"]),
             
-            ListParameterDecoder(parameterName: "UISelectionStyle",
-                                 tagName: "selectionStyle",
-                                 values: ["none", "blue", "gray"]),
+            ListParameterDecoder(uiParameterName: "UISelectionStyle", values: ["none", "blue", "gray"]),
             
-            ListParameterDecoder(parameterName: "UIAccessoryType",
-                                 tagName: "accessoryType",
-                                 values: ["", "disclosureIndicator", "detailDisclosureButton", "checkmark", "detailButton"]),
+            ListParameterDecoder(uiParameterName: "UIAccessoryType", values: ["", "disclosureIndicator", "detailDisclosureButton", "checkmark", "detailButton"]),
             
-            ListParameterDecoder(parameterName: "UIEditingAccessoryType",
-                                 tagName: "editingAccessoryType",
-                                 values: ["", "disclosureIndicator", "detailDisclosureButton", "checkmark", "detailButton"]),
+            ListParameterDecoder(uiParameterName: "UIEditingAccessoryType", values: ["", "disclosureIndicator", "detailDisclosureButton", "checkmark", "detailButton"]),
             
-            ListParameterDecoder(parameterName: "UIFocusStyle",
-                                 tagName: "focusStyle",
-                                 values: ["", "custom"]),
+            ListParameterDecoder(uiParameterName: "UIFocusStyle", values: ["", "custom"]),
             
             ListParameterDecoder(parameterName: "UIScrollViewContentInsetAdjustmentBehavior",
                                  tagName: "contentInsetAdjustmentBehavior",
                                  values: ["", "scrollableAxes", "never", "always"]),
             
-            ListParameterDecoder(parameterName: "UISectionInsetReference",
-                                 tagName: "sectionInsetReference",
-                                 values: ["", "safeArea", "layoutMargins"]),
+            ListParameterDecoder(uiParameterName: "UISectionInsetReference", values: ["", "safeArea", "layoutMargins"]),
             
             ListParameterDecoder(parameterName: "UISwipeGestureRecognizer.direction",
                                  tagName: "direction",
@@ -209,6 +180,11 @@ class ListParameterDecoder: DefaultParameterDecoder {
     init(parameterName: String, tagName: String, values: [String]) {
         self.values = values
         super.init(parameterName: parameterName, tagName: tagName)
+    }
+    
+    init(uiParameterName: String, values: [String]) {
+        self.values = values
+        super.init(parameterName: uiParameterName, tagName: uiParameterName.systemParameterName())
     }
     
     

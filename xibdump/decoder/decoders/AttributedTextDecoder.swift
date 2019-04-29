@@ -15,16 +15,16 @@ struct AttributedIndex {
 }
 
 
-class AttributedTextDecoder: NewTagDecoder {
+class AttributedTextDecoder: DefaultTagDecoder {
 
-    static func allDecoders() -> [CustomTagDecoderProtocol] {
+    static func allDecoders() -> [TagDecoderProtocol] {
         
         return [
             AttributedTextDecoder(parameterName: "UIAttributedText",
                                   objectClassName: "NSMutableAttributedString",
                                   tagName: "attributedString",
                                   needAddId: true,
-                                  mapper: nil,
+                                  tagMapper: nil,
                                   keyParameter: "attributedText")
         ]
     }
@@ -154,21 +154,17 @@ class AttributedTextDecoder: NewTagDecoder {
                 
                 if pObject.originalClassName(context: context) == "UIColor" {
                     
-                    let colorTag = UIColorDecoder.extractColorTag(parentObject: object,
-                                                                  object: pObject,
-                                                                  tagName: "color",
-                                                                  parameterName: "",
-                                                                  context: context,
-                                                                  key: prevKey,
-                                                                  mapper: nil)
+                    let colorTag = pObject.extractColorTag(parentObject: object,
+                                                           tagName: "color",
+                                                           parameterName: "",
+                                                           context: context,
+                                                           key: prevKey)
                     tag.add(tag: colorTag)
-                    
-                    
                 }
                 
                 if pObject.originalClassName(context: context) == "UIFont" {
                     
-                    let fontTag = FontDecoder.extractFontTag(object: pObject, tagName: "font", key: prevKey, context: context)
+                    let fontTag = pObject.extractFontTag(tagName: "font", key: prevKey, context: context)
                     tag.add(tag: fontTag)
                     
                     

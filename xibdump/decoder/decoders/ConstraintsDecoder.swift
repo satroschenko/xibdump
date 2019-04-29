@@ -14,7 +14,7 @@ struct ConstraintsDecoderResult {
     let layoutGuideId: String?
 }
 
-class ConstraintsDecoder: NSObject, CustomTagDecoderProtocol {
+class ConstraintsDecoder: NSObject, TagDecoderProtocol {
     
     fileprivate let names = [
         "notAnAttribute",
@@ -36,8 +36,8 @@ class ConstraintsDecoder: NSObject, CustomTagDecoderProtocol {
     func handledClassNames() -> [String] {
         
         return [
-            "T.UIViewAutolayoutConstraints-NSMutableArray",
-            "T.UIViewAutolayoutConstraints-NSArray"
+            Utils.decoderKey(parameterName: "UIViewAutolayoutConstraints", className: "NSMutableArray", isTopLevel: true),
+            Utils.decoderKey(parameterName: "UIViewAutolayoutConstraints", className: "NSArray", isTopLevel: true)
         ]
     }
     

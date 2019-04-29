@@ -7,7 +7,7 @@
 
 import Cocoa
 
-class DataDetectorTypesDecoder: NSObject, CustomTagDecoderProtocol {
+class DataDetectorTypesDecoder: NSObject, TagDecoderProtocol {
     
     struct DataDetectorTypeOptionSet: OptionSet {
         
@@ -23,7 +23,7 @@ class DataDetectorTypesDecoder: NSObject, CustomTagDecoderProtocol {
     }
 
     func handledClassNames() -> [String] {
-        return ["T.UIDataDetectorTypes-"]
+        return [Utils.decoderKey(parameterName: "UIDataDetectorTypes", className: "", isTopLevel: true)]
     }
     
     func parse(parentObject: XibObject, parameter: XibParameterProtocol, context: ParserContext) -> TagDecoderResult {
@@ -34,37 +34,8 @@ class DataDetectorTypesDecoder: NSObject, CustomTagDecoderProtocol {
         
         let tag = Tag(name: "dataDetectorType")
         tag.addParameter(name: "key", value: "dataDetectorTypes")
-        
-        DataDetectorTypesDecoder.decode(value: intParameter.value, context: context, tag: tag)
+        tag.extractDataDetectorType(value: intParameter.value)
         
         return .tag(tag, false)
-    }
-    
-    
-    static func decode(value: Int, context: ParserContext, tag: Tag) {
-        
-        let optionSet = DataDetectorTypeOptionSet(rawValue: value)
-        
-        if optionSet.contains(.phoneNumber) {
-            tag.addParameter(name: "phoneNumber", value: "YES")
-        }
-        if optionSet.contains(.link) {
-            tag.addParameter(name: "link", value: "YES")
-        }
-        if optionSet.contains(.address) {
-            tag.addParameter(name: "address", value: "YES")
-        }
-        if optionSet.contains(.calendarEvent) {
-            tag.addParameter(name: "calendarEvent", value: "YES")
-        }
-        if optionSet.contains(.shipmentTrackingNumber) {
-            tag.addParameter(name: "shipmentTrackingNumber", value: "YES")
-        }
-        if optionSet.contains(.flightNumber) {
-            tag.addParameter(name: "flightNumber", value: "YES")
-        }
-        if optionSet.contains(.lookupSuggestion) {
-            tag.addParameter(name: "lookupSuggestion", value: "YES")
-        }
     }
 }

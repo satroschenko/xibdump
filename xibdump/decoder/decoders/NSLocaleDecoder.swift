@@ -7,11 +7,11 @@
 
 import Cocoa
 
-class NSLocaleDecoder: NSObject, CustomTagDecoderProtocol {
+class NSLocaleDecoder: NSObject, TagDecoderProtocol {
 
     
     func handledClassNames() -> [String] {
-        return ["T.UILocale-NSLocale"]
+        return [Utils.decoderKey(parameterName: "UILocale", className: "NSLocale", isTopLevel: true)]
     }
     
     

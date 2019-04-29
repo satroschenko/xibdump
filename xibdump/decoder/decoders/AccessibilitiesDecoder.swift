@@ -7,7 +7,7 @@
 
 import Cocoa
 
-class AccessibilitiesDecoder: NSObject, CustomTagDecoderProtocol {
+class AccessibilitiesDecoder: NSObject, TagDecoderProtocol {
     
     struct AccessibilityTraitsOptionSet: OptionSet {
         
@@ -36,8 +36,7 @@ class AccessibilitiesDecoder: NSObject, CustomTagDecoderProtocol {
     
     
     func handledClassNames() -> [String] {
-        
-        return ["A.UINibAccessibilityConfigurationsKey-NSArray"]
+        return [Utils.decoderKey(parameterName: "UINibAccessibilityConfigurationsKey", className: "NSArray", isTopLevel: false)]
     }
     
     func parse(parentObject: XibObject, parameter: XibParameterProtocol, context: ParserContext) -> TagDecoderResult {

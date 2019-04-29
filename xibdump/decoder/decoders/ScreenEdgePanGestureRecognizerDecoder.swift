@@ -7,7 +7,7 @@
 
 import Cocoa
 
-class ScreenEdgePanGestureRecognizerDecoder: CustomTagDecoderProtocol {
+class ScreenEdgePanGestureRecognizerDecoder: TagDecoderProtocol {
 
     struct ScreenEdgeOptionSet: OptionSet {
         
@@ -20,7 +20,7 @@ class ScreenEdgePanGestureRecognizerDecoder: CustomTagDecoderProtocol {
     }
     
     func handledClassNames() -> [String] {
-        return ["T.UIScreenEdgePanGestureRecognizer.edges-"]
+        return [Utils.decoderKey(parameterName: "UIScreenEdgePanGestureRecognizer.edges", className: "", isTopLevel: true)]
     }
     
     func parse(parentObject: XibObject, parameter: XibParameterProtocol, context: ParserContext) -> TagDecoderResult {

@@ -16,7 +16,7 @@ enum TagDecoderResult {
 }
 
 
-protocol CustomTagDecoderProtocol {
+protocol TagDecoderProtocol {
     
     func parse(parentObject: XibObject, parameter: XibParameterProtocol, context: ParserContext) -> TagDecoderResult
     func handledClassNames() -> [String]
@@ -24,8 +24,7 @@ protocol CustomTagDecoderProtocol {
 
 class DecodersHolder: NSObject {
 
-    fileprivate var customDecoders = [String: CustomTagDecoderProtocol]()
-    fileprivate var allowedClassNames = [String]()
+    fileprivate var customDecoders = [String: TagDecoderProtocol]()
     
     override init() {
         super.init()
@@ -47,66 +46,66 @@ class DecodersHolder: NSObject {
     fileprivate func registerDecoders() {
         
         DecodersHolder.uiClassNamesList.forEach { name in 
-            register(decoder: NewTagDecoder(uiKitName: name))
+            register(decoder: DefaultTagDecoder(uiKitName: name))
         }
         
         
-        self.register(decoder: NewTagDecoder(parameterName: "UINibTopLevelObjectsKey",
+        self.register(decoder: DefaultTagDecoder(parameterName: "UINibTopLevelObjectsKey",
                                              objectClassName: "NSArray",
                                              tagName: "objects",
                                              needAddId: false))
-        self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey",
+        self.register(decoder: DefaultTagDecoder(parameterName: "UINibEncoderEmptyKey",
                                              objectClassName: "UISegment",
                                              tagName: "segment",
                                              needAddId: false))
         
-        self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey",
+        self.register(decoder: DefaultTagDecoder(parameterName: "UINibEncoderEmptyKey",
                                              objectClassName: "UITableViewCellContentView",
                                              tagName: "tableViewCellContentView",
                                              needAddId: true,
-                                             mapper: nil,
+                                             tagMapper: nil,
                                              keyParameter: "contentView"))
         
-        self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey",
+        self.register(decoder: DefaultTagDecoder(parameterName: "UINibEncoderEmptyKey",
                                              objectClassName: "UITableViewLabel",
                                              tagName: "label"))
         
-        self.register(decoder: NewTagDecoder(parameterName: "UIView",
+        self.register(decoder: DefaultTagDecoder(parameterName: "UIView",
                                              objectClassName: "UIView",
                                              tagName: "view"))
         
-        self.register(decoder: NewTagDecoder(parameterName: "UICollectionLayout",
+        self.register(decoder: DefaultTagDecoder(parameterName: "UICollectionLayout",
                                              objectClassName: "UICollectionViewFlowLayout",
                                              tagName: "collectionViewFlowLayout",
                                              needAddId: true,
-                                             mapper: nil,
+                                             tagMapper: nil,
                                              keyParameter: "collectionViewLayout"))
         
-        self.register(decoder: NewTagDecoder(parameterName: "UICollectionLayout",
+        self.register(decoder: DefaultTagDecoder(parameterName: "UICollectionLayout",
                                              objectClassName: "UICollectionViewLayout",
                                              tagName: "collectionViewLayout",
                                              needAddId: true,
-                                             mapper: nil,
+                                             tagMapper: nil,
                                              keyParameter: "collectionViewLayout"))
         
-        self.register(decoder: NewTagDecoder(parameterName: "UIAttributedText",
+        self.register(decoder: DefaultTagDecoder(parameterName: "UIAttributedText",
                                              objectClassName: "NSMutableAttributedString",
                                              tagName: "attributedString",
                                              needAddId: false,
-                                             mapper: nil,
+                                             tagMapper: nil,
                                              keyParameter: "attributedText"))
 
-        self.register(decoder: NewTagDecoder(parameterName: "UITableSections",
+        self.register(decoder: DefaultTagDecoder(parameterName: "UITableSections",
                                              objectClassName: "NSArray",
                                              tagName: "sections",
                                              needAddId: false))
         
-        self.register(decoder: NewTagDecoder(parameterName: "UITableSectionRows",
+        self.register(decoder: DefaultTagDecoder(parameterName: "UITableSectionRows",
                                              objectClassName: "NSArray",
                                              tagName: "cells",
                                              needAddId: false))
         
-        self.register(decoder: NewTagDecoder(parameterName: "UITableRowCell",
+        self.register(decoder: DefaultTagDecoder(parameterName: "UITableRowCell",
                                              objectClassName: "UITableViewCell",
                                              tagName: "tableViewCell"))
         
@@ -115,11 +114,11 @@ class DecodersHolder: NSObject {
         self.register(decoder: UIBarButtonItemDecoder())
         self.register(decoder: UITabbarItemDecoder())
         self.register(decoder: ScreenEdgePanGestureRecognizerDecoder())
-        self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey", objectClassName: "GLKView", tagName: "glkView"))
-        self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey", objectClassName: "SCNView", tagName: "sceneKitView"))
-        self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey", objectClassName: "ARSCNView", tagName: "arscnView"))
-        self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey", objectClassName: "WKWebView", tagName: "wkWebView"))
-        self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey",
+        self.register(decoder: DefaultTagDecoder(parameterName: "UINibEncoderEmptyKey", objectClassName: "GLKView", tagName: "glkView"))
+        self.register(decoder: DefaultTagDecoder(parameterName: "UINibEncoderEmptyKey", objectClassName: "SCNView", tagName: "sceneKitView"))
+        self.register(decoder: DefaultTagDecoder(parameterName: "UINibEncoderEmptyKey", objectClassName: "ARSCNView", tagName: "arscnView"))
+        self.register(decoder: DefaultTagDecoder(parameterName: "UINibEncoderEmptyKey", objectClassName: "WKWebView", tagName: "wkWebView"))
+        self.register(decoder: DefaultTagDecoder(parameterName: "UINibEncoderEmptyKey",
                                              objectClassName: "UILongPressGestureRecognizer",
                                              tagName: "pongPressGestureRecognizer")) // WTF
         
@@ -129,24 +128,24 @@ class DecodersHolder: NSObject {
         self.register(decoder: OutletsDecoder())
         
         
-        self.register(decoder: NewTagDecoder(parameterName: "UISubviews",
+        self.register(decoder: DefaultTagDecoder(parameterName: "UISubviews",
                                              objectClassName: "NSMutableArray",
                                              tagName: "subviews",
                                              needAddId: false,
-                                             mapper: ["UISegmentedControl": "segments", "UITableViewCell": "", "UICollectionViewCell": ""]))
+                                             tagMapper: ["UISegmentedControl": "segments", "UITableViewCell": "", "UICollectionViewCell": ""]))
         
-        self.register(decoder: NewTagDecoder(parameterName: "UIItems",
+        self.register(decoder: DefaultTagDecoder(parameterName: "UIItems",
                                              objectClassName: "NSArray",
                                              tagName: "items",
                                              needAddId: false))
-        self.register(decoder: NewTagDecoder(parameterName: "UIItems",
+        self.register(decoder: DefaultTagDecoder(parameterName: "UIItems",
                                              objectClassName: "NSMutableArray",
                                              tagName: "items",
                                              needAddId: false))
         
-        self.register(decoder: NewTagDecoder(parameterName: "UITapGestureRecognizer._imp", objectClassName: "UITapRecognizer", tagName: ""))
-        self.register(decoder: NewTagDecoder(parameterName: "UILongPressGestureRecognizer._imp", objectClassName: "UITapRecognizer", tagName: ""))
-        self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey", objectClassName: "UITableViewRow", tagName: ""))
+        self.register(decoder: DefaultTagDecoder(parameterName: "UITapGestureRecognizer._imp", objectClassName: "UITapRecognizer", tagName: ""))
+        self.register(decoder: DefaultTagDecoder(parameterName: "UILongPressGestureRecognizer._imp", objectClassName: "UITapRecognizer", tagName: ""))
+        self.register(decoder: DefaultTagDecoder(parameterName: "UINibEncoderEmptyKey", objectClassName: "UITableViewRow", tagName: ""))
         
         self.register(decoder: PointDecoder(parameterName: "UIViewContentHuggingPriority",
                                             firstName: "horizontalHuggingPriority",
@@ -185,25 +184,23 @@ class DecodersHolder: NSObject {
         self.register(decoder: NSLocaleDecoder())
         self.register(decoder: WebViewConfigurationDecoder())
         
-//        self.register(parser: UIViewControllerParser())
     }
     // swiftlint:enable all
     
-    fileprivate func register(decoder: CustomTagDecoderProtocol) {
+    fileprivate func register(decoder: TagDecoderProtocol) {
         
         for key in decoder.handledClassNames() {
             self.customDecoders[key] = decoder
         }
     }
     
-    fileprivate func register(decoders: [CustomTagDecoderProtocol]) {
+    fileprivate func register(decoders: [TagDecoderProtocol]) {
         for one in decoders {
             self.register(decoder: one)
         }
     }
     
-    func parser(by parameter: XibParameterProtocol, context: ParserContext, isTopLevel: Bool) -> CustomTagDecoderProtocol? {
-        
+    func parser(by parameter: XibParameterProtocol, context: ParserContext, isTopLevel: Bool) -> TagDecoderProtocol? {
         return self.customDecoders[createDecoderKey(parameter: parameter, context: context, isTopLevel: isTopLevel)]
     }
     
@@ -216,9 +213,6 @@ class DecodersHolder: NSObject {
             className = object.originalClassName(context: context)
         }
         
-        let prefix = isTopLevel ? "T.":"A."
-        let suffix = "\(parameterName)-\(className)"
-        
-        return "\(prefix)\(suffix)"
+        return Utils.decoderKey(parameterName: parameterName, className: className, isTopLevel: isTopLevel)
     }
 }

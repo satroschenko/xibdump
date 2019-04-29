@@ -7,39 +7,33 @@
 
 import Cocoa
 
-class DefaultParameterDecoder: NSObject, CustomTagDecoderProtocol {
+class DefaultParameterDecoder: NSObject, TagDecoderProtocol {
 
     let parameterName: String
     let tagName: String
-    let mapper: [String: String]?
+    let tagMapper: [String: String]?
+    var topLevelDecoder: Bool = true
     
-    static func allDecoders() -> [DefaultParameterDecoder] {
+    static let uiParametersNamesList: [String] = [
+        "UIOpaque", "UIPreferredMaxLayoutWidth", "UIMinimumScaleFactor", "UINumberOfLines", "UITag", "UIAlpha",
+        "UIMinimumFontSize", "UIProgress", "UIValue", "UIMinValue", "UIMaxValue", "UISelectedSegmentIndex",
+        "UINumberOfPages", "UICurrentPage", "UIMinimumValue", "UIMaximumValue", "UIStepValue", "UIMaximumZoomScale",
+        "UIMinimumZoomScale", "UIMinuteInterval", "UICountDownDuration", "UISectionIndexMinimumDisplayRowCount",
+        "UIEstimatedRowHeight", "UIRowHeight", "UISectionHeaderHeight", "UIEstimatedSectionHeaderHeight",
+        "UISectionFooterHeight", "UIEstimatedSectionFooterHeight", "UIIndentationLevel", "UIIndentationWidth"
+    ]
+    
+    static func allDecoders() -> [TagDecoderProtocol] {
         
-        var result = [DefaultParameterDecoder]()
+        var result = [TagDecoderProtocol]()
+        
+        DefaultParameterDecoder.uiParametersNamesList.forEach { name in
+            result.append(DefaultParameterDecoder(uiKitName: name))
+        }
         
         result.append(contentsOf: [
-            DefaultParameterDecoder(parameterName: "UIOpaque", tagName: "opaque"),
-            DefaultParameterDecoder(parameterName: "UIPreferredMaxLayoutWidth", tagName: "preferredMaxLayoutWidth"),
-            DefaultParameterDecoder(parameterName: "UIMinimumScaleFactor", tagName: "minimumScaleFactor"),
-            DefaultParameterDecoder(parameterName: "UINumberOfLines", tagName: "numberOfLines"),
-            DefaultParameterDecoder(parameterName: "UITag", tagName: "tag"),
-            DefaultParameterDecoder(parameterName: "UIAlpha", tagName: "alpha"),
-            DefaultParameterDecoder(parameterName: "UIMinimumFontSize", tagName: "minimumFontSize"),
-            DefaultParameterDecoder(parameterName: "UIProgress", tagName: "progress"),
-            DefaultParameterDecoder(parameterName: "UIValue", tagName: "value"),
-            DefaultParameterDecoder(parameterName: "UIMinValue", tagName: "minValue"),
-            DefaultParameterDecoder(parameterName: "UIMaxValue", tagName: "maxValue"),
-            DefaultParameterDecoder(parameterName: "UISelectedSegmentIndex", tagName: "selectedSegmentIndex"),
-            DefaultParameterDecoder(parameterName: "UINumberOfPages", tagName: "numberOfPages"),
-            DefaultParameterDecoder(parameterName: "UICurrentPage", tagName: "currentPage"),
-            DefaultParameterDecoder(parameterName: "UIMinimumValue", tagName: "minimumValue"),
-            DefaultParameterDecoder(parameterName: "UIMaximumValue", tagName: "maximumValue"),
-            DefaultParameterDecoder(parameterName: "UIStepValue", tagName: "stepValue"),
+
             DefaultParameterDecoder(parameterName: "UIStackViewSpacing", tagName: "spacing"),
-            DefaultParameterDecoder(parameterName: "UIMaximumZoomScale", tagName: "maximumZoomScale"),
-            DefaultParameterDecoder(parameterName: "UIMinimumZoomScale", tagName: "minimumZoomScale"),
-            DefaultParameterDecoder(parameterName: "UIMinuteInterval", tagName: "minuteInterval"),
-            DefaultParameterDecoder(parameterName: "UICountDownDuration", tagName: "countDownDuration"),
             DefaultParameterDecoder(parameterName: "MTKViewClearDepthCoderKey", tagName: "clearDepth"),
             DefaultParameterDecoder(parameterName: "MTKViewClearStencilCoderKey", tagName: "clearStencil"),
             DefaultParameterDecoder(parameterName: "MTKViewSampleCountCoderKey", tagName: "sampleCount"),
@@ -48,16 +42,7 @@ class DefaultParameterDecoder: NSObject, CustomTagDecoderProtocol {
             DefaultParameterDecoder(parameterName: "_preferredFramesPerSecond", tagName: "preferredFramesPerSecond"),
             DefaultParameterDecoder(parameterName: "UITabBarItemWidth", tagName: "itemWidth"),
             DefaultParameterDecoder(parameterName: "UITabBarItemSpacing", tagName: "itemSpacing"),
-            DefaultParameterDecoder(parameterName: "UISectionIndexMinimumDisplayRowCount", tagName: "sectionIndexMinimumDisplayRowCount"),
-            DefaultParameterDecoder(parameterName: "UIEstimatedRowHeight", tagName: "estimatedRowHeight"),
             DefaultParameterDecoder(parameterName: "UIInsetsContentViewsToSafeArea", tagName: "contentViewInsetsToSafeArea"),
-            DefaultParameterDecoder(parameterName: "UIRowHeight", tagName: "rowHeight"),
-            DefaultParameterDecoder(parameterName: "UISectionHeaderHeight", tagName: "sectionHeaderHeight"),
-            DefaultParameterDecoder(parameterName: "UIEstimatedSectionHeaderHeight", tagName: "estimatedSectionHeaderHeight"),
-            DefaultParameterDecoder(parameterName: "UISectionFooterHeight", tagName: "sectionFooterHeight"),
-            DefaultParameterDecoder(parameterName: "UIEstimatedSectionFooterHeight", tagName: "estimatedSectionFooterHeight"),
-            DefaultParameterDecoder(parameterName: "UIIndentationLevel", tagName: "indentationLevel"),
-            DefaultParameterDecoder(parameterName: "UIIndentationWidth", tagName: "indentationWidth"),
             DefaultParameterDecoder(parameterName: "UILineSpacing", tagName: "minimumLineSpacing"),
             DefaultParameterDecoder(parameterName: "UIInteritemSpacing", tagName: "minimumInteritemSpacing"),
             
@@ -68,29 +53,30 @@ class DefaultParameterDecoder: NSObject, CustomTagDecoderProtocol {
             DefaultParameterDecoder(parameterName: "UIPanGestureRecognizer.minimumNumberOfTouches", tagName: "minimumNumberOfTouches"),
             DefaultParameterDecoder(parameterName: "UILongPressGestureRecognizer.minimumPressDuration", tagName: "minimumPressDuration"),
             DefaultParameterDecoder(parameterName: "UILongPressGestureRecognizer.allowableMovement", tagName: "allowableMovement")
-            
-            
+                        
             ])
         
         result.append(contentsOf: ListParameterDecoder.all())
         result.append(contentsOf: BoolParameterDecoder.all())
         result.append(contentsOf: FirstStringDecoder.all())
-//        result.append(contentsOf: PointPropertySerializerParser.all())
-        
         
         return result
     }
     
     
-    init(parameterName: String, tagName: String, mapper: [String: String]? = nil) {
+    init(parameterName: String, tagName: String, tagMapper: [String: String]? = nil) {
         self.parameterName = parameterName
         self.tagName = tagName
-        self.mapper = mapper
+        self.tagMapper = tagMapper
         super.init()
     }
     
+    convenience init(uiKitName: String) {
+        self.init(parameterName: uiKitName, tagName: uiKitName.systemParameterName(), tagMapper: nil)
+    }
+    
     func handledClassNames() -> [String] {
-        return ["T.\(parameterName)-"]
+        return [Utils.decoderKey(parameterName: parameterName, className: "", isTopLevel: topLevelDecoder)]
     }
     
     func parse(parentObject: XibObject, parameter: XibParameterProtocol, context: ParserContext) -> TagDecoderResult {
@@ -99,9 +85,9 @@ class DefaultParameterDecoder: NSObject, CustomTagDecoderProtocol {
             let parameterValue = parameter.stringValue()
             
             var finalTagName = tagName
-            if let mapper = mapper {
+            if let tagMapper = tagMapper {
                 let parentClassName = parentObject.originalClassName(context: context)
-                if let newTag = mapper[parentClassName] {
+                if let newTag = tagMapper[parentClassName] {
                     finalTagName = newTag
                 }
             }

@@ -7,10 +7,10 @@
 
 import Cocoa
 
-class UITextInputTraitsDecoder: NewTagDecoder {
+class UITextInputTraitsDecoder: DefaultTagDecoder {
     
     
-    static func allDecoders() -> [CustomTagDecoderProtocol] {
+    static func allDecoders() -> [TagDecoderProtocol] {
         
         return [
             UITextInputTraitsDecoder(parameterName: "UINibEncoderEmptyKey", objectClassName: "UITextField", tagName: "textField"),
@@ -34,8 +34,8 @@ class UITextInputTraitsDecoder: NewTagDecoder {
         super.init(parameterName: "UINibEncoderEmptyKey", objectClassName: "UITextField", tagName: "textField")
     }
     
-    override init(parameterName: String, objectClassName: String, tagName: String, needAddId: Bool = true, mapper: [String: String]? = nil, keyParameter: String? = nil) {
-        super.init(parameterName: parameterName, objectClassName: objectClassName, tagName: tagName, needAddId: needAddId, mapper: mapper, keyParameter: keyParameter)
+    init(parameterName: String, objectClassName: String, tagName: String) {
+        super.init(parameterName: parameterName, objectClassName: objectClassName, tagName: tagName, needAddId: false, tagMapper: nil, keyParameter: nil, keyMapper: nil)
     }
     
     override func parse(parentObject: XibObject, parameter: XibParameterProtocol, context: ParserContext) -> TagDecoderResult {
@@ -96,19 +96,10 @@ class UITextInputTraitsDecoder: NewTagDecoder {
             tag.addParameter(name: "autocapitalizationType", value: name)
         }
         
-        addNoYesTag(object: object, name: "UITextSmartQuotesType", context: context, tagName: "smartQuotesType", tag: tag)
-        addNoYesTag(object: object, name: "UITextSmartInsertDeleteType", context: context, tagName: "smartInsertDeleteType", tag: tag)
-        addNoYesTag(object: object, name: "UITextSmartDashesType", context: context, tagName: "smartDashesType", tag: tag)
-        addNoYesTag(object: object, name: "UIAutocorrectionType", context: context, tagName: "autocorrectionType", tag: tag)
+        tag.addNoYesParameter(object: object, name: "UITextSmartQuotesType", context: context, tagName: "smartQuotesType")
+        tag.addNoYesParameter(object: object, name: "UITextSmartInsertDeleteType", context: context, tagName: "smartInsertDeleteType")
+        tag.addNoYesParameter(object: object, name: "UITextSmartDashesType", context: context, tagName: "smartDashesType")
+        tag.addNoYesParameter(object: object, name: "UIAutocorrectionType", context: context, tagName: "autocorrectionType")
     }
     
-    
-    fileprivate func addNoYesTag(object: XibObject, name: String, context: ParserContext, tagName: String, tag: Tag) {
-        
-        if let value = object.findIntParameter(name: name, context: context) {
-            
-            let name = noYesTypes[safe: value] ?? ""
-            tag.addParameter(name: tagName, value: name)
-        }
-    }
 }

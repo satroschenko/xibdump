@@ -7,9 +7,9 @@
 
 import Cocoa
 
-class SKViewDecoder: NewTagDecoder {
+class SKViewDecoder: DefaultTagDecoder {
     
-    static func allDecoders() -> [CustomTagDecoderProtocol] {
+    static func allDecoders() -> [TagDecoderProtocol] {
         
         return [
             SKViewDecoder(parameterName: "UINibEncoderEmptyKey", objectClassName: "SKView", tagName: "skView"),
@@ -17,8 +17,8 @@ class SKViewDecoder: NewTagDecoder {
         ]
     }
 
-    override init(parameterName: String, objectClassName: String, tagName: String, needAddId: Bool = true, mapper: [String: String]? = nil, keyParameter: String? = nil) {
-        super.init(parameterName: parameterName, objectClassName: objectClassName, tagName: tagName, needAddId: needAddId, mapper: mapper, keyParameter: keyParameter)
+    init(parameterName: String, objectClassName: String, tagName: String) {
+        super.init(parameterName: parameterName, objectClassName: objectClassName, tagName: tagName)
     }
     
     override func parse(parentObject: XibObject, parameter: XibParameterProtocol, context: ParserContext) -> TagDecoderResult {

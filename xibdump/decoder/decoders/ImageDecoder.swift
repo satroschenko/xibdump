@@ -7,9 +7,9 @@
 
 import Cocoa
 
-class ImageDecoder: NSObject, CustomTagDecoderProtocol {
+class ImageDecoder: NSObject, TagDecoderProtocol {
     
-    static func allDecoders() -> [CustomTagDecoderProtocol] {
+    static func allDecoders() -> [TagDecoderProtocol] {
         
         return [
             ImageDecoder(parameterName: "UIImage"),
@@ -27,7 +27,7 @@ class ImageDecoder: NSObject, CustomTagDecoderProtocol {
             ImageDecoder(parameterName: "_UIBarItemLargeContentSizeImageCodingKey", key: "largeContentSizeImage"),
             ImageDecoder(parameterName: "UISelectedTemplateImage", key: "selectedImage"),
             ImageDecoder(parameterName: "UIImageLandscape", key: "landscapeImage"),
-            ImageDecoder(parameterName: "UIScopeBarBackgroundImage"),
+            ImageDecoder(parameterName: "UIScopeBarBackgroundImage")
             
         ]
     }
@@ -43,7 +43,7 @@ class ImageDecoder: NSObject, CustomTagDecoderProtocol {
     
 
     func handledClassNames() -> [String] {
-        return ["T.\(parameterName)-UIImageNibPlaceholder"]
+        return [Utils.decoderKey(parameterName: parameterName, className: "UIImageNibPlaceholder", isTopLevel: true)]
     }
     
     func parse(parentObject: XibObject, parameter: XibParameterProtocol, context: ParserContext) -> TagDecoderResult {
@@ -56,14 +56,9 @@ class ImageDecoder: NSObject, CustomTagDecoderProtocol {
             return .empty(false)
         }
         
-        ImageDecoder.addImageToResourseSection(name: value, context: context)
+        context.addImageResource(name: value)
         
-        let param = TagParameter(name: key ?? parameter.name.xmlParameterName(), value: value)
+        let param = TagParameter(name: key ?? parameter.name.systemParameterName(), value: value)
         return .parameters([param], false)
-    }
-    
-    
-    static func addImageToResourseSection(name: String, context: ParserContext) {
-        context.addImageResource(name: name)
     }
 }

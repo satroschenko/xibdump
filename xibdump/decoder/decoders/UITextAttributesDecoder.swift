@@ -7,23 +7,23 @@
 
 import Cocoa
 
-class UITextAttributesDecoder: NewTagDecoder {
+class UITextAttributesDecoder: DefaultTagDecoder {
 
-    static func allDecoders() -> [CustomTagDecoderProtocol] {
+    static func allDecoders() -> [TagDecoderProtocol] {
         
         return [
             UITextAttributesDecoder(parameterName: "UITitleTextAttributes",
                                     objectClassName: "NSDictionary",
                                     tagName: "textAttributes",
                                     needAddId: false,
-                                    mapper: nil,
+                                    tagMapper: nil,
                                     keyParameter: "titleTextAttributes"),
             
             UITextAttributesDecoder(parameterName: "UIBarLargeTitleTextAttributes",
                                     objectClassName: "NSDictionary",
                                     tagName: "textAttributes",
                                     needAddId: false,
-                                    mapper: nil,
+                                    tagMapper: nil,
                                     keyParameter: "largeTitleTextAttributes")
         ]
     }
@@ -40,7 +40,7 @@ class UITextAttributesDecoder: NewTagDecoder {
             
             if let colorObject = object.findObjectParameter(name: "UINibEncoderEmptyKey", objectClass: "UIColor", context: context) {
                 
-                let colorTag = UIColorDecoder.extractColorTag(parentObject: parentObject, object: colorObject, tagName: "color", parameterName: "textColor", context: context)
+                let colorTag = colorObject.extractColorTag(parentObject: parentObject, tagName: "color", parameterName: "textColor", context: context)
                 tag.add(tag: colorTag)
             }
             
@@ -65,11 +65,10 @@ class UITextAttributesDecoder: NewTagDecoder {
                 }
                 
                 if let shColorObject = shadowObject.findObjectParameter(name: "NSShadowColor", objectClass: "UIColor", context: context) {
-                    let colorTag = UIColorDecoder.extractColorTag(parentObject: shadowObject,
-                                                                  object: shColorObject,
-                                                                  tagName: "color",
-                                                                  parameterName: "textShadowColor",
-                                                                  context: context)
+                    let colorTag = shColorObject.extractColorTag(parentObject: shadowObject,
+                                                                 tagName: "color",
+                                                                 parameterName: "textShadowColor",
+                                                                 context: context)
                     tag.add(tag: colorTag)
                 }
             }

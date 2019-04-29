@@ -19,7 +19,7 @@ class PointDecoder: DefaultParameterDecoder {
     }
     
     override func handledClassNames() -> [String] {
-        return ["T.\(parameterName)-NSString"]
+        return [Utils.decoderKey(parameterName: parameterName, className: "NSString", isTopLevel: topLevelDecoder)]
     }
     
     override func parse(parentObject: XibObject, parameter: XibParameterProtocol, context: ParserContext) -> TagDecoderResult {
