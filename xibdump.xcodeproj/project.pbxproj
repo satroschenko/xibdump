@@ -11,6 +11,9 @@
 		200853A62276E7FB008DDACF /* ColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200853A52276E7FB008DDACF /* ColorUtils.swift */; };
 		200853A82276F237008DDACF /* FontUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200853A72276F237008DDACF /* FontUtils.swift */; };
 		200853AA2276F3C1008DDACF /* TagUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200853A92276F3C1008DDACF /* TagUtils.swift */; };
+		200853AD22770AFD008DDACF /* FileProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200853AC22770AFD008DDACF /* FileProtocol.swift */; };
+		200853AF22770C2F008DDACF /* NibFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200853AE22770C2F008DDACF /* NibFile.swift */; };
+		200853B122770D51008DDACF /* StoryboardFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200853B022770D51008DDACF /* StoryboardFile.swift */; };
 		2021C564224B6EC600AAEC72 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2021C563224B6EC600AAEC72 /* Version.swift */; };
 		2031674722522F5C00B82FD7 /* AutoresizingMaskParameterDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2031674622522F5C00B82FD7 /* AutoresizingMaskParameterDecoder.swift */; };
 		2031674C2253848900B82FD7 /* FirstStringDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2031674B2253848900B82FD7 /* FirstStringDecoder.swift */; };
@@ -101,6 +104,9 @@
 		200853A52276E7FB008DDACF /* ColorUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorUtils.swift; sourceTree = "<group>"; };
 		200853A72276F237008DDACF /* FontUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontUtils.swift; sourceTree = "<group>"; };
 		200853A92276F3C1008DDACF /* TagUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagUtils.swift; sourceTree = "<group>"; };
+		200853AC22770AFD008DDACF /* FileProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileProtocol.swift; sourceTree = "<group>"; };
+		200853AE22770C2F008DDACF /* NibFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibFile.swift; sourceTree = "<group>"; };
+		200853B022770D51008DDACF /* StoryboardFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardFile.swift; sourceTree = "<group>"; };
 		2021C563224B6EC600AAEC72 /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		2031674622522F5C00B82FD7 /* AutoresizingMaskParameterDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoresizingMaskParameterDecoder.swift; sourceTree = "<group>"; };
 		2031674B2253848900B82FD7 /* FirstStringDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstStringDecoder.swift; sourceTree = "<group>"; };
@@ -264,6 +270,16 @@
 			path = utils;
 			sourceTree = "<group>";
 		};
+		200853AB22770AED008DDACF /* files */ = {
+			isa = PBXGroup;
+			children = (
+				200853AC22770AFD008DDACF /* FileProtocol.swift */,
+				200853AE22770C2F008DDACF /* NibFile.swift */,
+				200853B022770D51008DDACF /* StoryboardFile.swift */,
+			);
+			path = files;
+			sourceTree = "<group>";
+		};
 		204D18E4224D17BA009AAB8A /* parameters */ = {
 			isa = PBXGroup;
 			children = (
@@ -350,6 +366,7 @@
 		20FC70772248E4650003D171 /* xibdump */ = {
 			isa = PBXGroup;
 			children = (
+				200853AB22770AED008DDACF /* files */,
 				200853A22276DF71008DDACF /* utils */,
 				204D18FF224E2A87009AAB8A /* decoder */,
 				204D18FE224E2A72009AAB8A /* parser */,
@@ -495,6 +512,8 @@
 				20A04A22225B6D1A00A07996 /* SKViewDecoder.swift in Sources */,
 				204D191A22521B27009AAB8A /* UIBoundsDecoder.swift in Sources */,
 				2031674722522F5C00B82FD7 /* AutoresizingMaskParameterDecoder.swift in Sources */,
+				200853AF22770C2F008DDACF /* NibFile.swift in Sources */,
+				200853B122770D51008DDACF /* StoryboardFile.swift in Sources */,
 				20912E752269D4CE00E24515 /* StoryboardConnectionDecoder.swift in Sources */,
 				20A04A30225CE71D00A07996 /* PointTagDecoder.swift in Sources */,
 				204D1914225203CD009AAB8A /* PlaceholderDecoder.swift in Sources */,
@@ -530,6 +549,7 @@
 				2031675422539EFB00B82FD7 /* RuntimeAttributesDecoder.swift in Sources */,
 				204D18F4224E11BA009AAB8A /* XibUIBoundsParameter.swift in Sources */,
 				2031675A2255D3C600B82FD7 /* ConstraintsVariationsDecoder.swift in Sources */,
+				200853AD22770AFD008DDACF /* FileProtocol.swift in Sources */,
 				20FC70792248E4650003D171 /* main.swift in Sources */,
 				20A04A16225B41F300A07996 /* NSLocaleDecoder.swift in Sources */,
 				204D1903224E2D6B009AAB8A /* TagParameter.swift in Sources */,

@@ -34,8 +34,7 @@ class XibLogger: NSObject {
         object.isSerialized = true
         
         print("\(String(repeating: "\t", count: tabCount+1))|")
-        
-        
+                
         for parameter in object.parameters(with: context) {
             
             print("\(String(repeating: "\t", count: tabCount+1))|P|-\(parameter.description())")

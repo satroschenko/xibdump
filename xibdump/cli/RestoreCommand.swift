@@ -9,12 +9,6 @@ import Cocoa
 import SwiftCLI
 
 
-enum XibFileFormat {
-    case unknown
-    case nib
-    case storyboard
-}
-
 class RestoreCommand: Command {
     
     let name: String = "restore"
