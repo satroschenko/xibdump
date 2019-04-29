@@ -55,6 +55,11 @@ class Tag: NSObject {
         return children
     }
     
+    func removeChildren(name: String) {
+        children.removeAll(where: {$0.name == name})
+    }
+
+    
     func copyTag() -> Tag {
         
         let copy = Tag(name: name)
@@ -114,11 +119,19 @@ class Tag: NSObject {
 
 extension String {
     
+    static let systemPrefixes: [String] = ["GLK", "AV"]
+    
     func xmlParameterName() -> String {
         if self.hasPrefix("UI") || self.hasPrefix("NS") || self.hasPrefix("MK") {
             let res = String(self.dropFirst(2))
             if res.count > 0 {
                 return res.lowercasingFirstLetter()
+            }
+        }
+        
+        for prefix in String.systemPrefixes {
+            if self.hasPrefix(prefix) {
+                return prefix.lowercased() + self.dropFirst(prefix.count)
             }
         }
         

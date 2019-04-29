@@ -25,7 +25,8 @@ class XibLogger: NSObject {
     
     fileprivate func parse(object: XibObject, parameterName: String, context: ParserContext, tabCount: Int = 0) {
         
-        print("\(String(repeating: "\t", count: tabCount))|O|-\(object.xibClass.name)(\(object.objectId))")
+        let suffix: String = object.isSerialized ? " -->" : ""
+        print("\(String(repeating: "\t", count: tabCount))|O|-\(object.xibClass.name)(\(object.objectId))\(suffix)")
         
         if object.isSerialized {
             return

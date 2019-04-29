@@ -39,7 +39,8 @@ class CustomDecodersHolder: NSObject {
         "MKMapView", "UIWebView", "UINavigationBar", "UIToolbar", "UITabBar", "UITableView", "UITableViewCell",
         "UICollectionView", "UICollectionViewCell", "UICollectionReusableView", "UITapGestureRecognizer",
         "UIPinchGestureRecognizer", "UIRotationGestureRecognizer", "UISwipeGestureRecognizer", "UIPanGestureRecognizer",
-        "UIScreenEdgePanGestureRecognizer", "UIGestureRecognizer", "UIViewController"
+        "UIScreenEdgePanGestureRecognizer", "UIGestureRecognizer", "UIViewController", "UITableViewController",
+        "UITableViewSection", "UITableViewDataSource", "AVPlayerViewController"
     ]
     
     // swiftlint:disable all
@@ -95,6 +96,19 @@ class CustomDecodersHolder: NSObject {
                                              mapper: nil,
                                              keyParameter: "attributedText"))
 
+        self.register(decoder: NewTagDecoder(parameterName: "UITableSections",
+                                             objectClassName: "NSArray",
+                                             tagName: "sections",
+                                             needAddId: false))
+        
+        self.register(decoder: NewTagDecoder(parameterName: "UITableSectionRows",
+                                             objectClassName: "NSArray",
+                                             tagName: "cells",
+                                             needAddId: false))
+        
+        self.register(decoder: NewTagDecoder(parameterName: "UITableRowCell",
+                                             objectClassName: "UITableViewCell",
+                                             tagName: "tableViewCell"))
         
         
         self.register(decoder: MTKViewDecoder())
@@ -132,6 +146,7 @@ class CustomDecodersHolder: NSObject {
         
         self.register(decoder: NewTagDecoder(parameterName: "UITapGestureRecognizer._imp", objectClassName: "UITapRecognizer", tagName: ""))
         self.register(decoder: NewTagDecoder(parameterName: "UILongPressGestureRecognizer._imp", objectClassName: "UITapRecognizer", tagName: ""))
+        self.register(decoder: NewTagDecoder(parameterName: "UINibEncoderEmptyKey", objectClassName: "UITableViewRow", tagName: ""))
         
         self.register(decoder: PointDecoder(parameterName: "UIViewContentHuggingPriority",
                                             firstName: "horizontalHuggingPriority",

@@ -29,11 +29,13 @@ class StoryboardDecoder: NSObject {
         let parser = XibFileParser()
         
         for (_, value) in mapping {
-            
-            
-            
+                                    
             let nibURL = initialURL.appendingPathComponent(value).appendingPathExtension("nib")
             let xibConnectionFile = try parser.parse(url: nibURL)
+            
+            let logger = XibLogger(xibFile: xibConnectionFile)
+            logger.printDump()
+            print("\n\n\n")
             
             let connectionDecoder = StoryboardConnectionDecoder(xibFile: xibConnectionFile)
             if let connections = connectionDecoder.findStoryboardConnections() {
@@ -57,7 +59,10 @@ class StoryboardDecoder: NSObject {
                     let finalURL = initialURL.appendingPathComponent(oneConnection.fileName).appendingPathExtension("nib")
                     let xibFile = try parser.parse(url: finalURL)
                     
-                    let vcTag = Tag(name: "viewController")
+                    let logger = XibLogger(xibFile: xibFile)
+                    logger.printDump()
+                    
+                    let vcTag = Tag(name: oneConnection.rootClassName)
                     vcTag.addParameter(name: "storyboardIdentifier", value: oneConnection.storyboardIdentifier)
                     vcTag.addParameter(name: "id", value: XibID.generate())
                     vcTag.addParameter(name: "sceneMemberID", value: "viewController")
@@ -70,13 +75,21 @@ class StoryboardDecoder: NSObject {
                     
                     if let first = fakeTag.allChildren().first {
                         
+                        if let tableView = first.allChildren().filter({$0.name == "tableView"}).first,
+                            let dataSource = first.allChildren().filter({$0.name == "tableViewDataSource"}).first,
+                            let sections = dataSource.allChildren().first {
+                            
+                            first.removeChildren(name: "tableViewDataSource")
+                            tableView.add(tag: sections)
+                            tableView.addParameter(name: "dataMode", value: "static")
+                        }
+                        
                         for tag in first.allChildren() {
-                            if tag.name == "view" {
+                            if tag.name.lowercased().hasSuffix("view") {
                                 tag.addParameter(name: "key", value: "view")
                             }
                             vcTag.add(tag: tag)
                         }
-                        
                     }
                 }
                 

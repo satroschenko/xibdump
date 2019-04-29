@@ -12,6 +12,7 @@ import SwiftCLI
 struct StoryboardConnection {
     let fileName: String
     let storyboardIdentifier: String
+    let rootClassName: String
 }
 
 class StoryboardConnectionDecoder: NSObject {
@@ -37,14 +38,14 @@ class StoryboardConnectionDecoder: NSObject {
             return connections
         }
         
-        let vcArray = topArray.getSubObjects(parameterName: "UINibEncoderEmptyKey", objectClass: "UIViewController", context: context)
+        let vcArray = topArray.getSubObjects(parameterName: "UINibEncoderEmptyKey", objectClassSuffix: "Controller", context: context)
         for oneVC in vcArray {
             
             if let connection = findConnection(object: oneVC, context: context) {
                 connections.append(connection)
             }
         }
-        
+                
         return connections.isEmpty ? nil : connections
     }
     
@@ -59,6 +60,7 @@ class StoryboardConnectionDecoder: NSObject {
             return nil
         }
         
-        return StoryboardConnection(fileName: nibName, storyboardIdentifier: stId)
+        let rootClassName = object.originalClassName(context: context).xmlParameterName()
+        return StoryboardConnection(fileName: nibName, storyboardIdentifier: stId, rootClassName: rootClassName)
     }
 }

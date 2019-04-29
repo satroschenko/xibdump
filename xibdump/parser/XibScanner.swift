@@ -281,6 +281,20 @@ extension XibObject {
         return result
     }
     
+    func getSubObjects(parameterName: String, objectClassSuffix: String, context: ParserContext) -> [XibObject] {
+        
+        var result: [XibObject] = [XibObject]()
+        for parameter in parameters(with: context) where parameter.name == parameterName {
+            if let pObject = parameter.object(with: context) {
+                if pObject.originalClassName(context: context).hasSuffix(objectClassSuffix) {
+                    result.append(pObject)
+                }
+            }
+        }
+        
+        return result
+    }
+    
     
     func originalClassName(context: ParserContext) -> String {
         
