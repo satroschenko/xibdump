@@ -1,5 +1,5 @@
 //
-//  CustomDecodersHolder.swift
+//  DecodersHolder.swift
 //  xibdump
 //
 //  Created by Sergey Atroschenko on 3/29/19.
@@ -22,7 +22,7 @@ protocol CustomTagDecoderProtocol {
     func handledClassNames() -> [String]
 }
 
-class CustomDecodersHolder: NSObject {
+class DecodersHolder: NSObject {
 
     fileprivate var customDecoders = [String: CustomTagDecoderProtocol]()
     fileprivate var allowedClassNames = [String]()
@@ -46,7 +46,7 @@ class CustomDecodersHolder: NSObject {
     // swiftlint:disable all
     fileprivate func registerDecoders() {
         
-        CustomDecodersHolder.uiClassNamesList.forEach { name in 
+        DecodersHolder.uiClassNamesList.forEach { name in 
             register(decoder: NewTagDecoder(uiKitName: name))
         }
         

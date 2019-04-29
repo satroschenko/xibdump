@@ -12,7 +12,6 @@ import SwiftCLI
 class XibDecoder: NSObject {
 
     let parentTag: Tag
-    let decoderHolder = CustomDecodersHolder()
     let context: ParserContext
     
     init(xibFile: XibFile, parentTag: Tag = XibParentTag()) {
@@ -23,14 +22,14 @@ class XibDecoder: NSObject {
     
     func decode() {
 
-        self.context.clean()
+        context.clean()
         if let firstObject = self.context.xibFile.xibObjects.first {
-            parse(object: firstObject, context: self.context, parentTag: parentTag, topLevelObject: false)
+            firstObject.decode(context: context, parentTag: parentTag)
         }
         
         let flatArray = parentTag.flatArray()
         addMissingColorsToLabels(array: flatArray)
-        addDefaultOpaque(array: flatArray, classNames: CustomDecodersHolder.uiClassNamesList.compactMap({$0.xmlParameterName()}))
+        addDefaultOpaque(array: flatArray, classNames: DecodersHolder.uiClassNamesList.compactMap({$0.xmlParameterName()}))
         
         for (objectId, tag) in self.context.runtimeAttributes {
             if let foundTag = findSubTag(array: flatArray, innerId: objectId) {
@@ -74,84 +73,6 @@ class XibDecoder: NSObject {
     }
     
     
-    
-    fileprivate func parse(object: XibObject, context: ParserContext, parentTag: Tag, topLevelObject: Bool, tabCount: Int = 0) {
-        
-        if object.isSerialized {
-            return
-        }
-        object.isSerialized = true
-        
-        for parameter in object.parameters(with: context) {
-            
-            var isTopObject = topLevelObject
-            if parameter.name == "UINibTopLevelObjectsKey" {
-                isTopObject = true
-            }
-            
-            parse(parentObject: object,
-                  parameter: parameter,
-                  context: context,
-                  parentTag: parentTag,
-                  topLevelObject: isTopObject,
-                  tabCount: tabCount+1)
-        }
-    }
-    
-    fileprivate func parse(parentObject: XibObject,
-                           parameter: XibParameterProtocol,
-                           context: ParserContext,
-                           parentTag: Tag,
-                           topLevelObject: Bool,
-                           tabCount: Int = 0) {
-        
-        if let decoder = decoderHolder.parser(by: parameter, context: context, isTopLevel: topLevelObject) {
-            
-            let result = decoder.parse(parentObject: parentObject, parameter: parameter, context: context)
-            
-            var cont = true
-            var nextTag = parentTag
-            
-            switch result {
-            case .tag(let tag, let needContinue):
-                parentTag.add(tag: tag)
-                nextTag = tag
-                cont = needContinue
-                
-                context.addTag(tag: tag)
-                
-            case .parameters(let parameters, let needContinue):
-                parentTag.add(parameters: parameters)
-                cont = needContinue
-
-            case .empty(let needContinue):
-                cont = needContinue
-            
-            case .tags(let tags):
-                parentTag.add(tags: tags)
-                cont = false
-                
-                for tag in tags {
-                    context.addTag(tag: tag)
-                }
-                
-            }
-            
-            if cont {
-                if let object = parameter.object(with: context) {
-                    parse(object: object, context: context, parentTag: nextTag, topLevelObject: topLevelObject, tabCount: tabCount)
-                }
-            }
-            return
-        }
-        
-//
-//        if let object = parameter.object(with: context) {
-//            parse(object: object, context: context, parentTag: parentTag, topLevelObject: topLevelObject, tabCount: tabCount)
-//        }
-    }
-    
-    
     private func findSubTag(array: [Tag], innerId: String) -> Tag? {
     
         for item in array where item.innerObjectId == innerId {
@@ -161,8 +82,7 @@ class XibDecoder: NSObject {
         return nil
     }
     
-    
-    
+        
     fileprivate func addMissingColorsToLabels(array: [Tag]) {
      
         for tag in array where tag.name == "label" {
