@@ -20,8 +20,8 @@ class RestoreCommand: Command {
     let name: String = "restore"
     let shortDescription: String = "Restore structure of compiled .nib or .storyboardc files"
     
-    let fileName = Parameter(completion: .filename)
-    let outputDir = Parameter(completion: .filename)
+    var fileName = Parameter(completion: .filename)
+    var outputDir = Parameter(completion: .filename)
     
     func execute() throws {
         
