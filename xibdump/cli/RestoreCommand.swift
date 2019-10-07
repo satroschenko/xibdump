@@ -26,35 +26,20 @@ class RestoreCommand: Command {
         
         let isDir = try isDirectory(url: fileNameUrl)
         
-        var fileFormat: XibFileFormat = .unknown
-        if fileNameUrl.pathExtension == "nib" {
-            fileFormat = .nib
-        } else if fileNameUrl.pathExtension == "storyboardc" {
-            fileFormat = .storyboard
-        }
-        
-        var extention: String = "xib"
-        if fileFormat == .storyboard {
-            extention = "storyboard"
-        }
+        let (fileFormat, extention) = xibFileFormatInfo(for: fileNameUrl)
         
         let outputFileUrl = outputDirUrl.appendingPathComponent(fileNameUrl.lastPathComponent).appendingPathExtension(extention)
         
-        try processURL(fileNameUrl: fileNameUrl, isDir: isDir, outputFileUrl: outputFileUrl, fileFormat: fileFormat)
-    }
-    
-    
-    fileprivate func processURL(fileNameUrl: URL, isDir: Bool, outputFileUrl: URL, fileFormat: XibFileFormat) throws {
-        
-        
         if isDir {
+            
             try processDir(dirUrl: fileNameUrl, outputFileUrl: outputFileUrl, fileFormat: fileFormat)
+        
         } else {
+          
             try processSingleFile(fileUrl: fileNameUrl, outputFileUrl: outputFileUrl)
         }
     }
-    
-    
+
     fileprivate func processSingleFile(fileUrl: URL, outputFileUrl: URL) throws {
 
         let parser = XibFileParser()
@@ -117,5 +102,19 @@ private extension RestoreCommand {
         }
         
         return isDir.boolValue
+    }
+    
+    func xibFileFormatInfo(for url: URL) -> (format: XibFileFormat, extention: String) {
+        
+        if url.pathExtension == "nib" {
+
+            return (format: .nib, extention: "xib")
+        
+        } else if url.pathExtension == "storyboardc" {
+            
+            return (format: .storyboard, extention: "storyboard")
+        }
+        
+        return (format: .unknown, extention: "xib")
     }
 }
