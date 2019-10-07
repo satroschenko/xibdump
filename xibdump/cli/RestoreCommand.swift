@@ -24,11 +24,7 @@ class RestoreCommand: Command {
         
         let fileNameUrl = URL(fileURLWithPath: fileName.value)
         
-        var isDir: ObjCBool = false
-        let exist = FileManager.default.fileExists(atPath: fileNameUrl.path, isDirectory: &isDir)
-        guard exist else {
-            throw CLI.Error(message: "Input file doesn't exist")
-        }
+        let isDir = try isDirectory(url: fileNameUrl)
         
         var fileFormat: XibFileFormat = .unknown
         if fileNameUrl.pathExtension == "nib" {
@@ -44,7 +40,7 @@ class RestoreCommand: Command {
         
         let outputFileUrl = outputDirUrl.appendingPathComponent(fileNameUrl.lastPathComponent).appendingPathExtension(extention)
         
-        try processURL(fileNameUrl: fileNameUrl, isDir: isDir.boolValue, outputFileUrl: outputFileUrl, fileFormat: fileFormat)
+        try processURL(fileNameUrl: fileNameUrl, isDir: isDir, outputFileUrl: outputFileUrl, fileFormat: fileFormat)
     }
     
     
@@ -105,5 +101,21 @@ class RestoreCommand: Command {
             
             try decoder.save(to: outputFileUrl)
         }
+    }
+}
+
+
+private extension RestoreCommand {
+    
+    
+    func isDirectory(url: URL) throws -> Bool {
+        
+        var isDir: ObjCBool = false
+        let exist = FileManager.default.fileExists(atPath: url.path, isDirectory: &isDir)
+        guard exist else {
+            throw CLI.Error(message: "Input file doesn't exist")
+        }
+        
+        return isDir.boolValue
     }
 }
