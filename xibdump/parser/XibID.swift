@@ -19,7 +19,7 @@ class XibID: NSObject {
 
     private static func randomString(length: Int) -> String {
 
-        var charactersArray = XibID.charSet.map { String($0) }
+        let charactersArray = XibID.charSet.map { String($0) }
         var string: String = ""
         for _ in (1...length) {
             string.append(charactersArray[Int(arc4random()) % charactersArray.count])
