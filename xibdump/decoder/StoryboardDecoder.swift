@@ -9,62 +9,30 @@ import Cocoa
 import AEXML
 import SwiftCLI
 
-class StoryboardDecoder: NSObject {
 
-    let initialURL: URL
-    let mapping: [String: String]
+
+class StoryboardFileDecoderResult: NSObject, NibDecoderResult {
+    
+    let fileName: String
+    let nibResults: [NibFileDecoderResult]
+    let connectionsResult: [NibFileConnectionDecoderResult]
+    
     let parentTag: Tag = XibParentTag(fileFormat: .storyboard)
     let scenesTag: Tag = Tag(name: "scenes")
     
-    init(initialURL: URL, mapping: [String: String]) {
-        self.initialURL = initialURL
-        self.mapping = mapping
+    init(fileName: String, nibResults: [NibFileDecoderResult], connectionsResult: [NibFileConnectionDecoderResult]) {
+        self.fileName = fileName
+        self.nibResults = nibResults
+        self.connectionsResult = connectionsResult
         super.init()
+        
         parentTag.add(tag: scenesTag)
-    }
-    
-    
-    func decode() throws {
         
-        let parser = XibFileParser()
-        
-        for (_, value) in mapping {
-                                    
-            let nibURL = initialURL.appendingPathComponent(value).appendingPathExtension("nib")
-            let xibConnectionFile = try parser.parse(url: nibURL)
-            
-            xibConnectionFile.logToConsole()
-            
-            let connectionDecoder = StoryboardConnectionDecoder(xibFile: xibConnectionFile)
-            if let connections = connectionDecoder.findStoryboardConnections() {
-
-                let sceneTag = Tag(name: "scene")
-                sceneTag.addParameter(name: "sceneID", value: XibID.generate())
-                scenesTag.add(tag: sceneTag)
-                
-                let objectsTag = Tag(name: "objects")
-                sceneTag.add(tag: objectsTag)
-                
-                let placeholderTag = Tag(name: "placeholder")
-                placeholderTag.addParameter(name: "placeholderIdentifier", value: "IBFirstResponder")
-                placeholderTag.addParameter(name: "id", value: XibID.generate())
-                placeholderTag.addParameter(name: "userLabel", value: "First Responder")
-                placeholderTag.addParameter(name: "sceneMemberID", value: "firstResponder")
-                
-                
-                for oneConnection in connections {
-                    
-                    try processConnection(connection: oneConnection, parser: parser, tag: objectsTag)
-                }
-                
-                objectsTag.add(tag: placeholderTag)
-            }
-        }
+        decode()
     }
-    
     
     func save(to url: URL) throws {
-        
+                
         let soapRequest = AEXMLDocument()
         soapRequest.addChild(parentTag.getNode())
         
@@ -72,12 +40,48 @@ class StoryboardDecoder: NSObject {
             throw CLI.Error(message: "Error data serialization.")
         }
         
-        try data.write(to: url)
+        let finalURL = url.appendingPathComponent(fileName).deletingPathExtension().appendingPathExtension("storyboard")        
+        try data.write(to: finalURL)
     }
     
-    fileprivate func processConnection(connection: StoryboardConnection, parser: XibFileParser, tag: Tag) throws {
-        let finalURL = initialURL.appendingPathComponent(connection.fileName).appendingPathExtension("nib")
-        let xibFile = try parser.parse(url: finalURL)
+    
+    private func decode() {
+        
+        for connectionResult in connectionsResult {
+
+            let xibConnectionFile = connectionResult.xibFile
+
+            let connectionDecoder = StoryboardConnectionDecoderHelper(xibFile: xibConnectionFile)
+            if let connections = connectionDecoder.findStoryboardConnections() {
+
+                let sceneTag = Tag(name: "scene")
+                sceneTag.addParameter(name: "sceneID", value: XibID.generate())
+                scenesTag.add(tag: sceneTag)
+
+                let objectsTag = Tag(name: "objects")
+                sceneTag.add(tag: objectsTag)
+
+                let placeholderTag = Tag(name: "placeholder")
+                placeholderTag.addParameter(name: "placeholderIdentifier", value: "IBFirstResponder")
+                placeholderTag.addParameter(name: "id", value: XibID.generate())
+                placeholderTag.addParameter(name: "userLabel", value: "First Responder")
+                placeholderTag.addParameter(name: "sceneMemberID", value: "firstResponder")
+
+
+                for oneConnection in connections {
+                    processConnection(connection: oneConnection, tag: objectsTag)
+                }
+
+                objectsTag.add(tag: placeholderTag)
+            }
+        }
+    }
+    
+    fileprivate func processConnection(connection: StoryboardConnection, tag: Tag) {
+        
+        guard let xibFile = nibResults.first(where: { $0.nibName() == connection.fileName })?.xibFile else {
+            return
+        }
         
         let logger = XibLogger(xibFile: xibFile)
         logger.printDump()
@@ -90,7 +94,7 @@ class StoryboardDecoder: NSObject {
         
         
         let fakeTag = Tag(name: "")
-        let decoder = XibDecoder(xibFile: xibFile, parentTag: fakeTag)
+        let decoder = XibDecoder(xibFile: xibFile, parentTag: fakeTag, onlyNibParsing: false)
         decoder.decode()
         
         if let first = fakeTag.allChildren().first {
@@ -111,5 +115,61 @@ class StoryboardDecoder: NSObject {
                 vcTag.add(tag: tag)
             }
         }
+    }
+}
+
+
+
+class StoryboardDecoder: NSObject, NibDecoder {
+
+    let initURL: URL
+    
+    init(url: URL) {
+        self.initURL = url
+        super.init()
+    }
+    
+    func decode() throws -> NibDecoderResult {
+        
+
+        let plistURL = initURL.appendingPathComponent("Info.plist")
+        guard let dict = NSDictionary(contentsOf: plistURL) else {
+            throw CLI.Error(message: "Cann't find Info.plist inside .storyboardc")
+        }
+
+        guard let stMap = dict["UIViewControllerIdentifiersToNibNames"] as? [String: String] else {
+            throw CLI.Error(message: "Wrong file format. Cann't find 'UIViewControllerIdentifiersToNibNames' key in Info.plist")
+        }
+
+        var nibResults = [NibFileDecoderResult]()
+        var connectionsResults = [NibFileConnectionDecoderResult]()
+                 
+        let children = try FileManager.default.contentsOfDirectory(at: initURL, includingPropertiesForKeys: nil, options: [])
+        
+        for oneFile in children {
+            
+            if case Utils.xibFileFormat(for: oneFile) = XibFileFormat.nib {
+                
+                let fileName = (oneFile.lastPathComponent as NSString).deletingPathExtension // Drop '.nib' extention.
+                if stMap.values.contains(fileName) {
+                
+                    let nibDecoder = NibFileConnectionDecoder(url: oneFile, onlyNibParsing: false)
+                    if let result = try nibDecoder.decode() as? NibFileConnectionDecoderResult {
+                        connectionsResults.append(result)
+                    }
+                    
+                    
+                } else {
+                    
+                    let nibDecoder = NibFileDecoder(url: oneFile)
+                    if let result = try nibDecoder.decode() as? NibFileDecoderResult {
+                        nibResults.append(result)
+                    }
+                }
+                
+            }
+        }
+
+        return StoryboardFileDecoderResult(fileName: initURL.lastPathComponent, nibResults: nibResults, connectionsResult: connectionsResults)
     }
 }

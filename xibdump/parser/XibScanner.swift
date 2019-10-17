@@ -10,7 +10,9 @@ import Cocoa
 
 class ParserContext: NSObject {
     
-    let decoderHolder = DecodersHolder()
+    
+    let onlyNibParsing: Bool
+    let decoderHolder: DecodersHolder
     
     let xibFile: XibFile
     var runtimeAttributes: [String: Tag] = [String: Tag]()
@@ -23,8 +25,11 @@ class ParserContext: NSObject {
     
     fileprivate var addedImageNames: [String] = [String]()
     
-    init(xibFile: XibFile) {
+    init(xibFile: XibFile, onlyNibParsing: Bool) {
         self.xibFile = xibFile
+        self.onlyNibParsing = onlyNibParsing
+        
+        self.decoderHolder = DecodersHolder(onlyNibParsing: onlyNibParsing)
         super.init()
     }
     

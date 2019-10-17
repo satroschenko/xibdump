@@ -8,8 +8,13 @@
 import Cocoa
 
 class PlaceholderDecoder: DefaultTagDecoder {
+    
+    let addDefaultIDs: Bool
 
-    init() {
+    init(addDefaultIDs: Bool) {
+        
+        self.addDefaultIDs = addDefaultIDs
+        
         super.init(parameterName: "UIProxiedObjectIdentifier",
                    objectClassName: "NSString",
                    tagName: "placeholder",
@@ -32,11 +37,11 @@ class PlaceholderDecoder: DefaultTagDecoder {
         tag.addParameter(name: "placeholderIdentifier", value: name)
         
         if name == "IBFilesOwner" {
-            tag.addParameter(name: "id", value: "-1")
+            if addDefaultIDs { tag.addParameter(name: "id", value: "-1") }
             tag.addParameter(name: "userLabel", value: "File's Owner")
         
         } else if name == "IBFirstResponder" {
-            tag.addParameter(name: "id", value: "-2")
+            if addDefaultIDs { tag.addParameter(name: "id", value: "-2") }
             tag.addParameter(name: "userLabel", value: "First Responder")
         
         } else {

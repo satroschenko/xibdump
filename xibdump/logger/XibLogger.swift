@@ -12,7 +12,7 @@ class XibLogger: NSObject {
     let context: ParserContext
 
     init(xibFile: XibFile) {
-        self.context = ParserContext(xibFile: xibFile)
+        self.context = ParserContext(xibFile: xibFile, onlyNibParsing: true)
         super.init()
     }
 

@@ -61,19 +61,11 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "restore /Volumes/Data/DerivedData/unipack-cftvgdftxqolqggejdadjgovirct/Build/Products/Debug-iphoneos/test.app/test.storyboardc/ayy-co-qkG-view-dtE-CC-dK3.nib /Users/satroschenko/Downloads/222/out"
-            isEnabled = "NO">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "print /Users/satroschenko/Downloads/Payload/Details_iPhone.storyboardc"
+            argument = "restore /Users/satroschenko/Downloads/111/two_screens.storyboardc /Users/satroschenko/Downloads/111/2sc"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "restore /Volumes/Data/DerivedData/unipack-cftvgdftxqolqggejdadjgovirct/Build/Products/Debug-iphoneos/test.app/test.storyboardc /Users/satroschenko/Downloads/222/out"
-            isEnabled = "NO">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "restore /Users/satroschenko/Downloads/Payload/TransformPhotoController.nib /Users/satroschenko/Downloads/Payload/out"
+            argument = "print /Users/satroschenko/Downloads/111/one_screen.storyboardc"
             isEnabled = "NO">
          </CommandLineArgument>
       </CommandLineArguments>

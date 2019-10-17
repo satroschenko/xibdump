@@ -15,13 +15,13 @@ struct StoryboardConnection {
     let rootClassName: String
 }
 
-class StoryboardConnectionDecoder: NSObject {
+class StoryboardConnectionDecoderHelper: NSObject {
     
     let context: ParserContext
     var storyboardName: String?
     
     init(xibFile: XibFile) {
-        self.context = ParserContext(xibFile: xibFile)
+        self.context = ParserContext(xibFile: xibFile, onlyNibParsing: false)
         super.init()
     }
     

@@ -24,9 +24,11 @@ protocol TagDecoderProtocol {
 
 class DecodersHolder: NSObject {
 
+    fileprivate let onlyNibParsing: Bool
     fileprivate var customDecoders = [String: TagDecoderProtocol]()
     
-    override init() {
+    init(onlyNibParsing: Bool) {
+        self.onlyNibParsing = onlyNibParsing
         super.init()
         self.registerDecoders()
     }
@@ -124,7 +126,7 @@ class DecodersHolder: NSObject {
         
         
         self.register(decoder: ProxyObjectDecoder())
-        self.register(decoder: PlaceholderDecoder())
+        self.register(decoder: PlaceholderDecoder(addDefaultIDs: onlyNibParsing))
         self.register(decoder: OutletsDecoder())
         
         

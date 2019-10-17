@@ -14,9 +14,9 @@ class XibDecoder: NSObject {
     let parentTag: Tag
     let context: ParserContext
     
-    init(xibFile: XibFile, parentTag: Tag = XibParentTag()) {
+    init(xibFile: XibFile, parentTag: Tag = XibParentTag(), onlyNibParsing: Bool) {
         self.parentTag = parentTag
-        self.context = ParserContext(xibFile: xibFile)
+        self.context = ParserContext(xibFile: xibFile, onlyNibParsing: onlyNibParsing)
         super.init()
     }
     
