@@ -25,7 +25,7 @@ class NibFileDecoderResult: NSObject, NibDecoderResult {
     
     func save(to url: URL) throws {
         
-        let outputFile = url.appendingPathComponent(fileName).appendingPathExtension("nib")
+        let outputFile = url.appendingPathComponent(fileName).deletingPathExtension().appendingPathExtension("xib")
         
         try decoder.save(to: outputFile)        
     }

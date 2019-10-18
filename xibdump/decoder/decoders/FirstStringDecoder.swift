@@ -33,7 +33,8 @@ class FirstStringDecoder: DefaultParameterDecoder {
     override func handledClassNames() -> [String] {
         return [
             Utils.decoderKey(parameterName: parameterName, className: "NSString", isTopLevel: topLevelDecoder),
-            Utils.decoderKey(parameterName: parameterName, className: "NSMutableString", isTopLevel: topLevelDecoder)
+            Utils.decoderKey(parameterName: parameterName, className: "NSMutableString", isTopLevel: topLevelDecoder),
+            Utils.decoderKey(parameterName: parameterName, className: "NSLocalizableString", isTopLevel: topLevelDecoder)
         ]
     }
     
