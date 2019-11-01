@@ -134,7 +134,7 @@ class DecodersHolder: NSObject {
                                              objectClassName: "NSMutableArray",
                                              tagName: "subviews",
                                              needAddId: false,
-                                             tagMapper: ["UISegmentedControl": "segments", "UITableViewCell": "", "UICollectionViewCell": ""]))
+                                             tagMapper: ["UISegmentedControl": "segments", "UITableViewCell": "", "UICollectionViewCell": "", "UITableView": "", "UICollectionView": ""]))
         
         self.register(decoder: DefaultTagDecoder(parameterName: "UIItems",
                                              objectClassName: "NSArray",

@@ -67,6 +67,11 @@ extension NibFileDecoder: NibDecoder {
         let parser = XibFileParser()
         let xibFile = try parser.parse(url: URL(fileURLWithPath: finalFile.path))
         
+        
+//        print("\n\nPRINT FILE:")
+//        let logger = XibLogger(xibFile: xibFile)
+//        logger.printDump()
+        
         let decoder = XibDecoder(xibFile: xibFile, onlyNibParsing: true)
         
         decoder.decode()

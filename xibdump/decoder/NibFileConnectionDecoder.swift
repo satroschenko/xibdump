@@ -54,10 +54,10 @@ extension NibFileConnectionDecoder: NibDecoder {
         let parser = XibFileParser()
         let xibFile = try parser.parse(url: URL(fileURLWithPath: finalFile.path))
         
-        print("=== FILE: \(initURL.lastPathComponent) ===\n")
-        let logger = XibLogger(xibFile: xibFile)
-        logger.printDump()
-        print("\n\n\n")
+//        print("=== CONNECTION: \(initURL.lastPathComponent) ===\n")
+//        let logger = XibLogger(xibFile: xibFile)
+//        logger.printDump()
+//        print("\n\n\n")
         
         
         return NibFileConnectionDecoderResult(xibFile: xibFile, fileName: initURL.lastPathComponent)
